@@ -3,6 +3,7 @@ import CertificationsSection from '../components/certifications-section';
 import AlternanceBanner from '../components/alternance-banner';
 import ThemeController from '../components/theme-controller';
 import EducationInterestsSection from '../components/education-interests';
+import Navigation from '../components/navigation';
 import {
   AboutSection,
   ContactSection,
@@ -10,7 +11,6 @@ import {
   ExperienceSection,
   Footer,
   HeroSection,
-  Navigation,
   ProjectsSection,
   StatsSection,
 } from '../components/portfolio-sections';
