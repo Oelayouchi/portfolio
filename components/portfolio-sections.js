@@ -57,33 +57,6 @@ export function Navigation() {
   );
 }
 
-export function CompaniesStrip() {
-  const companies = [
-    { name: 'ParcelHome', logo: '/companies/parcelhome.svg', alt: 'Logo ParcelHome' },
-    { name: 'Continental Automotive', logo: '/companies/continental.svg', alt: 'Logo Continental Automotive' },
-    { name: 'Alstom Transport', logo: '/companies/alstom.svg', alt: 'Logo Alstom Transport' },
-    { name: 'Office Chérifien des Phosphates', logo: '/companies/ocp.svg', alt: 'Logo Office Chérifien des Phosphates' },
-  ];
-
-  return (
-    <section className="companiesBar" aria-label="Expériences professionnelles">
-      <div className="companiesShell shell">
-        <div className="companiesHeading"><span/><p>EXPÉRIENCES PROFESSIONNELLES</p><span/></div>
-        <div className="companiesGrid">
-          {companies.map((company) => (
-            <article className="companyItem" key={company.name}>
-              <div className="companyLogoWrap">
-                <img className="companyLogo" src={company.logo} alt={company.alt} loading="eager" />
-              </div>
-              <p>{company.name}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function HeroSection() {
   const axes = [
     { number: '01', title: 'Systèmes embarqués', detail: 'C / C++ / Python / Hardware', icon: 'chip', tone: 'blue' },
@@ -134,11 +107,91 @@ export function AboutSection() {
 }
 
 export function ExperienceSection() {
-  return <section id="experience" className="section shell"><SectionLabel>EXPÉRIENCE</SectionLabel><h2>Des systèmes embarqués aux systèmes critiques.</h2><div className="timeline">{experiences.map((experience) => <article className="experience" key={experience.company}><div className="date">{experience.period}</div><div><div className="expHead"><h3>{experience.company}</h3><span>{experience.place}</span></div><h4>{experience.role}</h4><p>{experience.intro}</p><ul>{experience.tasks.map((task) => <li key={task}>{task}</li>)}</ul><Tags items={experience.stack}/></div></article>)}</div></section>;
+  return (
+    <section id="experience" className="section shell">
+      <SectionLabel>EXPÉRIENCE</SectionLabel>
+      <h2>Des systèmes embarqués aux systèmes critiques.</h2>
+
+      <div className="timeline">
+        {experiences.map((experience) => (
+          <article className="experience" id={experience.id} key={experience.id}>
+            <div className="date">{experience.period}</div>
+
+            <div className="experienceBody">
+              <div className="expHead">
+                <div>
+                  <h3>{experience.companyFull}</h3>
+                  <p className="experienceDepartment">{experience.department}</p>
+                </div>
+                <span>{experience.place}</span>
+              </div>
+
+              <h4>{experience.role}</h4>
+
+              <div className="experienceBlock">
+                <h5>Objectifs</h5>
+                <ul>
+                  {experience.objectives.map((objective) => (
+                    <li key={objective}>{objective}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="experienceBlock">
+                <h5>Réalisations</h5>
+                <ul>
+                  {experience.tasks.map((task) => (
+                    <li key={task}>{task}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="experienceBlock">
+                <h5>Environnement technique</h5>
+                <Tags items={experience.stack}/>
+              </div>
+
+              <div className="experienceLogoBottom">
+                <img src={experience.logo} alt={`Logo ${experience.companyFull}`} loading="lazy" />
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export function ProjectsSection() {
-  return <section id="projects" className="section shell"><SectionLabel>PROJECTS LAB</SectionLabel><h2>Projets techniques sélectionnés.</h2><div className="grid projects">{projects.map((project, index) => <article className="card" key={project.title}><div className="num">{String(index + 1).padStart(2, '0')}</div><p className="mini">{project.type}</p><h3>{project.title}</h3><p>{project.description}</p><Tags items={project.stack}/><button className="fakeLink" type="button">Détails & code — prochaine itération</button></article>)}</div></section>;
+  return (
+    <section id="projects" className="section shell">
+      <SectionLabel>PROJETS D’ÉTUDE</SectionLabel>
+      <h2>Projets techniques réalisés.</h2>
+
+      <div className="grid projects">
+        {projects.map((project, index) => (
+          <article className="card projectDetailed" key={project.title}>
+            <div className="num">{String(index + 1).padStart(2, '0')}</div>
+            <p className="projectPeriod">{project.period}</p>
+            <p className="mini">{project.institution}</p>
+            <h3>{project.title}</h3>
+            <p className="projectType">{project.type}</p>
+
+            <div className="projectContent">
+              <h4>Objectif</h4>
+              <p>{project.objective}</p>
+              <h4>Réalisations</h4>
+              <ul>
+                {project.tasks.map((task) => <li key={task}>{task}</li>)}
+              </ul>
+            </div>
+
+            <Tags items={project.stack}/>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export function DataSection() {
@@ -150,7 +203,37 @@ export function CertificationsSection() {
 }
 
 export function EducationInterestsSection() {
-  return <section className="section shell twoCols"><div><SectionLabel>FORMATION</SectionLabel><h2>Diplômes</h2>{education.map((item) => <div className="edu" key={item.title}><b>{item.title}</b><span>{item.institution} · {item.period}</span></div>)}</div><div><SectionLabel>CENTRES D’INTÉRÊT</SectionLabel><h2>En dehors du travail</h2><div className="interestList">{interests.map((interest) => <span key={interest}>{interest}</span>)}</div></div></section>;
+  return (
+    <section className="section shell twoCols educationInterests">
+      <div>
+        <SectionLabel>FORMATION</SectionLabel>
+        <h2>Diplômes</h2>
+
+        {education.map((item) => (
+          <article className="edu eduDetailed" key={item.title}>
+            <h3>{item.title}</h3>
+            <span>{item.institution}</span>
+            <span>{item.period}</span>
+
+            {item.sections.map((section, index) => (
+              <div className="eduSection" key={`${item.title}-${index}`}>
+                {section.title && <h4>{section.title}</h4>}
+                <ul>
+                  {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                </ul>
+              </div>
+            ))}
+          </article>
+        ))}
+      </div>
+
+      <div>
+        <SectionLabel>CENTRES D’INTÉRÊT</SectionLabel>
+        <h2>En dehors du travail</h2>
+        <div className="interestList">{interests.map((interest) => <span key={interest}>{interest}</span>)}</div>
+      </div>
+    </section>
+  );
 }
 
 export function ContactSection() {
