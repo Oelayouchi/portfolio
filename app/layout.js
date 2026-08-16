@@ -1,5 +1,6 @@
 import './globals.css';
 import './details.css';
+import './refinements.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
