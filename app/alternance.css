@@ -22,6 +22,30 @@
   backdrop-filter: blur(18px);
 }
 
+.alternanceMinimize {
+  position: absolute;
+  top: 8px;
+  right: 11px;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(120, 170, 255, 0.28);
+  border-radius: 9px;
+  background: rgba(5, 19, 40, 0.72);
+  color: #d9e8ff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.alternanceMinimize:hover {
+  transform: translateY(-1px);
+  border-color: rgba(120, 190, 255, 0.7);
+  background: rgba(16, 54, 101, 0.88);
+}
+
 .alternancePulse {
   position: relative;
   display: grid;
@@ -59,6 +83,7 @@
 
 .alternanceContent {
   min-width: 0;
+  padding-right: 18px;
 }
 
 .alternanceEyebrow {
@@ -107,15 +132,49 @@
   box-shadow: 0 14px 36px rgba(23, 111, 255, 0.34);
 }
 
+.alternanceMini {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 80;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(46, 227, 136, 0.55);
+  border-radius: 50%;
+  background: rgba(8, 33, 30, 0.94);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35), 0 0 24px rgba(46, 227, 136, 0.18);
+  cursor: pointer;
+}
+
+.alternanceMini::before,
+.alternanceMini::after {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2ee388;
+  content: '';
+}
+
+.alternanceMini::after {
+  animation: alternancePing 1.8s ease-out infinite;
+}
+
+.alternanceMiniDot {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2ee388;
+  box-shadow: 0 0 20px rgba(46, 227, 136, 0.95);
+}
+
 @keyframes alternancePing {
-  0% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-  75%, 100% {
-    opacity: 0;
-    transform: scale(2.5);
-  }
+  0% { opacity: 0.7; transform: scale(1); }
+  75%, 100% { opacity: 0; transform: scale(2.5); }
 }
 
 @media (max-width: 700px) {
@@ -131,5 +190,10 @@
   .alternanceCta {
     grid-column: 1 / -1;
     width: 100%;
+  }
+
+  .alternanceMini {
+    right: 16px;
+    bottom: 16px;
   }
 }
