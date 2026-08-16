@@ -17,20 +17,23 @@
   height: 100%;
 }
 
+/* Le contenu texte reste naturel : les technologies suivent directement le texte. */
 .projectDetailedMedia .projectContent {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
 }
 
 .projectDetailedMedia .tags {
-  margin-top: auto;
+  margin-top: 12px;
 }
 
+/* La galerie est poussée vers le bas de chaque carte : les séparateurs des deux
+   projets d'une même ligne restent exactement au même niveau. */
 .projectDetailedMedia .projectMedia {
-  margin-top: 30px;
+  margin-top: auto;
+  padding-top: 24px;
 }
 
 .projectMedia {
-  padding-top: 24px;
   border-top: 1px solid rgba(94, 137, 193, 0.22);
 }
 
