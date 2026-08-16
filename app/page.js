@@ -5,11 +5,11 @@ import ThemeController from '../components/theme-controller';
 import EducationInterestsSection from '../components/education-interests';
 import Navigation from '../components/navigation';
 import ProjectsSection from '../components/projects-section';
+import ExperienceSection from '../components/experience-section';
 import {
   AboutSection,
   ContactSection,
   DataSection,
-  ExperienceSection,
   Footer,
   HeroSection,
   StatsSection,
