@@ -3,13 +3,15 @@
 /* ========================================================================== */
 
 .projectsWithMedia {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   align-items: start;
+  width: 100%;
 }
 
 .projectDetailedMedia {
   overflow: visible;
   min-width: 0;
+  width: 100%;
 }
 
 .projectMedia {
@@ -58,9 +60,9 @@
 .projectCarousel {
   position: relative;
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .projectImageButton {
@@ -80,7 +82,7 @@
 .projectRealImageWrap {
   display: grid;
   width: 100%;
-  min-height: 240px;
+  min-height: 300px;
   place-items: center;
   background: #fff;
   color: #aeb3ba;
@@ -93,7 +95,7 @@
 }
 
 .projectRealImageWrap {
-  height: clamp(250px, 28vw, 420px);
+  height: clamp(310px, 40vw, 540px);
   overflow: hidden;
 }
 
@@ -133,14 +135,14 @@
 
 .projectCarouselArrow {
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   place-items: center;
   border: 1px solid rgba(86, 135, 196, 0.28);
   border-radius: 50%;
   background: rgba(11, 29, 50, 0.9);
   color: #fff;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
   transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
 }
@@ -300,12 +302,6 @@ html[data-theme='light'] .reportModalHeader strong {
 
 html[data-theme='light'] .projectModalContent {
   background: #f7fbff;
-}
-
-@media (max-width: 1000px) {
-  .projectsWithMedia {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 720px) {
