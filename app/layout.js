@@ -3,6 +3,7 @@ import './details.css';
 import './refinements.css';
 import './alternance.css';
 import './theme.css';
+import './education-interests.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
