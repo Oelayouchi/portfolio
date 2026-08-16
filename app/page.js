@@ -2,11 +2,11 @@ import CompaniesStrip from '../components/companies-strip';
 import CertificationsSection from '../components/certifications-section';
 import AlternanceBanner from '../components/alternance-banner';
 import ThemeController from '../components/theme-controller';
+import EducationInterestsSection from '../components/education-interests';
 import {
   AboutSection,
   ContactSection,
   DataSection,
-  EducationInterestsSection,
   ExperienceSection,
   Footer,
   HeroSection,
@@ -18,8 +18,8 @@ import {
 // ============================================================================
 // Home page
 // ----------------------------------------------------------------------------
-// The homepage assembles modular sections. Company logos and certifications
-// live in dedicated components so their assets can be maintained independently.
+// The homepage assembles modular sections. Company logos, certifications,
+// education and interests live in dedicated components for maintainability.
 // ============================================================================
 
 export default function Page() {
