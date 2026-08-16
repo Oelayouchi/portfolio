@@ -1,0 +1,40 @@
+/* ========================================================================== */
+/* Companies strip — five companies on one row                               */
+/* ========================================================================== */
+
+.companiesGrid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.companyItem {
+  padding: 2px 18px;
+}
+
+.companyLogoWrap {
+  height: 68px;
+}
+
+.companyLogo {
+  max-height: 56px;
+}
+
+.companyItem p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+@media (max-width: 980px) {
+  .companiesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .companyItem {
+    padding: 18px;
+    border-bottom: 1px solid rgba(96, 129, 168, 0.28);
+  }
+
+  .companyItem + .companyItem {
+    border-left: 0;
+  }
+}
