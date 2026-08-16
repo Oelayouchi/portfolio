@@ -139,6 +139,19 @@ html[data-theme='light'] .experience h4 {
   color: #173f6e !important;
 }
 
+/* Project headings: avoid pale/white labels on the light theme */
+html[data-theme='light'] .projectContent h4,
+html[data-theme='light'] .projectContent h5,
+html[data-theme='light'] .projectContent h6,
+html[data-theme='light'] .projectContent strong {
+  color: #174f8e !important;
+}
+
+html[data-theme='light'] .projectContent h5,
+html[data-theme='light'] .projectContent h6 {
+  font-weight: 800;
+}
+
 html[data-theme='light'] .timeline,
 html[data-theme='light'] .experience,
 html[data-theme='light'] .edu,
