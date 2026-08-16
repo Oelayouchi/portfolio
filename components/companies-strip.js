@@ -19,15 +19,15 @@ const companies = [
     href: '#experience-parcelhome',
   },
   {
-    name: 'Continental Automotive',
+    name: 'Continental',
     logo: '/companies/continental.png',
-    alt: 'Logo Continental Automotive',
+    alt: 'Logo Continental',
     href: '#experience-continental',
   },
   {
-    name: 'Alstom Transport',
+    name: 'Alstom',
     logo: '/companies/alstom.png',
-    alt: 'Logo Alstom Transport',
+    alt: 'Logo Alstom',
     href: '#experience-alstom',
   },
 ];
