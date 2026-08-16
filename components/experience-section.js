@@ -2,11 +2,49 @@ import { experiences } from '../data/portfolio';
 import { SectionLabel, Tags } from './ui';
 import ExperienceReport from './experience-report';
 
+const additionalExperiences = [
+  {
+    id: 'experience-ocp-2019',
+    company: 'OCP',
+    logo: '/companies/ocp.png',
+    department: 'Office Chérifien des Phosphates — Laverie BA',
+    role: 'Stage Ingénieur',
+    period: 'Juillet – Août 2019',
+    place: 'Khouribga, Maroc',
+    objectives: [
+      'Amélioration de la gestion et du contrôle du site Beni Amir.',
+    ],
+    tasks: [
+      'Étude et communication de l’analyseur OUTOTEC avec le système de contrôle DCS.',
+      'Amélioration des boucles de régulation de l’unité de flottation par l’outil Matlab-Simulink.',
+    ],
+    stack: ['DCS', 'OUTOTEC', 'Matlab', 'Simulink', 'Régulation industrielle'],
+  },
+  {
+    id: 'experience-onda-2018',
+    company: 'Office National des Aéroports',
+    logo: '/companies/onda.png',
+    department: 'Office National des Aéroports',
+    role: 'Stage Ingénieur d’initiation',
+    period: 'Juillet 2018',
+    place: 'Casablanca, Maroc',
+    objectives: [
+      'Étude d’installation d’une ligne de convoyage pour traitement des bagages.',
+    ],
+    tasks: [
+      'Description générale de l’installation de traitement de bagages de l’arrivée et de correspondance.',
+      'Automatisation d’une nouvelle ligne de convoyage de traitement de bagages.',
+    ],
+    stack: ['Automatisation', 'Convoyage', 'Traitement des bagages', 'Systèmes industriels'],
+  },
+];
+
 function getExperienceDisplayName(experience) {
   if (experience.id === 'experience-alstom') return 'ALSTOM';
   if (experience.id === 'experience-continental') return 'CONTINENTAL';
   if (experience.id.startsWith('experience-parcelhome')) return 'ParcelHome';
-  if (experience.id === 'experience-ocp') return 'OCP';
+  if (experience.id === 'experience-ocp' || experience.id === 'experience-ocp-2019') return 'OCP';
+  if (experience.id === 'experience-onda-2018') return 'ONDA';
   return experience.company;
 }
 
@@ -80,13 +118,15 @@ function ExperienceAchievements({ experience }) {
 }
 
 export default function ExperienceSection() {
+  const allExperiences = [...experiences, ...additionalExperiences];
+
   return (
     <section id="experience" className="section shell">
       <SectionLabel>EXPÉRIENCE</SectionLabel>
       <h2>Des systèmes embarqués aux systèmes critiques.</h2>
 
       <div className="timeline">
-        {experiences.map((experience) => {
+        {allExperiences.map((experience) => {
           const displayName = getExperienceDisplayName(experience);
 
           return (
