@@ -27,19 +27,6 @@
   object-fit: contain;
 }
 
-/* The ONDA source image contains more internal whitespace than the other
-   logos, so enlarge only this logo to keep its visible mark comparable. */
-.companyItem[href="#experience-onda-2018"] .companyLogoWrap {
-  height: 72px;
-}
-
-.companyItem[href="#experience-onda-2018"] .companyLogo {
-  width: 145px;
-  max-width: 100%;
-  max-height: 70px;
-  transform: scale(1.32);
-}
-
 .companyItem p {
   margin-top: 7px;
   font-size: 13px;
@@ -61,16 +48,6 @@
     max-height: 46px;
   }
 
-  .companyItem[href="#experience-onda-2018"] .companyLogoWrap {
-    height: 66px;
-  }
-
-  .companyItem[href="#experience-onda-2018"] .companyLogo {
-    width: 132px;
-    max-height: 64px;
-    transform: scale(1.3);
-  }
-
   .companyItem p {
     font-size: 12px;
   }
@@ -89,9 +66,5 @@
 
   .companyItem + .companyItem {
     border-left: 0;
-  }
-
-  .companyItem[href="#experience-onda-2018"] .companyLogo {
-    transform: scale(1.15);
   }
 }
