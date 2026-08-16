@@ -12,20 +12,74 @@ import { SectionLabel, Tags } from './ui';
 // ============================================================================
 export function Navigation() {
   return (
-    <nav className="nav shell" aria-label="Navigation principale">
-      <a className="brand" href="#top" aria-label="Retour en haut">
-        OE.
-      </a>
+    <header className="navBar">
+      <nav className="nav shell" aria-label="Navigation principale">
+        <a className="brand" href="#top" aria-label="Retour en haut">
+          OE.
+        </a>
 
-      <div className="navlinks">
-        <a href="#about">À propos</a>
-        <a href="#experience">Expérience</a>
-        <a href="#projects">Projets</a>
-        <a href="#data">Data</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
+        <div className="navlinks">
+          <a href="#about">À propos</a>
+          <a href="#experience">Expérience</a>
+          <a href="#projects">Projets</a>
+          <a href="#data">Data</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+// ============================================================================
+// Professional companies strip
+// ============================================================================
+export function CompaniesStrip() {
+  const companies = [
+    {
+      name: 'ParcelHome',
+      logo: '/companies/parcelhome.svg',
+      alt: 'Logo ParcelHome',
+    },
+    {
+      name: 'Continental Automotive',
+      logo: '/companies/continental.svg',
+      alt: 'Logo Continental Automotive',
+    },
+    {
+      name: 'Alstom Transport',
+      logo: '/companies/alstom.svg',
+      alt: 'Logo Alstom Transport',
+    },
+    {
+      name: 'Office Chérifien des Phosphates',
+      logo: '/companies/ocp.svg',
+      alt: 'Logo Office Chérifien des Phosphates',
+    },
+  ];
+
+  return (
+    <section className="companiesBar" aria-label="Expériences professionnelles">
+      <div className="companiesShell">
+        <p className="companiesTitle">EXPÉRIENCES PROFESSIONNELLES</p>
+
+        <div className="companiesGrid">
+          {companies.map((company) => (
+            <article className="companyItem" key={company.name}>
+              <div className="companyLogoWrap">
+                <img
+                  className="companyLogo"
+                  src={company.logo}
+                  alt={company.alt}
+                  loading="eager"
+                />
+              </div>
+              <p>{company.name}</p>
+            </article>
+          ))}
+        </div>
       </div>
-    </nav>
+    </section>
   );
 }
 
