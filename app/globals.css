@@ -6,16 +6,17 @@
 /* 01. Design tokens & reset                                                  */
 /* 02. Global layout                                                          */
 /* 03. Navigation                                                             */
-/* 04. Hero                                                                   */
-/* 05. Key figures                                                            */
-/* 06. Shared sections                                                        */
-/* 07. Experience                                                             */
-/* 08. Projects                                                               */
-/* 09. Data transition                                                        */
-/* 10. Certifications                                                         */
-/* 11. Education & interests                                                  */
-/* 12. Contact & footer                                                       */
-/* 13. Responsive                                                             */
+/* 04. Companies strip                                                        */
+/* 05. Hero                                                                   */
+/* 06. Key figures                                                            */
+/* 07. Shared sections                                                        */
+/* 08. Experience                                                             */
+/* 09. Projects                                                               */
+/* 10. Data transition                                                        */
+/* 11. Certifications                                                         */
+/* 12. Education & interests                                                  */
+/* 13. Contact & footer                                                       */
+/* 14. Responsive                                                             */
 /* ========================================================================== */
 
 
@@ -113,17 +114,21 @@ body {
 /* 03. NAVIGATION                                                             */
 /* ========================================================================== */
 
-.nav {
+.navBar {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 30;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 13, 18, 0.94);
+  backdrop-filter: blur(18px);
+}
+
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 78px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(10, 13, 18, 0.82);
-  backdrop-filter: blur(18px);
 }
 
 .brand {
@@ -146,7 +151,76 @@ body {
 
 
 /* ========================================================================== */
-/* 04. HERO                                                                   */
+/* 04. COMPANIES STRIP                                                        */
+/* ========================================================================== */
+
+.companiesBar {
+  width: 100%;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+  background: linear-gradient(180deg, #08111d 0%, #0b1522 100%);
+}
+
+.companiesShell {
+  width: min(1440px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 28px 0 30px;
+}
+
+.companiesTitle {
+  margin: 0 0 24px;
+  color: #9fb3ca;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+.companiesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+}
+
+.companyItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 4px 24px;
+  text-align: center;
+}
+
+.companyItem + .companyItem {
+  border-left: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.companyLogoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 76px;
+}
+
+.companyLogo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 62px;
+  object-fit: contain;
+}
+
+.companyItem p {
+  margin: 12px 0 0;
+  color: #f0f4f8;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+
+/* ========================================================================== */
+/* 05. HERO                                                                   */
 /* ========================================================================== */
 
 .hero {
@@ -233,7 +307,7 @@ body {
 
 
 /* ========================================================================== */
-/* 05. KEY FIGURES                                                            */
+/* 06. KEY FIGURES                                                            */
 /* ========================================================================== */
 
 .stats {
@@ -263,7 +337,7 @@ body {
 
 
 /* ========================================================================== */
-/* 06. SHARED SECTIONS                                                        */
+/* 07. SHARED SECTIONS                                                        */
 /* ========================================================================== */
 
 .split {
@@ -288,7 +362,7 @@ body {
 
 
 /* ========================================================================== */
-/* 07. EXPERIENCE                                                             */
+/* 08. EXPERIENCE                                                             */
 /* ========================================================================== */
 
 .timeline {
@@ -338,7 +412,7 @@ body {
 
 
 /* ========================================================================== */
-/* 08. PROJECTS                                                               */
+/* 09. PROJECTS                                                               */
 /* ========================================================================== */
 
 .projects {
@@ -374,7 +448,7 @@ body {
 
 
 /* ========================================================================== */
-/* 09. DATA TRANSITION                                                        */
+/* 10. DATA TRANSITION                                                        */
 /* ========================================================================== */
 
 .dataPanel {
@@ -422,7 +496,7 @@ body {
 
 
 /* ========================================================================== */
-/* 10. CERTIFICATIONS                                                         */
+/* 11. CERTIFICATIONS                                                         */
 /* ========================================================================== */
 
 .certs {
@@ -459,7 +533,7 @@ body {
 
 
 /* ========================================================================== */
-/* 11. EDUCATION & INTERESTS                                                  */
+/* 12. EDUCATION & INTERESTS                                                  */
 /* ========================================================================== */
 
 .twoCols {
@@ -499,7 +573,7 @@ body {
 
 
 /* ========================================================================== */
-/* 12. CONTACT & FOOTER                                                       */
+/* 13. CONTACT & FOOTER                                                       */
 /* ========================================================================== */
 
 .contact {
@@ -520,13 +594,22 @@ body {
 
 
 /* ========================================================================== */
-/* 13. RESPONSIVE                                                             */
+/* 14. RESPONSIVE                                                             */
 /* ========================================================================== */
 
 /* Tablets and small laptops */
 @media (max-width: 900px) {
   .navlinks {
     display: none;
+  }
+
+  .companiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 0;
+  }
+
+  .companyItem:nth-child(3) {
+    border-left: 0;
   }
 
   .hero,
@@ -572,6 +655,24 @@ body {
 @media (max-width: 540px) {
   .shell {
     width: min(calc(100% - 24px), var(--max));
+  }
+
+  .companiesShell {
+    width: min(calc(100% - 24px), 1440px);
+  }
+
+  .companiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .companyItem {
+    padding: 18px 8px;
+  }
+
+  .companyItem + .companyItem,
+  .companyItem:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
   }
 
   .hero h1 {
