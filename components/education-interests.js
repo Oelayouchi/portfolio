@@ -44,7 +44,7 @@ export default function EducationInterestsSection() {
               <div className="educationShowcaseContent">
                 <span className="educationYearBadge">{display.year}</span>
                 <h3>{display.degree}</h3>
-                <p className="educationInstitution">⌂&nbsp; {display.institution}</p>
+                <p className="educationInstitution">{display.institution}</p>
 
                 <div className="educationBullets">
                   {item.sections.flatMap((section) => section.bullets).map((bullet) => (
