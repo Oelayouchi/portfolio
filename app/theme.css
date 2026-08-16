@@ -86,6 +86,41 @@ html[data-theme='light'] .heroBadge {
   bottom: 4px;
 }
 
+/* Make the complete scroll indicator clearly visible in light mode */
+html[data-theme='light'] .scrollHint,
+html[data-theme='light'] .scrollHint p,
+html[data-theme='light'] .scrollHint span {
+  color: #0868d7 !important;
+}
+
+html[data-theme='light'] .scrollMouse {
+  border-color: #0868d7 !important;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 0 4px rgba(8, 104, 215, 0.08), 0 8px 20px rgba(8, 104, 215, 0.12);
+}
+
+html[data-theme='light'] .scrollMouse::before,
+html[data-theme='light'] .scrollMouse::after {
+  background: #0868d7 !important;
+  border-color: #0868d7 !important;
+}
+
+html[data-theme='light'] .scrollHint svg,
+html[data-theme='light'] .scrollHint svg path,
+html[data-theme='light'] .scrollHint svg polyline,
+html[data-theme='light'] .scrollHint svg line {
+  color: #0868d7 !important;
+  stroke: #0868d7 !important;
+}
+
+/* Covers a CSS/text arrow when the indicator is not rendered as SVG */
+html[data-theme='light'] .scrollArrow,
+html[data-theme='light'] .scrollHint > :last-child {
+  color: #0868d7 !important;
+  border-color: #0868d7;
+  opacity: 1 !important;
+}
+
 /* Cards and panels */
 html[data-theme='light'] .heroCard,
 html[data-theme='light'] .card,
