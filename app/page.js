@@ -1,6 +1,7 @@
 import {
   AboutSection,
   CertificationsSection,
+  CompaniesStrip,
   ContactSection,
   DataSection,
   EducationInterestsSection,
@@ -23,6 +24,7 @@ export default function Page() {
   return (
     <main>
       <Navigation />
+      <CompaniesStrip />
       <HeroSection />
       <StatsSection />
       <AboutSection />
