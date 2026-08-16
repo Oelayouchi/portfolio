@@ -2,7 +2,7 @@
 // Professional companies strip
 // ----------------------------------------------------------------------------
 // Each company logo links directly to its detailed experience section.
-// Display order kept as requested: OCP → ParcelHome → Continental → Alstom.
+// Display order: OCP → ONDA → ParcelHome → Continental → Alstom.
 // ============================================================================
 
 const companies = [
@@ -11,6 +11,12 @@ const companies = [
     logo: '/companies/ocp.png',
     alt: 'Logo OCP — Office Chérifien des Phosphates',
     href: '#experience-ocp',
+  },
+  {
+    name: 'Office National des Aéroports',
+    logo: '/companies/onda.png',
+    alt: 'Logo ONDA — Office National des Aéroports',
+    href: '#experience-onda-2018',
   },
   {
     name: 'ParcelHome',
