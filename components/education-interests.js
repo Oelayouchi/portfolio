@@ -20,7 +20,7 @@ const interestCards = [
   { key: 'football', label: 'Football', icon: '⚽' },
   { key: 'taekwondo', label: 'Taekwondo', icon: '🥋' },
   { key: 'musculation', label: 'Musculation', icon: '🏋️' },
-  { key: 'aviation', label: 'Aviation', icon: '✈️' },
+  { key: 'aviation', label: 'Voyage', icon: '✈️' },
   { key: 'technologie', label: 'Technologie', icon: '💻' },
 ];
 
