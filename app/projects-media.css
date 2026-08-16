@@ -1,0 +1,302 @@
+/* ========================================================================== */
+/* Project media galleries & report viewer                                    */
+/* ========================================================================== */
+
+.projectsWithMedia {
+  grid-template-columns: 1fr;
+}
+
+.projectDetailedMedia {
+  overflow: visible;
+}
+
+.projectMedia {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(94, 137, 193, 0.22);
+}
+
+.projectMediaHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.projectMediaHeader h4 {
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+.projectReportButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid #238aff;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #149cff, #285fff);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(24, 106, 255, 0.2);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.projectReportButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(24, 106, 255, 0.32);
+}
+
+.projectCarousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 14px;
+}
+
+.projectImageButton {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(51, 117, 196, 0.48);
+  border-radius: 18px;
+  background: transparent;
+  cursor: zoom-in;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+}
+
+.projectPlaceholder {
+  display: grid;
+  width: 100%;
+  min-height: 300px;
+  place-items: center;
+  background: #fff;
+  color: #aeb3ba;
+}
+
+.projectPlaceholder span {
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.projectZoomHint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  background: rgba(3, 14, 29, 0.78);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.projectImageButton:hover .projectZoomHint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projectCarouselArrow {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(86, 135, 196, 0.28);
+  border-radius: 50%;
+  background: rgba(11, 29, 50, 0.9);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
+}
+
+.projectCarouselArrow:hover {
+  border-color: #258cff;
+  background: rgba(22, 79, 143, 0.72);
+  transform: scale(1.06);
+}
+
+.projectDots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.projectDots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #344155;
+  cursor: pointer;
+  transition: width 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.projectDots button.active {
+  width: 24px;
+  border-radius: 999px;
+  background: #178fff;
+  box-shadow: 0 0 16px rgba(23, 143, 255, 0.8);
+  animation: projectDotPulse 1.15s ease-in-out infinite;
+}
+
+.projectModal {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  padding: 26px;
+  background: rgba(0, 6, 16, 0.86);
+  backdrop-filter: blur(10px);
+}
+
+.projectModalContent {
+  position: relative;
+  width: min(1100px, 96vw);
+  max-height: 92vh;
+  overflow: hidden;
+  border: 1px solid rgba(54, 125, 214, 0.46);
+  border-radius: 20px;
+  background: #071321;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.62);
+}
+
+.imageModal {
+  width: min(1250px, 96vw);
+}
+
+.imageModal .projectPlaceholder {
+  min-height: min(78vh, 820px);
+}
+
+.projectModalClose {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(7, 19, 33, 0.92);
+  color: #fff;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.imageModal > .projectModalClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+}
+
+.reportModal {
+  display: grid;
+  grid-template-rows: auto minmax(430px, 72vh) auto;
+}
+
+.reportModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(86, 133, 192, 0.24);
+}
+
+.reportModalHeader div {
+  display: grid;
+  gap: 4px;
+}
+
+.reportModalHeader span {
+  color: #56a4ff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.reportModalHeader strong {
+  color: #fff;
+  font-size: 18px;
+}
+
+.projectReportFrame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.reportReadOnlyNote {
+  margin: 0;
+  padding: 11px 18px 14px;
+  color: #8296b0;
+  font-size: 11px;
+  text-align: center;
+}
+
+@keyframes projectDotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+html[data-theme='light'] .projectMediaHeader h4,
+html[data-theme='light'] .reportModalHeader strong {
+  color: #0a1830;
+}
+
+html[data-theme='light'] .projectModalContent {
+  background: #f7fbff;
+}
+
+@media (max-width: 720px) {
+  .projectMediaHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .projectReportButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .projectCarousel {
+    grid-template-columns: 34px minmax(0, 1fr) 34px;
+    gap: 8px;
+  }
+
+  .projectCarouselArrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .projectPlaceholder {
+    min-height: 210px;
+  }
+
+  .projectModal {
+    padding: 10px;
+  }
+
+  .reportModal {
+    grid-template-rows: auto minmax(360px, 78vh) auto;
+  }
+}
