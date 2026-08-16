@@ -51,6 +51,61 @@
   padding-left: 22px;
 }
 
+/* ParcelHome — preserve the source document hierarchy. */
+.achievementList {
+  margin: 0;
+  padding-left: 30px !important;
+  list-style: none;
+}
+
+.achievementList > li {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 4px;
+}
+
+.achievementList > li::before {
+  position: absolute;
+  left: -24px;
+  color: #d7e4f4;
+  content: "➢";
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.achievementSubList {
+  margin-top: 8px !important;
+  padding-left: 28px !important;
+  list-style: none;
+}
+
+.achievementSubList > li {
+  position: relative;
+  margin: 7px 0;
+}
+
+.achievementSubList > li::before {
+  position: absolute;
+  left: -18px;
+  color: #b9c9dc;
+  content: "▪";
+}
+
+.parcelSubjects {
+  display: grid;
+  gap: 28px;
+}
+
+.parcelSubject h6 {
+  margin: 0 0 12px;
+  color: #e8eef8;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .experienceLogoBottom {
   display: flex;
   align-items: center;
@@ -125,6 +180,34 @@
   margin-top: 5px;
 }
 
+.educationOriginalHeader {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.educationOriginalLogo {
+  flex: 0 0 74px;
+  width: 74px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.educationOriginalText {
+  min-width: 0;
+}
+
+.educationOriginalText h3 {
+  margin: 0 0 6px;
+}
+
+.educationOriginalText span {
+  display: block;
+  margin-top: 3px;
+  color: #9ca9ba;
+}
+
 .eduSection {
   margin-top: 22px;
 }
@@ -153,5 +236,17 @@
 
   .experienceLogoBottom img {
     max-width: 200px;
+  }
+}
+
+@media (max-width: 620px) {
+  .educationOriginalHeader {
+    align-items: flex-start;
+  }
+
+  .educationOriginalLogo {
+    width: 62px;
+    height: 54px;
+    flex-basis: 62px;
   }
 }
