@@ -1,6 +1,6 @@
 import { projects } from '../data/portfolio';
 import ProjectMedia from './project-media';
-import { SectionLabel, Tags } from './ui';
+import { Tags } from './ui';
 
 const projectSlugs = [
   'tolerance-aux-fautes',
@@ -14,8 +14,7 @@ const projectSlugs = [
 export default function ProjectsSection() {
   return (
     <section id="projects" className="section shell">
-      <SectionLabel>PROJETS D’ÉTUDE</SectionLabel>
-      <h2>Projets techniques réalisés.</h2>
+      <h2>PROJETS TECHNIQUES RÉALISÉS</h2>
 
       <div className="grid projects projectsWithMedia">
         {projects.map((project, index) => {
