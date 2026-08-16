@@ -1,5 +1,5 @@
 import { experiences } from '../data/portfolio';
-import { SectionLabel, Tags } from './ui';
+import { Tags } from './ui';
 import ExperienceReport from './experience-report';
 
 const additionalExperiences = [
@@ -122,8 +122,7 @@ export default function ExperienceSection() {
 
   return (
     <section id="experience" className="section shell">
-      <SectionLabel>EXPÉRIENCE</SectionLabel>
-      <h2>Des systèmes embarqués aux systèmes critiques.</h2>
+      <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
 
       <div className="timeline">
         {allExperiences.map((experience) => {
