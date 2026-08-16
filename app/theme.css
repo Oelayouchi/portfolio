@@ -81,6 +81,11 @@ html[data-theme='light'] .heroBadge {
   color: #185d9e;
 }
 
+/* Move the scroll indicator lower, close to the bottom edge of the hero */
+.scrollHint {
+  bottom: 4px;
+}
+
 /* Cards and panels */
 html[data-theme='light'] .heroCard,
 html[data-theme='light'] .card,
