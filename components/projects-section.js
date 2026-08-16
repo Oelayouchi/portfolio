@@ -28,17 +28,20 @@ export default function ProjectsSection() {
               <h3>{project.title}</h3>
               <p className="projectType">{project.type}</p>
 
-              <div className="projectContent">
-                <h4>Objectif</h4>
-                <p>{project.objective}</p>
+              <div className="projectBody">
+                <div className="projectContent">
+                  <h4>Objectif</h4>
+                  <p>{project.objective}</p>
 
-                <h4>Réalisations</h4>
-                <ul>
-                  {project.tasks.map((task) => <li key={task}>{task}</li>)}
-                </ul>
+                  <h4>Réalisations</h4>
+                  <ul>
+                    {project.tasks.map((task) => <li key={task}>{task}</li>)}
+                  </ul>
+                </div>
+
+                <Tags items={project.stack} />
               </div>
 
-              <Tags items={project.stack} />
               <ProjectMedia slug={slug} title={project.title} />
             </article>
           );
