@@ -1,8 +1,8 @@
 // ============================================================================
 // Professional companies strip
 // ----------------------------------------------------------------------------
-// Uses the official PNG assets stored in /public/companies.
-// Display order requested: OCP → ParcelHome → Continental → Alstom.
+// Each company logo links directly to its detailed experience section.
+// Display order kept as requested: OCP → ParcelHome → Continental → Alstom.
 // ============================================================================
 
 const companies = [
@@ -10,21 +10,25 @@ const companies = [
     name: 'Office Chérifien des Phosphates',
     logo: '/companies/ocp.png',
     alt: 'Logo OCP — Office Chérifien des Phosphates',
+    href: '#experience-ocp',
   },
   {
     name: 'ParcelHome',
     logo: '/companies/parcelhom.png',
     alt: 'Logo ParcelHome',
+    href: '#experience-parcelhome',
   },
   {
     name: 'Continental Automotive',
     logo: '/companies/continental.png',
     alt: 'Logo Continental Automotive',
+    href: '#experience-continental',
   },
   {
     name: 'Alstom Transport',
     logo: '/companies/alstom.png',
     alt: 'Logo Alstom Transport',
+    href: '#experience-alstom',
   },
 ];
 
@@ -40,7 +44,12 @@ export default function CompaniesStrip() {
 
         <div className="companiesGrid">
           {companies.map((company) => (
-            <article className="companyItem" key={company.name}>
+            <a
+              className="companyItem companyLink"
+              href={company.href}
+              key={company.name}
+              aria-label={`Voir mon expérience chez ${company.name}`}
+            >
               <div className="companyLogoWrap">
                 <img
                   className="companyLogo"
@@ -51,7 +60,7 @@ export default function CompaniesStrip() {
               </div>
 
               <p>{company.name}</p>
-            </article>
+            </a>
           ))}
         </div>
       </div>
