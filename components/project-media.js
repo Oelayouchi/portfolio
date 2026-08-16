@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from 'react';
 
 const PROJECT_ASSETS = {
-  'tolerance-aux-fautes': { imageCount: 5, report: '/reports/tolerance-aux-fautes.pdf' },
-  'balance-numerique': { imageCount: 5, report: '/reports/balance-numerique.pdf' },
-  'station-meteo': { imageCount: 5, report: '/reports/station-meteo.pdf' },
-  'convoyeur-ascenseur': { imageCount: 5, report: '/reports/convoyeur-ascenseur.pdf' },
-  'parking-vhdl': { imageCount: 5, report: '/reports/parking-vhdl.pdf' },
-  'machines-electriques': { imageCount: 5, report: '/reports/machines-electriques.pdf' },
+  'tolerance-aux-fautes': { imageCount: 5, report: '/projects/tolerance-aux-fautes/report/rapport.pdf' },
+  'balance-numerique': { imageCount: 5, report: '/projects/balance-numerique/report/rapport.pdf' },
+  'station-meteo': { imageCount: 5, report: '/projects/station-meteo/report/rapport.pdf' },
+  'convoyeur-ascenseur': { imageCount: 5, report: '/projects/convoyeur-ascenseur/report/rapport.pdf' },
+  'parking-vhdl': { imageCount: 5, report: '/projects/parking-vhdl/report/rapport.pdf' },
+  'machines-electriques': { imageCount: 5, report: '/projects/machines-electriques/report/rapport.pdf' },
 };
 
 function ProjectPlaceholder({ number }) {
@@ -20,7 +20,7 @@ function ProjectPlaceholder({ number }) {
 }
 
 export default function ProjectMedia({ slug, title }) {
-  const config = PROJECT_ASSETS[slug] || { imageCount: 5, report: `/reports/${slug}.pdf` };
+  const config = PROJECT_ASSETS[slug] || { imageCount: 5, report: `/projects/${slug}/report/rapport.pdf` };
   const [active, setActive] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
