@@ -4,6 +4,7 @@ import AlternanceBanner from '../components/alternance-banner';
 import ThemeController from '../components/theme-controller';
 import EducationInterestsSection from '../components/education-interests';
 import Navigation from '../components/navigation';
+import ProjectsSection from '../components/projects-section';
 import {
   AboutSection,
   ContactSection,
@@ -11,7 +12,6 @@ import {
   ExperienceSection,
   Footer,
   HeroSection,
-  ProjectsSection,
   StatsSection,
 } from '../components/portfolio-sections';
 
@@ -19,7 +19,7 @@ import {
 // Home page
 // ----------------------------------------------------------------------------
 // The homepage assembles modular sections. Company logos, certifications,
-// education and interests live in dedicated components for maintainability.
+// education, projects and interests live in dedicated components.
 // ============================================================================
 
 export default function Page() {
