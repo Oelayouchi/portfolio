@@ -1,8 +1,8 @@
 /* ========================================================================== */
-/* Companies strip — five companies on one row                               */
+/* Companies strip — responsive                                               */
 /* ========================================================================== */
 
-/* Desktop/tablet landscape: always keep the five companies on ONE row. */
+/* Desktop/tablet landscape: keep the five companies on one single row. */
 .companiesGrid {
   display: grid !important;
   grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
@@ -34,7 +34,7 @@
   overflow-wrap: anywhere;
 }
 
-/* Slightly more compact on common laptop widths, but still one row. */
+/* Laptop/tablet: still one row. */
 @media (max-width: 1200px) {
   .companyItem {
     padding-inline: 6px;
@@ -53,18 +53,34 @@
   }
 }
 
-/* Only very small screens are allowed to wrap. */
+/* Mobile: exactly one company per line. */
 @media (max-width: 700px) {
   .companiesGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: 1fr !important;
   }
 
   .companyItem {
-    padding: 16px 8px;
+    width: 100%;
+    padding: 24px 12px;
     border-bottom: 1px solid rgba(96, 129, 168, 0.28);
   }
 
   .companyItem + .companyItem {
     border-left: 0;
+  }
+
+  .companyLogoWrap {
+    height: 72px;
+  }
+
+  .companyLogo {
+    max-width: 78%;
+    max-height: 64px;
+  }
+
+  .companyItem p {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.25;
   }
 }
