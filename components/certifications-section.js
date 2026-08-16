@@ -1,5 +1,3 @@
-import { SectionLabel } from './ui';
-
 // ============================================================================
 // Certifications
 // ----------------------------------------------------------------------------
@@ -37,8 +35,7 @@ const certifications = [
 export default function CertificationsSection() {
   return (
     <section id="certifications" className="section shell">
-      <SectionLabel>CERTIFICATIONS</SectionLabel>
-      <h2>Formation continue & spécialisation.</h2>
+      <h2>CERTIFICATIONS</h2>
 
       <div className="grid certs">
         {certifications.map((certification) => (
