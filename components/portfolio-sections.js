@@ -30,8 +30,80 @@ export function HeroSection() {
 
 export function StatsSection(){return <section className="stats shell" aria-label="Chiffres clés"><div><b>2</b><span>Diplômes supérieurs</span></div><div><b>3+</b><span>Années d’expérience</span></div><div><b>10+</b><span>Projets techniques</span></div><div><b>4</b><span>Certifications affichées</span></div></section>}
 export function AboutSection(){return <section id="about" className="section shell split"><div><SectionLabel>À PROPOS</SectionLabel><h2>Un parcours technique construit autour des systèmes complexes.</h2></div><div className="copy"><p>Diplômé en génie électrique et systèmes embarqués, puis titulaire d’un Master 2 en Ingénierie des Systèmes Temps Réel, j’ai évolué de la conception embarquée vers la sûreté de fonctionnement automobile et ferroviaire.</p><p>Mes expériences m’ont amené à travailler sur des systèmes connectés, des protocoles de communication, l’automatisation des tests, la traçabilité d’exigences Safety et l’analyse de défaillances. Aujourd’hui, je transforme cette base d’ingénieur en expertise Data avec SQL, Power BI, Python et Excel.</p></div></section>}
+
 function getExperienceDisplayName(experience){if(experience.id==='experience-alstom')return'ALSTOM';if(experience.id==='experience-continental')return'CONTINENTAL';if(experience.id.startsWith('experience-parcelhome'))return'ParcelHome';if(experience.id==='experience-ocp')return'OCP';return experience.company;}
-export function ExperienceSection(){return <section id="experience" className="section shell"><SectionLabel>EXPÉRIENCE</SectionLabel><h2>Des systèmes embarqués aux systèmes critiques.</h2><div className="timeline">{experiences.map(experience=><article className="experience experienceRefined" id={experience.id} key={experience.id}><div className="experienceBody"><div className="experienceTopRow"><div className="experienceIdentity"><div className="experienceLogoInline"><img src={experience.logo} alt={`Logo ${getExperienceDisplayName(experience)}`} loading="lazy"/></div><div><h3>{getExperienceDisplayName(experience)}</h3><p className="experienceDepartment">{experience.department}</p></div></div><div className="experienceMetaTop"><strong>{experience.period}</strong><span>{experience.place}</span></div></div><h4>{experience.role}</h4><div className="experienceBlock"><h5>Objectifs</h5><ul>{experience.objectives.map(o=><li key={o}>{o}</li>)}</ul></div><div className="experienceBlock"><h5>Réalisations</h5><ul>{experience.tasks.map(t=><li key={t}>{t}</li>)}</ul></div><div className="experienceBlock"><h5>Environnement technique</h5><Tags items={experience.stack}/></div></div></article>)}</div></section>}
+
+function ParcelHomeAchievements() {
+  return (
+    <ul className="achievementList achievementListMain">
+      <li>
+        Conception et développement des programmes et applications informatiques.
+        <ul className="achievementSubList">
+          <li>Conception d’un banc de test automatisé en Python/Raspberry Pi pour valider les fonctionnalités.</li>
+          <li>Mise en place d’une checklist complète équivalente à un catalogue d’essais.</li>
+        </ul>
+      </li>
+      <li>Élaboration et rédaction des spécifications techniques.</li>
+      <li>Réalisation des tests techniques et fonctionnels des logiciels et applications.</li>
+      <li>Analyse des problèmes techniques, fonctionnels et proposition de corrections.</li>
+      <li>Interface régulière avec les responsables et l’équipe projet afin de présenter les résultats et de suivre la mise en œuvre des corrections.</li>
+      <li>
+        Interventions chez les utilisateurs à domicile :
+        <ul className="achievementSubList">
+          <li>Traitement des mails pour identifier les problèmes et besoins, suivi de la satisfaction client.</li>
+          <li>Élaboration d’un fichier Excel pour centraliser les informations liées aux interventions (données utilisateurs, adresses, problèmes rencontrés, solutions apportées).</li>
+          <li>Réparation des boîtes, remplacement de cartes électroniques, mise à jour logicielle, changement de panneaux solaires et de batteries, ou remplacement complet de l’équipement si nécessaire.</li>
+          <li>Rédaction sur place de rapports d’intervention décrivant les problèmes trouvés, les actions réalisées et le retour des utilisateurs.</li>
+        </ul>
+      </li>
+      <li>
+        Collaboration avec les équipes de développement mobile :
+        <ul className="achievementSubList">
+          <li>Explication du fonctionnement de la boîte et de la construction des trames de données nécessaires à la communication avec la boîte.</li>
+          <li>Réalisation de tests de l’application mobile pour vérifier la bonne communication avec la boîte.</li>
+          <li>Rédaction de rapports de tests destinés aux développeurs pour améliorer le fonctionnement et la fiabilité de l’application.</li>
+        </ul>
+      </li>
+    </ul>
+  );
+}
+
+function ParcelHomeStageAchievements() {
+  return (
+    <div className="parcelSubjects">
+      <div className="parcelSubject">
+        <h6>Sujet 1 : Réalisation d’un banc de test :</h6>
+        <ul className="achievementList">
+          <li>Analyse des spécifications techniques et cahier des charges.</li>
+          <li>Création d’une interface graphique capable d’interagir avec la boîte à colis intelligente via BLE (Bluetooth Low Energy) à base de programmation Python sur Raspberry Pi.</li>
+          <li>Génération automatique d’une check-list capable de tester toutes les fonctions de la boîte et rédaction d’un rapport du test.</li>
+          <li>Acquisition de données de la boîte et décryptage en utilisant Protobuf.</li>
+          <li>Récupération des logs de la boîte et envoi au serveur de l’entreprise.</li>
+          <li>Test des services de l’API et de la communication avec la boîte.</li>
+        </ul>
+      </div>
+      <div className="parcelSubject">
+        <h6>Sujet 2 : Identification d’une solution hardware capable de contrôler en ligne l’équipement de l’entreprise :</h6>
+        <ul className="achievementList">
+          <li>Identification d’une solution hardware pour contrôler la boîte en ligne.</li>
+          <li>Réalisation d’un prototype de passerelle Wi-Fi / Bluetooth.</li>
+          <li>Établissement de la connexion Bluetooth avec la boîte intelligente.</li>
+          <li>Création d’une page web contenant toutes les commandes de la boîte intelligente.</li>
+          <li>Configuration des paramètres Wi-Fi de la passerelle via Bluetooth à l’aide d’une application mobile.</li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function ExperienceAchievements({ experience }) {
+  if (experience.id === 'experience-parcelhome') return <ParcelHomeAchievements />;
+  if (experience.id === 'experience-parcelhome-stage') return <ParcelHomeStageAchievements />;
+  return <ul>{experience.tasks.map(t=><li key={t}>{t}</li>)}</ul>;
+}
+
+export function ExperienceSection(){return <section id="experience" className="section shell"><SectionLabel>EXPÉRIENCE</SectionLabel><h2>Des systèmes embarqués aux systèmes critiques.</h2><div className="timeline">{experiences.map(experience=><article className="experience experienceRefined" id={experience.id} key={experience.id}><div className="experienceBody"><div className="experienceTopRow"><div className="experienceIdentity"><div className="experienceLogoInline"><img src={experience.logo} alt={`Logo ${getExperienceDisplayName(experience)}`} loading="lazy"/></div><div><h3>{getExperienceDisplayName(experience)}</h3><p className="experienceDepartment">{experience.department}</p></div></div><div className="experienceMetaTop"><strong>{experience.period}</strong><span>{experience.place}</span></div></div><h4>{experience.role}</h4><div className="experienceBlock"><h5>Objectifs</h5><ul>{experience.objectives.map(o=><li key={o}>{o}</li>)}</ul></div><div className="experienceBlock"><h5>Réalisations</h5><ExperienceAchievements experience={experience}/></div><div className="experienceBlock"><h5>Environnement technique</h5><Tags items={experience.stack}/></div></div></article>)}</div></section>}
+
 export function ProjectsSection(){return <section id="projects" className="section shell"><SectionLabel>PROJETS D’ÉTUDE</SectionLabel><h2>Projets techniques réalisés.</h2><div className="grid projects">{projects.map((project,index)=><article className="card projectDetailed" key={project.title}><div className="num">{String(index+1).padStart(2,'0')}</div><p className="projectPeriod">{project.period}</p><p className="mini">{project.institution}</p><h3>{project.title}</h3><p className="projectType">{project.type}</p><div className="projectContent"><h4>Objectif</h4><p>{project.objective}</p><h4>Réalisations</h4><ul>{project.tasks.map(t=><li key={t}>{t}</li>)}</ul></div><Tags items={project.stack}/></article>)}</div></section>}
 export function DataSection(){return <section id="data" className="section shell dataPanel"><div><SectionLabel>RECONVERSION DATA</SectionLabel><h2>From Embedded Systems to Data Analytics.</h2><p>Ma transition vers la Data s’appuie sur une expérience déjà centrée sur l’acquisition, le décodage, le test et l’analyse de données techniques : capteurs, logs, API, Protobuf, Excel et Python.</p></div><div className="pipeline"><span>Collecte<br/><b>API · Logs · Capteurs</b></span><i>→</i><span>Transformation<br/><b>SQL · Python · Power Query</b></span><i>→</i><span>Analyse<br/><b>KPI · DAX · Excel</b></span><i>→</i><span>Visualisation<br/><b>Power BI</b></span></div></section>}
 export function CertificationsSection(){return <section id="certifications" className="section shell"><SectionLabel>CERTIFICATIONS</SectionLabel><h2>Formation continue & spécialisation.</h2><div className="grid certs">{certifications.map(c=><article className="cert" key={c.title}><img src={c.image} alt={`Certificat ${c.title}`} loading="lazy"/><div><h3>{c.title}</h3><p className="meta">{c.meta}</p><p>{c.skills}</p></div></article>)}</div></section>}
@@ -40,6 +112,6 @@ const educationDisplay=[
  {year:'2022',degree:'Master 2 - Ingénierie des Systèmes Temps Réel',institution:'UNIVERSITÉ PAUL SABATIER TOULOUSE III',logo:'/schools/universite-paul-sabatier.png'},
  {year:'2020',degree:'Diplôme Ingénieur - Génie Electrique – Systèmes Embarqués',institution:'ÉCOLE NATIONALE DES SCIENCES APPLIQUÉES, MAROC',logo:'/schools/ensa.png'}
 ];
-export function EducationInterestsSection(){return <section className="section shell twoCols educationInterests"><div><SectionLabel>FORMATION</SectionLabel><h2>Diplômes</h2>{education.map((item,index)=>{const display=educationDisplay[index];return <article className="edu eduDetailed" key={item.title}><div className="educationOriginalHeader"><object className="educationOriginalLogo" data={display.logo} type="image/png" aria-label={`Logo ${display.institution}`}><span>Logo école</span></object><div className="educationOriginalText"><h3>{display.degree}</h3><span>{display.institution}</span><span>{display.year}</span></div></div>{item.sections.map((section,sectionIndex)=><div className="eduSection" key={`${item.title}-${sectionIndex}`}>{section.title&&<h4>{section.title}</h4>}<ul>{section.bullets.map(b=><li key={b}>{b}</li>)}</ul></div>)}</article>})}</div><div><SectionLabel>CENTRES D’INTÉRÊT</SectionLabel><h2>En dehors du travail</h2><div className="interestList">{interests.map(i=><span key={i}>{i}</span>)}</div></div></section>}
+export function EducationInterestsSection(){return <section className="section shell twoCols educationInterests"><div><SectionLabel>FORMATION</SectionLabel><h2>Diplômes</h2>{education.map((item,index)=>{const display=educationDisplay[index];return <article className="edu eduDetailed" key={item.title}><div className="educationOriginalHeader"><img className="educationOriginalLogo" src={display.logo} alt={`Logo ${display.institution}`} loading="lazy"/><div className="educationOriginalText"><h3>{display.degree}</h3><span>{display.institution}</span><span>{display.year}</span></div></div>{item.sections.map((section,sectionIndex)=><div className="eduSection" key={`${item.title}-${sectionIndex}`}>{section.title&&<h4>{section.title}</h4>}<ul>{section.bullets.map(b=><li key={b}>{b}</li>)}</ul></div>)}</article>})}</div><div><SectionLabel>CENTRES D’INTÉRÊT</SectionLabel><h2>En dehors du travail</h2><div className="interestList">{interests.map(i=><span key={i}>{i}</span>)}</div></div></section>}
 export function ContactSection(){return <section id="contact" className="section shell contact"><SectionLabel>CONTACT</SectionLabel><h2>Construisons la prochaine étape.</h2><p>Je recherche une alternance en Data Analyse et je reste ouvert aux échanges autour de la Data, du logiciel embarqué et de la sûreté de fonctionnement.</p><div className="heroActions"><a className="button primary" href="mailto:oussama.elayouchi@gmail.com">oelayouchi@gmail.com</a><a className="button" href="https://www.linkedin.com/in/oelayouchi/" target="_blank" rel="noreferrer">LinkedIn</a></div></section>}
 export function Footer(){return <footer className="shell footer">© 2026 Oussama EL AYOUCHI — Portfolio</footer>}
