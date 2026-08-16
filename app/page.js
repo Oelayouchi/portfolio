@@ -20,6 +20,7 @@ import {
 // ----------------------------------------------------------------------------
 // The homepage assembles modular sections. Company logos, certifications,
 // education, projects and interests live in dedicated components.
+// Deployment marker: 2026-08-16
 // ============================================================================
 
 export default function Page() {
