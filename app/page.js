@@ -6,9 +6,9 @@ import EducationInterestsSection from '../components/education-interests';
 import Navigation from '../components/navigation';
 import ProjectsSection from '../components/projects-section';
 import ExperienceSection from '../components/experience-section';
+import ContactSection from '../components/contact-section';
 import {
   AboutSection,
-  ContactSection,
   DataSection,
   Footer,
   HeroSection,
