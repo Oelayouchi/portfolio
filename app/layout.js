@@ -8,6 +8,11 @@ import './education-interests.css';
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
   description: 'Ingénieur systèmes embarqués & Safety en reconversion vers la Data Analyse.',
+  icons: {
+    icon: '/profile/favicon.png',
+    shortcut: '/profile/favicon.png',
+    apple: '/profile/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }) {
