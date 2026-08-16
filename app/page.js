@@ -1,6 +1,7 @@
-import AlternanceBanner from '../components/alternance-banner';
 import CompaniesStrip from '../components/companies-strip';
 import CertificationsSection from '../components/certifications-section';
+import AlternanceBanner from '../components/alternance-banner';
+import ThemeController from '../components/theme-controller';
 import {
   AboutSection,
   ContactSection,
@@ -17,13 +18,14 @@ import {
 // ============================================================================
 // Home page
 // ----------------------------------------------------------------------------
-// The homepage assembles modular sections. Company logos, certifications and
-// the alternance availability banner live in dedicated components.
+// The homepage assembles modular sections. Company logos and certifications
+// live in dedicated components so their assets can be maintained independently.
 // ============================================================================
 
 export default function Page() {
   return (
     <main>
+      <ThemeController />
       <Navigation />
       <CompaniesStrip />
       <HeroSection />
