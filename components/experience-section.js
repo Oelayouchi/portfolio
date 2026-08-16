@@ -88,6 +88,7 @@ export default function ExperienceSection() {
       <div className="timeline">
         {experiences.map((experience) => {
           const displayName = getExperienceDisplayName(experience);
+
           return (
             <article className="experience experienceRefined" id={experience.id} key={experience.id}>
               <div className="experienceBody">
@@ -101,9 +102,13 @@ export default function ExperienceSection() {
                       <p className="experienceDepartment">{experience.department}</p>
                     </div>
                   </div>
-                  <div className="experienceMetaTop">
-                    <strong>{experience.period}</strong>
-                    <span>{experience.place}</span>
+
+                  <div className="experienceTopActions">
+                    <div className="experienceMetaTop">
+                      <strong>{experience.period}</strong>
+                      <span>{experience.place}</span>
+                    </div>
+                    <ExperienceReport experienceId={experience.id} title={displayName} />
                   </div>
                 </div>
 
@@ -123,8 +128,6 @@ export default function ExperienceSection() {
                   <h5>Environnement technique</h5>
                   <Tags items={experience.stack} />
                 </div>
-
-                <ExperienceReport experienceId={experience.id} title={displayName} />
               </div>
             </article>
           );
