@@ -17,11 +17,11 @@ const educationDisplay = [
 ];
 
 const interestCards = [
-  { key: 'football', label: 'Football', icon: '⚽', hint: 'Le ballon rebondit vers le haut' },
-  { key: 'taekwondo', label: 'Taekwondo', icon: '🥋', hint: 'Le costume effectue une rotation' },
-  { key: 'musculation', label: 'Musculation', icon: '🏋️', hint: 'L’haltère monte et redescend' },
-  { key: 'aviation', label: 'Aviation', icon: '✈️', hint: 'L’avion décolle vers le haut' },
-  { key: 'technologie', label: 'Technologie', icon: '💻', hint: 'Le circuit s’illumine progressivement' },
+  { key: 'football', label: 'Football', icon: '⚽' },
+  { key: 'taekwondo', label: 'Taekwondo', icon: '🥋' },
+  { key: 'musculation', label: 'Musculation', icon: '🏋️' },
+  { key: 'aviation', label: 'Aviation', icon: '✈️' },
+  { key: 'technologie', label: 'Technologie', icon: '💻' },
 ];
 
 export default function EducationInterestsSection() {
@@ -70,7 +70,6 @@ export default function EducationInterestsSection() {
                 <div className="interestIcon" aria-hidden="true">{interest.icon}</div>
                 <strong>{interest.label}</strong>
               </article>
-              <div className="interestHint"><span>↑</span>{interest.hint}</div>
             </div>
           ))}
         </div>
