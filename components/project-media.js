@@ -21,6 +21,13 @@ const PROJECT_ASSETS = {
   'station-meteo': {
     imageCount: 5,
     report: '/projects/station-meteo/report/rapport.pdf',
+    images: [
+      '/projects/station-meteo/images/image-01.png',
+      '/projects/station-meteo/images/image-02.png',
+      '/projects/station-meteo/images/image-03.png',
+      '/projects/station-meteo/images/image-04.png',
+      '/projects/station-meteo/images/image-05.png',
+    ],
   },
   'convoyeur-ascenseur': {
     imageCount: 5,
