@@ -32,16 +32,26 @@
   margin-bottom: 0;
 }
 
-/* La galerie est poussée au bas de la carte. Comme les cartes d'une même ligne
-   ont la même hauteur et que les galeries ont exactement la même hauteur, la
-   ligne de séparation se retrouve au même niveau pour les deux projets. */
+/* La galerie reste poussée au bas de la carte pour conserver l'alignement
+   entre les deux projets. Le padding crée un vrai espace vide AVANT la ligne. */
 .projectDetailedMedia .projectMedia {
   margin-top: auto;
   padding-top: 34px;
 }
 
 .projectMedia {
-  border-top: 1px solid rgba(94, 137, 193, 0.22);
+  border-top: 0;
+}
+
+/* La ligne est dessinée après l'espace vide, puis on garde un second espace
+   avant le titre "Images du projet". */
+.projectMedia::before {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 28px;
+  background: rgba(94, 137, 193, 0.22);
+  content: "";
 }
 
 .projectMediaHeader {
@@ -341,6 +351,7 @@ html[data-theme='light'] .projectModalContent {
 
   .projectDetailedMedia .projectMedia {
     margin-top: 30px;
+    padding-top: 26px;
   }
 }
 
