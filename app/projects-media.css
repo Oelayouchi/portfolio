@@ -17,24 +17,27 @@
   height: 100%;
 }
 
-/* Tous les projets réservent exactement la même hauteur à leur partie texte.
-   Ainsi, les séparateurs "Images du projet" sont parfaitement alignés,
-   y compris pour les projets dont les images ne sont pas encore ajoutées. */
-.projectDetailedMedia .projectContent {
-  flex: 0 0 auto;
-  min-height: 430px;
+/* Le contenu et les technologies restent groupés : les badges suivent donc
+   directement le texte, sans tomber artificiellement en bas de la carte. */
+.projectBody {
+  display: block;
 }
 
-/* Les technologies restent directement après le texte, sans être collées
-   à la ligne de séparation. */
+.projectDetailedMedia .projectContent {
+  min-height: 0;
+}
+
 .projectDetailedMedia .tags {
   margin-top: 12px;
   margin-bottom: 0;
 }
 
+/* La galerie est poussée au bas de la carte. Comme les cartes d'une même ligne
+   ont la même hauteur et que les galeries ont exactement la même hauteur, la
+   ligne de séparation se retrouve au même niveau pour les deux projets. */
 .projectDetailedMedia .projectMedia {
-  margin-top: 28px;
-  padding-top: 28px;
+  margin-top: auto;
+  padding-top: 34px;
 }
 
 .projectMedia {
@@ -46,6 +49,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+  min-height: 42px;
   margin-bottom: 18px;
 }
 
@@ -99,13 +103,15 @@
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
 }
 
-/* Même taille pour une vraie image et un emplacement encore vide. */
+/* IMPORTANT : une vraie image et un emplacement vide ont strictement la même
+   hauteur. C'est ce qui empêche les galeries de décaler les séparateurs. */
 .projectPlaceholder,
 .projectRealImageWrap {
   display: grid;
   width: 100%;
-  height: clamp(250px, 28vw, 420px);
-  min-height: 250px;
+  height: 360px;
+  min-height: 360px;
+  max-height: 360px;
   place-items: center;
   overflow: hidden;
   background: #fff;
@@ -174,7 +180,9 @@
 
 .projectDots {
   display: flex;
+  min-height: 24px;
   justify-content: center;
+  align-items: center;
   gap: 9px;
   margin-top: 15px;
 }
@@ -226,12 +234,15 @@
 
 .imageModal .projectPlaceholder {
   min-height: min(78vh, 820px);
+  height: min(78vh, 820px);
+  max-height: min(78vh, 820px);
 }
 
 .imageModal .projectRealImageWrap {
   width: 100%;
   height: min(84vh, 900px);
   min-height: 0;
+  max-height: none;
   background: #050a11;
 }
 
@@ -328,8 +339,8 @@ html[data-theme='light'] .projectModalContent {
     grid-template-columns: 1fr;
   }
 
-  .projectDetailedMedia .projectContent {
-    min-height: 0;
+  .projectDetailedMedia .projectMedia {
+    margin-top: 30px;
   }
 }
 
@@ -358,6 +369,7 @@ html[data-theme='light'] .projectModalContent {
   .projectRealImageWrap {
     height: 280px;
     min-height: 280px;
+    max-height: 280px;
   }
 
   .projectModal {
