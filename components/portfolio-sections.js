@@ -106,6 +106,14 @@ export function AboutSection() {
   return <section id="about" className="section shell split"><div><SectionLabel>À PROPOS</SectionLabel><h2>Un parcours technique construit autour des systèmes complexes.</h2></div><div className="copy"><p>Diplômé en génie électrique et systèmes embarqués, puis titulaire d’un Master 2 en Ingénierie des Systèmes Temps Réel, j’ai évolué de la conception embarquée vers la sûreté de fonctionnement automobile et ferroviaire.</p><p>Mes expériences m’ont amené à travailler sur des systèmes connectés, des protocoles de communication, l’automatisation des tests, la traçabilité d’exigences Safety et l’analyse de défaillances. Aujourd’hui, je transforme cette base d’ingénieur en expertise Data avec SQL, Power BI, Python et Excel.</p></div></section>;
 }
 
+function getExperienceDisplayName(experience) {
+  if (experience.id === 'experience-alstom') return 'ALSTOM';
+  if (experience.id === 'experience-continental') return 'CONTINENTAL';
+  if (experience.id.startsWith('experience-parcelhome')) return 'ParcelHome';
+  if (experience.id === 'experience-ocp') return 'OCP';
+  return experience.company;
+}
+
 export function ExperienceSection() {
   return (
     <section id="experience" className="section shell">
@@ -114,16 +122,23 @@ export function ExperienceSection() {
 
       <div className="timeline">
         {experiences.map((experience) => (
-          <article className="experience" id={experience.id} key={experience.id}>
-            <div className="date">{experience.period}</div>
-
+          <article className="experience experienceRefined" id={experience.id} key={experience.id}>
             <div className="experienceBody">
-              <div className="expHead">
-                <div>
-                  <h3>{experience.companyFull}</h3>
-                  <p className="experienceDepartment">{experience.department}</p>
+              <div className="experienceTopRow">
+                <div className="experienceIdentity">
+                  <div className="experienceLogoInline">
+                    <img src={experience.logo} alt={`Logo ${getExperienceDisplayName(experience)}`} loading="lazy" />
+                  </div>
+                  <div>
+                    <h3>{getExperienceDisplayName(experience)}</h3>
+                    <p className="experienceDepartment">{experience.department}</p>
+                  </div>
                 </div>
-                <span>{experience.place}</span>
+
+                <div className="experienceMetaTop">
+                  <strong>{experience.period}</strong>
+                  <span>{experience.place}</span>
+                </div>
               </div>
 
               <h4>{experience.role}</h4>
@@ -149,10 +164,6 @@ export function ExperienceSection() {
               <div className="experienceBlock">
                 <h5>Environnement technique</h5>
                 <Tags items={experience.stack}/>
-              </div>
-
-              <div className="experienceLogoBottom">
-                <img src={experience.logo} alt={`Logo ${experience.companyFull}`} loading="lazy" />
               </div>
             </div>
           </article>
@@ -202,6 +213,21 @@ export function CertificationsSection() {
   return <section id="certifications" className="section shell"><SectionLabel>CERTIFICATIONS</SectionLabel><h2>Formation continue & spécialisation.</h2><div className="grid certs">{certifications.map((certification) => <article className="cert" key={certification.title}><img src={certification.image} alt={`Certificat ${certification.title}`} loading="lazy"/><div><h3>{certification.title}</h3><p className="meta">{certification.meta}</p><p>{certification.skills}</p></div></article>)}</div></section>;
 }
 
+const educationDisplay = [
+  {
+    year: '2022',
+    degree: 'Master 2 - Ingénierie des Systèmes Temps Réel',
+    institution: 'UNIVERSITÉ PAUL SABATIER TOULOUSE III',
+    logo: '/schools/universite-paul-sabatier.png',
+  },
+  {
+    year: '2020',
+    degree: 'Diplôme Ingénieur - Génie Electrique – Systèmes Embarqués',
+    institution: 'ÉCOLE NATIONALE DES SCIENCES APPLIQUÉES, MAROC',
+    logo: '/schools/ensa.png',
+  },
+];
+
 export function EducationInterestsSection() {
   return (
     <section className="section shell twoCols educationInterests">
@@ -209,22 +235,37 @@ export function EducationInterestsSection() {
         <SectionLabel>FORMATION</SectionLabel>
         <h2>Diplômes</h2>
 
-        {education.map((item) => (
-          <article className="edu eduDetailed" key={item.title}>
-            <h3>{item.title}</h3>
-            <span>{item.institution}</span>
-            <span>{item.period}</span>
+        {education.map((item, index) => {
+          const display = educationDisplay[index];
 
-            {item.sections.map((section, index) => (
-              <div className="eduSection" key={`${item.title}-${index}`}>
-                {section.title && <h4>{section.title}</h4>}
-                <ul>
-                  {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-                </ul>
+          return (
+            <article className="edu eduDetailed educationCard" key={item.title}>
+              <div className="educationHeader">
+                <div className="educationSchoolLogo">
+                  <object data={display.logo} type="image/png" aria-label={`Logo ${display.institution}`}>
+                    <span>Logo école</span>
+                  </object>
+                </div>
+
+                <div className="educationYear">{display.year}</div>
+
+                <div className="educationTitleBlock">
+                  <p>Diplôme obtenu : <strong>{display.degree}</strong></p>
+                  <p><em>Établissement :</em> <strong>{display.institution}</strong></p>
+                </div>
               </div>
-            ))}
-          </article>
-        ))}
+
+              {item.sections.map((section, sectionIndex) => (
+                <div className="eduSection" key={`${item.title}-${sectionIndex}`}>
+                  {section.title && <h4>{section.title}</h4>}
+                  <ul>
+                    {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </article>
+          );
+        })}
       </div>
 
       <div>
