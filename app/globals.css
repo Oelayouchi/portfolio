@@ -1,39 +1,22 @@
 /* ========================================================================== */
 /* Portfolio — Oussama EL AYOUCHI                                             */
 /* Global stylesheet                                                          */
-/*                                                                            */
-/* Organisation:                                                              */
-/* 01. Design tokens & reset                                                  */
-/* 02. Global layout                                                          */
-/* 03. Navigation                                                             */
-/* 04. Companies strip                                                        */
-/* 05. Hero                                                                   */
-/* 06. Key figures                                                            */
-/* 07. Shared sections                                                        */
-/* 08. Experience                                                             */
-/* 09. Projects                                                               */
-/* 10. Data transition                                                        */
-/* 11. Certifications                                                         */
-/* 12. Education & interests                                                  */
-/* 13. Contact & footer                                                       */
-/* 14. Responsive                                                             */
-/* ========================================================================== */
-
-
-/* ========================================================================== */
-/* 01. DESIGN TOKENS & RESET                                                  */
 /* ========================================================================== */
 
 :root {
-  --bg: #0a0d12;
-  --panel: #111722;
-  --panel-2: #151d2a;
-  --text: #f5f7fb;
-  --muted: #9ca9ba;
-  --line: #253044;
-  --accent: #8b5cf6;
-  --accent-2: #38bdf8;
-  --max: 1180px;
+  --bg: #07101d;
+  --bg-deep: #040a12;
+  --panel: #0b1628;
+  --panel-2: #0e1d35;
+  --text: #f7f9fc;
+  --muted: #9caec6;
+  --line: #1b3b68;
+  --blue: #0c9cff;
+  --blue-2: #176dff;
+  --purple: #8f39ff;
+  --cyan: #20c7d9;
+  --green: #40d85e;
+  --max: 1440px;
 }
 
 * {
@@ -46,7 +29,7 @@ html {
 
 body {
   margin: 0;
-  background: radial-gradient(circle at 75% 0%, #172039 0, var(--bg) 38%);
+  background: #07101d;
   color: var(--text);
   font-family:
     Inter,
@@ -58,14 +41,13 @@ body {
     sans-serif;
 }
 
-
-/* ========================================================================== */
-/* 02. GLOBAL LAYOUT                                                          */
-/* ========================================================================== */
+a {
+  color: inherit;
+}
 
 .shell {
-  width: min(var(--max), calc(100% - 40px));
-  margin: auto;
+  width: min(var(--max), calc(100% - 96px));
+  margin: 0 auto;
 }
 
 .section {
@@ -99,28 +81,26 @@ body {
   margin-top: 20px;
 }
 
-.tags span,
-.quick span {
+.tags span {
   padding: 7px 10px;
-  border: 1px solid #233047;
+  border: 1px solid #233d61;
   border-radius: 999px;
-  background: #111927;
+  background: #0d1928;
   color: #b9c5d5;
   font-size: 12px;
 }
 
-
 /* ========================================================================== */
-/* 03. NAVIGATION                                                             */
+/* Navigation                                                                 */
 /* ========================================================================== */
 
 .navBar {
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 50;
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(10, 13, 18, 0.94);
+  border-bottom: 1px solid rgba(28, 92, 161, 0.5);
+  background: rgba(3, 10, 18, 0.96);
   backdrop-filter: blur(18px);
 }
 
@@ -128,51 +108,122 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 78px;
+  min-height: 80px;
 }
 
 .brand {
-  color: #fff;
-  font-size: 24px;
+  color: #ffffff;
+  font-size: 38px;
   font-weight: 900;
+  letter-spacing: -0.06em;
   text-decoration: none;
+}
+
+.brand span {
+  color: var(--blue);
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .navlinks {
   display: flex;
-  gap: 24px;
+  align-items: stretch;
+  gap: 38px;
 }
 
-.nav a {
-  color: #c8d1de;
-  font-size: 14px;
+.navlinks a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  color: #f4f6fa;
+  font-size: 16px;
+  font-weight: 600;
   text-decoration: none;
 }
 
+.navlinks a.active {
+  color: var(--blue);
+}
+
+.navlinks a.active::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--blue);
+  content: "";
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid #1d62aa;
+  border-radius: 999px;
+  background: #07101d;
+}
+
+.themeToggle > span {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 50%;
+  color: #d7e4f5;
+}
+
+.themeToggle svg {
+  width: 17px;
+  height: 17px;
+}
+
+.themeToggle .themeActive {
+  background: linear-gradient(145deg, #007fff, #1678ff);
+  box-shadow: 0 0 18px rgba(0, 140, 255, 0.55);
+  color: #fff;
+}
 
 /* ========================================================================== */
-/* 04. COMPANIES STRIP                                                        */
+/* Companies strip                                                            */
 /* ========================================================================== */
 
 .companiesBar {
   width: 100%;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.12);
-  background: linear-gradient(180deg, #08111d 0%, #0b1522 100%);
+  border-bottom: 1px solid #173d70;
+  background: linear-gradient(180deg, #071629 0%, #061424 100%);
 }
 
 .companiesShell {
-  width: min(1440px, calc(100% - 48px));
-  margin: 0 auto;
   padding: 28px 0 30px;
 }
 
-.companiesTitle {
-  margin: 0 0 24px;
-  color: #9fb3ca;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-align: center;
+.companiesHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.companiesHeading span {
+  width: 52px;
+  height: 1px;
+  background: #6682a6;
+}
+
+.companiesHeading p {
+  margin: 0;
+  color: #bcc9da;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
 }
 
 .companiesGrid {
@@ -187,12 +238,12 @@ body {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  padding: 4px 24px;
+  padding: 2px 34px;
   text-align: center;
 }
 
 .companyItem + .companyItem {
-  border-left: 1px solid rgba(148, 163, 184, 0.2);
+  border-left: 1px solid rgba(96, 129, 168, 0.46);
 }
 
 .companyLogoWrap {
@@ -200,47 +251,108 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 76px;
+  height: 78px;
 }
 
 .companyLogo {
   display: block;
   width: auto;
   max-width: 100%;
-  max-height: 62px;
+  max-height: 66px;
   object-fit: contain;
 }
 
 .companyItem p {
-  margin: 12px 0 0;
-  color: #f0f4f8;
-  font-size: 15px;
-  line-height: 1.3;
+  margin: 10px 0 0;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.25;
 }
 
+/* ========================================================================== */
+/* Hero                                                                       */
+/* ========================================================================== */
 
-/* ========================================================================== */
-/* 05. HERO                                                                   */
-/* ========================================================================== */
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background:
+    radial-gradient(circle at 96% 86%, rgba(79, 42, 255, 0.42), transparent 23%),
+    radial-gradient(circle at 18% 45%, rgba(0, 112, 255, 0.18), transparent 31%),
+    linear-gradient(115deg, #06162d 0%, #061328 47%, #081a3e 100%);
+}
+
+.heroSection::before,
+.heroSection::after {
+  position: absolute;
+  border-radius: 50%;
+  background: #0e9cff;
+  box-shadow: 0 0 20px rgba(14, 156, 255, 0.65);
+  content: "";
+}
+
+.heroSection::before {
+  top: 32%;
+  left: 2%;
+  width: 20px;
+  height: 20px;
+}
+
+.heroSection::after {
+  right: 2.5%;
+  bottom: 34%;
+  width: 18px;
+  height: 18px;
+}
 
 .hero {
+  position: relative;
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(500px, 0.82fr);
   align-items: center;
-  gap: 70px;
-  min-height: 680px;
-  padding: 80px 0;
+  gap: 95px;
+  min-height: 610px;
+  padding: 76px 0 104px;
+}
+
+.heroIntro {
+  position: relative;
+  z-index: 2;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 18px;
+  border: 1px solid #155a99;
+  border-radius: 999px;
+  background: rgba(6, 28, 54, 0.62);
+  color: #d7e5f8;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.heroBadgeDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #10a4ff;
+  box-shadow: 0 0 18px rgba(16, 164, 255, 0.85);
 }
 
 .hero h1 {
-  margin: 18px 0 28px;
-  font-size: clamp(64px, 9vw, 122px);
-  line-height: 0.82;
-  letter-spacing: -0.06em;
+  margin: 18px 0 22px;
+  color: #fff;
+  font-size: clamp(72px, 7.2vw, 116px);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
 }
 
 .hero h1 span {
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  background: linear-gradient(90deg, #04a2ff 0%, #286eff 48%, #993dff 100%);
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
@@ -248,66 +360,195 @@ body {
 
 .lead {
   max-width: 760px;
-  color: #bcc7d5;
-  font-size: 22px;
-  line-height: 1.55;
+  margin: 0;
+  color: #c8d2df;
+  font-size: clamp(20px, 1.65vw, 28px);
+  line-height: 1.42;
+}
+
+.lead strong {
+  color: #2f79ff;
 }
 
 .heroActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 20px;
   margin-top: 30px;
 }
 
 .button {
-  padding: 13px 18px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #101622;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 0 28px;
+  border: 2px solid #126dff;
+  border-radius: 15px;
+  background: transparent;
   color: #fff;
+  font-size: 16px;
+  font-weight: 700;
   text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button svg {
+  width: 22px;
+  height: 22px;
 }
 
 .button.primary {
-  border-color: transparent;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  border-color: #15a8ff;
+  background: linear-gradient(135deg, #139dff 0%, #116cff 100%);
+  box-shadow: 0 12px 35px rgba(0, 110, 255, 0.24);
 }
 
-.quick {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 22px;
+.button.secondary {
+  min-width: 220px;
+  border-color: #166eff;
+  background: rgba(3, 13, 28, 0.58);
 }
 
 .heroCard {
-  padding: 28px;
-  border: 1px solid var(--line);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: 28px 32px 22px;
+  border: 1px solid #1f60a7;
   border-radius: 24px;
-  background: linear-gradient(180deg, #121a27, #0e141e);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(145deg, rgba(8, 28, 58, 0.96), rgba(7, 20, 44, 0.92));
+  box-shadow: inset 0 0 60px rgba(0, 99, 255, 0.09), 0 25px 70px rgba(0, 0, 0, 0.24);
+}
+
+.heroCard h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.axisList {
+  border-top: 1px solid rgba(102, 143, 195, 0.26);
 }
 
 .axis {
+  display: grid;
+  grid-template-columns: 56px 54px 1fr 24px;
+  align-items: center;
+  gap: 12px;
+  min-height: 78px;
+  border-bottom: 1px solid rgba(102, 143, 195, 0.2);
+}
+
+.axis:last-child {
+  border-bottom: 0;
+}
+
+.axisNumber {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.axisIcon,
+.axisArrow {
+  display: grid;
+  place-items: center;
+}
+
+.axisIcon svg {
+  width: 36px;
+  height: 36px;
+  stroke-width: 2.4;
+}
+
+.axisArrow {
+  color: #65a3ee;
+}
+
+.axisArrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.axisContent h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.axisContent p {
+  margin: 0;
+  color: #99afd0;
+  font-size: 14px;
+}
+
+.axis-blue .axisNumber,
+.axis-blue .axisIcon {
+  color: #0d91ff;
+}
+
+.axis-cyan .axisNumber,
+.axis-cyan .axisIcon {
+  color: #1ecbd8;
+}
+
+.axis-green .axisNumber,
+.axis-green .axisIcon {
+  color: #3ddb5b;
+}
+
+.axis-purple .axisNumber,
+.axis-purple .axisIcon,
+.axis-purple .axisContent h3 {
+  color: #a844ff;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
   display: flex;
-  gap: 18px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  color: #6ba3ff;
+  font-size: 13px;
+  text-decoration: none;
 }
 
-.axis b {
-  color: #516078;
+.mouseShape {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 46px;
+  border: 2px solid #d7e5ff;
+  border-radius: 16px;
 }
 
-.axis.active span {
-  color: #a78bfa;
+.mouseShape i {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 3px;
+  height: 8px;
+  border-radius: 999px;
+  background: #d7e5ff;
+  transform: translateX(-50%);
 }
 
+.scrollHint b {
+  color: #fff;
+  font-size: 21px;
+  line-height: 1;
+}
 
 /* ========================================================================== */
-/* 06. KEY FIGURES                                                            */
+/* Existing content below the hero                                            */
 /* ========================================================================== */
 
 .stats {
@@ -315,14 +556,15 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  margin-top: 40px;
+  border: 1px solid #213a5f;
   border-radius: 18px;
-  background: var(--line);
+  background: #213a5f;
 }
 
 .stats div {
   padding: 26px;
-  background: #0e141d;
+  background: #0d1725;
 }
 
 .stats b {
@@ -331,14 +573,9 @@ body {
 }
 
 .stats span {
-  color: var(--muted);
+  color: #9ca9ba;
   font-size: 13px;
 }
-
-
-/* ========================================================================== */
-/* 07. SHARED SECTIONS                                                        */
-/* ========================================================================== */
 
 .split {
   display: grid;
@@ -360,13 +597,8 @@ body {
   line-height: 1.7;
 }
 
-
-/* ========================================================================== */
-/* 08. EXPERIENCE                                                             */
-/* ========================================================================== */
-
 .timeline {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid #253b5f;
 }
 
 .experience {
@@ -374,7 +606,7 @@ body {
   grid-template-columns: 170px 1fr;
   gap: 40px;
   padding: 42px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #253b5f;
 }
 
 .date {
@@ -396,7 +628,7 @@ body {
 
 .expHead span,
 .meta {
-  color: var(--muted);
+  color: #9ca9ba;
 }
 
 .experience h4 {
@@ -410,11 +642,6 @@ body {
   line-height: 1.55;
 }
 
-
-/* ========================================================================== */
-/* 09. PROJECTS                                                               */
-/* ========================================================================== */
-
 .projects {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -422,9 +649,9 @@ body {
 .card {
   min-height: 320px;
   padding: 24px;
-  border: 1px solid var(--line);
+  border: 1px solid #253b5f;
   border-radius: 18px;
-  background: linear-gradient(180deg, #121925, #0f151f);
+  background: linear-gradient(180deg, #101b2b, #0d1724);
 }
 
 .num {
@@ -446,11 +673,6 @@ body {
   font-weight: 700;
 }
 
-
-/* ========================================================================== */
-/* 10. DATA TRANSITION                                                        */
-/* ========================================================================== */
-
 .dataPanel {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -458,13 +680,9 @@ body {
   gap: 60px;
   padding-right: 40px;
   padding-left: 40px;
-  border: 1px solid var(--line);
+  border: 1px solid #253b5f;
   border-radius: 26px;
-  background: linear-gradient(
-    135deg,
-    rgba(37, 99, 235, 0.12),
-    rgba(124, 58, 237, 0.12)
-  );
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(124, 58, 237, 0.12));
 }
 
 .pipeline {
@@ -477,9 +695,9 @@ body {
 
 .pipeline span {
   padding: 18px;
-  border: 1px solid var(--line);
+  border: 1px solid #253b5f;
   border-radius: 14px;
-  background: #0c121b;
+  background: #0c1521;
   color: #8493a8;
   font-size: 12px;
   line-height: 1.55;
@@ -494,20 +712,15 @@ body {
   color: #536177;
 }
 
-
-/* ========================================================================== */
-/* 11. CERTIFICATIONS                                                         */
-/* ========================================================================== */
-
 .certs {
   grid-template-columns: repeat(2, 1fr);
 }
 
 .cert {
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid #253b5f;
   border-radius: 18px;
-  background: #101620;
+  background: #101a28;
 }
 
 .cert img {
@@ -531,11 +744,6 @@ body {
   line-height: 1.55;
 }
 
-
-/* ========================================================================== */
-/* 12. EDUCATION & INTERESTS                                                  */
-/* ========================================================================== */
-
 .twoCols {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -544,7 +752,7 @@ body {
 
 .edu {
   padding: 18px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #253b5f;
 }
 
 .edu b,
@@ -554,7 +762,7 @@ body {
 
 .edu span {
   margin-top: 8px;
-  color: var(--muted);
+  color: #9ca9ba;
 }
 
 .interestList {
@@ -565,16 +773,11 @@ body {
 
 .interestList span {
   padding: 14px 18px;
-  border: 1px solid var(--line);
+  border: 1px solid #253b5f;
   border-radius: 14px;
-  background: var(--panel);
+  background: #101b2a;
   font-size: 18px;
 }
-
-
-/* ========================================================================== */
-/* 13. CONTACT & FOOTER                                                       */
-/* ========================================================================== */
 
 .contact {
   padding-bottom: 80px;
@@ -587,40 +790,70 @@ body {
 
 .footer {
   padding: 30px 0 50px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid #253b5f;
   color: #718096;
   font-size: 13px;
 }
 
-
 /* ========================================================================== */
-/* 14. RESPONSIVE                                                             */
+/* Responsive                                                                 */
 /* ========================================================================== */
 
-/* Tablets and small laptops */
+@media (max-width: 1180px) {
+  .shell {
+    width: min(var(--max), calc(100% - 48px));
+  }
+
+  .navlinks {
+    gap: 24px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr 0.85fr;
+    gap: 48px;
+  }
+
+  .hero h1 {
+    font-size: clamp(66px, 8vw, 96px);
+  }
+}
+
 @media (max-width: 900px) {
+  .navRight {
+    gap: 12px;
+  }
+
   .navlinks {
     display: none;
   }
 
   .companiesGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px 0;
+    gap: 26px 0;
   }
 
   .companyItem:nth-child(3) {
     border-left: 0;
   }
 
-  .hero,
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 60px 0 110px;
+  }
+
+  .heroCard {
+    max-width: 620px;
+  }
+
+  .scrollHint {
+    bottom: 18px;
+  }
+
   .split,
   .dataPanel,
   .twoCols {
     grid-template-columns: 1fr;
-  }
-
-  .hero {
-    padding-top: 45px;
   }
 
   .projects,
@@ -642,23 +875,35 @@ body {
     align-items: flex-start;
   }
 
-  .heroCard {
-    display: none;
-  }
-
   .pipeline i {
     display: none;
   }
 }
 
-/* Smartphones */
-@media (max-width: 540px) {
+@media (max-width: 600px) {
   .shell {
-    width: min(calc(100% - 24px), var(--max));
+    width: min(100% - 24px, var(--max));
   }
 
-  .companiesShell {
-    width: min(calc(100% - 24px), 1440px);
+  .nav {
+    min-height: 68px;
+  }
+
+  .brand {
+    font-size: 30px;
+  }
+
+  .themeToggle > span {
+    width: 28px;
+    height: 28px;
+  }
+
+  .companiesHeading p {
+    font-size: 10px;
+  }
+
+  .companiesHeading span {
+    width: 24px;
   }
 
   .companiesGrid {
@@ -666,17 +911,60 @@ body {
   }
 
   .companyItem {
-    padding: 18px 8px;
+    padding: 18px 0;
   }
 
   .companyItem + .companyItem,
   .companyItem:nth-child(3) {
+    border-top: 1px solid rgba(96, 129, 168, 0.38);
     border-left: 0;
-    border-top: 1px solid rgba(148, 163, 184, 0.2);
+  }
+
+  .hero {
+    gap: 44px;
+    padding-top: 48px;
+  }
+
+  .heroBadge {
+    font-size: 10px;
   }
 
   .hero h1 {
-    font-size: 58px;
+    font-size: clamp(56px, 17vw, 76px);
+  }
+
+  .lead {
+    font-size: 19px;
+  }
+
+  .desktopBreak {
+    display: none;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .axis {
+    grid-template-columns: 42px 42px 1fr 18px;
+    gap: 8px;
+  }
+
+  .axisNumber {
+    font-size: 22px;
+  }
+
+  .axisIcon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .axisContent h3 {
+    font-size: 15px;
+  }
+
+  .axisContent p {
+    font-size: 12px;
   }
 
   .stats {
