@@ -1,7 +1,7 @@
+import CompaniesStrip from '../components/companies-strip';
+import CertificationsSection from '../components/certifications-section';
 import {
   AboutSection,
-  CertificationsSection,
-  CompaniesStrip,
   ContactSection,
   DataSection,
   EducationInterestsSection,
@@ -16,8 +16,8 @@ import {
 // ============================================================================
 // Home page
 // ----------------------------------------------------------------------------
-// The page is intentionally kept small. Content lives in /data and visual
-// sections live in /components, which makes future updates much easier.
+// The homepage assembles modular sections. Company logos and certifications
+// live in dedicated components so their assets can be maintained independently.
 // ============================================================================
 
 export default function Page() {
