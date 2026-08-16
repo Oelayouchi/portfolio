@@ -17,20 +17,24 @@
   height: 100%;
 }
 
-/* Le contenu texte reste naturel : les technologies suivent directement le texte. */
+/* Tous les projets réservent exactement la même hauteur à leur partie texte.
+   Ainsi, les séparateurs "Images du projet" sont parfaitement alignés,
+   y compris pour les projets dont les images ne sont pas encore ajoutées. */
 .projectDetailedMedia .projectContent {
   flex: 0 0 auto;
+  min-height: 430px;
 }
 
+/* Les technologies restent directement après le texte, sans être collées
+   à la ligne de séparation. */
 .projectDetailedMedia .tags {
   margin-top: 12px;
+  margin-bottom: 0;
 }
 
-/* La galerie est poussée vers le bas de chaque carte : les séparateurs des deux
-   projets d'une même ligne restent exactement au même niveau. */
 .projectDetailedMedia .projectMedia {
-  margin-top: auto;
-  padding-top: 24px;
+  margin-top: 28px;
+  padding-top: 28px;
 }
 
 .projectMedia {
@@ -95,12 +99,15 @@
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
 }
 
+/* Même taille pour une vraie image et un emplacement encore vide. */
 .projectPlaceholder,
 .projectRealImageWrap {
   display: grid;
   width: 100%;
-  min-height: 240px;
+  height: clamp(250px, 28vw, 420px);
+  min-height: 250px;
   place-items: center;
+  overflow: hidden;
   background: #fff;
   color: #aeb3ba;
 }
@@ -109,11 +116,6 @@
   font-size: clamp(52px, 8vw, 96px);
   font-weight: 900;
   line-height: 1;
-}
-
-.projectRealImageWrap {
-  height: clamp(250px, 28vw, 420px);
-  overflow: hidden;
 }
 
 .projectRealImage {
@@ -325,6 +327,10 @@ html[data-theme='light'] .projectModalContent {
   .projectsWithMedia {
     grid-template-columns: 1fr;
   }
+
+  .projectDetailedMedia .projectContent {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 720px) {
@@ -350,11 +356,8 @@ html[data-theme='light'] .projectModalContent {
 
   .projectPlaceholder,
   .projectRealImageWrap {
-    min-height: 210px;
-  }
-
-  .projectRealImageWrap {
     height: 280px;
+    min-height: 280px;
   }
 
   .projectModal {
