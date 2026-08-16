@@ -8,38 +8,22 @@
 
 export const experiences = [
   {
-    company: 'ALSTOM',
-    role: 'Ingénieur en sécurité ferroviaire',
-    period: '2024',
-    place: 'Lyon, France',
+    company: 'OCP — Office Chérifien des Phosphates',
+    role: 'Projet de fin d’études — Génie électrique',
+    period: '2020',
+    place: 'Khouribga, Maroc',
     intro:
-      'Mission Safety sur des activités FPGA SPMC dans un environnement ferroviaire critique conforme à EN 50129:2018.',
+      'Étude critique de l’unité de filtration TIMEX et proposition d’actions d’amélioration.',
     tasks: [
-      'Vérification et validation de la traçabilité entre exigences Safety, système et hardware.',
-      'Contrôle de la couverture des exigences hardware par les exigences FPGA.',
-      'Validation de la traçabilité entre HwPCRSAD et scénarios de test.',
-      'Rédaction de rapports de traçabilité et suivi des incohérences avec les équipes techniques.',
+      'Étude du fonctionnement du filtre TIMEX et des équipements électriques et automatiques.',
+      'Analyse des défaillances et hiérarchisation des risques par AMDEC.',
+      'Proposition d’actions correctives et amélioration du fonctionnement.',
+      'Automatisation et supervision sous TIA Portal et GRAFCET.',
     ],
-    stack: ['EN 50129:2018', 'FPGA', 'Excel', 'Word'],
+    stack: ['TIA Portal', 'GRAFCET', 'AMDEC', 'Automatisation', 'Supervision'],
   },
   {
-    company: 'CONTINENTAL',
-    role: 'Ingénieur en sécurité logicielle automobile',
-    period: '2023 — 2024',
-    place: 'Toulouse, France',
-    intro:
-      'Analyse Safety d’un calculateur BCM pour Renault/Nissan dans un contexte ISO 26262 et AUTOSAR.',
-    tasks: [
-      'Audit des livrables Safety et rédaction de Software Safety Analysis (SSA).',
-      'Analyse du Technical Safety Concept TSC2 et des niveaux ASIL.',
-      'Mise à jour de Software Safety Concepts et analyse des signaux / modes de défaillance liés au TSC3.',
-      'Traçabilité TSC ↔ SRS ↔ SWA ↔ SW-SC avec DOORS.',
-      'Analyse d’architecture AUTOSAR et revue de code / dépendances avec Understand.',
-    ],
-    stack: ['ISO 26262', 'AUTOSAR', 'DOORS', 'Understand', 'IDEAS'],
-  },
-  {
-    company: 'PARCELHOME',
+    company: 'ParcelHome',
     role: 'Développeur électronique & logiciel / R&D',
     period: '2021 — 2023',
     place: 'Mulhouse, France',
@@ -66,19 +50,35 @@ export const experiences = [
     ],
   },
   {
-    company: 'OCP',
-    role: 'Projet de fin d’études — Génie électrique',
-    period: '2020',
-    place: 'Khouribga, Maroc',
+    company: 'Continental Automotive',
+    role: 'Ingénieur en sécurité logicielle automobile',
+    period: '2023 — 2024',
+    place: 'Toulouse, France',
     intro:
-      'Étude critique de l’unité de filtration TIMEX et proposition d’actions d’amélioration.',
+      'Analyse Safety d’un calculateur BCM pour Renault/Nissan dans un contexte ISO 26262 et AUTOSAR.',
     tasks: [
-      'Étude du fonctionnement du filtre TIMEX et des équipements électriques / automatiques.',
-      'Analyse des défaillances et hiérarchisation des risques par AMDEC.',
-      'Proposition d’actions correctives et amélioration du fonctionnement.',
-      'Automatisation et supervision sous TIA Portal / Grafcet.',
+      'Audit des livrables Safety et rédaction de Software Safety Analysis (SSA).',
+      'Analyse du Technical Safety Concept TSC2 et des niveaux ASIL.',
+      'Mise à jour de Software Safety Concepts et analyse des signaux et modes de défaillance liés au TSC3.',
+      'Traçabilité TSC ↔ SRS ↔ SWA ↔ SW-SC avec DOORS.',
+      'Analyse d’architecture AUTOSAR et revue de code et de dépendances avec Understand.',
     ],
-    stack: ['TIA Portal', 'GRAFCET', 'AMDEC', 'Automatisation', 'Supervision'],
+    stack: ['ISO 26262', 'AUTOSAR', 'DOORS', 'Understand', 'IDEAS'],
+  },
+  {
+    company: 'Alstom Transport',
+    role: 'Ingénieur en sécurité ferroviaire',
+    period: '2024',
+    place: 'Lyon, France',
+    intro:
+      'Mission Safety sur des activités FPGA SPMC dans un environnement ferroviaire critique conforme à EN 50129:2018.',
+    tasks: [
+      'Vérification et validation de la traçabilité entre exigences Safety, système et hardware.',
+      'Contrôle de la couverture des exigences hardware par les exigences FPGA.',
+      'Validation de la traçabilité entre HwPCRSAD et scénarios de test.',
+      'Rédaction de rapports de traçabilité et suivi des incohérences avec les équipes techniques.',
+    ],
+    stack: ['EN 50129:2018', 'FPGA', 'Excel', 'Word'],
   },
 ];
 
