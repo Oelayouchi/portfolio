@@ -72,7 +72,6 @@ export default function ContactSection() {
         <div className="contactFormHeading">
           <span>ME CONTACTER PAR E-MAIL</span>
           <h3>Envoyez-moi un message</h3>
-          <p>Le formulaire transmet directement votre message à mon adresse e-mail.</p>
         </div>
 
         <form className="contactForm" onSubmit={handleSubmit}>
