@@ -11,14 +11,19 @@ html[data-theme='light'] {
 }
 
 html[data-theme='light'] body {
-  background: #f5f8fc;
-  color: #102033;
+  background: #f4f8ff;
+  color: #0b1f3a;
 }
 
+/* Navigation + companies strip */
 html[data-theme='light'] .navBar,
 html[data-theme='light'] .companiesBar {
-  border-color: #d7e2f0;
-  background: rgba(248, 251, 255, 0.96);
+  border-color: #b8d3f2;
+  background: rgba(245, 250, 255, 0.98);
+}
+
+html[data-theme='light'] .companiesBar {
+  background: linear-gradient(180deg, #eef6ff 0%, #e7f1ff 100%);
 }
 
 html[data-theme='light'] .navlinks a,
@@ -28,18 +33,37 @@ html[data-theme='light'] .experienceTopRow h3,
 html[data-theme='light'] .eduDetailed h3,
 html[data-theme='light'] .card h3,
 html[data-theme='light'] .cert h3 {
-  color: #102033;
+  color: #0b1f3a;
 }
 
 html[data-theme='light'] .navlinks a.active {
   color: #087cff;
 }
 
+/* Companies strip: no white text on light background */
+html[data-theme='light'] .companiesHeading p {
+  color: #2f6fb7;
+}
+
+html[data-theme='light'] .companiesHeading span {
+  background: #6e9fd6;
+}
+
+html[data-theme='light'] .companyItem p {
+  color: #174f8e;
+  font-weight: 700;
+}
+
+html[data-theme='light'] .companyItem + .companyItem {
+  border-left-color: rgba(49, 103, 166, 0.36);
+}
+
+/* Hero */
 html[data-theme='light'] .heroSection {
   background:
     radial-gradient(circle at 75% 30%, rgba(90, 73, 255, 0.12), transparent 32%),
-    radial-gradient(circle at 18% 42%, rgba(0, 144, 255, 0.12), transparent 34%),
-    linear-gradient(180deg, #eef5ff 0%, #f7faff 100%);
+    radial-gradient(circle at 18% 42%, rgba(0, 144, 255, 0.14), transparent 34%),
+    linear-gradient(180deg, #eaf4ff 0%, #f7faff 100%);
 }
 
 html[data-theme='light'] .hero h1,
@@ -48,20 +72,28 @@ html[data-theme='light'] .axisContent h3,
 html[data-theme='light'] .button,
 html[data-theme='light'] .pipeline b,
 html[data-theme='light'] .educationOriginalText h3 {
-  color: #102033;
+  color: #0b1f3a;
 }
 
+html[data-theme='light'] .heroBadge {
+  border-color: #78aee6;
+  background: rgba(224, 240, 255, 0.9);
+  color: #185d9e;
+}
+
+/* Cards and panels */
 html[data-theme='light'] .heroCard,
 html[data-theme='light'] .card,
 html[data-theme='light'] .cert,
 html[data-theme='light'] .stats div,
 html[data-theme='light'] .pipeline span,
 html[data-theme='light'] .experienceLogoInline {
-  border-color: #cbd8e8;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 18px 45px rgba(69, 91, 120, 0.08);
+  border-color: #bdd3eb;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 18px 45px rgba(42, 92, 150, 0.09);
 }
 
+/* Main text: darker blue instead of low-contrast grey */
 html[data-theme='light'] .copy,
 html[data-theme='light'] .experience p,
 html[data-theme='light'] .experience li,
@@ -75,7 +107,22 @@ html[data-theme='light'] .lead,
 html[data-theme='light'] .axisContent p,
 html[data-theme='light'] .experienceMetaTop span,
 html[data-theme='light'] .educationOriginalText span {
-  color: #51647c !important;
+  color: #315d8c !important;
+}
+
+/* Small labels / previously grey text */
+html[data-theme='light'] .eyebrow,
+html[data-theme='light'] .mini,
+html[data-theme='light'] .experienceDepartment,
+html[data-theme='light'] .projectPeriod,
+html[data-theme='light'] .projectType,
+html[data-theme='light'] .meta,
+html[data-theme='light'] .sectionLabel {
+  color: #1769b4 !important;
+}
+
+html[data-theme='light'] .experienceMetaTop strong {
+  color: #123f70;
 }
 
 html[data-theme='light'] .timeline,
@@ -85,25 +132,33 @@ html[data-theme='light'] .stats,
 html[data-theme='light'] .dataPanel,
 html[data-theme='light'] .card,
 html[data-theme='light'] .cert {
-  border-color: #d7e2f0;
+  border-color: #c8dcef;
 }
 
 html[data-theme='light'] .dataPanel {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(124, 58, 237, 0.05));
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(14, 116, 214, 0.05));
 }
 
 html[data-theme='light'] .button.secondary {
-  background: rgba(255, 255, 255, 0.88);
-  color: #102033;
+  border-color: #7eb5ec;
+  background: rgba(255, 255, 255, 0.94);
+  color: #134f88;
 }
 
+html[data-theme='light'] .tags span {
+  border-color: #a9c9e9;
+  background: #edf6ff;
+  color: #205d98;
+}
+
+/* Theme switch */
 html[data-theme='light'] .themeToggle {
-  background: #eef4fb;
-  border-color: #bcd0e8;
+  background: #e6f1fc;
+  border-color: #8eb9e6;
 }
 
 html[data-theme='light'] .themeToggle > span {
-  color: #51647c;
+  color: #28649c;
 }
 
 html[data-theme='light'] .themeToggle > span.themeActive {
