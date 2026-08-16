@@ -40,7 +40,7 @@ html[data-theme='light'] .navlinks a.active {
   color: #087cff;
 }
 
-/* Companies strip: no white text on light background */
+/* Companies strip */
 html[data-theme='light'] .companiesHeading p {
   color: #2f6fb7;
 }
@@ -93,7 +93,7 @@ html[data-theme='light'] .experienceLogoInline {
   box-shadow: 0 18px 45px rgba(42, 92, 150, 0.09);
 }
 
-/* Main text: darker blue instead of low-contrast grey */
+/* Main text */
 html[data-theme='light'] .copy,
 html[data-theme='light'] .experience p,
 html[data-theme='light'] .experience li,
@@ -110,7 +110,7 @@ html[data-theme='light'] .educationOriginalText span {
   color: #315d8c !important;
 }
 
-/* Small labels / previously grey text */
+/* Small labels */
 html[data-theme='light'] .eyebrow,
 html[data-theme='light'] .mini,
 html[data-theme='light'] .experienceDepartment,
@@ -123,6 +123,20 @@ html[data-theme='light'] .sectionLabel {
 
 html[data-theme='light'] .experienceMetaTop strong {
   color: #123f70;
+}
+
+/* Experience section headings: keep them clearly visible on light background */
+html[data-theme='light'] .experienceBlock h5 {
+  color: #1474c9 !important;
+}
+
+html[data-theme='light'] .parcelSubject h6 {
+  color: #0d4f91 !important;
+  text-decoration-color: #0d4f91;
+}
+
+html[data-theme='light'] .experience h4 {
+  color: #173f6e !important;
 }
 
 html[data-theme='light'] .timeline,
