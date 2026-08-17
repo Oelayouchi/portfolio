@@ -51,7 +51,7 @@
   max-width: 590px;
   margin-top: 28px;
   margin-bottom: 0;
-  font-size: clamp(42px, 4.35vw, 72px);
+  font-size: clamp(36px, 3.65vw, 60px);
   line-height: 1.08;
   letter-spacing: -.045em;
 }
@@ -68,7 +68,7 @@
   margin: 0;
   padding-left: 74px;
   color: #d7e1ee;
-  font-size: clamp(17px, 1.35vw, 21px);
+  font-size: clamp(15px, 1.08vw, 18px);
   font-weight: 400;
   line-height: 1.7;
 }
@@ -110,11 +110,11 @@ html[data-theme='light'] #about .copy p { color: #26384d; }
   #about.section.split::after { display: none; }
   #about > div:first-child { padding-right: 0; }
   #about .copy { padding-left: 0; }
-  #about h2 { font-size: clamp(38px, 9vw, 58px); }
+  #about h2 { font-size: clamp(34px, 8vw, 50px); }
 }
 
 @media (max-width: 560px) {
   #about.section.split { padding: 28px 20px; border-radius: 20px; }
-  #about .copy p { padding-left: 0; font-size: 16px; }
+  #about .copy p { padding-left: 0; font-size: 15px; }
   #about .copy p::before { position: static; margin-bottom: 14px; }
 }
