@@ -1,0 +1,7 @@
+/* Nettoyage visuel du hero demandé : suppression des deux points décoratifs
+   et de l'indication "Scroller pour en savoir plus". */
+.heroSection::before,
+.heroSection::after,
+.scrollHint {
+  display: none !important;
+}
