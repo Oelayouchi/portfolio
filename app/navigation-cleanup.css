@@ -19,3 +19,35 @@
 .mobileMenu a.active {
   font-weight: 400 !important;
 }
+
+/* Barre de navigation toujours visible pendant le scroll. */
+.navBar {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+}
+
+/* La navbar fixe ne doit pas recouvrir le début de la page. */
+body {
+  padding-top: 80px !important;
+}
+
+/* Les ancres restent visibles sous la barre fixe. */
+section[id],
+[id] {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 760px) {
+  body {
+    padding-top: 72px !important;
+  }
+
+  section[id],
+  [id] {
+    scroll-margin-top: 84px;
+  }
+}
