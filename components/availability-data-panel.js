@@ -13,7 +13,6 @@ export default function AvailabilityDataPanel() {
 
       <div className="availabilityV2Dashboard" aria-label="Aperçu de compétences Data">
         <div className="availabilityV2Card">
-          <span className="availabilityV2Label">Progression</span>
           <div className="availabilityV2PlotSlot">
             <div className="availabilityV2BarArea">
               <div className="availabilityV2YAxis"><small>100</small><small>50</small><small>0</small></div>
@@ -24,7 +23,6 @@ export default function AvailabilityDataPanel() {
         </div>
 
         <div className="availabilityV2Card">
-          <span className="availabilityV2Label">Tendance</span>
           <div className="availabilityV2PlotSlot">
             <svg className="availabilityV2Trend" viewBox="0 0 180 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
               <line x1="12" y1="100" x2="168" y2="100"/>
@@ -38,7 +36,6 @@ export default function AvailabilityDataPanel() {
         </div>
 
         <div className="availabilityV2Card availabilityV2DonutCard">
-          <span className="availabilityV2Label">Répartition</span>
           <div className="availabilityV2PlotSlot">
             <div className="availabilityV2DonutRow">
               <div className="availabilityV2Donut" aria-hidden="true" />
