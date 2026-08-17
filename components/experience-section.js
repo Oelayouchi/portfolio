@@ -9,7 +9,7 @@ const additionalExperiences = [
     logo: '/companies/ocp.png',
     department: 'Office Chérifien des Phosphates — Laverie BA',
     role: 'Stage Ingénieur',
-    period: 'Juillet – Août 2019',
+    period: 'Juillet 2019 – Août 2019',
     place: 'Khouribga, Maroc',
     objectives: [
       'Amélioration de la gestion et du contrôle du site Beni Amir.',
@@ -26,7 +26,7 @@ const additionalExperiences = [
     logo: '/companies/onda.png',
     department: 'Office National des Aéroports',
     role: 'Stage Ingénieur d’initiation',
-    period: 'Juillet 2018',
+    period: 'Juillet 2018 – Août 2018',
     place: 'Casablanca, Maroc',
     objectives: [
       'Étude d’installation d’une ligne de convoyage pour traitement des bagages.',
@@ -46,6 +46,11 @@ function getExperienceDisplayName(experience) {
   if (experience.id === 'experience-ocp' || experience.id === 'experience-ocp-2019') return 'OCP';
   if (experience.id === 'experience-onda-2018') return 'ONDA';
   return experience.company;
+}
+
+function getExperiencePeriod(experience) {
+  if (experience.id === 'experience-alstom') return 'Juillet 2024 – Octobre 2025';
+  return experience.period;
 }
 
 function ParcelHomeAchievements() {
@@ -127,6 +132,7 @@ export default function ExperienceSection() {
       <div className="timeline">
         {allExperiences.map((experience) => {
           const displayName = getExperienceDisplayName(experience);
+          const displayPeriod = getExperiencePeriod(experience);
 
           return (
             <article className="experience experienceRefined" id={experience.id} key={experience.id}>
@@ -144,7 +150,7 @@ export default function ExperienceSection() {
 
                   <div className="experienceTopActions">
                     <div className="experienceMetaTop">
-                      <strong>{experience.period}</strong>
+                      <strong>{displayPeriod}</strong>
                       <span>{experience.place}</span>
                     </div>
                     <ExperienceReport experienceId={experience.id} title={displayName} />
