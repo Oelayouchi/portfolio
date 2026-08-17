@@ -1,15 +1,27 @@
-/* Home hero layout repair: restore the full identity + headline on desktop. */
+/* Home hero layout repair: strict desktop alignment for the three hero columns. */
 
 .homeHeroMain {
-  grid-template-columns: minmax(270px, .78fr) minmax(520px, 1.45fr) minmax(270px, .72fr);
-  gap: 28px;
-  align-items: stretch;
+  --hero-col-gap: 28px;
+  display: grid !important;
+  grid-template-columns: minmax(270px, .78fr) minmax(520px, 1.45fr) minmax(270px, .72fr) !important;
+  gap: var(--hero-col-gap) !important;
+  align-items: stretch !important;
+}
+
+/* STRICT RULE: the 3 hero columns always share the same top and bottom line. */
+.homeHeroMain > .homeIdentityCard,
+.homeHeroMain > .homeHeroIntro,
+.homeHeroMain > .homeHighlights {
+  min-width: 0;
+  height: 100% !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  align-self: stretch !important;
 }
 
 .homeIdentityCard {
-  min-width: 0;
-  height: 100%;
-  align-self: stretch;
+  display: flex;
+  flex-direction: column;
 }
 
 .homeIdentityVisual {
@@ -28,11 +40,9 @@
 
 .homeHeroIntro {
   display: flex !important;
-  min-width: 0;
-  height: 100%;
   flex-direction: column;
   justify-content: flex-start;
-  align-self: stretch;
+  padding: 0 !important;
 }
 
 .homeHeroIntro h1 {
@@ -52,26 +62,47 @@
 }
 
 .homeHeroActions { margin-top: 24px; }
-.homeAvailabilityArea { margin-top: auto; padding-top: 20px; }
+
+/* The availability/dashboard block is pinned to the exact bottom of the center column. */
+.availabilityV2Wrap {
+  margin-top: auto !important;
+  padding-top: 20px !important;
+  margin-bottom: 0 !important;
+}
+
 .homeHeroAvailability,.homeDataPanel { width: 100%; min-width: 0; }
-.homeHighlights { min-width: 0; height: 100%; align-self: stretch; grid-template-rows: repeat(3, minmax(0, 1fr)); }
-.homeHighlightCard { min-height: 0; height: 100%; }
+
+/* Right column fills exactly the same total height as left/center. */
+.homeHighlights {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+.homeHighlightCard { min-height: 0 !important; height: 100% !important; }
+.homeHighlightCard:nth-child(5) { grid-column: 1 / -1 !important; }
 
 @media (max-width: 1180px) and (min-width: 761px) {
-  .homeHeroMain { grid-template-columns: minmax(235px, .8fr) minmax(0, 1.55fr); }
-  .homeHighlights { grid-column: 1 / -1; height: auto; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: 1fr; }
-  .homeHighlightCard:nth-child(5) { grid-column: auto; }
+  .homeHeroMain { grid-template-columns: minmax(235px, .8fr) minmax(0, 1.55fr) !important; }
+  .homeHighlights {
+    grid-column: 1 / -1;
+    height: auto !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    grid-template-rows: 1fr !important;
+  }
+  .homeHighlightCard:nth-child(5) { grid-column: auto !important; }
   .homeHeroIntro h1 { font-size: clamp(52px, 7vw, 78px) !important; }
 }
 
 @media (max-width: 760px) {
-  .homeHeroMain { grid-template-columns: 1fr; }
-  .homeIdentityCard { display: grid; height: auto; grid-template-columns: 92px minmax(0, 1fr); align-items: center; }
+  .homeHeroMain { grid-template-columns: 1fr !important; }
+  .homeIdentityCard { display: grid; height: auto !important; grid-template-columns: 92px minmax(0, 1fr); align-items: center; }
   .homeIdentityVisual { min-height: 0 !important; padding: 12px; }
   .homeIdentityVisual img { width: 72px !important; }
-  .homeHeroIntro { height: auto; }
-  .homeAvailabilityArea { margin-top: 20px; padding-top: 0; }
-  .homeHighlights { height: auto; grid-template-rows: none; }
-  .homeHighlightCard { height: auto; }
+  .homeHeroIntro { height: auto !important; padding: 8px 0 !important; }
+  .availabilityV2Wrap { margin-top: 18px !important; padding-top: 0 !important; }
+  .homeHighlights { height: auto !important; grid-template-columns: 1fr 1fr !important; grid-template-rows: none !important; }
+  .homeHighlightCard { height: auto !important; }
+  .homeHighlightCard:nth-child(5) { grid-column: 1 / -1 !important; }
   .homeHeroIntro h1 { font-size: clamp(46px, 14vw, 68px) !important; }
 }
