@@ -82,6 +82,22 @@
 .homeHighlightCard { min-height: 0 !important; height: 100% !important; }
 .homeHighlightCard:nth-child(5) { grid-column: 1 / -1 !important; }
 
+/* Stage mini-cards use the same hover motion as the main experience cards. */
+.homeStageList a {
+  position: relative;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease !important;
+  will-change: transform;
+}
+
+.homeStageList a:hover,
+.homeStageList a:focus-visible {
+  transform: translateY(-5px) !important;
+  border-color: #168cff !important;
+  background: linear-gradient(150deg, rgba(12, 38, 72, .96), rgba(8, 26, 50, .96)) !important;
+  box-shadow: 0 10px 22px rgba(0, 119, 255, .16) !important;
+  outline: none;
+}
+
 @media (max-width: 1180px) and (min-width: 761px) {
   .homeHeroMain { grid-template-columns: minmax(235px, .8fr) minmax(0, 1.55fr) !important; }
   .homeHighlights {
