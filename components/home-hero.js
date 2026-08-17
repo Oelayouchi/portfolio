@@ -16,52 +16,21 @@ const highlights = [
   { value: '3+', label: "Années d’expérience" },
   { value: '10+', label: 'Projets techniques' },
   { value: '4', label: 'Prix & distinctions', detail: 'Robotique & innovation' },
-  { value: '3', label: 'Domaines clés', detail: 'Systèmes embarqués · Sûreté de fonctionnement · Data Analyse' },
+  { value: '3', label: 'Domaines clés', detail: <>Systèmes embarqués<br/>Sûreté de fonctionnement<br/>Data Analyse</> },
   { value: '4', label: 'Certifications affichées' },
 ];
 
 const career = [
-  {
-    type: 'search',
-    href: '#contact',
-    company: 'À la recherche',
-    role: 'D’une alternance en Data Analyse',
-    stack: 'Data Analyst · Alternance',
-  },
-  {
-    href: '#experience-alstom',
-    logo: '/companies/alstom.png',
-    period: '2024 – 2025',
-    company: 'Alstom',
-    role: 'Ingénieur sécurité ferroviaire',
-    stack: 'FPGA · EN 50129',
-  },
-  {
-    href: '#experience-continental',
-    logo: '/companies/continental.png',
-    period: '2023 – 2024',
-    company: 'Continental',
-    role: 'Ingénieur sécurité logicielle automobile',
-    stack: 'AUTOSAR · DOORS · ISO 26262',
-  },
-  {
-    href: '#experience-parcelhome',
-    logo: '/companies/parcelhom.png',
-    period: '2022 – 2023',
-    company: 'ParcelHome',
-    role: 'Développeur électronique & logiciel',
-    stack: 'C/C++ · Python · STM32',
-  },
-  {
-    type: 'stages',
-    company: 'Stages',
-    stages: [
-      { href: '#experience-parcelhome-stage', logo: '/companies/parcelhom.png', name: 'ParcelHome', period: '2021 – 2022' },
-      { href: '#experience-ocp', logo: '/companies/ocp.png', name: 'OCP', period: '2020' },
-      { href: '#experience-ocp-2019', logo: '/companies/ocp.png', name: 'OCP', period: '2019' },
-      { href: '#experience-onda-2018', logo: '/companies/onda.png', name: 'ONDA', period: '2018' },
-    ],
-  },
+  { type: 'search', href: '#contact', company: 'À la recherche', role: 'D’une alternance en Data Analyse', stack: 'Data Analyst · Alternance' },
+  { href: '#experience-alstom', logo: '/companies/alstom.png', period: '2024 – 2025', company: 'Alstom', role: 'Ingénieur sécurité ferroviaire', stack: 'FPGA · EN 50129' },
+  { href: '#experience-continental', logo: '/companies/continental.png', period: '2023 – 2024', company: 'Continental', role: 'Ingénieur sécurité logicielle automobile', stack: 'AUTOSAR · DOORS · ISO 26262' },
+  { href: '#experience-parcelhome', logo: '/companies/parcelhom.png', period: '2022 – 2023', company: 'ParcelHome', role: 'Développeur électronique & logiciel', stack: 'C/C++ · Python · STM32' },
+  { type: 'stages', company: 'Stages', stages: [
+    { href: '#experience-parcelhome-stage', logo: '/companies/parcelhom.png', name: 'ParcelHome', period: '2021 – 2022' },
+    { href: '#experience-ocp', logo: '/companies/ocp.png', name: 'OCP', period: '2020' },
+    { href: '#experience-ocp-2019', logo: '/companies/ocp.png', name: 'OCP', period: '2019' },
+    { href: '#experience-onda-2018', logo: '/companies/onda.png', name: 'ONDA', period: '2018' },
+  ]},
 ];
 
 function HeroIcon({ type }) {
@@ -86,58 +55,18 @@ function ToolLogo({ icon }) {
   return <svg {...common} fill="none" stroke="currentColor" strokeWidth="2"><rect x="7" y="3" width="18" height="23" rx="4"/><path d="M10 10h12M11 26l-3 4M21 26l3 4"/><circle cx="12" cy="20" r="1"/><circle cx="20" cy="20" r="1"/></svg>;
 }
 
-function SearchLogo() {
-  return <span className="homeSearchLogo" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 8 8"/></svg></span>;
-}
+function SearchLogo() { return <span className="homeSearchLogo" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 8 8"/></svg></span>; }
 
 export default function HomeHero() {
   return (
-    <section id="top" className="homeHero">
-      <div className="shell homeHeroShell">
-        <div className="homeHeroMain">
-          <div className="homeIdentityCard">
-            <div className="homeIdentityVisual"><img src="/profile/favicon.png" alt="Identité visuelle Oussama EL AYOUCHI" /></div>
-            <div className="homeIdentityCopy">
-              <strong>Oussama EL AYOUCHI</strong>
-              <span>Ingénieur systèmes embarqués & Safety</span>
-              <p>Ingénieur en systèmes embarqués et sûreté de fonctionnement, j’ai évolué du développement électronique et logiciel vers la sûreté de fonctionnement automobile et ferroviaire. Aujourd’hui, je complète ce parcours par une spécialisation en Data Analyse.</p>
-            </div>
-          </div>
-
-          <div className="homeHeroIntro">
-            <h1>Oussama<br/><span>EL AYOUCHI</span></h1>
-            <p>Ingénieur systèmes embarqués & Safety, actuellement en reconversion vers la <strong>Data Analyst.</strong></p>
-            <div className="homeHeroActions">
-              <a className="button primary" href="#contact"><HeroIcon type="mail"/>Me contacter</a>
-              <a className="button secondary" href="/documents/CV_Oussama_EL_AYOUCHI.pdf" target="_blank" rel="noreferrer"><HeroIcon type="download"/>Télécharger mon CV</a>
-            </div>
-            <a className="homeHeroAvailability" href="#contact">
-              <SearchLogo />
-              <span><strong>Disponible pour une alternance en Data Analyse</strong><small>Data Analyst · Alternance</small></span>
-            </a>
-          </div>
-
-          <div className="homeHighlights" aria-label="Chiffres clés">
-            {highlights.map((item) => <div className="homeHighlightCard" key={item.label}><strong>{item.value}</strong><span>{item.label}</span>{item.detail && <small>{item.detail}</small>}</div>)}
-          </div>
-        </div>
-
-        <div className="homeTools" aria-label="Technologies principales">
-          {tools.map((tool) => <div className={`homeTool homeTool-${tool.tone}`} key={tool.name} title={tool.name}><span className="homeToolLogo"><ToolLogo icon={tool.icon}/></span><strong>{tool.name}</strong></div>)}
-        </div>
-
-        <div className="homeCareer">
-          <div className="homeCareerTitle"><span>PARCOURS</span><h2>Expériences professionnelles</h2></div>
-          <div className="homeCareerLine">
-            {career.map((item) => {
-              if (item.type === 'stages') {
-                return <div className="homeCareerItem homeCareerStages" key="stages"><span className="homeCareerDot"/><strong>Stages</strong><div className="homeStageList">{item.stages.map((stage) => <a href={stage.href} key={`${stage.name}-${stage.period}`}><img src={stage.logo} alt=""/><span><b>{stage.name}</b><small>{stage.period}</small></span></a>)}</div></div>;
-              }
-              return <a className={`homeCareerItem${item.type === 'search' ? ' homeCareerSearch' : ''}`} href={item.href} key={item.company}><span className="homeCareerDot"/><span className="homeCareerLogo">{item.type === 'search' ? <SearchLogo/> : <img src={item.logo} alt={`Logo ${item.company}`}/>}</span>{item.period && <small>{item.period}</small>}<strong>{item.company}</strong><p>{item.role}</p><em>{item.stack}</em></a>;
-            })}
-          </div>
-        </div>
+    <section id="top" className="homeHero"><div className="shell homeHeroShell">
+      <div className="homeHeroMain">
+        <div className="homeIdentityCard"><div className="homeIdentityVisual"><img src="/profile/favicon.png" alt="Identité visuelle Oussama EL AYOUCHI" /></div><div className="homeIdentityCopy"><strong>Oussama EL AYOUCHI</strong><span>Ingénieur systèmes embarqués & Safety</span><p>Ingénieur en systèmes embarqués et sûreté de fonctionnement, j’ai évolué du développement électronique et logiciel vers la sûreté de fonctionnement automobile et ferroviaire. Aujourd’hui, je complète ce parcours par une spécialisation en Data Analyse.</p></div></div>
+        <div className="homeHeroIntro"><h1>Oussama<br/><span>EL AYOUCHI</span></h1><p>Ingénieur systèmes embarqués & Safety, actuellement en reconversion vers la <strong>Data Analyst.</strong></p><div className="homeHeroActions"><a className="button primary" href="#contact"><HeroIcon type="mail"/>Me contacter</a><a className="button secondary" href="/documents/CV_Oussama_EL_AYOUCHI.pdf" target="_blank" rel="noreferrer"><HeroIcon type="download"/>Télécharger mon CV</a></div><a className="homeHeroAvailability" href="#contact"><SearchLogo /><span><strong>Disponible pour une alternance en Data Analyse</strong><small>Data Analyst · Alternance</small></span></a></div>
+        <div className="homeHighlights" aria-label="Chiffres clés">{highlights.map((item) => <div className="homeHighlightCard" key={item.label}><strong>{item.value}</strong><span>{item.label}</span>{item.detail && <small>{item.detail}</small>}</div>)}</div>
       </div>
-    </section>
+      <div className="homeTools" aria-label="Technologies principales">{tools.map((tool) => <div className={`homeTool homeTool-${tool.tone}`} key={tool.name} title={tool.name}><span className="homeToolLogo"><ToolLogo icon={tool.icon}/></span><strong>{tool.name}</strong></div>)}</div>
+      <div className="homeCareer"><div className="homeCareerTitle"><span>PARCOURS</span><h2>Expériences professionnelles</h2></div><div className="homeCareerLine">{career.map((item) => { if (item.type === 'stages') return <div className="homeCareerItem homeCareerStages" key="stages"><span className="homeCareerDot"/><strong>Stages</strong><div className="homeStageList">{item.stages.map((stage) => <a href={stage.href} key={`${stage.name}-${stage.period}`}><img src={stage.logo} alt=""/><span><b>{stage.name}</b><small>{stage.period}</small></span></a>)}</div></div>; return <a className={`homeCareerItem${item.type === 'search' ? ' homeCareerSearch' : ''}`} href={item.href} key={item.company}><span className="homeCareerDot"/><span className="homeCareerLogo">{item.type === 'search' ? <SearchLogo/> : <img src={item.logo} alt={`Logo ${item.company}`}/>}</span>{item.period && <small>{item.period}</small>}<strong>{item.company}</strong><p>{item.role}</p><em>{item.stack}</em></a>; })}</div></div>
+    </div></section>
   );
 }
