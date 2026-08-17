@@ -1,0 +1,8 @@
+/* Hero — parcours en 4 axes : suppression des chevrons à droite */
+.axis {
+  grid-template-columns: 56px 54px minmax(0, 1fr) !important;
+}
+
+.axisArrow {
+  display: none !important;
+}
