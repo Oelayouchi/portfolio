@@ -17,29 +17,15 @@ import './about-card.css';
 import './data-flow.css';
 import './hero-layout-final.css';
 import './typography.css';
+import './availability-dashboard.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
   description: 'Ingénieur systèmes embarqués & Safety en reconversion vers la Data Analyse.',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  icons: {
-    icon: '/profile/favicon.png',
-    shortcut: '/profile/favicon.png',
-    apple: '/profile/favicon.png',
-  },
+  formatDetection: { email: false, address: false, telephone: false },
+  icons: { icon: '/profile/favicon.png', shortcut: '/profile/favicon.png', apple: '/profile/favicon.png' },
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="fr">
-      <head>
-        <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" />
-      </head>
-      <body>{children}</body>
-    </html>
-  );
+  return <html lang="fr"><head><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" /></head><body>{children}</body></html>;
 }
