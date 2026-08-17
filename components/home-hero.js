@@ -102,7 +102,6 @@ export default function HomeHero() {
               <span>Ingénieur systèmes embarqués & Safety</span>
               <p>Ingénieur polyvalent, j’ai évolué du développement électronique et logiciel vers la sûreté de fonctionnement automobile et ferroviaire. Aujourd’hui, je complète ce parcours par une spécialisation en Data Analyse.</p>
             </div>
-            <div className="homeAvailability"><i /> Disponible pour de nouvelles opportunités</div>
           </div>
 
           <div className="homeHeroIntro">
