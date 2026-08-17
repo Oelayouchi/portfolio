@@ -12,6 +12,7 @@ import './hero-tweaks.css';
 import './mobile-navigation.css';
 import './home-hero.css';
 import './awards.css';
+import './about-card.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
