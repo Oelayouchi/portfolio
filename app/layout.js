@@ -11,6 +11,11 @@ import './companies-strip.css';
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
   description: 'Ingénieur systèmes embarqués & Safety en reconversion vers la Data Analyse.',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: '/profile/favicon.png',
     shortcut: '/profile/favicon.png',
@@ -21,6 +26,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
+      <head>
+        <meta
+          name="format-detection"
+          content="telephone=no,date=no,address=no,email=no,url=no"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
