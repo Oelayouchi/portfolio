@@ -52,40 +52,49 @@
 .homeTool-fpga .homeToolLogo { color:#8b7cff; }
 .homeTool-en .homeToolLogo { color:#45d98b; }
 .homeTool strong { color:#dce8f6; font-size:11px; white-space:nowrap; }
-.homeCareer { padding:24px 28px 28px; border-radius:20px; }
+
+/* Parcours professionnel — cartes premium */
+.homeCareer { padding:26px 28px 30px; border-radius:20px; }
 .homeCareerTitle span { color:#5caeff; font-size:10px; font-weight:900; letter-spacing:.16em; }
-.homeCareerTitle h2 { margin:5px 0 30px; font-size:25px; letter-spacing:-.02em; }
-.homeCareerLine { position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:18px; }
-.homeCareerLine::before { position:absolute; top:9px; right:3%; left:3%; height:2px; background:linear-gradient(90deg,#3cd77c,#0c9cff 20%,#176dff); content:''; }
-.homeCareerItem { position:relative; z-index:1; display:flex; min-width:0; flex-direction:column; padding-top:28px; color:inherit; text-decoration:none; transition:transform 160ms ease; }
-.homeCareerItem:hover { transform:translateY(-4px); }
-.homeCareerDot { position:absolute; top:0; left:8px; width:19px; height:19px; border:3px solid #0a1a2f; border-radius:50%; background:#168cff; box-shadow:0 0 17px rgba(22,140,255,.72); }
-.homeCareerSearch .homeCareerDot { background:#38d982; box-shadow:0 0 17px rgba(56,217,130,.68); }
-.homeCareerLogo { display:flex; align-items:center; min-height:42px; margin-bottom:7px; }
-.homeCareerLogo img { width:74px; max-height:34px; object-fit:contain; object-position:left center; }
-.homeSearchLogo { display:grid; width:38px; height:38px; place-items:center; border:1px solid rgba(56,217,130,.45); border-radius:50%; color:#48df91; background:rgba(14,69,50,.22); animation:searchMove 1.8s ease-in-out infinite; }
-.homeSearchLogo svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; }
-@keyframes searchMove { 0%,100%{transform:translateX(0) rotate(0)} 50%{transform:translateX(8px) rotate(-8deg)} }
-.homeCareerItem small { min-height:16px; color:#6caaf5; font-size:10px; font-weight:800; }
-.homeCareerItem strong { margin-top:5px; color:#fff; font-size:16px; }
-.homeCareerItem p { margin:6px 0 8px; color:#9db0c8; font-size:12px; line-height:1.45; }
-.homeCareerItem em { color:#6e8bae; font-size:10px; font-style:normal; line-height:1.45; }
-.homeCareerSearch strong { color:#51dc91; }
-.homeCareerStages { padding-right:4px; }
-.homeStageList { display:grid; gap:6px; margin-top:9px; }
-.homeStageList a { display:grid; grid-template-columns:34px 1fr; align-items:center; gap:8px; padding:6px 7px; border:1px solid rgba(65,111,170,.2); border-radius:9px; background:rgba(9,25,47,.45); color:inherit; text-decoration:none; transition:border-color 160ms ease,transform 160ms ease; }
-.homeStageList a:hover { border-color:#168cff; transform:translateX(3px); }
-.homeStageList img { width:32px; height:24px; object-fit:contain; }
-.homeStageList span { display:grid; gap:1px; min-width:0; }
-.homeStageList b { overflow:hidden; color:#eaf3ff; font-size:10px; text-overflow:ellipsis; white-space:nowrap; }
-.homeStageList small { min-height:0; color:#6caaf5; font-size:9px; }
+.homeCareerTitle h2 { margin:5px 0 22px; font-size:25px; letter-spacing:-.02em; }
+.homeCareerLine { position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; }
+.homeCareerLine::before { display:none; }
+.homeCareerItem { position:relative; display:flex; min-width:0; min-height:222px; flex-direction:column; align-items:center; justify-content:flex-start; padding:20px 15px 18px; overflow:hidden; border:1px solid rgba(49,126,220,.42); border-radius:17px; background:linear-gradient(150deg,rgba(10,31,59,.94),rgba(7,21,42,.94)); color:inherit; text-align:center; text-decoration:none; box-shadow:inset 0 0 28px rgba(28,105,255,.045); transition:transform 180ms ease,border-color 180ms ease,box-shadow 180ms ease; }
+.homeCareerItem:hover { transform:translateY(-5px); border-color:#168cff; box-shadow:0 15px 34px rgba(0,91,214,.16),inset 0 0 28px rgba(28,105,255,.08); }
+.homeCareerDot { display:none; }
+.homeCareerLogo { display:flex; min-height:54px; align-items:center; justify-content:center; margin-bottom:9px; }
+.homeCareerLogo img { width:112px; max-height:48px; object-fit:contain; object-position:center; }
+.homeSearchLogo { display:grid; width:58px; height:58px; place-items:center; border:1px solid rgba(56,217,130,.5); border-radius:50%; color:#48df91; background:rgba(14,69,50,.22); box-shadow:0 0 24px rgba(56,217,130,.12); animation:searchMove 1.8s ease-in-out infinite; }
+.homeSearchLogo svg { width:34px; height:34px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; }
+@keyframes searchMove { 0%,100%{transform:translateX(-3px) rotate(0)} 50%{transform:translateX(5px) rotate(-8deg)} }
+.homeCareerItem small { min-height:0; margin:2px 0 4px; padding:4px 9px; border-radius:999px; background:rgba(19,111,220,.18); color:#78b8ff; font-size:10px; font-weight:800; }
+.homeCareerItem strong { margin-top:4px; color:#fff; font-size:16px; }
+.homeCareerItem p { margin:7px 0 8px; color:#a9bbd1; font-size:11px; line-height:1.45; }
+.homeCareerItem em { margin-top:auto; color:#7894b6; font-size:9.5px; font-style:normal; line-height:1.45; }
+.homeCareerSearch { border-color:rgba(55,218,132,.48); background:linear-gradient(150deg,rgba(8,48,45,.74),rgba(7,24,39,.95)); }
+.homeCareerSearch:hover { border-color:#38d982; box-shadow:0 15px 34px rgba(32,191,111,.13),inset 0 0 32px rgba(40,215,129,.07); }
+.homeCareerSearch strong { color:#51dc91; font-size:18px; }
+.homeCareerSearch p { color:#b7d6c7; }
+.homeCareerStages { align-items:stretch; text-align:left; }
+.homeCareerStages>strong { text-align:center; margin-bottom:8px; }
+.homeCareerStages::before { display:block; margin:0 auto 9px; color:#58aaff; font-size:28px; line-height:1; content:'◇'; }
+.homeStageList { display:grid; gap:6px; margin-top:3px; }
+.homeStageList a { display:grid; grid-template-columns:36px 1fr; align-items:center; gap:8px; padding:6px 8px; border:1px solid rgba(65,111,170,.22); border-radius:9px; background:rgba(9,25,47,.5); color:inherit; text-decoration:none; transition:border-color 160ms ease,transform 160ms ease,background 160ms ease; }
+.homeStageList a:hover { border-color:#168cff; background:rgba(15,49,88,.65); transform:translateX(3px); }
+.homeStageList img { width:34px; height:23px; object-fit:contain; }
+.homeStageList span { display:grid; grid-template-columns:1fr auto; align-items:center; gap:5px; min-width:0; }
+.homeStageList b { overflow:hidden; color:#eaf3ff; font-size:9.5px; text-overflow:ellipsis; white-space:nowrap; }
+.homeStageList small { margin:0; padding:0; background:none; color:#6caaf5; font-size:8.5px; white-space:nowrap; }
+
 html[data-theme='light'] .homeHero { background:linear-gradient(135deg,#eef6ff 0%,#f8fbff 52%,#eef2ff 100%); }
 html[data-theme='light'] .homeIdentityCard,html[data-theme='light'] .homeHighlightCard,html[data-theme='light'] .homeTools,html[data-theme='light'] .homeCareer { background:rgba(255,255,255,.9); box-shadow:0 16px 45px rgba(42,75,112,.1); }
 html[data-theme='light'] .homeHeroIntro h1,html[data-theme='light'] .homeCareerTitle h2,html[data-theme='light'] .homeCareerItem strong,html[data-theme='light'] .homeHighlightCard span,html[data-theme='light'] .homeTool strong { color:#0b1b32; }
 html[data-theme='light'] .homeHeroIntro>p { color:#52677f; }
 html[data-theme='light'] .homeIdentityVisual { background:#eff6ff; }
 html[data-theme='light'] .homeIdentityCopy span,html[data-theme='light'] .homeIdentityCopy p,html[data-theme='light'] .homeCareerItem p { color:#61758e; }
+html[data-theme='light'] .homeCareerItem { background:rgba(250,253,255,.94); }
+html[data-theme='light'] .homeCareerSearch { background:rgba(239,255,247,.94); }
 html[data-theme='light'] .homeStageList a { background:#f7fbff; }
 html[data-theme='light'] .homeStageList b { color:#0b1b32; }
-@media (max-width:1050px) { .homeHeroMain{grid-template-columns:minmax(210px,.8fr) minmax(0,1.6fr)} .homeHighlights{grid-column:1/-1;grid-template-columns:repeat(5,1fr)} .homeHighlightCard{min-height:110px} .homeCareerLine{grid-template-columns:repeat(3,minmax(0,1fr))} .homeCareerLine::before{display:none} }
-@media (max-width:760px) { .homeHero{padding-top:26px} .homeHeroMain{grid-template-columns:1fr} .homeIdentityCard{display:grid;grid-template-columns:92px 1fr;align-items:center} .homeIdentityVisual{min-height:0;padding:12px} .homeIdentityVisual img{width:72px;border-radius:18px} .homeIdentityCopy{padding:14px 12px} .homeIdentityCopy p{grid-column:1/-1} .homeAvailability{grid-column:1/-1;margin:0 12px 12px} .homeHeroIntro{padding:8px 0} .homeHeroIntro h1{font-size:clamp(48px,15vw,70px)} .homeStatusRow{grid-template-columns:1fr} .homeHighlights{grid-template-columns:1fr 1fr} .homeTool{min-width:96px} .homeCareer{padding:20px 18px 24px;overflow:hidden} .homeCareerLine{grid-template-columns:1fr;gap:4px} .homeCareerItem{min-height:104px;padding:0 0 20px 36px} .homeCareerDot{left:0} .homeCareerItem small{min-height:0} .homeCareerLogo{min-height:34px} .homeStageList{margin-top:8px} }
+@media (max-width:1050px) { .homeHeroMain{grid-template-columns:minmax(210px,.8fr) minmax(0,1.6fr)} .homeHighlights{grid-column:1/-1;grid-template-columns:repeat(5,1fr)} .homeHighlightCard{min-height:110px} .homeCareerLine{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:760px) { .homeHero{padding-top:26px} .homeHeroMain{grid-template-columns:1fr} .homeIdentityCard{display:grid;grid-template-columns:92px 1fr;align-items:center} .homeIdentityVisual{min-height:0;padding:12px} .homeIdentityVisual img{width:72px;border-radius:18px} .homeIdentityCopy{padding:14px 12px} .homeIdentityCopy p{grid-column:1/-1} .homeAvailability{grid-column:1/-1;margin:0 12px 12px} .homeHeroIntro{padding:8px 0} .homeHeroIntro h1{font-size:clamp(48px,15vw,70px)} .homeStatusRow{grid-template-columns:1fr} .homeHighlights{grid-template-columns:1fr 1fr} .homeTool{min-width:96px} .homeCareer{padding:20px 18px 24px;overflow:hidden} .homeCareerLine{grid-template-columns:1fr;gap:10px} .homeCareerItem{min-height:0;align-items:flex-start;padding:16px 18px;text-align:left} .homeCareerLogo{justify-content:flex-start;min-height:40px}.homeCareerLogo img{width:94px}.homeCareerSearch{align-items:flex-start}.homeCareerSearch .homeCareerLogo{justify-content:flex-start}.homeCareerStages>strong{text-align:left}.homeCareerStages::before{margin:0 0 8px}.homeStageList{width:100%} }
