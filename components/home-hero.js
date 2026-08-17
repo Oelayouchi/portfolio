@@ -57,12 +57,20 @@ function ToolLogo({ icon }) {
 
 function SearchLogo() { return <span className="homeSearchLogo" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 8 8"/></svg></span>; }
 
+function DataDashboard() {
+  return <div className="dataMiniDashboard" aria-hidden="true">
+    <div className="dataMiniChart"><span>Analyse des données</span><div className="dataBars"><i/><i/><i/><i/></div></div>
+    <div className="dataMiniChart"><span>Tendance</span><svg className="dataTrend" viewBox="0 0 130 66"><polyline points="6,55 34,43 62,34 91,22 123,10"/><circle cx="6" cy="55" r="3"/><circle cx="34" cy="43" r="3"/><circle cx="62" cy="34" r="3"/><circle cx="91" cy="22" r="3"/><circle cx="123" cy="10" r="3"/></svg></div>
+    <div className="dataMiniChart dataDonutChart"><span>Répartition</span><div className="dataDonut"><b>78%</b><small>Analyse</small></div><em>Power BI</em></div>
+  </div>;
+}
+
 export default function HomeHero() {
   return (
     <section id="top" className="homeHero"><div className="shell homeHeroShell">
       <div className="homeHeroMain">
         <div className="homeIdentityCard"><div className="homeIdentityVisual"><img src="/profile/favicon.png" alt="Identité visuelle Oussama EL AYOUCHI" /></div><div className="homeIdentityCopy"><strong>Oussama EL AYOUCHI</strong><span>Ingénieur systèmes embarqués & Safety</span><p>Ingénieur en systèmes embarqués et sûreté de fonctionnement, j’ai évolué du développement électronique et logiciel vers la sûreté de fonctionnement automobile et ferroviaire. Aujourd’hui, je complète ce parcours par une spécialisation en Data Analyse.</p></div></div>
-        <div className="homeHeroIntro"><h1>Oussama<br/><span>EL AYOUCHI</span></h1><p>Ingénieur systèmes embarqués & Safety, actuellement en reconversion vers la <strong>Data Analyst.</strong></p><div className="homeHeroActions"><a className="button primary" href="#contact"><HeroIcon type="mail"/>Me contacter</a><a className="button secondary" href="/documents/CV_Oussama_EL_AYOUCHI.pdf" target="_blank" rel="noreferrer"><HeroIcon type="download"/>Télécharger mon CV</a></div><a className="homeHeroAvailability" href="#contact"><SearchLogo /><span><strong>Disponible pour une alternance en Data Analyse</strong></span></a></div>
+        <div className="homeHeroIntro"><h1>Oussama<br/><span>EL AYOUCHI</span></h1><p>Ingénieur systèmes embarqués & Safety, actuellement en reconversion vers la <strong>Data Analyst.</strong></p><div className="homeHeroActions"><a className="button primary" href="#contact"><HeroIcon type="mail"/>Me contacter</a><a className="button secondary" href="/documents/CV_Oussama_EL_AYOUCHI.pdf" target="_blank" rel="noreferrer"><HeroIcon type="download"/>Télécharger mon CV</a></div><a className="homeHeroAvailability" href="#contact"><div className="homeAvailabilityHeading"><SearchLogo/><strong>Disponible pour une alternance en Data Analyse</strong></div><DataDashboard/></a></div>
         <div className="homeHighlights" aria-label="Chiffres clés">{highlights.map((item) => <div className="homeHighlightCard" key={item.label}><strong>{item.value}</strong><span>{item.label}</span>{item.detail && <small>{item.detail}</small>}</div>)}</div>
       </div>
       <div className="homeTools" aria-label="Technologies principales">{tools.map((tool) => <div className={`homeTool homeTool-${tool.tone}`} key={tool.name} title={tool.name}><span className="homeToolLogo"><ToolLogo icon={tool.icon}/></span><strong>{tool.name}</strong></div>)}</div>
