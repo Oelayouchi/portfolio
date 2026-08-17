@@ -1,0 +1,99 @@
+/* En-tête final des cartes projets : nom d'abord, rapport en face, sans libellé galerie */
+.projectDetailedMedia {
+  position: relative;
+}
+
+.projectHeadingBlock {
+  min-width: 0;
+  padding-right: 170px;
+}
+
+.projectHeadingBlock h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+/* Le projet commence visuellement par son nom, puis sa date. */
+.projectHeadingBlock .num {
+  display: none;
+}
+
+.projectHeadingBlock .projectPeriod {
+  margin: 0 0 10px;
+}
+
+.projectHeadingBlock .mini {
+  margin: 0 0 18px;
+}
+
+.projectHeadingBlock .projectType {
+  margin-top: 0;
+}
+
+/* Le bouton rapport est aligné en haut, en face du nom du projet. */
+.projectDetailedMedia .projectMediaHeader {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 3;
+  display: block;
+  min-height: 0;
+  margin: 0;
+}
+
+.projectDetailedMedia .projectReportButton {
+  min-height: 42px;
+  white-space: nowrap;
+}
+
+/* Aucun titre "Images du projet" et aucun espace réservé pour lui. */
+.projectDetailedMedia .projectMedia {
+  margin-top: auto;
+  padding-top: 34px;
+}
+
+.projectDetailedMedia .projectMedia::before {
+  margin-bottom: 28px;
+}
+
+html[data-theme='light'] .projectHeadingBlock h3 {
+  color: #0a1830;
+}
+
+@media (max-width: 720px) {
+  .projectHeadingBlock {
+    padding-right: 138px;
+  }
+
+  .projectHeadingBlock h3 {
+    font-size: 22px;
+  }
+
+  .projectDetailedMedia .projectMediaHeader {
+    top: 18px;
+    right: 16px;
+    width: auto;
+  }
+
+  .projectDetailedMedia .projectReportButton {
+    width: auto;
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectHeadingBlock {
+    padding-right: 0;
+    padding-top: 54px;
+  }
+
+  .projectDetailedMedia .projectMediaHeader {
+    top: 14px;
+    right: 14px;
+  }
+}
