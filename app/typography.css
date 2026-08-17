@@ -1,5 +1,5 @@
 /* Système typographique global — cohérent et professionnel.
-   Échelle: 14 / 15 / 16 / 18 / 20 / 22 px.
+   Échelle: 14 / 15 / 16 / 17 / 18 / 20 / 22 px.
    Le hero principal garde sa taille spéciale pour conserver l'identité visuelle. */
 
 body {
@@ -106,20 +106,21 @@ body {
   line-height: 1.35;
 }
 
-/* 18px — titres de cartes et sous-titres */
+/* 18px — titres de cartes, entreprises et sous-titres */
 .card h3,
 .cert h3,
 .awardContent h3,
 .interestCard strong,
 .experience h4,
+.expHead h3,
 .edu b,
 .homeCareerSearch strong {
   font-size: 18px !important;
   line-height: 1.35;
+  font-weight: 700;
 }
 
-/* 20px — titres internes majeurs */
-.expHead h3,
+/* 20px — titres internes majeurs, mais jamais titres de section */
 .educationShowcaseContent h3,
 .eduDetailed h3,
 .contactFormHeading h3 {
@@ -127,7 +128,7 @@ body {
   line-height: 1.3;
 }
 
-/* 22px — tous les titres principaux de sections */
+/* 22px — tous les titres principaux de sections, exactement la même taille */
 .homeCareerTitle h2,
 .section > h2,
 .sectionTitle h2,
@@ -147,9 +148,10 @@ body {
   font-size: 22px !important;
   line-height: 1.25;
   letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
-/* Éléments numériques/decoratifs : pas considérés comme texte éditorial */
+/* Éléments numériques/décoratifs : tailles visuelles propres au thème */
 .homeHighlightCard > strong,
 .awardImagePlaceholder > span,
 .interestIcon,
