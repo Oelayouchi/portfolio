@@ -62,29 +62,34 @@ const steps = [
 export default function DataSection() {
   return (
     <section id="data" className="section shell dataPanel">
-      <div>
+      <div className="dataPanelHeader">
         <SectionLabel>RECONVERSION VERS LA DATA</SectionLabel>
         <h2>De l’ingénierie des systèmes à l’analyse de données.</h2>
-        <p>
-          Mon parcours d’ingénieur m’a appris à collecter, structurer et analyser des données techniques pour comprendre des systèmes complexes et résoudre des problèmes concrets. Aujourd’hui, je mets cette expérience au service de la Data Analyse en développant mes compétences en SQL, Power BI, Python, Excel et Power Query.
-        </p>
       </div>
 
-      <div className="dataFlow" aria-label="Processus d’analyse de données">
-        <div className="dataFlowSteps">
-          {steps.map((step, index) => (
-            <div key={step.number} style={{ display: 'contents' }}>
-              <div className={`dataFlowStep ${step.tone}`}>
-                <div className="dataFlowIcon"><DataIcon type={step.type} /></div>
-                <span className="dataFlowNumber">{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.tools}</p>
-              </div>
-              {index < steps.length - 1 && <div className="dataFlowArrow" aria-hidden="true">→</div>}
-            </div>
-          ))}
+      <div className="dataPanelBody">
+        <div className="dataPanelCopy">
+          <p>
+            Mon parcours d’ingénieur m’a appris à collecter, structurer et analyser des données techniques pour comprendre des systèmes complexes et résoudre des problèmes concrets. Aujourd’hui, je mets cette expérience au service de la Data Analyse en développant mes compétences en SQL, Power BI, Python, Excel et Power Query.
+          </p>
         </div>
-        <div className="dataFlowCaption">◉ Transformer les données en informations fiables pour aider à la prise de décision.</div>
+
+        <div className="dataFlow" aria-label="Processus d’analyse de données">
+          <div className="dataFlowSteps">
+            {steps.map((step, index) => (
+              <div key={step.number} style={{ display: 'contents' }}>
+                <div className={`dataFlowStep ${step.tone}`}>
+                  <div className="dataFlowIcon"><DataIcon type={step.type} /></div>
+                  <span className="dataFlowNumber">{step.number}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.tools}</p>
+                </div>
+                {index < steps.length - 1 && <div className="dataFlowArrow" aria-hidden="true">→</div>}
+              </div>
+            ))}
+          </div>
+          <div className="dataFlowCaption">◉ Transformer les données en informations fiables pour aider à la prise de décision.</div>
+        </div>
       </div>
     </section>
   );
