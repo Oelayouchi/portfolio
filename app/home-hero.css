@@ -77,12 +77,12 @@
 .homeCareerSearch strong { color:#51dc91; font-size:18px; }
 .homeCareerSearch p { color:#b7d6c7; }
 .homeCareerStages { align-items:stretch; text-align:left; }
-.homeCareerStages>strong { text-align:center; margin-bottom:8px; }
-.homeCareerStages::before { display:block; margin:0 auto 9px; color:#58aaff; font-size:28px; line-height:1; content:'◇'; }
-.homeStageList { display:grid; gap:6px; margin-top:3px; }
-.homeStageList a { display:grid; grid-template-columns:36px 1fr; align-items:center; gap:8px; padding:6px 8px; border:1px solid rgba(65,111,170,.22); border-radius:9px; background:rgba(9,25,47,.5); color:inherit; text-decoration:none; transition:border-color 160ms ease,transform 160ms ease,background 160ms ease; }
+.homeCareerStages>strong { margin:0 0 14px; text-align:center; font-size:18px; }
+.homeCareerStages::before { display:none; content:none; }
+.homeStageList { display:grid; gap:7px; margin-top:0; }
+.homeStageList a { display:grid; grid-template-columns:48px 1fr; align-items:center; gap:10px; padding:7px 9px; border:1px solid rgba(65,111,170,.22); border-radius:9px; background:rgba(9,25,47,.5); color:inherit; text-decoration:none; transition:border-color 160ms ease,transform 160ms ease,background 160ms ease; }
 .homeStageList a:hover { border-color:#168cff; background:rgba(15,49,88,.65); transform:translateX(3px); }
-.homeStageList img { width:34px; height:23px; object-fit:contain; }
+.homeStageList img { width:46px; height:27px; object-fit:contain; }
 .homeStageList span { display:grid; grid-template-columns:1fr auto; align-items:center; gap:5px; min-width:0; }
 .homeStageList b { overflow:hidden; color:#eaf3ff; font-size:9.5px; text-overflow:ellipsis; white-space:nowrap; }
 .homeStageList small { margin:0; padding:0; background:none; color:#6caaf5; font-size:8.5px; white-space:nowrap; }
@@ -98,4 +98,4 @@ html[data-theme='light'] .homeCareerSearch { background:rgba(239,255,247,.94); }
 html[data-theme='light'] .homeStageList a { background:#f7fbff; }
 html[data-theme='light'] .homeStageList b { color:#0b1b32; }
 @media (max-width:1050px) { .homeHeroMain{grid-template-columns:minmax(210px,.8fr) minmax(0,1.6fr)} .homeHighlights{grid-column:1/-1;grid-template-columns:repeat(5,1fr)} .homeHighlightCard:nth-child(5){grid-column:auto;min-height:110px} .homeHighlightCard{min-height:110px} .homeCareerLine{grid-template-columns:repeat(3,minmax(0,1fr))} }
-@media (max-width:760px) { .homeHero{padding-top:26px} .homeHeroMain{grid-template-columns:1fr} .homeIdentityCard{display:grid;grid-template-columns:92px 1fr;align-items:center} .homeIdentityVisual{min-height:0;padding:12px} .homeIdentityVisual img{width:72px;border-radius:18px} .homeIdentityCopy{padding:14px 12px} .homeIdentityCopy p{grid-column:1/-1} .homeAvailability{grid-column:1/-1;margin:0 12px 12px} .homeHeroIntro{padding:8px 0} .homeHeroIntro h1{font-size:clamp(48px,15vw,70px)} .homeStatusRow{grid-template-columns:1fr} .homeHighlights{grid-template-columns:1fr 1fr} .homeHighlightCard:nth-child(5){grid-column:1/-1} .homeTool{min-width:96px} .homeCareer{padding:20px 18px 24px;overflow:hidden} .homeCareerLine{grid-template-columns:1fr;gap:10px} .homeCareerItem{min-height:0;align-items:flex-start;padding:16px 18px;text-align:left} .homeCareerLogo{justify-content:flex-start;min-height:52px}.homeCareerLogo img{width:118px;max-height:52px}.homeCareerSearch{align-items:flex-start}.homeCareerSearch .homeCareerLogo{justify-content:flex-start}.homeCareerStages>strong{text-align:left}.homeCareerStages::before{margin:0 0 8px}.homeStageList{width:100%} }
+@media (max-width:760px) { .homeHero{padding-top:26px} .homeHeroMain{grid-template-columns:1fr} .homeIdentityCard{display:grid;grid-template-columns:92px 1fr;align-items:center} .homeIdentityVisual{min-height:0;padding:12px} .homeIdentityVisual img{width:72px;border-radius:18px} .homeIdentityCopy{padding:14px 12px} .homeIdentityCopy p{grid-column:1/-1} .homeAvailability{grid-column:1/-1;margin:0 12px 12px} .homeHeroIntro{padding:8px 0} .homeHeroIntro h1{font-size:clamp(48px,15vw,70px)} .homeStatusRow{grid-template-columns:1fr} .homeHighlights{grid-template-columns:1fr 1fr} .homeHighlightCard:nth-child(5){grid-column:1/-1} .homeTool{min-width:96px} .homeCareer{padding:20px 18px 24px;overflow:hidden} .homeCareerLine{grid-template-columns:1fr;gap:10px} .homeCareerItem{min-height:0;align-items:flex-start;padding:16px 18px;text-align:left} .homeCareerLogo{justify-content:flex-start;min-height:52px}.homeCareerLogo img{width:118px;max-height:52px}.homeCareerSearch{align-items:flex-start}.homeCareerSearch .homeCareerLogo{justify-content:flex-start}.homeCareerStages>strong{text-align:left}.homeStageList{width:100%} }
