@@ -25,8 +25,8 @@ const career = [
     type: 'search',
     href: '#contact',
     company: 'À la recherche',
-    role: 'Nouvelles opportunités Data & systèmes',
-    stack: 'Data Analyst · Ingénierie · Alternance / CDI',
+    role: 'À la recherche d’une alternance en Data Analyse',
+    stack: 'Data Analyst · Alternance',
   },
   {
     href: '#experience-alstom',
