@@ -36,7 +36,7 @@ export default function AvailabilityDataPanel() {
         <div className="availabilityV2Card availabilityV2DonutCard">
           <span className="availabilityV2Label">Répartition</span>
           <div className="availabilityV2DonutRow">
-            <div className="availabilityV2Donut"><b>78%</b><small>Analyse</small></div>
+            <div className="availabilityV2Donut" aria-hidden="true" />
             <div className="availabilityV2Legend">
               <span><i className="availabilityV2Green"/>Analyse <b>78%</b></span>
               <span><i className="availabilityV2Blue"/>Préparation <b>15%</b></span>
