@@ -1,1 +1,6 @@
-PLACEHOLDER
+@import url('https://cdn.jsdelivr.net/gh/Oelayouchi/portfolio@a01ad9c62668adc06bff26aaeb2aaad008e3cffd/app/globals.css');
+
+/* Navigation typography: lighter, cleaner labels */
+.navlinks a {
+  font-weight: 400;
+}
