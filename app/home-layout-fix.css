@@ -1,0 +1,113 @@
+/* Home hero layout repair: restore the full identity + headline on desktop. */
+
+.homeHeroMain {
+  grid-template-columns: minmax(270px, .78fr) minmax(520px, 1.45fr) minmax(270px, .72fr);
+  gap: 28px;
+}
+
+.homeIdentityCard {
+  min-width: 0;
+}
+
+.homeIdentityVisual {
+  display: grid !important;
+  min-height: 255px !important;
+  place-items: center;
+}
+
+.homeIdentityVisual img {
+  display: block !important;
+  width: min(100%, 230px) !important;
+  height: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.homeHeroIntro {
+  display: flex !important;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.homeHeroIntro h1 {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin: 10px 0 20px !important;
+  font-size: clamp(54px, 5.7vw, 92px) !important;
+  line-height: .92 !important;
+}
+
+.homeHeroIntro > p {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: 720px;
+}
+
+.homeHeroActions {
+  margin-top: 24px;
+}
+
+.homeAvailabilityArea {
+  margin-top: 24px;
+}
+
+.homeHeroAvailability {
+  width: 100%;
+}
+
+.homeDataPanel {
+  width: 100%;
+  min-width: 0;
+}
+
+.homeHighlights {
+  min-width: 0;
+}
+
+@media (max-width: 1180px) and (min-width: 761px) {
+  .homeHeroMain {
+    grid-template-columns: minmax(235px, .8fr) minmax(0, 1.55fr);
+  }
+
+  .homeHighlights {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .homeHighlightCard:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .homeHeroIntro h1 {
+    font-size: clamp(52px, 7vw, 78px) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .homeHeroMain {
+    grid-template-columns: 1fr;
+  }
+
+  .homeIdentityCard {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .homeIdentityVisual {
+    min-height: 0 !important;
+    padding: 12px;
+  }
+
+  .homeIdentityVisual img {
+    width: 72px !important;
+  }
+
+  .homeHeroIntro h1 {
+    font-size: clamp(46px, 14vw, 68px) !important;
+  }
+}
