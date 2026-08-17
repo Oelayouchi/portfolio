@@ -8,9 +8,9 @@ import AwardsSection from '../components/awards-section';
 import ExperienceSection from '../components/experience-section';
 import ContactSection from '../components/contact-section';
 import HomeHero from '../components/home-hero';
+import DataSection from '../components/data-section';
 import {
   AboutSection,
-  DataSection,
   Footer,
 } from '../components/portfolio-sections';
 
