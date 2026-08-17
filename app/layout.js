@@ -21,6 +21,7 @@ import './typography.css';
 import './availability-dashboard.css';
 import './availability-v2.css';
 import './home-layout-fix.css';
+import './availability-v2-refine.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
