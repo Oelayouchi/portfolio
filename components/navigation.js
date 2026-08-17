@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const links = [
   { href: '#about', label: 'À propos' },
@@ -20,6 +20,47 @@ function ThemeIcon({ type }) {
 
 export default function Navigation() {
   const [active, setActive] = useState('#about');
+
+  useEffect(() => {
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      const activationLine = 130;
+      let current = links[0].href;
+
+      for (const link of links) {
+        const section = document.querySelector(link.href);
+        if (!section) continue;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= activationLine) current = link.href;
+      }
+
+      const contact = document.querySelector('#contact');
+      if (contact && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
+        current = '#contact';
+      }
+
+      setActive(current);
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveSection);
+        ticking = true;
+      }
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
 
   return (
     <header className="navBar">
