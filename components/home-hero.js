@@ -15,9 +15,9 @@ const tools = [
 const highlights = [
   { value: '3+', label: "Années d’expérience" },
   { value: '10+', label: 'Projets techniques' },
-  { value: '4', label: 'Prix & distinctions', detail: 'Robotique & innovation' },
+  { value: '4', label: 'Prix & distinctions' },
+  { value: '4', label: 'Certifications' },
   { value: '3', label: 'Domaines clés', detail: <>Systèmes embarqués<br/>Sûreté de fonctionnement<br/>Data Analyse</> },
-  { value: '4', label: 'Certifications affichées' },
 ];
 
 const career = [
