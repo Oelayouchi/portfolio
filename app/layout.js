@@ -8,6 +8,7 @@ import './projects-media.css';
 import './contact.css';
 import './companies-strip.css';
 import './navigation-cleanup.css';
+import './hero-tweaks.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
