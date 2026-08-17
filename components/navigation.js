@@ -21,71 +21,69 @@ function ThemeIcon({ type }) {
 
 export default function Navigation() {
   const [active, setActive] = useState('#about');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     let ticking = false;
-
     const updateActiveSection = () => {
       const activationLine = 130;
       let current = links[0].href;
-
       for (const link of links) {
         const section = document.querySelector(link.href);
         if (!section) continue;
-
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= activationLine) current = link.href;
+        if (section.getBoundingClientRect().top <= activationLine) current = link.href;
       }
-
       const contact = document.querySelector('#contact');
-      if (contact && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) {
-        current = '#contact';
-      }
-
+      if (contact && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) current = '#contact';
       setActive(current);
       ticking = false;
     };
-
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(updateActiveSection);
         ticking = true;
       }
     };
-
     updateActiveSection();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
   }, []);
 
+  const selectLink = (href) => {
+    setActive(href);
+    setMenuOpen(false);
+  };
+
   return (
     <header className="navBar">
       <nav className="nav shell" aria-label="Navigation principale">
-        <a className="brand" href="#top" aria-label="Retour en haut">OE<span>.</span></a>
+        <a className="brand" href="#top" aria-label="Retour en haut" onClick={() => setMenuOpen(false)}>OE<span>.</span></a>
         <div className="navRight">
           <div className="navlinks">
             {links.map((link) => (
-              <a
-                key={link.href}
-                className={active === link.href ? 'active' : ''}
-                href={link.href}
-                onClick={() => setActive(link.href)}
-              >
-                {link.label}
-              </a>
+              <a key={link.href} className={active === link.href ? 'active' : ''} href={link.href} onClick={() => selectLink(link.href)}>{link.label}</a>
             ))}
           </div>
           <div className="themeToggle" aria-label="Sélecteur de thème visuel">
             <span><ThemeIcon type="moon" /></span>
             <span className="themeActive"><ThemeIcon type="sun" /></span>
           </div>
+          <button className={`mobileMenuButton ${menuOpen ? 'open' : ''}`} type="button" aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </nav>
+      <div className={`mobileMenu ${menuOpen ? 'open' : ''}`}>
+        <div className="mobileMenuInner shell">
+          {links.map((link) => (
+            <a key={link.href} className={active === link.href ? 'active' : ''} href={link.href} onClick={() => selectLink(link.href)}>{link.label}</a>
+          ))}
+        </div>
+      </div>
     </header>
   );
 }
