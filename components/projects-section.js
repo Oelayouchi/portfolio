@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { projects } from '../data/portfolio';
-import ProjectMedia from './project-media';
-import { Tags } from './ui';
+import ProjectShowcaseCard from './project-showcase-card';
 
 const projectSlugs = [
   'tolerance-aux-fautes',
@@ -12,42 +12,34 @@ const projectSlugs = [
 ];
 
 export default function ProjectsSection() {
+  const featuredProjects = projects.slice(0, 3);
+
   return (
-    <section id="projects" className="section shell">
-      <h2>PROJETS TECHNIQUES RÉALISÉS</h2>
+    <section id="projects" className="section shell projectShowcaseSection">
+      <div className="projectShowcaseHeading">
+        <span className="eyebrow">PORTFOLIO</span>
+        <h2>PROJETS</h2>
+        <p>
+          Une sélection de projets techniques autour du développement, de la donnée,
+          de l&apos;automatisation et des systèmes embarqués.
+        </p>
+      </div>
 
-      <div className="grid projects projectsWithMedia">
-        {projects.map((project, index) => {
-          const slug = projectSlugs[index] || `projet-${index + 1}`;
+      <div className="projectShowcaseGrid">
+        {featuredProjects.map((project, index) => (
+          <ProjectShowcaseCard
+            key={project.title}
+            project={project}
+            slug={projectSlugs[index]}
+          />
+        ))}
+      </div>
 
-          return (
-            <article className="card projectDetailed projectDetailedMedia" key={project.title}>
-              <div className="projectHeadingBlock">
-                <h3>{project.title}</h3>
-                <div className="num">{String(index + 1).padStart(2, '0')}</div>
-                <p className="projectPeriod">{project.period}</p>
-                <p className="mini">{project.institution}</p>
-                <p className="projectType">{project.type}</p>
-              </div>
-
-              <div className="projectBody">
-                <div className="projectContent">
-                  <h4>Objectif</h4>
-                  <p>{project.objective}</p>
-
-                  <h4>Réalisations</h4>
-                  <ul>
-                    {project.tasks.map((task) => <li key={task}>{task}</li>)}
-                  </ul>
-                </div>
-
-                <Tags items={project.stack} />
-              </div>
-
-              <ProjectMedia slug={slug} title={project.title} />
-            </article>
-          );
-        })}
+      <div className="projectShowcaseAllWrap">
+        <Link className="projectShowcaseAllButton" href="/projects">
+          VOIR TOUS LES PROJETS
+          <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </section>
   );
