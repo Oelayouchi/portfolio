@@ -36,36 +36,20 @@ export default function ProjectShowcaseCard({ project, slug }) {
   }, [reportOpen]);
 
   const modal = reportOpen && mounted ? createPortal(
-    <div
-      className="projectModal"
-      role="dialog"
-      aria-modal="true"
-      aria-label={`Rapport du projet ${project.title}`}
-      onClick={() => setReportOpen(false)}
-    >
+    <div className="projectModal" role="dialog" aria-modal="true" aria-label={`Rapport du projet ${project.title}`} onClick={() => setReportOpen(false)}>
       <div className="projectModalContent reportModal" onClick={(event) => event.stopPropagation()}>
         <div className="reportModalHeader">
-          <div>
-            <span>RAPPORT DU PROJET</span>
-            <strong>{project.title}</strong>
-          </div>
+          <div><span>RAPPORT DU PROJET</span><strong>{project.title}</strong></div>
           <button className="projectModalClose" type="button" onClick={() => setReportOpen(false)} aria-label="Fermer">×</button>
         </div>
 
         {hasReport ? (
-          <iframe
-            className="projectReportFrame"
-            src={`${report}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
-            title={`Rapport ${project.title}`}
-          />
+          <iframe className="projectReportFrame" src={`${report}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`} title={`Rapport ${project.title}`} />
         ) : (
-          <div className="projectReportUnavailable">
-            <strong>Rapport bientôt disponible</strong>
-            <p>Le bouton reste affiché pour conserver la même présentation sur tous les projets.</p>
-          </div>
+          <div className="projectReportUnavailable" aria-hidden="true" />
         )}
 
-        <p className="reportReadOnlyNote">Lecture intégrée au portfolio. Les contrôles de téléchargement sont masqués dans la visionneuse.</p>
+        {hasReport && <p className="reportReadOnlyNote">Lecture intégrée au portfolio. Les contrôles de téléchargement sont masqués dans la visionneuse.</p>}
       </div>
     </div>,
     document.body,
@@ -77,12 +61,10 @@ export default function ProjectShowcaseCard({ project, slug }) {
         <div className={`projectShowcaseVisual${visual ? ' hasImage' : ' isEmpty'}`}>
           {visual ? <img src={visual} alt={`Aperçu du projet ${project.title}`} loading="lazy" /> : null}
         </div>
-
         <div className="projectShowcaseContent">
           <div className="projectShowcaseTags" aria-label="Technologies utilisées">
             {project.stack.slice(0, 4).map((item) => <span key={item}>{item}</span>)}
           </div>
-
           <div className="projectShowcaseTitleRow">
             <h3>{project.title}</h3>
             <button className="projectShowcaseButton" type="button" onClick={() => setReportOpen(true)}>
@@ -90,7 +72,6 @@ export default function ProjectShowcaseCard({ project, slug }) {
               VOIR LE RAPPORT
             </button>
           </div>
-
           <p className="projectShowcaseObjective">{project.objective}</p>
           <ul>{highlights.map((task) => <li key={task}>{task}</li>)}</ul>
           <div className="projectShowcaseMeta"><span>{project.period}</span><span>{project.institution}</span></div>
