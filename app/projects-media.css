@@ -17,377 +17,53 @@
   height: 100%;
 }
 
-/* Le contenu et les technologies restent groupés : les badges suivent donc
-   directement le texte, sans tomber artificiellement en bas de la carte. */
-.projectBody {
-  display: block;
-}
+.projectBody { display: block; }
+.projectDetailedMedia .projectContent { min-height: 0; }
+.projectDetailedMedia .tags { margin-top: 12px; margin-bottom: 0; }
+.projectDetailedMedia .projectMedia { margin-top: auto; padding-top: 34px; }
+.projectMedia { border-top: 0; }
+.projectMedia::before { display:block;width:100%;height:1px;margin-bottom:28px;background:rgba(94,137,193,.22);content:""; }
+.projectMediaHeader { display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:42px;margin-bottom:18px; }
+.projectMediaHeader h4 { margin:0;color:#fff;font-size:18px; }
+.projectReportButton { display:inline-flex;align-items:center;gap:9px;min-height:42px;padding:0 16px;border:1px solid #238aff;border-radius:12px;background:linear-gradient(135deg,#149cff,#285fff);color:#fff;font:inherit;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 10px 28px rgba(24,106,255,.2);transition:transform 160ms ease,box-shadow 160ms ease; }
+.projectReportButton:hover { transform:translateY(-2px);box-shadow:0 14px 34px rgba(24,106,255,.32); }
+.projectCarousel { position:relative;display:grid;grid-template-columns:36px minmax(0,1fr) 36px;align-items:center;gap:10px; }
+.projectImageButton { position:relative;display:block;width:100%;padding:0;overflow:hidden;border:1px solid rgba(51,117,196,.48);border-radius:18px;background:transparent;cursor:zoom-in;box-shadow:0 18px 50px rgba(0,0,0,.2); }
+.projectPlaceholder,.projectRealImageWrap { display:grid;width:100%;height:360px;min-height:360px;max-height:360px;place-items:center;overflow:hidden;background:#fff;color:#aeb3ba; }
+.projectPlaceholder span { font-size:clamp(52px,8vw,96px);font-weight:900;line-height:1; }
+.projectRealImage { display:block;width:100%;height:100%;object-fit:contain;background:#fff;transition:transform 240ms ease; }
+.projectImageButton:hover .projectRealImage { transform:scale(1.025); }
+.projectZoomHint { position:absolute;right:14px;bottom:14px;padding:7px 10px;border:1px solid rgba(255,255,255,.26);border-radius:999px;background:rgba(3,14,29,.78);color:#fff;font-size:11px;font-weight:800;opacity:0;transform:translateY(4px);transition:opacity 160ms ease,transform 160ms ease; }
+.projectImageButton:hover .projectZoomHint { opacity:1;transform:translateY(0); }
+.projectCarouselArrow { display:grid;width:36px;height:36px;place-items:center;border:1px solid rgba(86,135,196,.28);border-radius:50%;background:rgba(11,29,50,.9);color:#fff;font-size:24px;cursor:pointer;transition:border-color 150ms ease,background 150ms ease,transform 150ms ease; }
+.projectCarouselArrow:hover { border-color:#258cff;background:rgba(22,79,143,.72);transform:scale(1.06); }
+.projectDots { display:flex;min-height:24px;justify-content:center;align-items:center;gap:9px;margin-top:15px; }
+.projectDots button { width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#344155;cursor:pointer;transition:width 180ms ease,background 180ms ease,box-shadow 180ms ease; }
+.projectDots button.active { width:24px;border-radius:999px;background:#178fff;box-shadow:0 0 16px rgba(23,143,255,.8);animation:projectDotPulse 1.15s ease-in-out infinite; }
 
-.projectDetailedMedia .projectContent {
-  min-height: 0;
-}
-
-.projectDetailedMedia .tags {
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-
-/* La galerie reste poussée au bas de la carte pour conserver l'alignement
-   entre les deux projets. Le padding crée un vrai espace vide AVANT la ligne. */
-.projectDetailedMedia .projectMedia {
-  margin-top: auto;
-  padding-top: 34px;
-}
-
-.projectMedia {
-  border-top: 0;
-}
-
-/* La ligne est dessinée après l'espace vide, puis on garde un second espace
-   avant le titre "Images du projet". */
-.projectMedia::before {
-  display: block;
-  width: 100%;
-  height: 1px;
-  margin-bottom: 28px;
-  background: rgba(94, 137, 193, 0.22);
-  content: "";
-}
-
-.projectMediaHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  min-height: 42px;
-  margin-bottom: 18px;
-}
-
-.projectMediaHeader h4 {
-  margin: 0;
-  color: #fff;
-  font-size: 18px;
-}
-
-.projectReportButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 42px;
-  padding: 0 16px;
-  border: 1px solid #238aff;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #149cff, #285fff);
-  color: #fff;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 10px 28px rgba(24, 106, 255, 0.2);
-  transition: transform 160ms ease, box-shadow 160ms ease;
-}
-
-.projectReportButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(24, 106, 255, 0.32);
-}
-
-.projectCarousel {
-  position: relative;
-  display: grid;
-  grid-template-columns: 36px minmax(0, 1fr) 36px;
-  align-items: center;
-  gap: 10px;
-}
-
-.projectImageButton {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid rgba(51, 117, 196, 0.48);
-  border-radius: 18px;
-  background: transparent;
-  cursor: zoom-in;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
-}
-
-/* IMPORTANT : une vraie image et un emplacement vide ont strictement la même
-   hauteur. C'est ce qui empêche les galeries de décaler les séparateurs. */
-.projectPlaceholder,
-.projectRealImageWrap {
-  display: grid;
-  width: 100%;
-  height: 360px;
-  min-height: 360px;
-  max-height: 360px;
-  place-items: center;
-  overflow: hidden;
-  background: #fff;
-  color: #aeb3ba;
-}
-
-.projectPlaceholder span {
-  font-size: clamp(52px, 8vw, 96px);
-  font-weight: 900;
-  line-height: 1;
-}
-
-.projectRealImage {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #fff;
-  transition: transform 240ms ease;
-}
-
-.projectImageButton:hover .projectRealImage {
-  transform: scale(1.025);
-}
-
-.projectZoomHint {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  padding: 7px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  border-radius: 999px;
-  background: rgba(3, 14, 29, 0.78);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 800;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 160ms ease, transform 160ms ease;
-}
-
-.projectImageButton:hover .projectZoomHint {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.projectCarouselArrow {
-  display: grid;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  border: 1px solid rgba(86, 135, 196, 0.28);
-  border-radius: 50%;
-  background: rgba(11, 29, 50, 0.9);
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
-}
-
-.projectCarouselArrow:hover {
-  border-color: #258cff;
-  background: rgba(22, 79, 143, 0.72);
-  transform: scale(1.06);
-}
-
-.projectDots {
-  display: flex;
-  min-height: 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  margin-top: 15px;
-}
-
-.projectDots button {
-  width: 9px;
-  height: 9px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: #344155;
-  cursor: pointer;
-  transition: width 180ms ease, background 180ms ease, box-shadow 180ms ease;
-}
-
-.projectDots button.active {
-  width: 24px;
-  border-radius: 999px;
-  background: #178fff;
-  box-shadow: 0 0 16px rgba(23, 143, 255, 0.8);
-  animation: projectDotPulse 1.15s ease-in-out infinite;
-}
-
-.projectModal {
-  position: fixed;
-  inset: 0;
-  z-index: 150;
-  display: grid;
-  place-items: center;
-  padding: 26px;
-  background: rgba(0, 6, 16, 0.86);
-  backdrop-filter: blur(10px);
-}
-
-.projectModalContent {
-  position: relative;
-  width: min(1100px, 96vw);
-  max-height: 92vh;
-  overflow: hidden;
-  border: 1px solid rgba(54, 125, 214, 0.46);
-  border-radius: 20px;
-  background: #071321;
-  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.62);
-}
-
-.imageModal {
-  width: min(1250px, 96vw);
-}
-
-.imageModal .projectPlaceholder {
-  min-height: min(78vh, 820px);
-  height: min(78vh, 820px);
-  max-height: min(78vh, 820px);
-}
-
-.imageModal .projectRealImageWrap {
-  width: 100%;
-  height: min(84vh, 900px);
-  min-height: 0;
-  max-height: none;
-  background: #050a11;
-}
-
-.imageModal .projectRealImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #050a11;
-}
-
-.projectModalClose {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  background: rgba(7, 19, 33, 0.92);
-  color: #fff;
-  font-size: 25px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.imageModal > .projectModalClose {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 2;
-}
-
-.reportModal {
-  display: grid;
-  grid-template-rows: auto minmax(430px, 72vh) auto;
-}
-
-.reportModalHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 18px 20px;
-  border-bottom: 1px solid rgba(86, 133, 192, 0.24);
-}
-
-.reportModalHeader div {
-  display: grid;
-  gap: 4px;
-}
-
-.reportModalHeader span {
-  color: #56a4ff;
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-}
-
-.reportModalHeader strong {
-  color: #fff;
-  font-size: 18px;
-}
-
-.projectReportFrame {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  background: #fff;
-}
-
-.reportReadOnlyNote {
-  margin: 0;
-  padding: 11px 18px 14px;
-  color: #8296b0;
-  font-size: 11px;
-  text-align: center;
-}
-
-@keyframes projectDotPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.55; }
-}
-
-html[data-theme='light'] .projectMediaHeader h4,
-html[data-theme='light'] .reportModalHeader strong {
-  color: #0a1830;
-}
-
-html[data-theme='light'] .projectModalContent {
-  background: #f7fbff;
-}
-
-@media (max-width: 1000px) {
-  .projectsWithMedia {
-    grid-template-columns: 1fr;
-  }
-
-  .projectDetailedMedia .projectMedia {
-    margin-top: 30px;
-    padding-top: 26px;
-  }
-}
-
-@media (max-width: 720px) {
-  .projectMediaHeader {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .projectReportButton {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .projectCarousel {
-    grid-template-columns: 34px minmax(0, 1fr) 34px;
-    gap: 8px;
-  }
-
-  .projectCarouselArrow {
-    width: 34px;
-    height: 34px;
-  }
-
-  .projectPlaceholder,
-  .projectRealImageWrap {
-    height: 280px;
-    min-height: 280px;
-    max-height: 280px;
-  }
-
-  .projectModal {
-    padding: 10px;
-  }
-
-  .reportModal {
-    grid-template-rows: auto minmax(360px, 78vh) auto;
-  }
-}
+.projectModal { position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:26px;background:rgba(0,6,16,.86);backdrop-filter:blur(10px); }
+.projectModalContent { position:relative;width:min(1100px,96vw);max-height:92vh;overflow:hidden;border:1px solid rgba(54,125,214,.46);border-radius:20px;background:#071321;box-shadow:0 32px 100px rgba(0,0,0,.62); }
+.imageModal { width:min(1250px,96vw); }
+.imageModal .projectPlaceholder { min-height:min(78vh,820px);height:min(78vh,820px);max-height:min(78vh,820px); }
+.imageModal .projectRealImageWrap { width:100%;height:min(84vh,900px);min-height:0;max-height:none;background:#050a11; }
+.imageModal .projectRealImage { width:100%;height:100%;object-fit:contain;background:#050a11; }
+.projectModalClose { display:grid;width:38px;height:38px;place-items:center;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(7,19,33,.92);color:#fff;font-size:25px;line-height:1;cursor:pointer; }
+.imageModal>.projectModalClose { position:absolute;top:14px;right:14px;z-index:2; }
+.reportModal { display:grid;grid-template-rows:auto minmax(430px,72vh) auto;width:min(1180px,96vw); }
+.reportModalHeader { display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;border-bottom:1px solid rgba(86,133,192,.24); }
+.reportModalHeader div { display:grid;gap:4px; }
+.reportModalHeader span { color:#56a4ff;font-size:10px;font-weight:900;letter-spacing:.15em; }
+.reportModalHeader strong { color:#fff;font-size:18px; }
+.projectReportFrame { display:block;width:100%;height:100%;min-height:430px;border:0;background:#fff; }
+.projectReportUnavailable { display:grid;place-content:center;gap:10px;min-height:430px;padding:40px;text-align:center;background:linear-gradient(145deg,#071321,#0a1c31); }
+.projectReportUnavailable strong { color:#fff;font-size:24px; }
+.projectReportUnavailable p { max-width:520px;margin:0 auto;color:#8fa4bd;font-size:14px;line-height:1.6; }
+.reportReadOnlyNote { margin:0;padding:11px 18px 14px;color:#8296b0;font-size:11px;text-align:center; }
+@keyframes projectDotPulse { 0%,100%{opacity:1}50%{opacity:.55} }
+html[data-theme='light'] .projectMediaHeader h4,html[data-theme='light'] .reportModalHeader strong { color:#0a1830; }
+html[data-theme='light'] .projectModalContent { background:#f7fbff; }
+html[data-theme='light'] .projectReportUnavailable { background:#f4f9ff; }
+html[data-theme='light'] .projectReportUnavailable strong { color:#0a1830; }
+html[data-theme='light'] .projectReportUnavailable p { color:#60748e; }
+@media(max-width:1000px){.projectsWithMedia{grid-template-columns:1fr}.projectDetailedMedia .projectMedia{margin-top:30px;padding-top:26px}}
+@media(max-width:720px){.projectMediaHeader{align-items:flex-start;flex-direction:column}.projectReportButton{width:100%;justify-content:center}.projectCarousel{grid-template-columns:34px minmax(0,1fr) 34px;gap:8px}.projectCarouselArrow{width:34px;height:34px}.projectPlaceholder,.projectRealImageWrap{height:280px;min-height:280px;max-height:280px}.projectModal{padding:10px}.reportModal{grid-template-rows:auto minmax(360px,78vh) auto;width:min(100%,96vw)}.projectReportFrame,.projectReportUnavailable{min-height:360px}}
