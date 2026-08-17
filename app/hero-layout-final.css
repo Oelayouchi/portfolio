@@ -1,0 +1,136 @@
+/* Ajustements finaux de la première section */
+.homeHeroIntro {
+  align-self: stretch;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 12px 8px;
+}
+
+/* Titre complet : sans cadre, blanc en sombre, noir en clair */
+.homeEyebrow {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #ffffff;
+  font-size: clamp(10px, .78vw, 14px);
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 1.35;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+/* La fenêtre verte prend la place des anciens blocs CDI / À la recherche. */
+.homeHeroAvailability {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  gap: 18px;
+  min-height: 104px;
+  margin-top: auto;
+  padding: 16px 20px;
+  border: 1px solid rgba(48, 218, 132, .48);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(8, 53, 48, .76), rgba(6, 30, 42, .92));
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 0 30px rgba(39, 217, 128, .05);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.homeHeroAvailability:hover {
+  transform: translateY(-2px);
+  border-color: #39de88;
+  box-shadow: 0 14px 32px rgba(31, 193, 111, .11), inset 0 0 30px rgba(39, 217, 128, .08);
+}
+
+.homeHeroAvailability .homeSearchLogo {
+  width: 62px;
+  height: 62px;
+  margin: 0;
+}
+
+.homeHeroAvailability > span:last-child {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.homeHeroAvailability strong {
+  color: #42df8d;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.homeHeroAvailability small {
+  color: #9bb0c9;
+  font-size: 11px;
+}
+
+/* Les anciennes petites fenêtres ne doivent jamais occuper de place. */
+.homeStatusRow {
+  display: none !important;
+}
+
+html[data-theme='light'] .homeEyebrow {
+  color: #07111f;
+}
+
+html[data-theme='light'] .homeHeroAvailability {
+  border-color: rgba(25, 170, 94, .42);
+  background: linear-gradient(145deg, rgba(239, 255, 246, .98), rgba(247, 255, 251, .98));
+  box-shadow: 0 14px 32px rgba(44, 123, 84, .07);
+}
+
+html[data-theme='light'] .homeHeroAvailability strong {
+  color: #078b46;
+}
+
+html[data-theme='light'] .homeHeroAvailability small {
+  color: #52677f;
+}
+
+@media (max-width: 1050px) {
+  .homeEyebrow {
+    font-size: 11px;
+    white-space: normal;
+  }
+
+  .homeHeroAvailability {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 760px) {
+  .homeHeroIntro {
+    display: flex;
+    padding: 8px 0;
+  }
+
+  .homeEyebrow {
+    font-size: 10px;
+    line-height: 1.45;
+    white-space: normal;
+  }
+
+  .homeHeroAvailability {
+    grid-template-columns: 58px 1fr;
+    gap: 13px;
+    min-height: 90px;
+    margin-top: 22px;
+    padding: 14px 15px;
+  }
+
+  .homeHeroAvailability .homeSearchLogo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .homeHeroAvailability strong {
+    font-size: 12px;
+  }
+}
