@@ -4,14 +4,14 @@ body {
   font-size: 16px;
 }
 
-/* Navigation : fine, lisible, non grasse */
+/* Navigation */
 .navlinks a,
 .mobileMenu a {
   font-size: 15px !important;
   font-weight: 400 !important;
 }
 
-/* Boutons principaux */
+/* Boutons */
 .button,
 .homeHeroActions .button,
 .contactButton,
@@ -24,22 +24,7 @@ body {
   line-height: 1.2;
 }
 
-/* Carte profil accueil */
-.homeIdentityCopy strong { font-size: 17px; }
-.homeIdentityCopy span { font-size: 14px; line-height: 1.5; }
-.homeIdentityCopy p { font-size: 14px; line-height: 1.65; }
-
-/* Texte principal du hero */
-.homeHeroIntro > p { font-size: clamp(18px, 1.45vw, 23px); }
-
-/* Cartes chiffres-clés */
-.homeHighlightCard span { font-size: 14px; line-height: 1.35; }
-.homeHighlightCard small { font-size: 12px; line-height: 1.4; }
-
-/* Technologies */
-.homeTool strong { font-size: 13px; }
-
-/* Tous les titres principaux de section : 22px */
+/* Titres généraux des sections : taille de référence */
 .homeCareerTitle h2,
 .section > h2,
 .sectionTitle h2,
@@ -57,26 +42,23 @@ body {
   line-height: 1.25;
 }
 
-/* Petits labels au-dessus des titres */
-.homeCareerTitle span,
-.eyebrow,
-.mini { font-size: 12px; }
-
-/* Titres secondaires : A- */
-.homeCareerItem strong { font-size: 17px; }
-.homeCareerSearch strong { font-size: 18px; }
+/* Titres secondaires : toujours inférieurs au titre général */
 .card h3,
 .cert h3,
 .experience h4,
-.edu b { font-size: 18px; line-height: 1.35; }
+.edu b,
+.homeCareerSearch strong {
+  font-size: 18px !important;
+  line-height: 1.35;
+}
 
-.homeCareerItem p { font-size: 14px; line-height: 1.55; }
-.homeCareerItem em { font-size: 12px; line-height: 1.5; }
-.homeCareerItem small { font-size: 12px; }
-.homeStageList b { font-size: 12px; }
-.homeStageList small { font-size: 11px; }
+.homeCareerItem strong,
+.homeIdentityCopy strong {
+  font-size: 17px !important;
+  line-height: 1.35;
+}
 
-/* Texte courant des sections */
+/* Texte normal : inférieur aux titres secondaires */
 .copy,
 .contact p,
 .experience p,
@@ -87,38 +69,66 @@ body {
 .projectDescription,
 .cert p,
 .edu span,
-.interestList span {
-  font-size: 16px;
+.interestList span,
+.homeHeroIntro > p {
+  font-size: 16px !important;
   line-height: 1.7;
 }
 
-/* Métadonnées et textes secondaires */
+/* Texte descriptif / secondaire : minimum 14px */
+.homeIdentityCopy span,
+.homeIdentityCopy p,
+.homeHighlightCard span,
+.homeHighlightCard small,
+.homeTool strong,
+.homeCareerTitle span,
+.homeCareerItem p,
+.homeCareerItem em,
+.homeCareerItem small,
+.homeStageList b,
+.homeStageList small,
 .date,
 .meta,
 .expHead span,
-.tags span { font-size: 13px; }
+.tags span,
+.eyebrow,
+.mini {
+  font-size: 14px !important;
+}
 
-/* Cadres adaptés aux nouvelles tailles sans changer le thème */
+.homeIdentityCopy span,
+.homeIdentityCopy p,
+.homeCareerItem p,
+.homeCareerItem em {
+  line-height: 1.6;
+}
+
+/* Sécurité : aucun petit texte HTML ne descend sous 14px dans les zones principales */
+.homeHero small,
+.homeHero em,
+.section small,
+.section .meta,
+.section .date,
+.contactSection small,
+.projectsSection small,
+.awardsSection small,
+.dataSection small,
+.certificationsSection small,
+.educationSection small,
+.experienceSection small {
+  font-size: 14px !important;
+}
+
+/* Cadres adaptés sans changer le thème */
 .homeIdentityCopy { padding: 22px 24px 24px; }
 .homeHighlightCard { padding: 20px; }
-.homeCareerItem { min-height: 238px; padding: 21px 16px 19px; }
+.homeCareerItem { min-height: 242px; padding: 22px 16px 20px; }
 .card,
 .cert div,
 .dataPanel,
 .aboutCard { padding-top: 24px; padding-bottom: 24px; }
 
 @media (max-width: 760px) {
-  .homeIdentityCopy p,
-  .homeCareerItem p,
-  .copy,
-  .contact p,
-  .experience p,
-  .card p,
-  .dataPanel p,
-  .cert p { font-size: 14px; }
-
-  .homeCareerItem { min-height: 0; }
-
   .button,
   .homeHeroActions .button,
   .contactButton,
@@ -127,6 +137,8 @@ body {
     min-height: 50px;
     font-size: 14px !important;
   }
+
+  .homeCareerItem { min-height: 0; }
 
   .homeCareerTitle h2,
   .section > h2,
@@ -140,5 +152,22 @@ body {
   .certificationsSection h2,
   .educationSection h2,
   .interestsSection h2,
-  .contactSection h2 { font-size: 22px !important; }
+  .contactSection h2 {
+    font-size: 22px !important;
+  }
+
+  .copy,
+  .contact p,
+  .experience p,
+  .card p,
+  .dataPanel p,
+  .aboutCard p,
+  .aboutText,
+  .projectDescription,
+  .cert p,
+  .edu span,
+  .interestList span,
+  .homeHeroIntro > p {
+    font-size: 15px !important;
+  }
 }
