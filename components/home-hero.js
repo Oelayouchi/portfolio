@@ -25,7 +25,7 @@ const career = [
     type: 'search',
     href: '#contact',
     company: 'À la recherche',
-    role: 'À la recherche d’une alternance en Data Analyse',
+    role: 'D’une alternance en Data Analyse',
     stack: 'Data Analyst · Alternance',
   },
   {
