@@ -1,6 +1,9 @@
 @import url('https://cdn.jsdelivr.net/gh/Oelayouchi/portfolio@a01ad9c62668adc06bff26aaeb2aaad008e3cffd/app/globals.css');
 
-/* Navigation typography: lighter, cleaner labels */
+/* Navigation typography: fine, modern and not bold */
 .navlinks a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
   font-weight: 400;
+  letter-spacing: 0;
 }
