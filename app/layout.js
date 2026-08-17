@@ -5,6 +5,7 @@ import './alternance.css';
 import './theme.css';
 import './education-interests.css';
 import './projects-media.css';
+import './projects-layout-final.css';
 import './contact.css';
 import './companies-strip.css';
 import './navigation-cleanup.css';
