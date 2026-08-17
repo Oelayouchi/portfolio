@@ -7,12 +7,11 @@ import Navigation from '../components/navigation';
 import ProjectsSection from '../components/projects-section';
 import ExperienceSection from '../components/experience-section';
 import ContactSection from '../components/contact-section';
+import HomeHero from '../components/home-hero';
 import {
   AboutSection,
   DataSection,
   Footer,
-  HeroSection,
-  StatsSection,
 } from '../components/portfolio-sections';
 
 // ============================================================================
@@ -20,7 +19,7 @@ import {
 // ----------------------------------------------------------------------------
 // The homepage assembles modular sections. Company logos, certifications,
 // education, projects and interests live in dedicated components.
-// Deployment marker: 2026-08-16
+// Deployment marker: 2026-08-17
 // ============================================================================
 
 export default function Page() {
@@ -29,8 +28,7 @@ export default function Page() {
       <ThemeController />
       <Navigation />
       <CompaniesStrip />
-      <HeroSection />
-      <StatsSection />
+      <HomeHero />
       <AboutSection />
       <ExperienceSection />
       <ProjectsSection />
