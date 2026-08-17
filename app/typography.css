@@ -1,0 +1,183 @@
+/* Harmonisation typographique globale — conserve le thème visuel actuel. */
+
+body {
+  font-size: 16px;
+}
+
+/* Navigation : fine, lisible, non grasse */
+.navlinks a,
+.mobileMenu a {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+
+/* Boutons principaux */
+.button,
+.homeHeroActions .button,
+.contactButton,
+.alternanceButton,
+.alternanceCta {
+  min-height: 52px;
+  padding-left: 22px;
+  padding-right: 22px;
+  font-size: 15px !important;
+  line-height: 1.2;
+}
+
+/* Carte profil accueil */
+.homeIdentityCopy strong {
+  font-size: 18px;
+}
+
+.homeIdentityCopy span {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.homeIdentityCopy p {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* Texte principal du hero */
+.homeHeroIntro > p {
+  font-size: clamp(18px, 1.45vw, 23px);
+}
+
+/* Cartes chiffres-clés */
+.homeHighlightCard span {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.homeHighlightCard small {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Technologies */
+.homeTool strong {
+  font-size: 13px;
+}
+
+/* Parcours professionnel */
+.homeCareerTitle span {
+  font-size: 12px;
+}
+
+.homeCareerTitle h2 {
+  font-size: 28px;
+}
+
+.homeCareerItem strong {
+  font-size: 18px;
+}
+
+.homeCareerItem p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.homeCareerItem em {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.homeCareerItem small {
+  font-size: 12px;
+}
+
+.homeCareerSearch strong {
+  font-size: 19px;
+}
+
+.homeStageList b {
+  font-size: 12px;
+}
+
+.homeStageList small {
+  font-size: 11px;
+}
+
+/* Texte courant des sections */
+.copy,
+.contact p,
+.experience p,
+.card p,
+.dataPanel p,
+.aboutCard p,
+.aboutText,
+.projectDescription,
+.cert p,
+.edu span,
+.interestList span {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Métadonnées et textes secondaires */
+.date,
+.meta,
+.expHead span,
+.tags span,
+.eyebrow,
+.mini {
+  font-size: 13px;
+}
+
+/* Titres de cartes / sous-titres */
+.card h3,
+.cert h3,
+.experience h4,
+.edu b {
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+/* Ajustement des cadres pour éviter que les textes agrandis soient serrés */
+.homeIdentityCopy {
+  padding: 22px 24px 24px;
+}
+
+.homeHighlightCard {
+  padding: 20px;
+}
+
+.homeCareerItem {
+  min-height: 242px;
+  padding: 22px 16px 20px;
+}
+
+.card,
+.cert div,
+.dataPanel,
+.aboutCard {
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+@media (max-width: 760px) {
+  .homeIdentityCopy p,
+  .homeCareerItem p,
+  .copy,
+  .contact p,
+  .experience p,
+  .card p,
+  .dataPanel p,
+  .cert p {
+    font-size: 14px;
+  }
+
+  .homeCareerItem {
+    min-height: 0;
+  }
+
+  .button,
+  .homeHeroActions .button,
+  .contactButton,
+  .alternanceButton,
+  .alternanceCta {
+    min-height: 50px;
+    font-size: 14px !important;
+  }
+}
