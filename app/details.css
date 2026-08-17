@@ -2,6 +2,20 @@
 /* Detailed portfolio content                                                 */
 /* ========================================================================== */
 
+/* iOS/Safari peut transformer automatiquement certains textes en liens
+   (noms, numéros, normes, etc.). On neutralise uniquement ce style injecté
+   afin que ParcelHome, ISO 26262 et les autres libellés gardent leur rendu. */
+a[x-apple-data-detectors],
+a[x-apple-data-detectors]:link,
+a[x-apple-data-detectors]:visited,
+a[x-apple-data-detectors]:hover,
+a[x-apple-data-detectors]:active {
+  color: inherit !important;
+  font: inherit !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
+
 .companyLink {
   color: inherit;
   text-decoration: none;
