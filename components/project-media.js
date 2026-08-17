@@ -100,7 +100,6 @@ export default function ProjectMedia({ slug, title }) {
   return (
     <div className="projectMedia">
       <div className="projectMediaHeader">
-        <h4>Images du projet</h4>
         <button className="projectReportButton" type="button" onClick={() => setReportOpen(true)}>
           <span aria-hidden="true">◉</span>
           Voir le rapport
