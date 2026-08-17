@@ -10,6 +10,7 @@ import './companies-strip.css';
 import './navigation-cleanup.css';
 import './hero-tweaks.css';
 import './mobile-navigation.css';
+import './home-hero.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
