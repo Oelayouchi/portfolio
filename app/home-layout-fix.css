@@ -3,13 +3,13 @@
 .homeHeroMain {
   grid-template-columns: minmax(270px, .78fr) minmax(520px, 1.45fr) minmax(270px, .72fr);
   gap: 28px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .homeIdentityCard {
   min-width: 0;
-  height: auto;
-  align-self: start;
+  height: 100%;
+  align-self: stretch;
 }
 
 .homeIdentityVisual {
@@ -29,9 +29,10 @@
 .homeHeroIntro {
   display: flex !important;
   min-width: 0;
+  height: 100%;
   flex-direction: column;
   justify-content: flex-start;
-  align-self: start;
+  align-self: stretch;
 }
 
 .homeHeroIntro h1 {
@@ -51,21 +52,26 @@
 }
 
 .homeHeroActions { margin-top: 24px; }
-.homeAvailabilityArea { margin-top: 20px; }
+.homeAvailabilityArea { margin-top: auto; padding-top: 20px; }
 .homeHeroAvailability,.homeDataPanel { width: 100%; min-width: 0; }
-.homeHighlights { min-width: 0; align-self: start; }
+.homeHighlights { min-width: 0; height: 100%; align-self: stretch; grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.homeHighlightCard { min-height: 0; height: 100%; }
 
 @media (max-width: 1180px) and (min-width: 761px) {
   .homeHeroMain { grid-template-columns: minmax(235px, .8fr) minmax(0, 1.55fr); }
-  .homeHighlights { grid-column: 1 / -1; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .homeHighlights { grid-column: 1 / -1; height: auto; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: 1fr; }
   .homeHighlightCard:nth-child(5) { grid-column: auto; }
   .homeHeroIntro h1 { font-size: clamp(52px, 7vw, 78px) !important; }
 }
 
 @media (max-width: 760px) {
   .homeHeroMain { grid-template-columns: 1fr; }
-  .homeIdentityCard { display: grid; grid-template-columns: 92px minmax(0, 1fr); align-items: center; }
+  .homeIdentityCard { display: grid; height: auto; grid-template-columns: 92px minmax(0, 1fr); align-items: center; }
   .homeIdentityVisual { min-height: 0 !important; padding: 12px; }
   .homeIdentityVisual img { width: 72px !important; }
+  .homeHeroIntro { height: auto; }
+  .homeAvailabilityArea { margin-top: 20px; padding-top: 0; }
+  .homeHighlights { height: auto; grid-template-rows: none; }
+  .homeHighlightCard { height: auto; }
   .homeHeroIntro h1 { font-size: clamp(46px, 14vw, 68px) !important; }
 }
