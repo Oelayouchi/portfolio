@@ -14,35 +14,42 @@ export default function AvailabilityDataPanel() {
       <div className="availabilityV2Dashboard" aria-label="Aperçu de compétences Data">
         <div className="availabilityV2Card">
           <span className="availabilityV2Label">Progression</span>
-          <div className="availabilityV2BarArea">
-            <div className="availabilityV2YAxis"><small>100</small><small>50</small><small>0</small></div>
-            <div className="availabilityV2Bars"><i/><i/><i/><i/></div>
+          <div className="availabilityV2PlotSlot">
+            <div className="availabilityV2BarArea">
+              <div className="availabilityV2YAxis"><small>100</small><small>50</small><small>0</small></div>
+              <div className="availabilityV2Bars"><i/><i/><i/><i/></div>
+            </div>
           </div>
           <div className="availabilityV2Months"><small>Jan</small><small>Fév</small><small>Mar</small><small>Avr</small></div>
         </div>
 
         <div className="availabilityV2Card">
           <span className="availabilityV2Label">Tendance</span>
-          <svg className="availabilityV2Trend" viewBox="0 0 180 120" aria-hidden="true">
-            <line x1="12" y1="100" x2="168" y2="100"/>
-            <line x1="12" y1="68" x2="168" y2="68"/>
-            <line x1="12" y1="36" x2="168" y2="36"/>
-            <polyline points="20,88 52,72 84,59 116,42 150,24"/>
-            <circle cx="20" cy="88" r="4"/><circle cx="52" cy="72" r="4"/><circle cx="84" cy="59" r="4"/><circle cx="116" cy="42" r="4"/><circle cx="150" cy="24" r="4"/>
-          </svg>
+          <div className="availabilityV2PlotSlot">
+            <svg className="availabilityV2Trend" viewBox="0 0 180 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <line x1="12" y1="100" x2="168" y2="100"/>
+              <line x1="12" y1="68" x2="168" y2="68"/>
+              <line x1="12" y1="36" x2="168" y2="36"/>
+              <polyline points="20,88 52,72 84,59 116,42 150,24"/>
+              <circle cx="20" cy="88" r="4"/><circle cx="52" cy="72" r="4"/><circle cx="84" cy="59" r="4"/><circle cx="116" cy="42" r="4"/><circle cx="150" cy="24" r="4"/>
+            </svg>
+          </div>
           <div className="availabilityV2Weeks"><small>S1</small><small>S2</small><small>S3</small><small>S4</small><small>S5</small></div>
         </div>
 
         <div className="availabilityV2Card availabilityV2DonutCard">
           <span className="availabilityV2Label">Répartition</span>
-          <div className="availabilityV2DonutRow">
-            <div className="availabilityV2Donut" aria-hidden="true" />
-            <div className="availabilityV2Legend">
-              <span><i className="availabilityV2Green"/>Analyse <b>78%</b></span>
-              <span><i className="availabilityV2Blue"/>Préparation <b>15%</b></span>
-              <span><i className="availabilityV2Dark"/>Autres <b>7%</b></span>
+          <div className="availabilityV2PlotSlot">
+            <div className="availabilityV2DonutRow">
+              <div className="availabilityV2Donut" aria-hidden="true" />
+              <div className="availabilityV2Legend">
+                <span><i className="availabilityV2Green"/>Analyse <b>78%</b></span>
+                <span><i className="availabilityV2Blue"/>Préparation <b>15%</b></span>
+                <span><i className="availabilityV2Dark"/>Autres <b>7%</b></span>
+              </div>
             </div>
           </div>
+          <div className="availabilityV2BottomSpacer" aria-hidden="true" />
         </div>
       </div>
     </div>
