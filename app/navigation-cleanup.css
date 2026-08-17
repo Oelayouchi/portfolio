@@ -5,3 +5,17 @@
 .scrollHint {
   display: none !important;
 }
+
+/* Navigation : typographie fine, moderne et sans gras. */
+.navlinks a,
+.mobileMenu a {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 15px;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+.navlinks a.active,
+.mobileMenu a.active {
+  font-weight: 400 !important;
+}
