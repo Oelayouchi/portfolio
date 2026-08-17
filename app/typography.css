@@ -25,79 +25,56 @@ body {
 }
 
 /* Carte profil accueil */
-.homeIdentityCopy strong {
-  font-size: 18px;
-}
-
-.homeIdentityCopy span {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.homeIdentityCopy p {
-  font-size: 14px;
-  line-height: 1.65;
-}
+.homeIdentityCopy strong { font-size: 17px; }
+.homeIdentityCopy span { font-size: 14px; line-height: 1.5; }
+.homeIdentityCopy p { font-size: 14px; line-height: 1.65; }
 
 /* Texte principal du hero */
-.homeHeroIntro > p {
-  font-size: clamp(18px, 1.45vw, 23px);
-}
+.homeHeroIntro > p { font-size: clamp(18px, 1.45vw, 23px); }
 
 /* Cartes chiffres-clés */
-.homeHighlightCard span {
-  font-size: 14px;
-  line-height: 1.35;
-}
-
-.homeHighlightCard small {
-  font-size: 12px;
-  line-height: 1.4;
-}
+.homeHighlightCard span { font-size: 14px; line-height: 1.35; }
+.homeHighlightCard small { font-size: 12px; line-height: 1.4; }
 
 /* Technologies */
-.homeTool strong {
-  font-size: 13px;
+.homeTool strong { font-size: 13px; }
+
+/* Tous les titres principaux de section : 22px */
+.homeCareerTitle h2,
+.section > h2,
+.sectionTitle h2,
+.sectionHeader h2,
+.aboutSection h2,
+.experienceSection h2,
+.projectsSection h2,
+.awardsSection h2,
+.dataSection h2,
+.certificationsSection h2,
+.educationSection h2,
+.interestsSection h2,
+.contactSection h2 {
+  font-size: 22px !important;
+  line-height: 1.25;
 }
 
-/* Parcours professionnel */
-.homeCareerTitle span {
-  font-size: 12px;
-}
+/* Petits labels au-dessus des titres */
+.homeCareerTitle span,
+.eyebrow,
+.mini { font-size: 12px; }
 
-.homeCareerTitle h2 {
-  font-size: 28px;
-}
+/* Titres secondaires : A- */
+.homeCareerItem strong { font-size: 17px; }
+.homeCareerSearch strong { font-size: 18px; }
+.card h3,
+.cert h3,
+.experience h4,
+.edu b { font-size: 18px; line-height: 1.35; }
 
-.homeCareerItem strong {
-  font-size: 18px;
-}
-
-.homeCareerItem p {
-  font-size: 14px;
-  line-height: 1.55;
-}
-
-.homeCareerItem em {
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.homeCareerItem small {
-  font-size: 12px;
-}
-
-.homeCareerSearch strong {
-  font-size: 19px;
-}
-
-.homeStageList b {
-  font-size: 12px;
-}
-
-.homeStageList small {
-  font-size: 11px;
-}
+.homeCareerItem p { font-size: 14px; line-height: 1.55; }
+.homeCareerItem em { font-size: 12px; line-height: 1.5; }
+.homeCareerItem small { font-size: 12px; }
+.homeStageList b { font-size: 12px; }
+.homeStageList small { font-size: 11px; }
 
 /* Texte courant des sections */
 .copy,
@@ -119,42 +96,16 @@ body {
 .date,
 .meta,
 .expHead span,
-.tags span,
-.eyebrow,
-.mini {
-  font-size: 13px;
-}
+.tags span { font-size: 13px; }
 
-/* Titres de cartes / sous-titres */
-.card h3,
-.cert h3,
-.experience h4,
-.edu b {
-  font-size: 20px;
-  line-height: 1.35;
-}
-
-/* Ajustement des cadres pour éviter que les textes agrandis soient serrés */
-.homeIdentityCopy {
-  padding: 22px 24px 24px;
-}
-
-.homeHighlightCard {
-  padding: 20px;
-}
-
-.homeCareerItem {
-  min-height: 242px;
-  padding: 22px 16px 20px;
-}
-
+/* Cadres adaptés aux nouvelles tailles sans changer le thème */
+.homeIdentityCopy { padding: 22px 24px 24px; }
+.homeHighlightCard { padding: 20px; }
+.homeCareerItem { min-height: 238px; padding: 21px 16px 19px; }
 .card,
 .cert div,
 .dataPanel,
-.aboutCard {
-  padding-top: 26px;
-  padding-bottom: 26px;
-}
+.aboutCard { padding-top: 24px; padding-bottom: 24px; }
 
 @media (max-width: 760px) {
   .homeIdentityCopy p,
@@ -164,13 +115,9 @@ body {
   .experience p,
   .card p,
   .dataPanel p,
-  .cert p {
-    font-size: 14px;
-  }
+  .cert p { font-size: 14px; }
 
-  .homeCareerItem {
-    min-height: 0;
-  }
+  .homeCareerItem { min-height: 0; }
 
   .button,
   .homeHeroActions .button,
@@ -180,4 +127,18 @@ body {
     min-height: 50px;
     font-size: 14px !important;
   }
+
+  .homeCareerTitle h2,
+  .section > h2,
+  .sectionTitle h2,
+  .sectionHeader h2,
+  .aboutSection h2,
+  .experienceSection h2,
+  .projectsSection h2,
+  .awardsSection h2,
+  .dataSection h2,
+  .certificationsSection h2,
+  .educationSection h2,
+  .interestsSection h2,
+  .contactSection h2 { font-size: 22px !important; }
 }
