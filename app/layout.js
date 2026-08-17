@@ -13,6 +13,7 @@ import './mobile-navigation.css';
 import './home-hero.css';
 import './awards.css';
 import './about-card.css';
+import './data-flow.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
