@@ -22,11 +22,13 @@ export default function ProjectsSection() {
 
           return (
             <article className="card projectDetailed projectDetailedMedia" key={project.title}>
-              <div className="num">{String(index + 1).padStart(2, '0')}</div>
-              <p className="projectPeriod">{project.period}</p>
-              <p className="mini">{project.institution}</p>
-              <h3>{project.title}</h3>
-              <p className="projectType">{project.type}</p>
+              <div className="projectHeadingBlock">
+                <h3>{project.title}</h3>
+                <div className="num">{String(index + 1).padStart(2, '0')}</div>
+                <p className="projectPeriod">{project.period}</p>
+                <p className="mini">{project.institution}</p>
+                <p className="projectType">{project.type}</p>
+              </div>
 
               <div className="projectBody">
                 <div className="projectContent">
