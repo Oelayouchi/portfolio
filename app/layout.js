@@ -11,6 +11,7 @@ import './navigation-cleanup.css';
 import './hero-tweaks.css';
 import './mobile-navigation.css';
 import './home-hero.css';
+import './awards.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio',
@@ -31,10 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <head>
-        <meta
-          name="format-detection"
-          content="telephone=no,date=no,address=no,email=no,url=no"
-        />
+        <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" />
       </head>
       <body>{children}</body>
     </html>
