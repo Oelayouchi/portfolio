@@ -16,7 +16,7 @@
 .homeIdentityCopy { display:grid; gap:6px; padding:20px 22px 20px; }
 .homeIdentityCopy strong { font-size:17px; }
 .homeIdentityCopy span { color:#91a7c3; font-size:13px; line-height:1.45; }
-.homeIdentityCopy p { margin:9px 0 0; color:#aebdd0; font-size:11px; line-height:1.58; }
+.homeIdentityCopy p { margin:9px 0 0; color:#aebdd0; font-size:12px; line-height:1.58; }
 .homeAvailability { display:flex; align-items:center; gap:9px; margin:auto 22px 20px; padding:10px 12px; border:1px solid rgba(32,201,118,.28); border-radius:12px; background:rgba(15,88,62,.16); color:#bcebd2; font-size:11px; font-weight:700; }
 .homeAvailability i { width:9px; height:9px; flex:0 0 9px; border-radius:50%; background:#35dd87; box-shadow:0 0 14px rgba(53,221,135,.9); }
 .homeHeroIntro { align-self:center; padding:12px 8px; }
