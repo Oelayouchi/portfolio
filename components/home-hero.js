@@ -105,17 +105,17 @@ export default function HomeHero() {
           </div>
 
           <div className="homeHeroIntro">
-            <div className="homeEyebrow">INGÉNIEUR & DATA EN RECONVERSION</div>
+            <div className="homeEyebrow">Ingénieur en systèmes embarqués et sûreté de fonctionnement en reconversion vers Data Analyst</div>
             <h1>Oussama<br/><span>EL AYOUCHI</span></h1>
             <p>Ingénieur systèmes embarqués & Safety, actuellement en reconversion vers la <strong>Data Analyst.</strong></p>
             <div className="homeHeroActions">
               <a className="button primary" href="#contact"><HeroIcon type="mail"/>Me contacter</a>
               <a className="button secondary" href="/documents/CV_Oussama_EL_AYOUCHI.pdf" target="_blank" rel="noreferrer"><HeroIcon type="download"/>Télécharger mon CV</a>
             </div>
-            <div className="homeStatusRow">
-              <div><span>CDI</span><strong>Expériences professionnelles</strong></div>
-              <div><span>À LA RECHERCHE</span><strong>Nouveau défi Data & systèmes</strong></div>
-            </div>
+            <a className="homeHeroAvailability" href="#contact">
+              <SearchLogo />
+              <span><strong>Disponible pour une alternance en Data Analyse</strong><small>Data Analyst · Alternance</small></span>
+            </a>
           </div>
 
           <div className="homeHighlights" aria-label="Chiffres clés">
