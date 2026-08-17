@@ -16,7 +16,7 @@ const highlights = [
   { value: '3+', label: "Années d’expérience" },
   { value: '10+', label: 'Projets techniques' },
   { value: '4', label: 'Prix & distinctions', detail: 'Robotique & innovation' },
-  { value: '2', label: 'Domaines clés', detail: 'Safety & Data' },
+  { value: '3', label: 'Domaines clés', detail: 'Systèmes embarqués · Sûreté de fonctionnement · Data Analyse' },
   { value: '4', label: 'Certifications affichées' },
 ];
 
@@ -100,12 +100,11 @@ export default function HomeHero() {
             <div className="homeIdentityCopy">
               <strong>Oussama EL AYOUCHI</strong>
               <span>Ingénieur systèmes embarqués & Safety</span>
-              <p>Ingénieur polyvalent, j’ai évolué du développement électronique et logiciel vers la sûreté de fonctionnement automobile et ferroviaire. Aujourd’hui, je complète ce parcours par une spécialisation en Data Analyse.</p>
+              <p>Ingénieur en systèmes embarqués et sûreté de fonctionnement, j’ai évolué du développement électronique et logiciel vers la sûreté de fonctionnement automobile et ferroviaire. Aujourd’hui, je complète ce parcours par une spécialisation en Data Analyse.</p>
             </div>
           </div>
 
           <div className="homeHeroIntro">
-            <div className="homeEyebrow">Ingénieur en systèmes embarqués et sûreté de fonctionnement en reconversion vers Data Analyst</div>
             <h1>Oussama<br/><span>EL AYOUCHI</span></h1>
             <p>Ingénieur systèmes embarqués & Safety, actuellement en reconversion vers la <strong>Data Analyst.</strong></p>
             <div className="homeHeroActions">
