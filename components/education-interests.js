@@ -26,7 +26,7 @@ const interestCards = [
 
 export default function EducationInterestsSection() {
   return (
-    <section className="section shell educationInterestsShowcase">
+    <section id="education" className="section shell educationInterestsShowcase">
       <div className="educationShowcaseHeader">
         <SectionLabel>FORMATION</SectionLabel>
         <h2>Diplômes</h2>
