@@ -20,17 +20,9 @@ function SmartAwardImage({folder,title,onAvailabilityChange}){
 
     const tryCandidate=(index)=>{
       if(cancelled)return;
-      if(index>=candidates.length){
-        onAvailabilityChange(false);
-        return;
-      }
+      if(index>=candidates.length){onAvailabilityChange(false);return;}
       const probe=new Image();
-      probe.onload=()=>{
-        if(!cancelled){
-          setSrc(candidates[index]);
-          onAvailabilityChange(true);
-        }
-      };
+      probe.onload=()=>{if(!cancelled){setSrc(candidates[index]);onAvailabilityChange(true);}};
       probe.onerror=()=>tryCandidate(index+1);
       probe.src=`${candidates[index]}?asset-check=1`;
     };
@@ -46,8 +38,9 @@ function SmartAwardImage({folder,title,onAvailabilityChange}){
 function AwardCard({award}){
   const[hasImage,setHasImage]=useState(false);
   return <article className={`awardCard${hasImage?' hasAwardImage':' noAwardImage'}`}>
-    {hasImage&&<div className="awardImagePlaceholder"><SmartAwardImage folder={award.folder} title={award.title} onAvailabilityChange={setHasImage}/></div>}
-    {!hasImage&&<SmartAwardImage folder={award.folder} title={award.title} onAvailabilityChange={setHasImage}/>} 
+    <div className={`awardImagePlaceholder${hasImage?'':' isHidden'}`}>
+      <SmartAwardImage folder={award.folder} title={award.title} onAvailabilityChange={setHasImage}/>
+    </div>
     <div className="awardContent"><h3>{award.title}</h3><p>{award.issuer}</p><span>{award.date}</span></div>
   </article>;
 }
