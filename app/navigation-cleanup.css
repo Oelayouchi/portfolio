@@ -1,53 +1,7 @@
 /* Nettoyage visuel du hero demandé : suppression des deux points décoratifs
    et de l'indication "Scroller pour en savoir plus". */
-.heroSection::before,
-.heroSection::after,
-.scrollHint {
-  display: none !important;
-}
-
-/* Navigation : typographie fine, moderne et sans gras. */
-.navlinks a,
-.mobileMenu a {
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 15px;
-  font-weight: 400 !important;
-  letter-spacing: 0 !important;
-}
-
-.navlinks a.active,
-.mobileMenu a.active {
-  font-weight: 400 !important;
-}
-
-/* Barre de navigation toujours visible pendant le scroll. */
-.navBar {
-  position: fixed !important;
-  top: 0 !important;
-  right: 0 !important;
-  left: 0 !important;
-  z-index: 9999 !important;
-  width: 100% !important;
-}
-
-/* La navbar fixe ne doit pas recouvrir le début de la page. */
-body {
-  padding-top: 80px !important;
-}
-
-/* Les ancres restent visibles sous la barre fixe. */
-section[id],
-[id] {
-  scroll-margin-top: 96px;
-}
-
-@media (max-width: 760px) {
-  body {
-    padding-top: 72px !important;
-  }
-
-  section[id],
-  [id] {
-    scroll-margin-top: 84px;
-  }
-}
+.heroSection::before,.heroSection::after,.scrollHint{display:none!important}
+.navlinks a,.mobileMenu a{font-family:Arial,Helvetica,sans-serif!important;font-size:15px;font-weight:400!important;letter-spacing:0!important}.navlinks a.active,.mobileMenu a.active{font-weight:400!important}.navBar{position:fixed!important;top:0!important;right:0!important;left:0!important;z-index:9999!important;width:100%!important}body{padding-top:80px!important}section[id],[id]{scroll-margin-top:96px}
+.languageSelector{display:flex;align-items:center;gap:6px;padding:4px 8px;border:1px solid rgba(79,139,211,.42);border-radius:10px;background:rgba(8,24,45,.72)}.languageSelector select{border:0;outline:none;background:transparent;color:#dce9f8;font:inherit;font-size:12px;cursor:pointer}.languageSelector option{background:#071525;color:#fff}html[data-theme='light'] .languageSelector{background:#eef6ff;border-color:#b8d3f2}html[data-theme='light'] .languageSelector select{color:#123f70}html[dir='rtl'] body{text-align:right}html[dir='rtl'] .nav,html[dir='rtl'] .navRight,html[dir='rtl'] .contactEnhanced,html[dir='rtl'] .experienceTopRow{direction:rtl}
+@media(max-width:900px){.languageSelector{margin-left:auto}}
+@media(max-width:760px){body{padding-top:72px!important}section[id],[id]{scroll-margin-top:84px}.languageSelector{padding:3px 6px}.languageSelector select{font-size:11px}}
