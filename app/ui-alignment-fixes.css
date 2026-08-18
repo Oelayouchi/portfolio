@@ -8,37 +8,80 @@
   box-shadow: 0 8px 22px rgba(0,0,0,.28);
 }
 
-/* Reserve the same vertical space for project tags so every title row starts on the same line. */
+/* Give the banner CTA more room around the minimize control. */
+.alternanceBanner {
+  padding-right: 44px;
+}
+
+.alternanceCta {
+  min-height: 40px;
+  padding: 0 13px;
+  font-size: 12px;
+}
+
+/* Reserve the same vertical space for project tags so every divider starts on the same line. */
 .projectShowcaseTags {
   min-height: 58px;
   align-content: flex-start;
+  margin-bottom: 12px;
 }
 
-/* Keep each project name and its report button aligned on the same top line. */
+/* Add a divider between technologies and the project title, aligned across every card. */
 .projectShowcaseTitleRow {
-  align-items: flex-start;
-  min-height: 52px;
+  align-items: center;
+  min-height: 56px;
+  margin-bottom: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(57, 156, 255, .72);
 }
 
+/* Slightly reduce project title size and keep every title/button on the same baseline. */
 .projectShowcaseContent h3 {
-  min-height: 50px;
+  min-height: 0;
+  margin: 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 .projectShowcaseButton {
   margin-top: 0;
+  min-height: 36px;
+  padding: 0 12px;
+  font-size: 10px;
+}
+
+/* Keep the lower separators of all project cards aligned. */
+.projectShowcaseMeta {
+  min-height: 66px;
 }
 
 @media (max-width: 760px) {
-  .projectShowcaseTags,
-  .projectShowcaseTitleRow,
-  .projectShowcaseContent h3 {
+  .projectShowcaseTags {
     min-height: 0;
+  }
+
+  .projectShowcaseTitleRow {
+    min-height: 0;
+    align-items: flex-start;
+  }
+
+  .projectShowcaseContent h3 {
+    font-size: 18px;
+  }
+
+  .alternanceBanner {
+    padding-right: 42px;
   }
 
   .alternanceMinimize {
     top: 8px;
     right: 10px;
+  }
+
+  .alternanceCta {
+    min-height: 38px;
+    padding: 0 12px;
   }
 }
