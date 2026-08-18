@@ -174,7 +174,6 @@ export default function ProjectMedia({ slug, title }) {
               src={`${config.report}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
               title={`Rapport ${title}`}
             />
-            <p className="reportReadOnlyNote">Lecture intégrée au portfolio. Les contrôles de téléchargement sont masqués dans la visionneuse.</p>
           </div>
         </div>
       )}
