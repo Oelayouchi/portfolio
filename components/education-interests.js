@@ -1,79 +1,14 @@
-import { education } from '../data/portfolio';
+'use client';
+
 import { SectionLabel } from './ui';
+import { useLanguage } from './language-context';
 
-const educationDisplay = [
-  {
-    year: '2022',
-    degree: 'Master 2 - Ingénierie des Systèmes Temps Réel',
-    institution: 'UNIVERSITÉ PAUL SABATIER TOULOUSE III',
-    logo: '/schools/universite-paul-sabatier.png',
-  },
-  {
-    year: '2020',
-    degree: 'Diplôme Ingénieur - Génie Electrique – Systèmes Embarqués',
-    institution: 'ÉCOLE NATIONALE DES SCIENCES APPLIQUÉES, MAROC',
-    logo: '/schools/ensa.png',
-  },
-];
-
-const interestCards = [
-  { key: 'football', label: 'Football', icon: '⚽' },
-  { key: 'taekwondo', label: 'Taekwondo', icon: '🥋' },
-  { key: 'musculation', label: 'Musculation', icon: '🏋️' },
-  { key: 'aviation', label: 'Voyage', icon: '✈️' },
-  { key: 'technologie', label: 'Technologie', icon: '💻' },
-];
-
-export default function EducationInterestsSection() {
-  return (
-    <section id="education" className="section shell educationInterestsShowcase">
-      <div className="educationShowcaseHeader">
-        <SectionLabel>FORMATION</SectionLabel>
-        <h2>Diplômes</h2>
-      </div>
-
-      <div className="educationCardsGrid">
-        {education.map((item, index) => {
-          const display = educationDisplay[index];
-          return (
-            <article className="educationShowcaseCard" key={item.title}>
-              <div className="educationLogoPanel">
-                <img src={display.logo} alt={`Logo ${display.institution}`} loading="lazy" />
-              </div>
-
-              <div className="educationShowcaseContent">
-                <span className="educationYearBadge">{display.year}</span>
-                <h3>{display.degree}</h3>
-                <p className="educationInstitution">{display.institution}</p>
-
-                <div className="educationBullets">
-                  {item.sections.flatMap((section) => section.bullets).map((bullet) => (
-                    <p key={bullet}><span>•</span>{bullet}</p>
-                  ))}
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-
-      <div className="interestsShowcase">
-        <div className="interestsShowcaseHeader">
-          <SectionLabel>CENTRES D’INTÉRÊT</SectionLabel>
-          <h2>En dehors du travail</h2>
-        </div>
-
-        <div className="interestCardsGrid">
-          {interestCards.map((interest) => (
-            <div className={`interestWrap interest-${interest.key}`} key={interest.key}>
-              <article className="interestCard">
-                <div className="interestIcon" aria-hidden="true">{interest.icon}</div>
-                <strong>{interest.label}</strong>
-              </article>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+const text={
+fr:{degrees:[{year:'2022',degree:'Master 2 - Ingénierie des Systèmes Temps Réel',institution:'UNIVERSITÉ PAUL SABATIER TOULOUSE III',logo:'/schools/universite-paul-sabatier.png',bullets:['Fiabilité des systèmes : sûreté de fonctionnement, vérification, validation, test logiciel et tolérance aux fautes.','Systèmes temps réel : conception, analyse d’ordonnançabilité et sensibilité.','TrampolineRTOS, OSEK/VDX et Linux temps réel (RTAI).','Réseaux temps réel : CAN, FIP et Ethernet embarqué.','Conception orientée objet : C++, Java et Python.','Conception et modélisation de systèmes de contrôle-commande et commandes temps réel.','Ingénierie systèmes et gestion d’entreprise.']},{year:'2020',degree:'Diplôme Ingénieur - Génie Electrique – Systèmes Embarqués',institution:'ÉCOLE NATIONALE DES SCIENCES APPLIQUÉES, MAROC',logo:'/schools/ensa.png',bullets:['Conception de systèmes numériques avec PLD et FPGA.','Architecture processeurs, Nios II, VHDL et VHDL-AMS.','Interfaçage de capteurs.','Microcontrôleurs PIC, STM32 et C embarqué.','Réseaux de capteurs sans fil.','Électronique de puissance, machines à courant continu et convertisseurs statiques.']}],interest:['Football','Taekwondo','Musculation','Voyage','Veille Data & IA']},
+en:{degrees:[{year:'2022',degree:'Master 2 - Real-Time Systems Engineering',institution:'TOULOUSE III — PAUL SABATIER UNIVERSITY',logo:'/schools/universite-paul-sabatier.png',bullets:['System reliability: functional safety, verification, validation, software testing and fault tolerance.','Real-time systems design, schedulability analysis and sensitivity.','TrampolineRTOS, OSEK/VDX and real-time Linux (RTAI).','Real-time networks: CAN, FIP and embedded Ethernet.','Object-oriented design: C++, Java and Python.','Control-system design and modelling and real-time control.','Systems engineering and business management.']},{year:'2020',degree:'Engineering Degree - Electrical Engineering & Embedded Systems',institution:'NATIONAL SCHOOL OF APPLIED SCIENCES, MOROCCO',logo:'/schools/ensa.png',bullets:['Digital-system design using PLDs and FPGAs.','Processor architecture, Nios II, VHDL and VHDL-AMS.','Sensor interfacing.','PIC and STM32 microcontrollers and embedded C.','Wireless sensor networks.','Power electronics, DC machines and static converters.']}],interest:['Football','Taekwondo','Weight training','Travel','Data & AI watch']},
+ar:{degrees:[{year:'2022',degree:'ماستر 2 - هندسة الأنظمة ذات الزمن الحقيقي',institution:'جامعة تولوز 3 — بول ساباتييه',logo:'/schools/universite-paul-sabatier.png',bullets:['موثوقية الأنظمة: السلامة الوظيفية والتحقق والتصديق واختبار البرمجيات وتحمل الأعطال.','تصميم الأنظمة ذات الزمن الحقيقي وتحليل الجدولة والحساسية.','TrampolineRTOS وOSEK/VDX وLinux ذي الزمن الحقيقي.','شبكات الزمن الحقيقي: CAN وFIP وEthernet المدمج.','البرمجة كائنية التوجه: C++ وJava وPython.','تصميم ونمذجة أنظمة التحكم والتحكم في الزمن الحقيقي.','هندسة الأنظمة وإدارة الشركات.']},{year:'2020',degree:'دبلوم مهندس - الهندسة الكهربائية والأنظمة المدمجة',institution:'المدرسة الوطنية للعلوم التطبيقية، المغرب',logo:'/schools/ensa.png',bullets:['تصميم الأنظمة الرقمية باستخدام PLD وFPGA.','معمارية المعالجات وNios II وVHDL وVHDL-AMS.','ربط الحساسات.','متحكمات PIC وSTM32 ولغة C المدمجة.','شبكات الحساسات اللاسلكية.','إلكترونيات القدرة وآلات التيار المستمر والمحولات الساكنة.']}],interest:['كرة القدم','التايكواندو','كمال الأجسام','السفر','متابعة البيانات والذكاء الاصطناعي']},
+es:{degrees:[{year:'2022',degree:'Máster 2 - Ingeniería de Sistemas de Tiempo Real',institution:'UNIVERSIDAD TOULOUSE III — PAUL SABATIER',logo:'/schools/universite-paul-sabatier.png',bullets:['Fiabilidad de sistemas: seguridad funcional, verificación, validación, pruebas y tolerancia a fallos.','Diseño de sistemas de tiempo real y análisis de planificabilidad.','TrampolineRTOS, OSEK/VDX y Linux de tiempo real.','Redes de tiempo real: CAN, FIP y Ethernet embebido.','Diseño orientado a objetos: C++, Java y Python.','Diseño y modelado de sistemas de control y control en tiempo real.','Ingeniería de sistemas y gestión empresarial.']},{year:'2020',degree:'Título de Ingeniero - Ingeniería Eléctrica y Sistemas Embebidos',institution:'ESCUELA NACIONAL DE CIENCIAS APLICADAS, MARRUECOS',logo:'/schools/ensa.png',bullets:['Diseño de sistemas digitales con PLD y FPGA.','Arquitectura de procesadores, Nios II, VHDL y VHDL-AMS.','Interfaz de sensores.','Microcontroladores PIC, STM32 y C embebido.','Redes inalámbricas de sensores.','Electrónica de potencia, máquinas de CC y convertidores estáticos.']}],interest:['Fútbol','Taekwondo','Musculación','Viajes','Vigilancia Data & IA']},
+de:{degrees:[{year:'2022',degree:'Master 2 - Echtzeitsystemtechnik',institution:'UNIVERSITÄT TOULOUSE III — PAUL SABATIER',logo:'/schools/universite-paul-sabatier.png',bullets:['Systemzuverlässigkeit: funktionale Sicherheit, Verifikation, Validierung, Softwaretests und Fehlertoleranz.','Entwurf von Echtzeitsystemen und Scheduling-Analyse.','TrampolineRTOS, OSEK/VDX und Echtzeit-Linux.','Echtzeitnetzwerke: CAN, FIP und Embedded Ethernet.','Objektorientierter Entwurf: C++, Java und Python.','Entwurf und Modellierung von Regelungs- und Echtzeitsystemen.','Systems Engineering und Unternehmensführung.']},{year:'2020',degree:'Ingenieurabschluss - Elektrotechnik & Embedded Systems',institution:'NATIONALE HOCHSCHULE FÜR ANGEWANDTE WISSENSCHAFTEN, MAROKKO',logo:'/schools/ensa.png',bullets:['Digitale Systeme mit PLD und FPGA entwerfen.','Prozessorarchitektur, Nios II, VHDL und VHDL-AMS.','Sensoranbindung.','PIC-/STM32-Mikrocontroller und Embedded C.','Drahtlose Sensornetzwerke.','Leistungselektronik, Gleichstrommaschinen und statische Wandler.']}],interest:['Fußball','Taekwondo','Krafttraining','Reisen','Data-&-KI-Beobachtung']}}
+;
+const icons=['⚽','🥋','🏋️','✈️','💻'];
+export default function EducationInterestsSection(){const{language,t}=useLanguage();const x=text[language];return <section id="education" className="section shell educationInterestsShowcase"><div className="educationShowcaseHeader"><SectionLabel>{t('educationLabel')}</SectionLabel><h2>{t('degrees')}</h2></div><div className="educationCardsGrid">{x.degrees.map(d=><article className="educationShowcaseCard" key={d.degree}><div className="educationLogoPanel"><img src={d.logo} alt={d.institution} loading="lazy"/></div><div className="educationShowcaseContent"><span className="educationYearBadge">{d.year}</span><h3>{d.degree}</h3><p className="educationInstitution">{d.institution}</p><div className="educationBullets">{d.bullets.map(b=><p key={b}><span>•</span>{b}</p>)}</div></div></article>)}</div><div className="interestsShowcase"><div className="interestsShowcaseHeader"><SectionLabel>{t('interests')}</SectionLabel><h2>{t('outside')}</h2></div><div className="interestCardsGrid">{x.interest.map((label,i)=><div className="interestWrap" key={label}><article className="interestCard"><div className="interestIcon">{icons[i]}</div><strong>{label}</strong></article></div>)}</div></div></section>}
