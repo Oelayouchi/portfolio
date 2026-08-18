@@ -1,54 +1,7 @@
 'use client';
 
-export default function AvailabilityDataPanel() {
-  return (
-    <div className="availabilityV2Wrap">
-      <a className="availabilityV2Banner" href="#contact">
-        <span className="availabilityV2Search" aria-hidden="true">
-          <svg viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 8 8"/></svg>
-        </span>
-        <strong>Disponible pour une alternance en Data Analyse</strong>
-        <span className="availabilityV2Arrow" aria-hidden="true">›</span>
-      </a>
+import { useLanguage } from './language-context';
 
-      <div className="availabilityV2Dashboard" aria-label="Aperçu de compétences Data">
-        <div className="availabilityV2Card">
-          <div className="availabilityV2PlotSlot">
-            <div className="availabilityV2BarArea">
-              <div className="availabilityV2YAxis"><small>100</small><small>50</small><small>0</small></div>
-              <div className="availabilityV2Bars"><i/><i/><i/><i/></div>
-            </div>
-          </div>
-          <div className="availabilityV2Months"><small>Jan</small><small>Fév</small><small>Mar</small><small>Avr</small></div>
-        </div>
+const labels={fr:{months:['Jan','Fév','Mar','Avr'],analysis:'Analyse',prep:'Préparation',other:'Autres'},en:{months:['Jan','Feb','Mar','Apr'],analysis:'Analysis',prep:'Preparation',other:'Other'},ar:{months:['يناير','فبراير','مارس','أبريل'],analysis:'تحليل',prep:'إعداد',other:'أخرى'},es:{months:['Ene','Feb','Mar','Abr'],analysis:'Análisis',prep:'Preparación',other:'Otros'},de:{months:['Jan','Feb','Mär','Apr'],analysis:'Analyse',prep:'Aufbereitung',other:'Andere'}};
 
-        <div className="availabilityV2Card">
-          <div className="availabilityV2PlotSlot">
-            <svg className="availabilityV2Trend" viewBox="0 0 180 120" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-              <line x1="12" y1="100" x2="168" y2="100"/>
-              <line x1="12" y1="68" x2="168" y2="68"/>
-              <line x1="12" y1="36" x2="168" y2="36"/>
-              <polyline points="20,88 52,72 84,59 116,42 150,24"/>
-              <circle cx="20" cy="88" r="4"/><circle cx="52" cy="72" r="4"/><circle cx="84" cy="59" r="4"/><circle cx="116" cy="42" r="4"/><circle cx="150" cy="24" r="4"/>
-            </svg>
-          </div>
-          <div className="availabilityV2Weeks"><small>S1</small><small>S2</small><small>S3</small><small>S4</small><small>S5</small></div>
-        </div>
-
-        <div className="availabilityV2Card availabilityV2DonutCard">
-          <div className="availabilityV2PlotSlot">
-            <div className="availabilityV2DonutRow">
-              <div className="availabilityV2Donut" aria-hidden="true" />
-              <div className="availabilityV2Legend">
-                <span><i className="availabilityV2Green"/>Analyse <b>78%</b></span>
-                <span><i className="availabilityV2Blue"/>Préparation <b>15%</b></span>
-                <span><i className="availabilityV2Dark"/>Autres <b>7%</b></span>
-              </div>
-            </div>
-          </div>
-          <div className="availabilityV2BottomSpacer" aria-hidden="true" />
-        </div>
-      </div>
-    </div>
-  );
-}
+export default function AvailabilityDataPanel(){const{language,t}=useLanguage();const l=labels[language];return <div className="availabilityV2Wrap"><a className="availabilityV2Banner" href="#contact"><span className="availabilityV2Search" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 8 8"/></svg></span><strong>{t('available')}</strong><span className="availabilityV2Arrow">›</span></a><div className="availabilityV2Dashboard"><div className="availabilityV2Card"><div className="availabilityV2PlotSlot"><div className="availabilityV2BarArea"><div className="availabilityV2YAxis"><small>100</small><small>50</small><small>0</small></div><div className="availabilityV2Bars"><i/><i/><i/><i/></div></div></div><div className="availabilityV2Months">{l.months.map(m=><small key={m}>{m}</small>)}</div></div><div className="availabilityV2Card"><div className="availabilityV2PlotSlot"><svg className="availabilityV2Trend" viewBox="0 0 180 120" preserveAspectRatio="xMidYMid meet"><line x1="12" y1="100" x2="168" y2="100"/><line x1="12" y1="68" x2="168" y2="68"/><line x1="12" y1="36" x2="168" y2="36"/><polyline points="20,88 52,72 84,59 116,42 150,24"/><circle cx="20" cy="88" r="4"/><circle cx="52" cy="72" r="4"/><circle cx="84" cy="59" r="4"/><circle cx="116" cy="42" r="4"/><circle cx="150" cy="24" r="4"/></svg></div><div className="availabilityV2Weeks"><small>S1</small><small>S2</small><small>S3</small><small>S4</small><small>S5</small></div></div><div className="availabilityV2Card availabilityV2DonutCard"><div className="availabilityV2PlotSlot"><div className="availabilityV2DonutRow"><div className="availabilityV2Donut"/><div className="availabilityV2Legend"><span><i className="availabilityV2Green"/>{l.analysis} <b>78%</b></span><span><i className="availabilityV2Blue"/>{l.prep} <b>15%</b></span><span><i className="availabilityV2Dark"/>{l.other} <b>7%</b></span></div></div></div><div className="availabilityV2BottomSpacer"/></div></div></div>}
