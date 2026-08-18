@@ -28,18 +28,38 @@
   place-items: center;
   align-content: center;
   gap: 8px;
+  overflow: hidden;
   border-bottom: 1px solid rgba(52, 111, 183, 0.3);
   background: #f7f9fc;
   color: #a8b2c1;
 }
 
-.awardImagePlaceholder span {
-  font-size: 72px;
-  font-weight: 900;
-  line-height: 1;
+.awardImagePlaceholder > img {
+  display: block;
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  object-position: center;
 }
 
-.awardImagePlaceholder small {
+.awardSmartEmpty {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 270px;
+  color: #a8b2c1;
+  text-align: center;
+}
+
+.awardSmartEmpty span {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1;
+  opacity: .65;
+}
+
+.awardSmartEmpty small {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .08em;
@@ -92,7 +112,12 @@ html[data-theme='light'] .awardContent p {
     grid-template-columns: 1fr;
   }
 
-  .awardImagePlaceholder {
+  .awardImagePlaceholder,
+  .awardSmartEmpty {
     min-height: 220px;
+  }
+
+  .awardImagePlaceholder > img {
+    height: 220px;
   }
 }
