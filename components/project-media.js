@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import PdfViewer from './pdf-viewer';
+import { useLanguage } from './language-context';
 
 const PROJECT_ASSETS = {
   'tolerance-aux-fautes': { imageCount: 5, report: '/projects/tolerance-aux-fautes/report/rapport.pdf' },
@@ -26,6 +28,7 @@ function ProjectVisual({ src, number, title, enlarged = false }) {
 }
 
 export default function ProjectMedia({ slug, title }) {
+  const { t } = useLanguage();
   const config = PROJECT_ASSETS[slug] || { imageCount: 5, report: `/projects/${slug}/report/rapport.pdf` };
   const images = config.images || [];
   const imageCount = images.length || config.imageCount || 5;
@@ -40,8 +43,31 @@ export default function ProjectMedia({ slug, title }) {
   const next = () => setActive((active + 1) % imageCount);
   const activeImage = images[active];
 
+  const imageModal = isZoomed && typeof document !== 'undefined' ? createPortal(
+    <div className="projectModal" role="dialog" aria-modal="true" aria-label={`Image agrandie de ${title}`} onClick={() => setIsZoomed(false)}>
+      <div className="projectModalContent imageModal" onClick={(event) => event.stopPropagation()}>
+        <button className="projectModalClose" type="button" onClick={() => setIsZoomed(false)} aria-label={t('close')}>×</button>
+        <ProjectVisual src={activeImage} number={active + 1} title={title} enlarged />
+      </div>
+    </div>,
+    document.body
+  ) : null;
+
+  const reportModal = reportOpen && typeof document !== 'undefined' ? createPortal(
+    <div className="projectModal" role="dialog" aria-modal="true" aria-label={`${t('projectReport')} ${title}`} onClick={() => setReportOpen(false)}>
+      <div className="projectModalContent reportModal" onClick={(event) => event.stopPropagation()}>
+        <div className="reportModalHeader">
+          <div><span>{t('projectReport')}</span><strong>{title}</strong></div>
+          <button className="projectModalClose" type="button" onClick={() => setReportOpen(false)} aria-label={t('close')}>×</button>
+        </div>
+        <PdfViewer src={config.report} title={`${t('projectReport')} ${title}`} />
+      </div>
+    </div>,
+    document.body
+  ) : null;
+
   return <div className="projectMedia">
-    <div className="projectMediaHeader"><button className="projectReportButton" type="button" onClick={() => setReportOpen(true)}><span aria-hidden="true">◉</span>Voir le rapport</button></div>
+    <div className="projectMediaHeader"><button className="projectReportButton" type="button" onClick={() => setReportOpen(true)}><span aria-hidden="true">◉</span>{t('viewReport')}</button></div>
     <div className="projectCarousel" onMouseEnter={startRotation} onMouseLeave={stopRotation}>
       <button className="projectCarouselArrow previous" type="button" onClick={previous} aria-label="Image précédente">‹</button>
       <button className="projectImageButton" type="button" onClick={() => setIsZoomed(true)} aria-label={`Agrandir l'image ${active + 1} de ${title}`}>
@@ -50,16 +76,7 @@ export default function ProjectMedia({ slug, title }) {
       <button className="projectCarouselArrow next" type="button" onClick={next} aria-label="Image suivante">›</button>
     </div>
     <div className="projectDots" aria-label="Navigation des images">{Array.from({ length: imageCount }, (_, index) => <button key={index} type="button" className={index === active ? 'active' : ''} onClick={() => setActive(index)} aria-label={`Afficher l'image ${index + 1}`} />)}</div>
-
-    {isZoomed && <div className="projectModal" role="dialog" aria-modal="true" aria-label={`Image agrandie de ${title}`} onClick={() => setIsZoomed(false)}>
-      <div className="projectModalContent imageModal" onClick={(event) => event.stopPropagation()}><button className="projectModalClose" type="button" onClick={() => setIsZoomed(false)} aria-label="Fermer">×</button><ProjectVisual src={activeImage} number={active + 1} title={title} enlarged /></div>
-    </div>}
-
-    {reportOpen && <div className="projectModal" role="dialog" aria-modal="true" aria-label={`Rapport du projet ${title}`} onClick={() => setReportOpen(false)}>
-      <div className="projectModalContent reportModal" onClick={(event) => event.stopPropagation()}>
-        <div className="reportModalHeader"><div><span>RAPPORT DU PROJET</span><strong>{title}</strong></div><button className="projectModalClose" type="button" onClick={() => setReportOpen(false)} aria-label="Fermer">×</button></div>
-        <PdfViewer src={config.report} title={`Rapport ${title}`} />
-      </div>
-    </div>}
+    {imageModal}
+    {reportModal}
   </div>;
 }
