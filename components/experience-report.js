@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useLanguage } from './language-context';
+import PdfViewer from './pdf-viewer';
 
 const REPORTS={'experience-ocp':'/internships/ocp/report/rapport.pdf','experience-parcelhome-stage':'/internships/parcelhome/report/rapport.pdf'};
 
@@ -19,9 +20,7 @@ export default function ExperienceReport({experienceId,title}){
           <div><span>{t('internshipReport')}</span><strong>{title}</strong></div>
           <button className="projectModalClose" type="button" onClick={()=>setOpen(false)} aria-label={t('close')}>×</button>
         </div>
-        <div className="projectReportViewport">
-          <iframe className="projectReportFrame" src={`${report}#toolbar=1&navpanes=0&scrollbar=1&view=Fit&zoom=page-fit`} title={`${t('internshipReport')} ${title}`}/>
-        </div>
+        <PdfViewer src={report} title={`${t('internshipReport')} ${title}`}/>
       </div>
     </div>,
     document.body
