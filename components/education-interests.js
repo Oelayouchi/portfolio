@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useState } from 'react';
 import { SectionLabel } from './ui';
 import { useLanguage } from './language-context';
 
@@ -12,4 +13,15 @@ de:{degrees:[{year:'2022',degree:'Master 2 - Echtzeitsystemtechnik',institution:
 ;
 const icons=['⚽','🥋','🏋️','✈️','💻'];
 const interestClasses=['interest-football','interest-taekwondo','interest-musculation','interest-aviation','interest-technologie'];
-export default function EducationInterestsSection(){const{language,t}=useLanguage();const x=text[language];return <section id="education" className="section shell educationInterestsShowcase"><div className="educationShowcaseHeader"><SectionLabel>{t('educationLabel')}</SectionLabel><h2>{t('degrees')}</h2></div><div className="educationCardsGrid">{x.degrees.map(d=><article className="educationShowcaseCard" key={d.degree}><div className="educationLogoPanel"><img src={d.logo} alt={d.institution} loading="lazy"/></div><div className="educationShowcaseContent"><span className="educationYearBadge">{d.year}</span><h3>{d.degree}</h3><p className="educationInstitution">{d.institution}</p><div className="educationBullets">{d.bullets.map(b=><p key={b}><span>•</span>{b}</p>)}</div></div></article>)}</div><div className="interestsShowcase"><div className="interestsShowcaseHeader"><SectionLabel>{t('interests')}</SectionLabel><h2>{t('outside')}</h2></div><div className="interestCardsGrid">{x.interest.map((label,i)=><div className={`interestWrap ${interestClasses[i]}`} key={`${i}-${label}`}><article className="interestCard"><div className="interestIcon">{icons[i]}</div><strong>{label}</strong></article></div>)}</div></div></section>}
+
+export default function EducationInterestsSection(){
+  const{language,t}=useLanguage();
+  const x=text[language];
+  const[activeInterest,setActiveInterest]=useState(null);
+  const timerRef=useRef(null);
+  const animateInterest=(index)=>{
+    window.clearTimeout(timerRef.current);
+    setActiveInterest(index);
+    timerRef.current=window.setTimeout(()=>setActiveInterest(null),1200);
+  };
+  return <section id="education" className="section shell educationInterestsShowcase"><div className="educationShowcaseHeader"><SectionLabel>{t('educationLabel')}</SectionLabel><h2>{t('degrees')}</h2></div><div className="educationCardsGrid">{x.degrees.map(d=><article className="educationShowcaseCard" key={d.degree}><div className="educationLogoPanel"><img src={d.logo} alt={d.institution} loading="lazy"/></div><div className="educationShowcaseContent"><span className="educationYearBadge">{d.year}</span><h3>{d.degree}</h3><p className="educationInstitution">{d.institution}</p><div className="educationBullets">{d.bullets.map(b=><p key={b}><span>•</span>{b}</p>)}</div></div></article>)}</div><div className="interestsShowcase"><div className="interestsShowcaseHeader"><SectionLabel>{t('interests')}</SectionLabel><h2>{t('outside')}</h2></div><div className="interestCardsGrid">{x.interest.map((label,i)=><div className={`interestWrap ${interestClasses[i]}${activeInterest===i?' is-active':''}`} key={`${i}-${label}`}><article className="interestCard" role="button" tabIndex={0} onClick={()=>animateInterest(i)} onKeyDown={(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();animateInterest(i)}}}><div className="interestIcon">{icons[i]}</div><strong>{label}</strong></article></div>)}</div></div></section>}
