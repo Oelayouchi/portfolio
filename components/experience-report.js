@@ -19,7 +19,9 @@ export default function ExperienceReport({experienceId,title}){
           <div><span>{t('internshipReport')}</span><strong>{title}</strong></div>
           <button className="projectModalClose" type="button" onClick={()=>setOpen(false)} aria-label={t('close')}>×</button>
         </div>
-        <iframe className="projectReportFrame" src={`${report}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`} title={`${t('internshipReport')} ${title}`}/>
+        <div className="projectReportViewport">
+          <iframe className="projectReportFrame" src={`${report}#toolbar=1&navpanes=0&scrollbar=1&view=Fit&zoom=page-fit`} title={`${t('internshipReport')} ${title}`}/>
+        </div>
       </div>
     </div>,
     document.body
