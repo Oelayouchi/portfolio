@@ -24,8 +24,8 @@ export default function AllProjectsContent(){
         <Link className="brand" href="/" aria-label="Portfolio home">OE<span>.</span></Link>
         <div className="navRight allProjectsNavRight">
           <div className="languageSelector"><span aria-hidden="true">🌐</span><select aria-label={t('language')} value={language} onChange={e=>setLanguage(e.target.value)}>{languages.map(l=><option key={l.code} value={l.code}>{l.label}</option>)}</select></div>
-          <Link className="allProjectsBack" href="/#projects" aria-label={t('backPortfolio')}><span className="allProjectsBackArrow" aria-hidden="true">←</span><span className="allProjectsBackText">{t('backPortfolio')}</span></Link>
           <div className="themeToggle" aria-label="Theme"><span><ThemeIcon type="moon"/></span><span><ThemeIcon type="sun"/></span></div>
+          <Link className="allProjectsBack" href="/#projects" aria-label={t('backPortfolio')}><span className="allProjectsBackArrow" aria-hidden="true">←</span><span className="allProjectsBackText">{t('backPortfolio')}</span></Link>
         </div>
       </nav>
     </header>
