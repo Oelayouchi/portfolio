@@ -5,6 +5,7 @@ import './alternance.css';
 import './theme.css';
 import './education-interests.css';
 import './projects-media.css';
+import './mobile-pdf-fixes.css';
 import './projects-layout-final.css';
 import './projects-showcase.css';
 import './contact.css';
@@ -32,5 +33,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return <html lang="fr"><head><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" /></head><body>{children}</body></html>;
+  return <html lang="en"><head><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" /></head><body>{children}</body></html>;
 }
