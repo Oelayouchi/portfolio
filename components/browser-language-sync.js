@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useLanguage } from './language-context';
 
 const supported = new Set(['fr', 'en', 'ar', 'es', 'de']);
+const STORAGE_KEY = 'portfolio-language';
 
 function detectBrowserLanguage() {
   if (typeof navigator === 'undefined') return 'en';
@@ -23,9 +24,12 @@ export default function BrowserLanguageSync() {
   const { setLanguage } = useLanguage();
 
   useEffect(() => {
-    const id = window.setTimeout(() => setLanguage(detectBrowserLanguage()), 0);
-    return () => window.clearTimeout(id);
-  }, [setLanguage]);
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    if (saved && supported.has(saved)) return;
+    setLanguage(detectBrowserLanguage());
+    // Automatic detection is intentionally performed only once.
+    // After that, the visitor's manual language choice always has priority.
+  }, []);
 
   return null;
 }
