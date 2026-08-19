@@ -22,10 +22,10 @@ export default function AllProjectsContent(){
     <header className="navBar">
       <nav className="nav shell" aria-label="Portfolio navigation">
         <Link className="brand" href="/" aria-label="Portfolio home">OE<span>.</span></Link>
-        <div className="navRight">
+        <div className="navRight allProjectsNavRight">
+          <Link className="allProjectsBack" href="/#projects" aria-label={t('backPortfolio')}><span className="allProjectsBackArrow" aria-hidden="true">←</span><span className="allProjectsBackText">{t('backPortfolio')}</span></Link>
           <div className="languageSelector"><span aria-hidden="true">🌐</span><select aria-label={t('language')} value={language} onChange={e=>setLanguage(e.target.value)}>{languages.map(l=><option key={l.code} value={l.code}>{l.label}</option>)}</select></div>
           <div className="themeToggle" aria-label="Theme"><span><ThemeIcon type="moon"/></span><span><ThemeIcon type="sun"/></span></div>
-          <Link className="allProjectsBack" href="/#projects"><span aria-hidden="true">←</span>{t('backPortfolio')}</Link>
         </div>
       </nav>
     </header>
