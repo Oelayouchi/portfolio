@@ -7,7 +7,6 @@
   padding: 12px 8px;
 }
 
-/* Titre complet : sans cadre, blanc en sombre, noir en clair */
 .homeEyebrow {
   display: block;
   width: 100%;
@@ -24,7 +23,6 @@
   white-space: nowrap;
 }
 
-/* Bandeau alternance : plus compact et clairement séparé des boutons. */
 .homeHeroAvailability {
   display: grid;
   grid-template-columns: 58px 1fr;
@@ -71,66 +69,219 @@
   font-size: 11px;
 }
 
-/* Les anciennes petites fenêtres ne doivent jamais occuper de place. */
-.homeStatusRow {
-  display: none !important;
-}
-
-html[data-theme='light'] .homeEyebrow {
-  color: #07111f;
-}
-
+.homeStatusRow { display: none !important; }
+html[data-theme='light'] .homeEyebrow { color: #07111f; }
 html[data-theme='light'] .homeHeroAvailability {
   border-color: rgba(25, 170, 94, .42);
   background: linear-gradient(145deg, rgba(239, 255, 246, .98), rgba(247, 255, 251, .98));
   box-shadow: 0 14px 32px rgba(44, 123, 84, .07);
 }
+html[data-theme='light'] .homeHeroAvailability strong { color: #078b46; }
+html[data-theme='light'] .homeHeroAvailability small { color: #52677f; }
 
-html[data-theme='light'] .homeHeroAvailability strong {
-  color: #078b46;
+/* Style 5 — Hero fusionné */
+.homeFusedHero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 74px);
+  width: 100%;
+  padding: clamp(24px, 4vw, 52px);
+  overflow: hidden;
+  border: 1px solid rgba(45, 131, 220, .34);
+  border-radius: 30px;
+  background: linear-gradient(145deg, rgba(5, 21, 39, .98), rgba(5, 27, 54, .92));
+  box-shadow: inset 0 0 50px rgba(28, 131, 255, .04), 0 22px 60px rgba(1, 10, 24, .18);
 }
 
-html[data-theme='light'] .homeHeroAvailability small {
-  color: #52677f;
+.homeFusedPortraitWrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  isolation: isolate;
 }
+
+.homeFusedPortrait {
+  position: relative;
+  z-index: 3;
+  width: 70%;
+  aspect-ratio: 1;
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #18b7ff, #2077ff 58%, #8f4dff);
+  box-shadow: 0 0 34px rgba(31, 132, 255, .22);
+}
+.homeFusedPortrait::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  z-index: -1;
+  border-radius: inherit;
+  background: #061426;
+}
+.homeFusedPortrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+}
+.homeFusedOrbit {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(43, 132, 255, .5);
+}
+.homeFusedOrbitA { width: 86%; height: 86%; border-right-color: rgba(147, 77, 255, .78); }
+.homeFusedOrbitB { width: 100%; height: 100%; border-left-color: transparent; border-bottom-color: transparent; transform: rotate(-18deg); }
+.homeFusedDots {
+  position: absolute;
+  right: 2%;
+  bottom: 15%;
+  width: 28%;
+  height: 28%;
+  opacity: .32;
+  background-image: radial-gradient(circle, #238eff 1.5px, transparent 1.7px);
+  background-size: 12px 12px;
+}
+
+.homeFusedCopy { min-width: 0; }
+.homeFusedCopy h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  font-size: clamp(48px, 6vw, 92px);
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+.homeFusedFirst { color: #fff; font-weight: 700; }
+.homeFusedLast {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  font-weight: 800;
+  background: linear-gradient(90deg, #12b8ff 0%, #217cff 47%, #9a48ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.homeFusedLine {
+  display: block;
+  width: 52px;
+  height: 3px;
+  margin: 24px 0 13px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #12b8ff, #8d4dff);
+}
+.homeFusedRole {
+  display: block;
+  color: #20a6ff;
+  font-size: clamp(15px, 1.4vw, 21px);
+  letter-spacing: .09em;
+  line-height: 1.2;
+}
+.homeFusedCopy > p {
+  max-width: 680px;
+  margin: 18px 0 0;
+  color: #bdcbe0;
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.72;
+}
+.homeFusedActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.homeFusedActions .button { min-height: 50px; }
+
+html[data-theme='light'] .homeFusedHero {
+  border-color: rgba(31, 114, 205, .22);
+  background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(239,247,255,.96));
+  box-shadow: 0 20px 55px rgba(57, 88, 120, .10);
+}
+html[data-theme='light'] .homeFusedFirst { color: #07111f; }
+html[data-theme='light'] .homeFusedCopy > p { color: #53677e; }
+html[data-theme='light'] .homeFusedPortrait::before { background: #f5f9ff; }
+
+@keyframes fusedRise { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fusedPortraitIn { from { opacity:0; transform:translateY(18px) scale(.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+.homeFusedPortraitWrap { animation: fusedPortraitIn .55s ease both; }
+.homeFusedCopy h1 { animation: fusedRise .5s .08s ease both; }
+.homeFusedRole,.homeFusedLine { animation: fusedRise .45s .14s ease both; }
+.homeFusedCopy > p { animation: fusedRise .45s .2s ease both; }
+.homeFusedActions { animation: fusedRise .45s .27s ease both; }
 
 @media (max-width: 1050px) {
-  .homeEyebrow {
-    font-size: 11px;
-    white-space: normal;
-  }
-
-  .homeHeroAvailability {
-    margin-top: 24px;
-  }
+  .homeEyebrow { font-size: 11px; white-space: normal; }
+  .homeHeroAvailability { margin-top: 24px; }
+  .homeFusedHero { grid-template-columns: minmax(220px,.8fr) minmax(0,1.2fr); gap: 28px; }
+  .homeFusedCopy h1 { font-size: clamp(42px, 6.4vw, 68px); }
 }
 
 @media (max-width: 760px) {
-  .homeHeroIntro {
-    display: flex;
-    padding: 8px 0;
-  }
+  .homeHeroIntro { display:flex; padding:8px 0; }
+  .homeEyebrow { font-size:10px; line-height:1.45; white-space:normal; }
+  .homeHeroAvailability { grid-template-columns:50px 1fr; gap:12px; min-height:76px; margin-top:18px; padding:10px 13px; }
+  .homeHeroAvailability .homeSearchLogo { width:44px; height:44px; }
+  .homeHeroAvailability strong { font-size:12px; }
 
-  .homeEyebrow {
-    font-size: 10px;
-    line-height: 1.45;
-    white-space: normal;
-  }
-
-  .homeHeroAvailability {
-    grid-template-columns: 50px 1fr;
+  .homeFusedHero {
+    grid-template-columns: 1fr;
     gap: 12px;
-    min-height: 76px;
-    margin-top: 20px;
-    padding: 10px 13px;
+    padding: 22px 16px 18px;
+    border-radius: 24px;
+    text-align: center;
   }
+  .homeFusedPortraitWrap { width: min(54vw, 210px); }
+  .homeFusedPortrait { width: 72%; }
+  .homeFusedCopy { display:flex; flex-direction:column; align-items:center; }
+  .homeFusedCopy h1 {
+    align-items: center;
+    width: 100%;
+    font-size: clamp(36px, 11.8vw, 54px);
+    line-height: .94;
+    letter-spacing: -.045em;
+  }
+  .homeFusedLast { width: auto; white-space: nowrap; }
+  .homeFusedLine { width: 38px; height: 2px; margin: 15px 0 9px; }
+  .homeFusedRole { font-size: 14px; letter-spacing: .1em; }
+  .homeFusedCopy > p { max-width: 540px; margin-top: 13px; font-size: 13px; line-height: 1.58; }
+  .homeFusedActions { width: 100%; justify-content: center; margin-top: 17px; gap: 9px; }
+  .homeFusedActions .button { flex: 1 1 210px; max-width: 310px; min-height: 46px; }
+}
 
-  .homeHeroAvailability .homeSearchLogo {
-    width: 44px;
-    height: 44px;
-  }
+@media (max-width: 430px) {
+  .homeFusedHero { padding: 18px 13px 15px; }
+  .homeFusedPortraitWrap { width: min(50vw, 185px); }
+  .homeFusedCopy h1 { font-size: clamp(34px, 11.2vw, 47px); }
+  .homeFusedCopy > p { font-size: 12.5px; line-height: 1.52; }
+}
 
-  .homeHeroAvailability strong {
-    font-size: 12px;
-  }
+@media (max-width: 350px) {
+  .homeFusedHero { padding-inline: 10px; }
+  .homeFusedCopy h1 { font-size: 33px; }
+  .homeFusedLast { white-space: normal; }
+  .homeFusedActions .button { min-width: 0; width: 100%; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .homeFusedHero { grid-template-columns: 190px 1fr; gap:18px; padding:14px 18px; text-align:left; }
+  .homeFusedPortraitWrap { width: 150px; }
+  .homeFusedCopy { align-items:flex-start; }
+  .homeFusedCopy h1 { align-items:flex-start; font-size:34px; }
+  .homeFusedLine { margin:10px 0 7px; }
+  .homeFusedCopy > p { margin-top:9px; font-size:11.5px; line-height:1.42; }
+  .homeFusedActions { justify-content:flex-start; margin-top:10px; }
+  .homeHeroAvailability { margin-top:10px; min-height:62px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homeFusedPortraitWrap,.homeFusedCopy h1,.homeFusedRole,.homeFusedLine,.homeFusedCopy > p,.homeFusedActions { animation:none !important; }
 }
