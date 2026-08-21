@@ -10,8 +10,6 @@ const terminalText={
   ar:{title:'Data Engineering Pipeline',steps:[['Extract','تم جمع البيانات'],['Transform','تنظيف وتحويل البيانات'],['Load','تحميل SQL'],['Analyse','جاهز لـ Power BI']],done:'Pipeline completed successfully'}
 };
 
-function DatabaseIcon(){return <svg className="availabilityTerminalDb" viewBox="0 0 180 180" aria-hidden="true"><ellipse cx="90" cy="38" rx="48" ry="18"/><path d="M42 38v30c0 10 21 18 48 18s48-8 48-18V38"/><path d="M42 68v30c0 10 21 18 48 18s48-8 48-18V68"/><path d="M42 98v30c0 10 21 18 48 18s48-8 48-18V98"/><ellipse cx="90" cy="128" rx="48" ry="18"/><circle cx="146" cy="50" r="3"/><circle cx="30" cy="80" r="3"/><circle cx="151" cy="110" r="3"/><circle cx="28" cy="132" r="3"/></svg>}
-
 export default function AvailabilityDataPanel(){
   const{language,t}=useLanguage();
   const copy=terminalText[language]||terminalText.fr;
@@ -29,7 +27,6 @@ export default function AvailabilityDataPanel(){
           {copy.steps.map(([name,desc])=><div className="availabilityTerminalLine" key={name}><span className="availabilityTerminalPrompt">›</span><strong>{name}</strong><span className="availabilityTerminalColon">:</span><em>{desc}</em></div>)}
           <div className="availabilityTerminalDone">{copy.done} <b>✓</b></div>
         </div>
-        <div className="availabilityTerminalVisual"><DatabaseIcon/></div>
       </div>
     </div>
   </div>
