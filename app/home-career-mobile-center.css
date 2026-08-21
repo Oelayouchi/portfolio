@@ -1,0 +1,44 @@
+/* Final mobile override: center the compact professional career cards. */
+@media (max-width: 760px) {
+  .homeCareerLine > a.homeCareerItem:not(.homeCareerSearch) {
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+  }
+
+  .homeCareerLine > a.homeCareerItem:not(.homeCareerSearch) .homeCareerLogo {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .homeCareerLine > a.homeCareerItem:not(.homeCareerSearch) .homeCareerLogo img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .homeCareerLine > a.homeCareerItem:not(.homeCareerSearch) > small,
+  .homeCareerLine > a.homeCareerItem:not(.homeCareerSearch) > strong,
+  .homeCareerLine > a.homeCareerItem:not(.homeCareerSearch) > p,
+  .homeCareerLine > a.homeCareerItem:not(.homeCareerSearch) > em {
+    width: 100% !important;
+    align-self: center !important;
+    text-align: center !important;
+  }
+
+  .homeCareerLine > a.homeCareerItem:not(.homeCareerSearch) > small {
+    width: fit-content !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Keep the internships card/list layout unchanged. */
+  .homeCareerStages {
+    align-items: stretch !important;
+    text-align: left !important;
+  }
+}
