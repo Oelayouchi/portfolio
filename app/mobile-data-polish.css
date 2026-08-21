@@ -10,63 +10,27 @@
   #experience .experienceBody>.experienceBlock { margin-top:0!important; padding-top:12px!important; }
   #experience .experienceBody>.experienceBlock+.experienceBlock { margin-top:12px!important; }
 
-  /* Detailed experiences must stay fully inside the mobile card. */
   #experience .experienceRefined { box-sizing:border-box!important; max-width:100%!important; }
   #experience .experienceRefined .experienceBody { box-sizing:border-box!important; width:100%!important; max-width:100%!important; min-width:0!important; }
-  #experience .experienceTopRow,
-  #experience .experienceIdentity,
-  #experience .experienceTopActions,
-  #experience .experienceMetaTop,
-  #experience .experienceBody>h4,
-  #experience .experienceBlock { width:100%!important; max-width:100%!important; min-width:0!important; box-sizing:border-box!important; }
+  #experience .experienceTopRow,#experience .experienceIdentity,#experience .experienceTopActions,#experience .experienceMetaTop,#experience .experienceBody>h4,#experience .experienceBlock { width:100%!important; max-width:100%!important; min-width:0!important; box-sizing:border-box!important; }
   #experience .experienceIdentity { display:flex!important; flex-direction:column!important; align-items:stretch!important; gap:12px!important; }
   #experience .experienceIdentity>div:last-child { width:100%!important; max-width:100%!important; min-width:0!important; }
 
-  /* Company logo band: truly full width, same height on every detailed experience. */
-  #experience .experienceLogoInline {
-    display:grid!important;
-    width:100%!important;
-    max-width:100%!important;
-    min-width:100%!important;
-    height:104px!important;
-    min-height:104px!important;
-    flex:0 0 104px!important;
-    margin:0!important;
-    padding:10px 14px!important;
-    place-items:center!important;
-    border-radius:16px!important;
-    box-sizing:border-box!important;
-    justify-self:stretch!important;
-    align-self:stretch!important;
-  }
-  #experience .experienceLogoInline img {
-    display:block!important;
-    width:100%!important;
-    max-width:100%!important;
-    height:78px!important;
-    min-height:78px!important;
-    max-height:78px!important;
-    margin:0!important;
-    object-fit:contain!important;
-    object-position:center!important;
-  }
+  #experience .experienceLogoInline { display:grid!important; width:100%!important; max-width:100%!important; min-width:100%!important; height:104px!important; min-height:104px!important; flex:0 0 104px!important; margin:0!important; padding:10px 14px!important; place-items:center!important; border-radius:16px!important; box-sizing:border-box!important; justify-self:stretch!important; align-self:stretch!important; }
+  #experience .experienceLogoInline img { display:block!important; width:100%!important; max-width:100%!important; height:78px!important; min-height:78px!important; max-height:78px!important; margin:0!important; object-fit:contain!important; object-position:center!important; }
 
-  #experience .experienceTopRow h3,
-  #experience .experienceDepartment,
-  #experience .experienceMetaTop strong,
-  #experience .experienceMetaTop span,
-  #experience .experienceBody h4,
-  #experience .experienceBlock,
-  #experience .experienceBlock li,
-  #experience .parcelSubject h6 { max-width:100%!important; overflow-wrap:anywhere!important; word-break:normal!important; }
+  #experience .experienceTopRow h3,#experience .experienceDepartment,#experience .experienceMetaTop strong,#experience .experienceMetaTop span,#experience .experienceBody h4,#experience .experienceBlock,#experience .experienceBlock li,#experience .parcelSubject h6 { max-width:100%!important; overflow-wrap:anywhere!important; word-break:normal!important; }
   #experience .experienceTopActions { display:flex!important; flex-direction:column!important; align-items:flex-start!important; gap:10px!important; padding-left:0!important; }
   #experience .experienceMetaTop { align-items:flex-start!important; text-align:left!important; }
   #experience .experienceTopActions .experienceReportButton { max-width:100%!important; }
 
-  /* Compact experience/company cards: centered content and logos using the full useful width. */
-  .companyItem { text-align:center!important; }
+  /* Compact experience/company cards: everything centered on mobile. */
+  .companyItem { display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important; text-align:center!important; }
+  .companyItem > * { margin-left:auto!important; margin-right:auto!important; text-align:center!important; }
   .companyLogoWrap { width:100%!important; height:88px!important; display:flex!important; align-items:center!important; justify-content:center!important; }
-  .companyLogo { width:100%!important; max-width:100%!important; max-height:72px!important; object-fit:contain!important; }
+  .companyLogo { width:100%!important; max-width:100%!important; max-height:72px!important; object-fit:contain!important; object-position:center!important; }
+  .companiesGrid > * { text-align:center!important; }
+  .companiesGrid > * > * { margin-left:auto!important; margin-right:auto!important; }
 
   .projectShowcaseCard { height:auto!important; min-height:100%!important; overflow:hidden!important; }
   .projectShowcaseContent { display:flex!important; flex-direction:column!important; height:auto!important; min-height:0!important; }
@@ -92,22 +56,7 @@
   .companiesGrid,.educationCardsGrid,#certifications .certs,.awardsGrid,.projectShowcaseGrid,#experience .timeline { padding-bottom:14px!important; scrollbar-width:thin!important; scrollbar-color:#2f82ff rgba(28,57,92,.46)!important; }
   .companiesGrid::-webkit-scrollbar,.educationCardsGrid::-webkit-scrollbar,#certifications .certs::-webkit-scrollbar,.awardsGrid::-webkit-scrollbar,.projectShowcaseGrid::-webkit-scrollbar,#experience .timeline::-webkit-scrollbar { height:7px!important; display:block!important; }
 
-  /* Interests: two compact cards visible at once, horizontal swipe, animations preserved. */
-  .interestCardsGrid {
-    display:flex!important;
-    grid-template-columns:none!important;
-    gap:12px!important;
-    width:100%!important;
-    padding:2px 2px 14px!important;
-    overflow-x:auto!important;
-    overflow-y:hidden!important;
-    scroll-snap-type:x mandatory!important;
-    scroll-padding-inline:2px!important;
-    overscroll-behavior-x:contain!important;
-    -webkit-overflow-scrolling:touch!important;
-    scrollbar-width:thin!important;
-    scrollbar-color:#2f82ff rgba(28,57,92,.46)!important;
-  }
+  .interestCardsGrid { display:flex!important; grid-template-columns:none!important; gap:12px!important; width:100%!important; padding:2px 2px 14px!important; overflow-x:auto!important; overflow-y:hidden!important; scroll-snap-type:x mandatory!important; scroll-padding-inline:2px!important; overscroll-behavior-x:contain!important; -webkit-overflow-scrolling:touch!important; scrollbar-width:thin!important; scrollbar-color:#2f82ff rgba(28,57,92,.46)!important; }
   .interestCardsGrid::-webkit-scrollbar { height:7px!important; display:block!important; }
   .interestCardsGrid::-webkit-scrollbar-track { background:rgba(28,57,92,.46)!important; border-radius:999px!important; }
   .interestCardsGrid::-webkit-scrollbar-thumb { background:#2f82ff!important; border-radius:999px!important; }
@@ -121,13 +70,11 @@
   .interest-aviation { order:4!important; }
   .interest-technologie { order:5!important; }
 
-  /* PDF: permanent high-contrast scrollbar on the user's right side. */
   .projectReportViewport { position:relative!important; overflow-y:scroll!important; scrollbar-gutter:stable!important; scrollbar-width:auto!important; scrollbar-color:#168cff #cbd5e1!important; }
   .projectReportViewport::-webkit-scrollbar { width:12px!important; display:block!important; }
   .projectReportViewport::-webkit-scrollbar-track { background:#cbd5e1!important; border-radius:999px!important; }
   .projectReportViewport::-webkit-scrollbar-thumb { background:#168cff!important; border:2px solid #cbd5e1!important; border-radius:999px!important; min-height:52px!important; }
 
-  /* Burger menu: compact dropdown attached to the right, never full phone width. */
   .mobileMenu { left:auto!important; right:14px!important; width:min(58vw,270px)!important; max-width:270px!important; top:calc(100% + 8px)!important; border:1px solid rgba(40,102,170,.55)!important; border-radius:16px!important; box-shadow:0 18px 50px rgba(0,0,0,.42)!important; }
   .mobileMenu.open { max-height:520px!important; border-bottom-width:1px!important; }
   .mobileMenuInner { width:100%!important; padding:6px!important; }
@@ -152,98 +99,16 @@
   .interestCard strong { font-size:14px!important; }
 }
 
-/* Final mobile experience header layout: logo on top, information below in two clean columns. */
 @media (max-width:760px) {
-  #experience .experienceTopRow {
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
-    grid-template-rows:104px auto!important;
-    column-gap:16px!important;
-    row-gap:14px!important;
-    align-items:start!important;
-  }
-
-  #experience .experienceIdentity {
-    display:contents!important;
-  }
-
-  #experience .experienceLogoInline {
-    grid-column:1 / -1!important;
-    grid-row:1!important;
-    width:100%!important;
-    height:104px!important;
-    min-height:104px!important;
-    padding:4px 0 10px!important;
-    border:0!important;
-    border-radius:0!important;
-    background:transparent!important;
-    box-shadow:none!important;
-  }
-
-  #experience .experienceLogoInline img {
-    width:100%!important;
-    height:88px!important;
-    min-height:88px!important;
-    max-height:88px!important;
-    object-fit:contain!important;
-  }
-
-  #experience .experienceIdentity>div:last-child {
-    grid-column:1!important;
-    grid-row:2!important;
-    align-self:start!important;
-    padding:2px 0 0!important;
-    text-align:left!important;
-    background:transparent!important;
-    border:0!important;
-    box-shadow:none!important;
-  }
-
-  #experience .experienceTopRow h3 {
-    margin:0 0 6px!important;
-    font-size:18px!important;
-    line-height:1.15!important;
-  }
-
-  #experience .experienceDepartment {
-    margin:0!important;
-    font-size:10px!important;
-    line-height:1.35!important;
-    letter-spacing:.05em!important;
-  }
-
-  #experience .experienceTopActions {
-    grid-column:2!important;
-    grid-row:2!important;
-    display:flex!important;
-    flex-direction:column!important;
-    align-items:flex-end!important;
-    gap:8px!important;
-    width:100%!important;
-    margin:0!important;
-    padding:0!important;
-    text-align:right!important;
-    background:transparent!important;
-    border:0!important;
-    box-shadow:none!important;
-  }
-
-  #experience .experienceMetaTop {
-    width:100%!important;
-    display:flex!important;
-    flex-direction:column!important;
-    align-items:flex-end!important;
-    gap:5px!important;
-    text-align:right!important;
-  }
-
-  #experience .experienceMetaTop strong,
-  #experience .experienceMetaTop span {
-    text-align:right!important;
-  }
-
-  #experience .experienceTopActions .experienceReportButton {
-    align-self:flex-end!important;
-    margin:2px 0 0!important;
-  }
+  #experience .experienceTopRow { display:grid!important; grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important; grid-template-rows:104px auto!important; column-gap:16px!important; row-gap:14px!important; align-items:start!important; }
+  #experience .experienceIdentity { display:contents!important; }
+  #experience .experienceLogoInline { grid-column:1 / -1!important; grid-row:1!important; width:100%!important; height:104px!important; min-height:104px!important; padding:4px 0 10px!important; border:0!important; border-radius:0!important; background:transparent!important; box-shadow:none!important; }
+  #experience .experienceLogoInline img { width:100%!important; height:88px!important; min-height:88px!important; max-height:88px!important; object-fit:contain!important; }
+  #experience .experienceIdentity>div:last-child { grid-column:1!important; grid-row:2!important; align-self:start!important; padding:2px 0 0!important; text-align:left!important; background:transparent!important; border:0!important; box-shadow:none!important; }
+  #experience .experienceTopRow h3 { margin:0 0 6px!important; font-size:18px!important; line-height:1.15!important; }
+  #experience .experienceDepartment { margin:0!important; font-size:10px!important; line-height:1.35!important; letter-spacing:.05em!important; }
+  #experience .experienceTopActions { grid-column:2!important; grid-row:2!important; display:flex!important; flex-direction:column!important; align-items:flex-end!important; gap:8px!important; width:100%!important; margin:0!important; padding:0!important; text-align:right!important; background:transparent!important; border:0!important; box-shadow:none!important; }
+  #experience .experienceMetaTop { width:100%!important; display:flex!important; flex-direction:column!important; align-items:flex-end!important; gap:5px!important; text-align:right!important; }
+  #experience .experienceMetaTop strong,#experience .experienceMetaTop span { text-align:right!important; }
+  #experience .experienceTopActions .experienceReportButton { align-self:flex-end!important; margin:2px 0 0!important; }
 }
