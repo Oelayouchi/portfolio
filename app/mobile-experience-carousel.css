@@ -1,0 +1,266 @@
+/* Mobile only: two aligned horizontal rows for professional experience and internships. */
+@media (max-width: 760px) {
+  #experience .timeline {
+    display: grid !important;
+    grid-template-rows: auto auto !important;
+    grid-auto-columns: minmax(276px, 84vw) !important;
+    column-gap: 12px !important;
+    row-gap: 18px !important;
+    align-items: stretch !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    padding: 4px 2px 12px !important;
+    scroll-snap-type: x proximity !important;
+    scroll-padding-inline: 2px !important;
+    overscroll-behavior-inline: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #2f82ff rgba(28,57,92,.5) !important;
+  }
+
+  #experience .timeline::-webkit-scrollbar {
+    height: 7px;
+  }
+
+  #experience .timeline::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(28,57,92,.5);
+  }
+
+  #experience .timeline::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: linear-gradient(90deg,#168cff,#4c65ff);
+  }
+
+  /* Professional experience — first horizontal row. */
+  #experience-alstom {
+    grid-row: 1 !important;
+    grid-column: 1 !important;
+  }
+
+  #experience-continental {
+    grid-row: 1 !important;
+    grid-column: 2 !important;
+  }
+
+  #experience-parcelhome {
+    grid-row: 1 !important;
+    grid-column: 3 !important;
+  }
+
+  /* Internships — second horizontal row. */
+  #experience-parcelhome-stage {
+    grid-row: 2 !important;
+    grid-column: 1 !important;
+  }
+
+  #experience-ocp {
+    grid-row: 2 !important;
+    grid-column: 2 !important;
+  }
+
+  #experience-ocp-2019 {
+    grid-row: 2 !important;
+    grid-column: 3 !important;
+  }
+
+  #experience-onda-2018 {
+    grid-row: 2 !important;
+    grid-column: 4 !important;
+  }
+
+  #experience .experienceRefined {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    margin: 0 !important;
+    scroll-snap-align: start !important;
+    overflow: hidden !important;
+  }
+
+  /* Every card uses the same vertical guides. The achievements row absorbs
+     the content difference, while all other sections stay perfectly aligned. */
+  #experience .experienceRefined .experienceBody {
+    display: grid !important;
+    grid-template-rows: 184px 58px 270px minmax(250px, 1fr) 162px !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    align-content: stretch !important;
+    padding: 16px !important;
+  }
+
+  #experience .experienceTopRow {
+    display: grid !important;
+    grid-template-rows: 92px 76px !important;
+    gap: 10px !important;
+    min-height: 184px !important;
+    height: 184px !important;
+    margin: 0 !important;
+    align-items: stretch !important;
+  }
+
+  #experience .experienceIdentity {
+    display: grid !important;
+    grid-template-columns: 86px minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 12px !important;
+    min-width: 0 !important;
+  }
+
+  #experience .experienceLogoInline {
+    display: grid !important;
+    width: 86px !important;
+    height: 64px !important;
+    min-width: 86px !important;
+    padding: 6px 8px !important;
+    place-items: center !important;
+  }
+
+  #experience .experienceLogoInline img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 50px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  #experience .experienceTopRow h3 {
+    margin: 0 0 5px !important;
+    font-size: 18px !important;
+    line-height: 1.12 !important;
+  }
+
+  #experience .experienceDepartment {
+    margin: 0 !important;
+    font-size: 9.5px !important;
+    line-height: 1.3 !important;
+    letter-spacing: .055em !important;
+  }
+
+  #experience .experienceTopActions {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: start !important;
+    gap: 8px !important;
+    width: 100% !important;
+    min-height: 76px !important;
+    height: 76px !important;
+    padding-left: 0 !important;
+  }
+
+  #experience .experienceMetaTop {
+    align-items: flex-start !important;
+    gap: 4px !important;
+    min-width: 0 !important;
+    text-align: left !important;
+  }
+
+  #experience .experienceMetaTop strong {
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+  }
+
+  #experience .experienceMetaTop span {
+    font-size: 9.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  #experience .experienceTopActions .experienceReportButton {
+    align-self: start !important;
+    margin: 0 !important;
+  }
+
+  #experience .experienceBody > h4 {
+    display: flex !important;
+    align-items: flex-start !important;
+    min-height: 58px !important;
+    height: 58px !important;
+    margin: 0 !important;
+    padding: 10px 0 8px !important;
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+    overflow: hidden !important;
+  }
+
+  /* Objectives */
+  #experience .experienceBody > .experienceBlock:nth-of-type(2) {
+    min-height: 270px !important;
+    height: 270px !important;
+    margin: 0 !important;
+    padding-top: 12px !important;
+    overflow: hidden !important;
+    border-top: 1px solid rgba(57,156,255,.58) !important;
+  }
+
+  /* Achievements */
+  #experience .experienceBody > .experienceBlock:nth-of-type(3) {
+    min-height: 250px !important;
+    margin: 0 !important;
+    padding-top: 12px !important;
+    overflow: visible !important;
+    border-top: 1px solid rgba(64,101,148,.22) !important;
+  }
+
+  /* Tools / environment — always starts on the same guide within a row. */
+  #experience .experienceBody > .experienceBlock:nth-of-type(4) {
+    min-height: 162px !important;
+    height: 162px !important;
+    margin: 0 !important;
+    padding-top: 12px !important;
+    overflow: hidden !important;
+    border-top: 1px solid rgba(64,101,148,.22) !important;
+    align-self: end !important;
+  }
+
+  #experience .experienceBlock h5 {
+    margin: 0 0 9px !important;
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+  }
+
+  #experience .experienceBlock ul,
+  #experience .achievementList,
+  #experience .achievementSubList,
+  #experience .parcelSubjects {
+    font-size: 10px !important;
+    line-height: 1.38 !important;
+  }
+
+  #experience .experienceBlock li {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
+
+  #experience .parcelSubjects {
+    gap: 16px !important;
+  }
+
+  #experience .parcelSubject h6 {
+    margin: 0 0 7px !important;
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  #experience .tags {
+    align-content: flex-start !important;
+    gap: 5px !important;
+    margin-top: 0 !important;
+  }
+
+  #experience .tags span {
+    padding: 5px 7px !important;
+    font-size: 8px !important;
+    line-height: 1 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #experience .timeline {
+    grid-auto-columns: minmax(268px, 86vw) !important;
+  }
+
+  #experience .experienceRefined .experienceBody {
+    padding: 14px !important;
+  }
+}
