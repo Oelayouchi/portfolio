@@ -57,6 +57,41 @@
   min-height: 66px;
 }
 
+/* -------------------------------------------------------------------------- */
+/* Compact and consistent spacing between the main portfolio sections.         */
+/* Loaded last so it normalizes older section-specific spacing without         */
+/* changing the dimensions or padding inside cards.                            */
+/* -------------------------------------------------------------------------- */
+.section {
+  padding-top: 38px;
+  padding-bottom: 38px;
+}
+
+/* Awards has its own spacing declaration, so keep it aligned with the rest. */
+.awardsSection {
+  padding-top: 38px;
+  padding-bottom: 38px;
+}
+
+/* Keep the Education → Interests transition compact while retaining a divider. */
+.interestsShowcase {
+  margin-top: 44px;
+  padding-top: 26px;
+}
+
+@media (max-width: 1024px) {
+  .section,
+  .awardsSection {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .interestsShowcase {
+    margin-top: 38px;
+    padding-top: 24px;
+  }
+}
+
 @media (max-width: 760px) {
   .projectShowcaseTags {
     min-height: 0;
@@ -83,5 +118,16 @@
   .alternanceCta {
     min-height: 38px;
     padding: 0 12px;
+  }
+
+  .section,
+  .awardsSection {
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+
+  .interestsShowcase {
+    margin-top: 30px;
+    padding-top: 20px;
   }
 }
