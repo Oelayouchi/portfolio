@@ -1,0 +1,116 @@
+/* Mobile project carousel: keep every card zone on the same horizontal guides. */
+@media (max-width: 760px) {
+  .projectShowcaseGrid {
+    align-items: stretch !important;
+  }
+
+  .projectShowcaseCard {
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+
+  .projectShowcaseVisual {
+    height: 132px !important;
+    min-height: 132px !important;
+    aspect-ratio: auto !important;
+  }
+
+  .projectShowcaseContent {
+    display: grid !important;
+    grid-template-rows: 70px 62px 58px minmax(178px, 1fr) 58px !important;
+    height: 100% !important;
+    align-content: stretch !important;
+  }
+
+  .projectShowcaseTags {
+    min-height: 70px !important;
+    height: 70px !important;
+    margin: 0 !important;
+    align-content: start !important;
+    overflow: hidden !important;
+  }
+
+  .projectShowcaseTitleRow {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    min-height: 62px !important;
+    height: 62px !important;
+    margin: 0 !important;
+    padding-top: 9px !important;
+    align-items: start !important;
+    overflow: hidden !important;
+  }
+
+  .projectShowcaseContent h3 {
+    min-height: 38px !important;
+    margin: 0 !important;
+    display: block !important;
+    align-content: start !important;
+  }
+
+  .projectShowcaseObjective {
+    min-height: 58px !important;
+    height: 58px !important;
+    margin: 0 !important;
+    padding-top: 4px !important;
+    overflow: hidden !important;
+  }
+
+  .projectShowcaseContent ul {
+    min-height: 178px !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding-top: 7px !important;
+    overflow: hidden !important;
+    align-self: stretch !important;
+  }
+
+  .projectShowcaseMeta {
+    min-height: 58px !important;
+    height: 58px !important;
+    margin: 0 !important;
+    padding-top: 9px !important;
+    align-self: end !important;
+    overflow: hidden !important;
+  }
+
+  .projectShowcaseButton.reportPillButton {
+    align-self: start !important;
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .projectShowcaseVisual {
+    height: 124px !important;
+    min-height: 124px !important;
+  }
+
+  .projectShowcaseContent {
+    grid-template-rows: 68px 60px 56px minmax(172px, 1fr) 56px !important;
+  }
+
+  .projectShowcaseTags {
+    min-height: 68px !important;
+    height: 68px !important;
+  }
+
+  .projectShowcaseTitleRow {
+    min-height: 60px !important;
+    height: 60px !important;
+  }
+
+  .projectShowcaseObjective {
+    min-height: 56px !important;
+    height: 56px !important;
+  }
+
+  .projectShowcaseContent ul {
+    min-height: 172px !important;
+  }
+
+  .projectShowcaseMeta {
+    min-height: 56px !important;
+    height: 56px !important;
+  }
+}
