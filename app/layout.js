@@ -25,10 +25,11 @@ import './home-layout-fix.css';
 import './availability-v2-refine.css';
 import './ui-alignment-fixes.css';
 import './projects-carousel-alignment.css';
+import './site-polish.css';
 
 export const metadata = {
-  title: 'Oussama EL AYOUCHI — Portfolio',
-  description: 'Ingénieur systèmes embarqués & Safety en reconversion vers la Data Analyse.',
+  title: 'Oussama EL AYOUCHI — Portfolio Data Engineer',
+  description: 'Ingénieur systèmes embarqués & Safety en reconversion vers le Data Engineering, à la recherche d’une alternance dès octobre 2026.',
   formatDetection: { email: false, address: false, telephone: false },
   icons: { icon: '/profile/favicon.png', shortcut: '/profile/favicon.png', apple: '/profile/favicon.png' },
 };
