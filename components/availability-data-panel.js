@@ -2,6 +2,35 @@
 
 import { useLanguage } from './language-context';
 
-const labels={fr:{months:['Jan','Fév','Mar','Avr'],analysis:'Analyse',prep:'Préparation',other:'Autres'},en:{months:['Jan','Feb','Mar','Apr'],analysis:'Analysis',prep:'Preparation',other:'Other'},ar:{months:['يناير','فبراير','مارس','أبريل'],analysis:'تحليل',prep:'إعداد',other:'أخرى'},es:{months:['Ene','Feb','Mar','Abr'],analysis:'Análisis',prep:'Preparación',other:'Otros'},de:{months:['Jan','Feb','Mär','Apr'],analysis:'Analyse',prep:'Aufbereitung',other:'Andere'}};
+const terminalText={
+  fr:{title:'Pipeline Data Engineering',steps:[['Extract','Données collectées'],['Transform','Nettoyage & transformation'],['Load','Chargement SQL'],['Analyse','Prêt pour Power BI']],done:'Pipeline completed successfully'},
+  en:{title:'Data Engineering Pipeline',steps:[['Extract','Data collected'],['Transform','Cleaning & transformation'],['Load','SQL loading'],['Analyse','Ready for Power BI']],done:'Pipeline completed successfully'},
+  es:{title:'Pipeline Data Engineering',steps:[['Extract','Datos recopilados'],['Transform','Limpieza y transformación'],['Load','Carga SQL'],['Analyse','Listo para Power BI']],done:'Pipeline completed successfully'},
+  de:{title:'Data Engineering Pipeline',steps:[['Extract','Daten gesammelt'],['Transform','Bereinigung & Transformation'],['Load','SQL-Laden'],['Analyse','Bereit für Power BI']],done:'Pipeline completed successfully'},
+  ar:{title:'Data Engineering Pipeline',steps:[['Extract','تم جمع البيانات'],['Transform','تنظيف وتحويل البيانات'],['Load','تحميل SQL'],['Analyse','جاهز لـ Power BI']],done:'Pipeline completed successfully'}
+};
 
-export default function AvailabilityDataPanel(){const{language,t}=useLanguage();const l=labels[language];return <div className="availabilityV2Wrap"><a className="availabilityV2Banner" href="#contact"><span className="availabilityV2Search" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 8 8"/></svg></span><strong>{t('available')}</strong><span className="availabilityV2Arrow">›</span></a><div className="availabilityV2Dashboard"><div className="availabilityV2Card"><div className="availabilityV2PlotSlot"><div className="availabilityV2BarArea"><div className="availabilityV2YAxis"><small>100</small><small>50</small><small>0</small></div><div className="availabilityV2Bars"><i/><i/><i/><i/></div></div></div><div className="availabilityV2Months">{l.months.map(m=><small key={m}>{m}</small>)}</div></div><div className="availabilityV2Card"><div className="availabilityV2PlotSlot"><svg className="availabilityV2Trend" viewBox="0 0 180 120" preserveAspectRatio="xMidYMid meet"><line x1="12" y1="100" x2="168" y2="100"/><line x1="12" y1="68" x2="168" y2="68"/><line x1="12" y1="36" x2="168" y2="36"/><polyline points="20,88 52,72 84,59 116,42 150,24"/><circle cx="20" cy="88" r="4"/><circle cx="52" cy="72" r="4"/><circle cx="84" cy="59" r="4"/><circle cx="116" cy="42" r="4"/><circle cx="150" cy="24" r="4"/></svg></div><div className="availabilityV2Weeks"><small>S1</small><small>S2</small><small>S3</small><small>S4</small><small>S5</small></div></div><div className="availabilityV2Card availabilityV2DonutCard"><div className="availabilityV2PlotSlot"><div className="availabilityV2DonutRow"><div className="availabilityV2Donut"/><div className="availabilityV2Legend"><span><i className="availabilityV2Green"/>{l.analysis} <b>78%</b></span><span><i className="availabilityV2Blue"/>{l.prep} <b>15%</b></span><span><i className="availabilityV2Dark"/>{l.other} <b>7%</b></span></div></div></div><div className="availabilityV2BottomSpacer"/></div></div></div>}
+function DatabaseIcon(){return <svg className="availabilityTerminalDb" viewBox="0 0 180 180" aria-hidden="true"><ellipse cx="90" cy="38" rx="48" ry="18"/><path d="M42 38v30c0 10 21 18 48 18s48-8 48-18V38"/><path d="M42 68v30c0 10 21 18 48 18s48-8 48-18V68"/><path d="M42 98v30c0 10 21 18 48 18s48-8 48-18V98"/><ellipse cx="90" cy="128" rx="48" ry="18"/><circle cx="146" cy="50" r="3"/><circle cx="30" cy="80" r="3"/><circle cx="151" cy="110" r="3"/><circle cx="28" cy="132" r="3"/></svg>}
+
+export default function AvailabilityDataPanel(){
+  const{language,t}=useLanguage();
+  const copy=terminalText[language]||terminalText.fr;
+  return <div className="availabilityV2Wrap">
+    <a className="availabilityV2Banner" href="#contact">
+      <span className="availabilityV2Search" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 8 8"/></svg></span>
+      <strong>{t('available')}</strong>
+      <span className="availabilityV2Arrow">›</span>
+    </a>
+    <div className="availabilityTerminal" aria-label={copy.title}>
+      <div className="availabilityTerminalBar"><span/><span/><span/></div>
+      <div className="availabilityTerminalBody">
+        <div className="availabilityTerminalCode">
+          <div className="availabilityTerminalTitle"><span>&gt;&gt;&gt;</span> {copy.title}</div>
+          {copy.steps.map(([name,desc])=><div className="availabilityTerminalLine" key={name}><span className="availabilityTerminalPrompt">›</span><strong>{name}</strong><span className="availabilityTerminalColon">:</span><em>{desc}</em></div>)}
+          <div className="availabilityTerminalDone">{copy.done} <b>✓</b></div>
+        </div>
+        <div className="availabilityTerminalVisual"><DatabaseIcon/></div>
+      </div>
+    </div>
+  </div>
+}
