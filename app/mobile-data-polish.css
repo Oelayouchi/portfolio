@@ -151,3 +151,99 @@
   .interestIcon { min-height:96px!important; font-size:58px!important; }
   .interestCard strong { font-size:14px!important; }
 }
+
+/* Final mobile experience header layout: logo on top, information below in two clean columns. */
+@media (max-width:760px) {
+  #experience .experienceTopRow {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    grid-template-rows:104px auto!important;
+    column-gap:16px!important;
+    row-gap:14px!important;
+    align-items:start!important;
+  }
+
+  #experience .experienceIdentity {
+    display:contents!important;
+  }
+
+  #experience .experienceLogoInline {
+    grid-column:1 / -1!important;
+    grid-row:1!important;
+    width:100%!important;
+    height:104px!important;
+    min-height:104px!important;
+    padding:4px 0 10px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+
+  #experience .experienceLogoInline img {
+    width:100%!important;
+    height:88px!important;
+    min-height:88px!important;
+    max-height:88px!important;
+    object-fit:contain!important;
+  }
+
+  #experience .experienceIdentity>div:last-child {
+    grid-column:1!important;
+    grid-row:2!important;
+    align-self:start!important;
+    padding:2px 0 0!important;
+    text-align:left!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+
+  #experience .experienceTopRow h3 {
+    margin:0 0 6px!important;
+    font-size:18px!important;
+    line-height:1.15!important;
+  }
+
+  #experience .experienceDepartment {
+    margin:0!important;
+    font-size:10px!important;
+    line-height:1.35!important;
+    letter-spacing:.05em!important;
+  }
+
+  #experience .experienceTopActions {
+    grid-column:2!important;
+    grid-row:2!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-end!important;
+    gap:8px!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    text-align:right!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+
+  #experience .experienceMetaTop {
+    width:100%!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-end!important;
+    gap:5px!important;
+    text-align:right!important;
+  }
+
+  #experience .experienceMetaTop strong,
+  #experience .experienceMetaTop span {
+    text-align:right!important;
+  }
+
+  #experience .experienceTopActions .experienceReportButton {
+    align-self:flex-end!important;
+    margin:2px 0 0!important;
+  }
+}
