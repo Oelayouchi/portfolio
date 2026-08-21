@@ -112,40 +112,41 @@
   scroll-snap-align: start;
 }
 
-/* Keep the whole certificate visible: no crop. */
+/* Show the full certificate from left to right. Cropping is allowed only at the top/bottom
+   so the central course title stays large and readable. */
 #certifications .cert img {
   display: block;
   width: 100%;
-  height: 96px;
-  padding: 7px 9px;
+  height: 82px;
+  padding: 0;
   aspect-ratio: auto;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center center;
   background: #f5f6f8;
 }
 
 #certifications .cert > div {
-  padding: 9px 11px 11px;
+  padding: 8px 10px 10px;
 }
 
 #certifications .cert h3 {
-  margin: 0 0 4px;
-  font-size: 12px;
+  margin: 0 0 3px;
+  font-size: 10.5px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: 0;
 }
 
 #certifications .cert p {
   margin: 3px 0 0;
   color: #9eacbf;
-  font-size: 9.5px;
+  font-size: 8.4px;
   font-weight: 400;
-  line-height: 1.28;
+  line-height: 1.22;
 }
 
 #certifications .cert .meta {
-  font-size: 9.2px;
+  font-size: 8.1px;
   font-weight: 400;
 }
 
@@ -159,7 +160,7 @@
   grid-template-columns: none;
   gap: 14px;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   padding: 2px 2px 11px;
   scroll-snap-type: x proximity;
   scrollbar-width: thin;
@@ -184,42 +185,50 @@
   min-width: 0;
   border-radius: 13px;
   scroll-snap-align: start;
+  transform: none !important;
+}
+
+/* Do not lift the award card on hover: it was being clipped by the row/container. */
+.awardCard:hover,
+.awardCard:focus-within {
+  transform: none !important;
+  box-shadow: inset 0 0 34px rgba(31,112,255,.045), 0 10px 24px rgba(0,87,200,.12);
 }
 
 .awardCard.noAwardImage .awardContent {
-  min-height: 92px;
+  min-height: 84px;
 }
 
 .awardContent {
-  padding: 12px 12px 12px 58px;
+  padding: 10px 10px 10px 52px;
 }
 
 .awardCard.noAwardImage .awardContent:before {
-  left: 13px;
-  width: 31px;
-  height: 31px;
-  border-radius: 9px;
-  font-size: 17px;
+  left: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 15px;
 }
 
 .awardContent h3 {
   margin: 0;
-  font-size: 12px;
+  font-size: 10.5px;
   font-weight: 400;
-  line-height: 1.22;
+  line-height: 1.18;
 }
 
 .awardContent p {
-  margin: 5px 0 2px;
-  font-size: 9.7px;
+  margin: 4px 0 1px;
+  font-size: 8.5px;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .awardContent > span {
-  font-size: 9.4px;
+  font-size: 8.3px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 @media (min-width: 1180px) {
@@ -249,7 +258,7 @@
   }
 
   #certifications .cert img {
-    height: 90px;
+    height: 76px;
   }
 
   .awardsGrid {
@@ -303,25 +312,24 @@
   }
 
   #certifications .cert img {
-    height: 84px;
-    padding: 6px 8px;
+    height: 72px;
   }
 
   #certifications .cert > div {
-    padding: 8px 9px 10px;
+    padding: 7px 8px 9px;
   }
 
   #certifications .cert h3 {
-    font-size: 11px;
+    font-size: 9.8px;
     font-weight: 400;
   }
 
   #certifications .cert p {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   #certifications .cert .meta {
-    font-size: 8.8px;
+    font-size: 7.8px;
   }
 
   .awardsGrid {
@@ -331,26 +339,26 @@
   }
 
   .awardContent {
-    padding: 10px 10px 10px 53px;
+    padding: 9px 9px 9px 48px;
   }
 
   .awardCard.noAwardImage .awardContent:before {
-    left: 11px;
-    width: 29px;
-    height: 29px;
-    font-size: 16px;
+    left: 10px;
+    width: 27px;
+    height: 27px;
+    font-size: 14px;
   }
 
   .awardContent h3 {
-    font-size: 11px;
+    font-size: 9.8px;
     font-weight: 400;
   }
 
   .awardContent p {
-    font-size: 9.2px;
+    font-size: 8.1px;
   }
 
   .awardContent > span {
-    font-size: 9px;
+    font-size: 7.9px;
   }
 }
