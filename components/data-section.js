@@ -3,13 +3,38 @@
 import { SectionLabel } from './ui';
 import { useLanguage } from './language-context';
 
-function DataIcon({type}){const common={viewBox:'0 0 48 48',fill:'none',stroke:'currentColor',strokeWidth:2.2,strokeLinecap:'round',strokeLinejoin:'round','aria-hidden':'true'};if(type==='collect')return <svg {...common}><path d="M15 33H12a8 8 0 0 1-1-15.9A13 13 0 0 1 36 18a7.5 7.5 0 0 1 0 15H33"/><path d="M24 18v18"/><path d="m18 30 6 6 6-6"/></svg>;if(type==='prepare')return <svg {...common}><ellipse cx="19" cy="12" rx="10" ry="4"/><path d="M9 12v9c0 2.2 4.5 4 10 4 2.1 0 4-.3 5.6-.8M9 21v9c0 2.2 4.5 4 10 4"/><circle cx="33" cy="31" r="7"/></svg>;if(type==='analyse')return <svg {...common}><path d="M8 36V24h6v12M18 36V16h6v20M28 36V10h6v16"/><circle cx="35" cy="33" r="6"/><path d="m39.5 37.5 5 5"/></svg>;return <svg {...common}><path d="M8 38V26h6v12M19 38V20h6v18M30 38V13h6v25"/><path d="m9 18 8-6 7 3 12-8M31 7h5v5"/></svg>}
-
 const copy={
-fr:{label:'RECONVERSION VERS LE DATA ENGINEERING',title:'De l’ingénierie des systèmes au Data Engineering.',text:'Mon parcours d’ingénieur m’a appris à collecter, structurer et exploiter des données techniques pour comprendre des systèmes complexes et résoudre des problèmes concrets. Aujourd’hui, je mets cette expérience au service du Data Engineering en développant mes compétences en SQL, Python, Power BI, Excel et Power Query.',steps:['Collecte','Préparation','Analyse','Visualisation'],caption:'Transformer les données en informations fiables pour aider à la prise de décision.',sensors:'Capteurs'},
-en:{label:'TRANSITION TO DATA ENGINEERING',title:'From systems engineering to Data Engineering.',text:'My engineering background taught me to collect, structure and use technical data to understand complex systems and solve real problems. Today, I apply this experience to Data Engineering while developing my skills in SQL, Python, Power BI, Excel and Power Query.',steps:['Collection','Preparation','Analysis','Visualisation'],caption:'Turn data into reliable information to support decision-making.',sensors:'Sensors'},
-ar:{label:'الانتقال نحو هندسة البيانات',title:'من هندسة الأنظمة إلى هندسة البيانات.',text:'علّمني مساري الهندسي جمع البيانات التقنية وتنظيمها واستغلالها لفهم الأنظمة المعقدة وحل المشاكل العملية. واليوم أوظف هذه الخبرة في هندسة البيانات مع تطوير مهاراتي في SQL وPython وPower BI وExcel وPower Query.',steps:['الجمع','الإعداد','التحليل','التصور'],caption:'تحويل البيانات إلى معلومات موثوقة للمساعدة في اتخاذ القرار.',sensors:'حساسات'},
-es:{label:'TRANSICIÓN HACIA DATA ENGINEERING',title:'De la ingeniería de sistemas al Data Engineering.',text:'Mi trayectoria como ingeniero me enseñó a recopilar, estructurar y utilizar datos técnicos para comprender sistemas complejos y resolver problemas concretos. Hoy aplico esta experiencia al Data Engineering desarrollando mis competencias en SQL, Python, Power BI, Excel y Power Query.',steps:['Recopilación','Preparación','Análisis','Visualización'],caption:'Transformar los datos en información fiable para apoyar la toma de decisiones.',sensors:'Sensores'},
-de:{label:'WECHSEL ZUM DATA ENGINEERING',title:'Von Systems Engineering zu Data Engineering.',text:'Mein Ingenieurhintergrund hat mich gelehrt, technische Daten zu erfassen, zu strukturieren und zu nutzen, um komplexe Systeme zu verstehen und konkrete Probleme zu lösen. Heute setze ich diese Erfahrung im Data Engineering ein und vertiefe SQL, Python, Power BI, Excel und Power Query.',steps:['Erfassung','Aufbereitung','Analyse','Visualisierung'],caption:'Daten in zuverlässige Informationen zur Unterstützung von Entscheidungen verwandeln.',sensors:'Sensoren'}};
+fr:{label:'RECONVERSION VERS LE DATA ENGINEERING',title:'De l’ingénierie des systèmes au Data Engineering.',text:'Mon parcours d’ingénieur m’a appris à collecter, structurer et exploiter des données techniques pour comprendre des systèmes complexes et résoudre des problèmes concrets. Aujourd’hui, je mets cette expérience au service du Data Engineering en développant mes compétences en SQL, Python, Power BI, Excel et Power Query.',steps:[['Sources','API · Logs · IoT','Capteurs · Fichiers'],['Ingestion','Python','ETL · Connecteurs'],['Transformation','SQL · Power Query','Nettoyage · Agrégation'],['Stockage','Data Warehouse','Bases de données'],['Visualisation','Power BI','Tableaux de bord']]},
+en:{label:'TRANSITION TO DATA ENGINEERING',title:'From systems engineering to Data Engineering.',text:'My engineering background taught me to collect, structure and use technical data to understand complex systems and solve real problems. Today, I apply this experience to Data Engineering while developing my skills in SQL, Python, Power BI, Excel and Power Query.',steps:[['Sources','API · Logs · IoT','Sensors · Files'],['Ingestion','Python','ETL · Connectors'],['Transformation','SQL · Power Query','Cleaning · Aggregation'],['Storage','Data Warehouse','Databases'],['Visualisation','Power BI','Dashboards']]},
+ar:{label:'الانتقال نحو هندسة البيانات',title:'من هندسة الأنظمة إلى هندسة البيانات.',text:'علّمني مساري الهندسي جمع البيانات التقنية وتنظيمها واستغلالها لفهم الأنظمة المعقدة وحل المشاكل العملية. واليوم أوظف هذه الخبرة في هندسة البيانات مع تطوير مهاراتي في SQL وPython وPower BI وExcel وPower Query.',steps:[['المصادر','API · Logs · IoT','حساسات · ملفات'],['الإدخال','Python','ETL · موصلات'],['التحويل','SQL · Power Query','تنظيف · تجميع'],['التخزين','Data Warehouse','قواعد بيانات'],['التصور','Power BI','لوحات بيانات']]},
+es:{label:'TRANSICIÓN HACIA DATA ENGINEERING',title:'De la ingeniería de sistemas al Data Engineering.',text:'Mi trayectoria como ingeniero me enseñó a recopilar, estructurar y utilizar datos técnicos para comprender sistemas complejos y resolver problemas concretos. Hoy aplico esta experiencia al Data Engineering desarrollando mis competencias en SQL, Python, Power BI, Excel y Power Query.',steps:[['Fuentes','API · Logs · IoT','Sensores · Archivos'],['Ingesta','Python','ETL · Conectores'],['Transformación','SQL · Power Query','Limpieza · Agregación'],['Almacenamiento','Data Warehouse','Bases de datos'],['Visualización','Power BI','Dashboards']]},
+de:{label:'WECHSEL ZUM DATA ENGINEERING',title:'Von Systems Engineering zu Data Engineering.',text:'Mein Ingenieurhintergrund hat mich gelehrt, technische Daten zu erfassen, zu strukturieren und zu nutzen, um komplexe Systeme zu verstehen und konkrete Probleme zu lösen. Heute setze ich diese Erfahrung im Data Engineering ein und vertiefe SQL, Python, Power BI, Excel und Power Query.',steps:[['Quellen','API · Logs · IoT','Sensoren · Dateien'],['Ingestion','Python','ETL · Konnektoren'],['Transformation','SQL · Power Query','Bereinigung · Aggregation'],['Speicherung','Data Warehouse','Datenbanken'],['Visualisierung','Power BI','Dashboards']]}}
+;
 
-export default function DataSection(){const{language}=useLanguage();const x=copy[language];const steps=[{number:'01',type:'collect',tone:'collect',title:x.steps[0],tools:<>API · Logs · {x.sensors}<br/>Excel</>},{number:'02',type:'prepare',tone:'prepare',title:x.steps[1],tools:<>SQL · Python<br/>Power Query</>},{number:'03',type:'analyse',tone:'analyse',title:x.steps[2],tools:<>KPI · DAX · Excel</>},{number:'04',type:'visualise',tone:'visualise',title:x.steps[3],tools:<>Power BI</>}];return <section id="data" className="section shell dataPanel"><div className="dataPanelHeader"><SectionLabel>{x.label}</SectionLabel><h2>{x.title}</h2></div><div className="dataPanelBody"><div className="dataPanelCopy"><p>{x.text}</p></div><div className="dataFlow"><div className="dataFlowSteps">{steps.map((step,index)=><div key={step.number} style={{display:'contents'}}><div className={`dataFlowStep ${step.tone}`}><div className="dataFlowIcon"><DataIcon type={step.type}/></div><span className="dataFlowNumber">{step.number}</span><h3>{step.title}</h3><p>{step.tools}</p></div>{index<steps.length-1&&<div className="dataFlowArrow" aria-hidden="true">→</div>}</div>)}</div><div className="dataFlowCaption">◉ {x.caption}</div></div></div></section>}
+const images=['/data-pipeline/Sources.png','/data-pipeline/Ingestion.png','/data-pipeline/Transformation.png','/data-pipeline/Stockage.png','/data-pipeline/Visualisation.png'];
+const tones=['sources','ingestion','transformation','storage','visualisation'];
+
+export default function DataSection(){
+  const{language}=useLanguage();
+  const x=copy[language];
+  return <section id="data" className="section shell dataPanel">
+    <div className="dataPanelHeader">
+      <SectionLabel>{x.label}</SectionLabel>
+      <h2>{x.title}</h2>
+      <p>{x.text}</p>
+    </div>
+    <div className="dataPipeline" aria-label="Data Engineering pipeline">
+      {x.steps.map((step,index)=><div className="dataPipelineItemWrap" key={`${step[0]}-${index}`}>
+        <article className={`dataPipelineCard ${tones[index]}`}>
+          <div className="dataPipelineIconWrap"><img src={images[index]} alt="" loading="lazy"/></div>
+          <span className="dataPipelineNumber">{String(index+1).padStart(2,'0')}</span>
+          <h3>{step[0]}</h3>
+          <div className="dataPipelineDivider"/>
+          <p>{step[1]}</p>
+          <p>{step[2]}</p>
+        </article>
+        {index<x.steps.length-1&&<div className="dataPipelineConnector" aria-hidden="true"><span/><b>›</b></div>}
+      </div>)}
+    </div>
+  </section>;
+}
