@@ -5,7 +5,22 @@ import { createPortal } from 'react-dom';
 import { useLanguage } from './language-context';
 import PdfViewer from './pdf-viewer';
 
-const projectVisuals={'balance-numerique':'/projects/balance-numerique/images/image-01.png','station-meteo':'/projects/station-meteo/images/image-01.png'};
+const projectVisuals={
+  'balance-numerique':[
+    '/projects/balance-numerique/images/image-01.png',
+    '/projects/balance-numerique/images/image-02.png',
+    '/projects/balance-numerique/images/image-03.png',
+    '/projects/balance-numerique/images/image-04.png',
+    '/projects/balance-numerique/images/image-05.png'
+  ],
+  'station-meteo':[
+    '/projects/station-meteo/images/image-01.png',
+    '/projects/station-meteo/images/image-02.png',
+    '/projects/station-meteo/images/image-03.png',
+    '/projects/station-meteo/images/image-04.png',
+    '/projects/station-meteo/images/image-05.png'
+  ]
+};
 const availableReports=new Set(['balance-numerique','station-meteo']);
 const techLabels={fr:'Technologies utilisées',en:'Technologies used',ar:'التقنيات المستخدمة',es:'Tecnologías utilizadas',de:'Verwendete Technologien'};
 const machinesCompact={
@@ -20,7 +35,9 @@ export default function ProjectShowcaseCard({project,slug}){
   const{language,t}=useLanguage();
   const[reportOpen,setReportOpen]=useState(false);
   const[mounted,setMounted]=useState(false);
-  const visual=projectVisuals[slug];
+  const[visualIndex,setVisualIndex]=useState(0);
+  const visuals=projectVisuals[slug]||[];
+  const visual=visuals[visualIndex];
   const report=`/projects/${slug}/report/rapport.pdf`;
   const hasReport=availableReports.has(slug);
   const compact=slug==='machines-electriques'?(machinesCompact[language]||machinesCompact.fr):null;
@@ -29,6 +46,11 @@ export default function ProjectShowcaseCard({project,slug}){
   const highlights=(compact?.tasks||project.tasks).slice(0,3);
 
   useEffect(()=>{setMounted(true);return()=>setMounted(false)},[]);
+  useEffect(()=>{
+    if(visuals.length<=1)return;
+    const timer=setInterval(()=>setVisualIndex(index=>(index+1)%visuals.length),2800);
+    return()=>clearInterval(timer);
+  },[slug,visuals.length]);
   useEffect(()=>{
     if(!reportOpen)return;
     const prev=document.body.style.overflow;
@@ -50,9 +72,11 @@ export default function ProjectShowcaseCard({project,slug}){
 
   return <>
     <article className="projectShowcaseCard">
-      <div className={`projectShowcaseVisual${visual?' hasImage':' isEmpty'}`}>{visual?<img src={visual} alt={displayTitle} loading="lazy"/>:null}</div>
+      <div className={`projectShowcaseVisual${visual?' hasImage':' isEmpty'}`}>
+        {visual?<img key={visual} src={visual} alt={displayTitle} loading="lazy"/>:null}
+      </div>
       <div className="projectShowcaseContent">
-        <div className="projectShowcaseTags" aria-label={techLabels[language]}>{project.stack.slice(0,4).map(item=><span key={item}>{item}</span>)}</div>
+        <div className="projectShowcaseTags" aria-label={techLabels[language]}>{project.stack.map(item=><span key={item}>{item}</span>)}</div>
         <div className="projectShowcaseTitleRow"><h3>{displayTitle}</h3><button className="projectShowcaseButton" type="button" onClick={()=>setReportOpen(true)}><span className="projectReportPulse" aria-hidden="true"/>{t('viewReport').toUpperCase()}</button></div>
         <p className="projectShowcaseObjective">{displayObjective}</p>
         <ul>{highlights.map((task,i)=><li key={i}>{task}</li>)}</ul>
