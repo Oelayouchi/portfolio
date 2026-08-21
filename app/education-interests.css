@@ -49,6 +49,7 @@
   .educationCardsGrid {
     display:flex;
     grid-template-columns:none;
+    align-items:stretch;
     gap:18px;
     width:100%;
     max-width:100%;
@@ -71,13 +72,82 @@
     flex:0 0 88%;
     width:88%;
     max-width:88%;
+    min-height:860px;
     grid-template-columns:1fr;
+    grid-template-rows:220px minmax(0,1fr);
     gap:24px;
+    padding:20px;
     scroll-snap-align:start;
+    align-self:stretch;
   }
 
-  .educationLogoPanel { min-height:220px; }
-  .educationLogoPanel img { max-width:220px;max-height:190px; }
+  .educationLogoPanel {
+    width:100%;
+    min-height:220px;
+    height:220px;
+    padding:18px;
+    overflow:hidden;
+  }
+
+  .educationLogoPanel img {
+    width:100%;
+    height:100%;
+    max-width:220px;
+    max-height:184px;
+    object-fit:contain;
+    object-position:center;
+  }
+
+  .educationShowcaseContent {
+    display:grid;
+    grid-template-rows:52px 112px 86px minmax(0,1fr);
+    min-height:0;
+    align-content:stretch;
+  }
+
+  .educationYearBadge {
+    justify-self:start;
+    align-self:start;
+    min-height:42px;
+    height:42px;
+    margin:0;
+  }
+
+  .educationShowcaseContent h3 {
+    align-self:start;
+    min-height:112px;
+    margin:0;
+    padding:8px 0 12px;
+    font-size:24px;
+    line-height:1.22;
+    overflow:hidden;
+    border-bottom:1px solid rgba(57,156,255,.48);
+  }
+
+  .educationInstitution {
+    align-self:start;
+    min-height:86px;
+    margin:0;
+    padding:14px 0 12px;
+    font-size:14px;
+    line-height:1.45;
+    overflow:hidden;
+    border-bottom:1px solid rgba(64,101,148,.24);
+  }
+
+  .educationBullets {
+    align-content:start;
+    gap:10px;
+    min-height:0;
+    padding-top:14px;
+    overflow:visible;
+  }
+
+  .educationBullets p {
+    font-size:13px;
+    line-height:1.45;
+  }
+
   .interestCardsGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
