@@ -1,32 +1,251 @@
-/* Data Engineering pipeline */
-.dataPanel{display:block;overflow:hidden;padding:44px 46px 42px;border:1px solid rgba(43,94,159,.58);border-radius:24px;background:linear-gradient(120deg,#08182d 0%,#091a34 52%,#10183d 100%)}
-.dataPanelHeader{width:100%;margin-bottom:28px}
-.dataPanelHeader h2{width:100%;max-width:920px;margin:12px 0 14px;font-size:clamp(34px,3.4vw,54px);line-height:1.05}
-.dataPanelHeader p{max-width:960px;margin:0;color:#b7c7dc;font-size:15px;line-height:1.65}
-.dataPipeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;align-items:stretch}
-.dataPipelineItemWrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
-.dataPipelineCard{position:relative;display:grid;grid-template-rows:72px 24px auto 1px auto auto;align-content:start;min-width:0;min-height:286px;padding:18px 16px 16px;border:1px solid rgba(78,121,179,.28);border-radius:18px;background:linear-gradient(180deg,rgba(10,27,50,.96),rgba(6,19,36,.98));box-shadow:inset 0 0 32px rgba(32,121,255,.045),0 10px 28px rgba(0,0,0,.13);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
-.dataPipelineCard:hover{transform:translateY(-4px);border-color:rgba(84,151,255,.62);box-shadow:inset 0 0 34px rgba(32,121,255,.08),0 16px 34px rgba(0,0,0,.2)}
-.dataPipelineIconWrap{display:grid;place-items:center;height:72px;margin-bottom:8px;overflow:hidden}
-.dataPipelineIconWrap img{display:block;width:74px;height:74px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(48,141,255,.16));transform-origin:center;animation:dataPipelineFloat 2.8s ease-in-out infinite}
-.dataPipelineItemWrap:nth-child(2) img{animation-delay:.14s}.dataPipelineItemWrap:nth-child(3) img{animation-delay:.28s}.dataPipelineItemWrap:nth-child(4) img{animation-delay:.42s}.dataPipelineItemWrap:nth-child(5) img{animation-delay:.56s}
-@keyframes dataPipelineFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-.dataPipelineNumber{justify-self:center;display:grid;min-width:31px;height:23px;place-items:center;margin-bottom:8px;border:1px solid currentColor;border-radius:7px;background:rgba(13,35,65,.9);font-size:11px;font-weight:800}
-.dataPipelineCard h3{margin:0;text-align:center;color:#f3f7fd;font-size:16px;line-height:1.2}
-.dataPipelineDivider{width:34px;height:1px;margin:10px auto;background:currentColor;opacity:.8}
-.dataPipelineCard p{margin:2px 0 0;color:#cbd7e6;font-size:11px;line-height:1.35;text-align:center}
-.dataPipelineCard.sources{color:#27d99a}.dataPipelineCard.ingestion{color:#3f91ff}.dataPipelineCard.transformation{color:#20cdeb}.dataPipelineCard.storage{color:#9f5cff}.dataPipelineCard.visualisation{color:#f05bb5}
-.dataPipelineConnector{position:absolute;z-index:3;top:106px;right:-23px;display:flex;width:32px;align-items:center;justify-content:center;color:#56a8ff;pointer-events:none}
-.dataPipelineConnector span{position:absolute;width:30px;height:2px;border-radius:999px;background:linear-gradient(90deg,currentColor,rgba(86,168,255,.08));box-shadow:0 0 10px currentColor;opacity:.72;animation:dataConnectorPulse 1.8s ease-in-out infinite}
-.dataPipelineConnector b{position:relative;left:7px;display:grid;width:22px;height:22px;place-items:center;border:1px solid rgba(79,151,255,.55);border-radius:50%;background:#0a1b33;color:#8fc7ff;font-size:20px;line-height:1;font-weight:500}
-@keyframes dataConnectorPulse{0%,100%{opacity:.38;transform:scaleX(.82)}50%{opacity:1;transform:scaleX(1)}}
-[data-theme='light'] .dataPanel{background:linear-gradient(120deg,#f7fbff,#eef5ff)}
-[data-theme='light'] .dataPanelHeader p{color:#49617f}
-[data-theme='light'] .dataPipelineCard{background:linear-gradient(180deg,#fff,#f4f8ff);border-color:rgba(73,124,188,.28)}
-[data-theme='light'] .dataPipelineCard h3{color:#0b1730}
-[data-theme='light'] .dataPipelineCard p{color:#40536b}
-[data-theme='light'] .dataPipelineConnector b{background:#f6f9ff}
-@media(max-width:1180px){.dataPipeline{grid-template-columns:repeat(3,minmax(0,1fr))}.dataPipelineConnector{display:none}}
-@media(max-width:760px){.dataPanel{padding:28px 20px}.dataPanelHeader{margin-bottom:22px}.dataPanelHeader h2{font-size:clamp(30px,9vw,42px);margin-bottom:12px}.dataPanelHeader p{font-size:13px;line-height:1.58}.dataPipeline{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:72%;gap:12px;overflow-x:auto;overflow-y:hidden;padding:3px 2px 13px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#2f82ff rgba(28,57,92,.45);-webkit-overflow-scrolling:touch}.dataPipeline::-webkit-scrollbar{height:7px}.dataPipeline::-webkit-scrollbar-track{border-radius:999px;background:rgba(28,57,92,.45)}.dataPipeline::-webkit-scrollbar-thumb{border-radius:999px;background:#2f82ff}.dataPipelineItemWrap{scroll-snap-align:start}.dataPipelineCard{min-height:236px;padding:14px 13px;grid-template-rows:58px 22px auto 1px auto auto}.dataPipelineIconWrap{height:58px;margin-bottom:5px}.dataPipelineIconWrap img{width:58px;height:58px}.dataPipelineCard h3{font-size:14px}.dataPipelineCard p{font-size:10px}.dataPipelineDivider{margin:8px auto}.dataPipelineConnector{display:none}}
-@media(max-width:430px){.dataPipeline{grid-auto-columns:78%}}
-@media(prefers-reduced-motion:reduce){.dataPipelineIconWrap img,.dataPipelineConnector span{animation:none!important}}
+/* Data Engineering pipeline — reference layout */
+.dataPanel {
+  display: block;
+  overflow: hidden;
+  padding: 44px 46px 46px;
+  border: 1px solid rgba(43, 94, 159, .58);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 72%, rgba(19, 64, 135, .16), transparent 46%),
+    linear-gradient(120deg, #061222 0%, #08162a 48%, #0a1430 100%);
+}
+
+.dataPanelHeader {
+  width: 100%;
+  margin-bottom: 34px;
+}
+
+.dataPanelHeader h2 {
+  width: 100%;
+  max-width: 920px;
+  margin: 12px 0 14px;
+  font-size: clamp(34px, 3.4vw, 54px);
+  line-height: 1.05;
+}
+
+.dataPanelHeader p {
+  max-width: 980px;
+  margin: 0;
+  color: #b7c7dc;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.dataPipeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  gap: 30px;
+  width: 100%;
+  padding: 8px 4px 12px;
+}
+
+.dataPipelineItemWrap {
+  position: relative;
+  min-width: 0;
+}
+
+/* No individual card/window around each step. */
+.dataPipelineCard {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 360px;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+
+.dataPipelineIconWrap {
+  display: grid;
+  width: 100%;
+  height: 190px;
+  place-items: center;
+  overflow: visible;
+  margin-bottom: 10px;
+}
+
+.dataPipelineIconWrap img {
+  display: block;
+  width: 168px;
+  height: 168px;
+  max-width: 92%;
+  object-fit: contain;
+  transform: scale(1);
+  transform-origin: center;
+  filter:
+    drop-shadow(0 0 7px rgba(46, 145, 255, .42))
+    drop-shadow(0 0 20px rgba(24, 107, 255, .20));
+  transition: transform .24s ease, filter .24s ease;
+  animation: none !important;
+}
+
+/* Stationary icon: only zoom + stronger glow on hover. */
+.dataPipelineCard:hover .dataPipelineIconWrap img {
+  transform: scale(1.085);
+  filter:
+    drop-shadow(0 0 10px rgba(79, 181, 255, .95))
+    drop-shadow(0 0 28px rgba(26, 119, 255, .78))
+    drop-shadow(0 0 48px rgba(27, 91, 255, .42));
+}
+
+.dataPipelineNumber {
+  display: grid;
+  min-width: 46px;
+  height: 38px;
+  place-items: center;
+  margin: 0 0 15px;
+  padding-inline: 8px;
+  border: 1px solid currentColor;
+  border-radius: 10px;
+  background: rgba(5, 18, 35, .80);
+  box-shadow: 0 0 16px color-mix(in srgb, currentColor 22%, transparent);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.dataPipelineCard h3 {
+  margin: 0;
+  color: #f7f9fc;
+  font-size: clamp(22px, 1.8vw, 30px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.12;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, .35);
+}
+
+.dataPipelineDivider {
+  width: 58px;
+  height: 4px;
+  margin: 11px auto 14px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 12px currentColor;
+  opacity: .96;
+}
+
+.dataPipelineCard p {
+  margin: 0;
+  color: #c5cfdd;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.dataPipelineCard p + p {
+  margin-top: 4px;
+  color: #aeb9c9;
+}
+
+.dataPipelineCard.sources { color: #23e3c1; }
+.dataPipelineCard.ingestion { color: #36a0ff; }
+.dataPipelineCard.transformation { color: #21e2d8; }
+.dataPipelineCard.storage { color: #925cff; }
+.dataPipelineCard.visualisation { color: #f05bad; }
+
+/* Static neon chevrons between steps, like the reference. */
+.dataPipelineConnector {
+  position: absolute;
+  z-index: 4;
+  top: 80px;
+  right: -31px;
+  display: grid;
+  width: 32px;
+  height: 52px;
+  place-items: center;
+  color: #24b8ff;
+  pointer-events: none;
+}
+
+.dataPipelineConnector span {
+  display: none;
+}
+
+.dataPipelineConnector b {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-top: 4px solid currentColor;
+  border-right: 4px solid currentColor;
+  border-radius: 2px;
+  background: transparent;
+  box-shadow: 5px -5px 16px rgba(37, 180, 255, .42);
+  color: transparent;
+  font-size: 0;
+  transform: rotate(45deg);
+}
+
+[data-theme='light'] .dataPanel {
+  background: linear-gradient(120deg, #f7fbff, #eef5ff);
+}
+
+[data-theme='light'] .dataPanelHeader p { color: #49617f; }
+[data-theme='light'] .dataPipelineCard h3 { color: #0b1730; text-shadow: none; }
+[data-theme='light'] .dataPipelineCard p { color: #40536b; }
+[data-theme='light'] .dataPipelineCard p + p { color: #5a6d85; }
+[data-theme='light'] .dataPipelineNumber { background: rgba(244, 249, 255, .92); }
+
+@media (max-width: 1180px) {
+  .dataPipeline {
+    grid-template-columns: repeat(5, minmax(170px, 1fr));
+    gap: 22px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: #2f82ff rgba(28,57,92,.45);
+  }
+
+  .dataPipeline::-webkit-scrollbar { height: 7px; }
+  .dataPipeline::-webkit-scrollbar-track { background: rgba(28,57,92,.45); border-radius: 999px; }
+  .dataPipeline::-webkit-scrollbar-thumb { background: #2f82ff; border-radius: 999px; }
+
+  .dataPipelineConnector { display: none; }
+}
+
+@media (max-width: 760px) {
+  .dataPanel { padding: 28px 20px 30px; }
+  .dataPanelHeader { margin-bottom: 24px; }
+  .dataPanelHeader h2 { margin-bottom: 12px; font-size: clamp(30px, 9vw, 42px); }
+  .dataPanelHeader p { font-size: 13px; line-height: 1.58; }
+
+  .dataPipeline {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: 58%;
+    gap: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 2px 15px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dataPipelineItemWrap { scroll-snap-align: start; }
+  .dataPipelineCard { min-height: 292px; }
+  .dataPipelineIconWrap { height: 142px; margin-bottom: 7px; }
+  .dataPipelineIconWrap img { width: 126px; height: 126px; }
+  .dataPipelineNumber { min-width: 38px; height: 31px; margin-bottom: 11px; font-size: 14px; border-radius: 8px; }
+  .dataPipelineCard h3 { font-size: 19px; }
+  .dataPipelineDivider { width: 44px; height: 3px; margin: 9px auto 10px; }
+  .dataPipelineCard p { font-size: 12px; line-height: 1.48; }
+}
+
+@media (max-width: 430px) {
+  .dataPipeline { grid-auto-columns: 68%; }
+  .dataPipelineIconWrap { height: 132px; }
+  .dataPipelineIconWrap img { width: 116px; height: 116px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dataPipelineIconWrap img { transition: none; }
+}
