@@ -2,7 +2,7 @@
 .dataPanel {
   display: block;
   overflow: hidden;
-  padding: 34px 40px 36px;
+  padding: 28px 40px 28px;
   border: 1px solid rgba(43, 94, 159, .58);
   border-radius: 24px;
   background:
@@ -10,9 +10,9 @@
     linear-gradient(120deg, #061222 0%, #08162a 48%, #0a1430 100%);
 }
 
-.dataPanelHeader { width: 100%; margin-bottom: 26px; }
-.dataPanelHeader h2 { width:100%; max-width:920px; margin:12px 0 14px; font-size:clamp(34px,3.4vw,54px); line-height:1.05; }
-.dataPanelHeader p { max-width:980px; margin:0; color:#b7c7dc; font-size:15px; line-height:1.65; }
+.dataPanelHeader { width: 100%; margin-bottom: 14px; }
+.dataPanelHeader h2 { width:100%; max-width:none; margin:8px 0 10px; font-size:clamp(30px,3vw,48px); line-height:1.05; }
+.dataPanelHeader p { max-width:1080px; margin:0; color:#b7c7dc; font-size:15px; line-height:1.55; }
 
 .dataPipeline {
   display:grid;
@@ -20,7 +20,7 @@
   align-items:start;
   gap:24px;
   width:100%;
-  padding:4px 4px 8px;
+  padding:0 4px 6px;
 }
 .dataPipelineItemWrap { position:relative; min-width:0; }
 .dataPipelineCard {
@@ -76,36 +76,20 @@
   font-weight:800;
   line-height:1;
 }
-.dataPipelineCard h3 {
-  margin:0;
-  color:#f7f9fc;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:0;
-  line-height:1.35;
-  text-shadow:0 2px 12px rgba(0,0,0,.32);
-}
-.dataPipelineDivider {
-  width:44px;
-  height:3px;
-  margin:8px auto 10px;
-  border-radius:999px;
-  background:currentColor;
-  box-shadow:0 0 10px currentColor;
-  opacity:.94;
-}
-.dataPipelineCard p {
-  margin:0;
-  color:#c5cfdd;
-  font-size:13px;
-  font-weight:400;
-  line-height:1.45;
-  text-align:center;
-}
+.dataPipelineCard h3 { margin:0; color:#f7f9fc; font-size:13px; font-weight:800; letter-spacing:0; line-height:1.35; text-shadow:0 2px 12px rgba(0,0,0,.32); }
+.dataPipelineDivider { width:44px; height:3px; margin:8px auto 10px; border-radius:999px; background:currentColor; box-shadow:0 0 10px currentColor; opacity:.94; }
+.dataPipelineCard p { margin:0; color:#c5cfdd; font-size:13px; font-weight:400; line-height:1.45; text-align:center; }
 .dataPipelineCard p + p { margin-top:3px; color:#aeb9c9; }
 .dataPipelineCard.sources{color:#23e3c1}.dataPipelineCard.ingestion{color:#36a0ff}.dataPipelineCard.transformation{color:#21e2d8}.dataPipelineCard.storage{color:#925cff}.dataPipelineCard.visualisation{color:#f05bad}
 .dataPipelineConnector { position:absolute; z-index:4; top:54px; right:-25px; display:grid; width:28px; height:42px; place-items:center; color:#24b8ff; pointer-events:none; }
 .dataPipelineConnector span{display:none}.dataPipelineConnector b{display:block;width:18px;height:18px;border:0;border-top:3px solid currentColor;border-right:3px solid currentColor;border-radius:2px;background:transparent;box-shadow:4px -4px 13px rgba(37,180,255,.38);color:transparent;font-size:0;transform:rotate(45deg)}
+
+@media(min-width:1181px){
+  .dataPanelHeader h2{white-space:nowrap!important;max-width:none!important;font-size:clamp(30px,2.8vw,46px)!important;letter-spacing:-.025em!important}
+  .dataPanelHeader{margin-bottom:12px!important}
+  .dataPipeline{padding-top:0!important}
+}
+
 [data-theme='light'] .dataPanel{background:linear-gradient(120deg,#f7fbff,#eef5ff)}[data-theme='light'] .dataPanelHeader p{color:#49617f}[data-theme='light'] .dataPipelineCard h3{color:#0b1730;text-shadow:none}[data-theme='light'] .dataPipelineCard p{color:#40536b}[data-theme='light'] .dataPipelineCard p+p{color:#5a6d85}[data-theme='light'] .dataPipelineNumber{background:rgba(244,249,255,.92)}
 @media(max-width:1180px){.dataPipeline{grid-template-columns:repeat(5,minmax(160px,1fr));gap:18px;overflow-x:auto;overflow-y:hidden;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:#2f82ff rgba(28,57,92,.45)}.dataPipeline::-webkit-scrollbar{height:7px}.dataPipeline::-webkit-scrollbar-track{background:rgba(28,57,92,.45);border-radius:999px}.dataPipeline::-webkit-scrollbar-thumb{background:#2f82ff;border-radius:999px}.dataPipelineConnector{display:none}}
 @media(max-width:760px){.dataPanel{padding:24px 14px}.dataPanelHeader{margin-bottom:16px}.dataPanelHeader h2{margin-bottom:9px;font-size:clamp(27px,8vw,36px)}.dataPanelHeader p{font-size:11.5px;line-height:1.48}.dataPipeline{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:46%;gap:6px;overflow-x:auto;overflow-y:hidden;padding:0 0 10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}.dataPipelineItemWrap{scroll-snap-align:start}.dataPipelineCard{min-height:200px}.dataPipelineIconWrap{height:84px;margin-bottom:2px}.dataPipelineIconWrap img{width:72px;height:72px}.dataPipelineNumber{min-width:30px;height:25px;margin-bottom:6px;padding-inline:5px;font-size:11px;border-radius:7px}.dataPipelineCard h3{font-size:10px;line-height:1.3}.dataPipelineDivider{width:32px;height:2px;margin:5px auto 6px}.dataPipelineCard p{font-size:10px;line-height:1.3}.dataPipelineCard p+p{margin-top:2px}}
