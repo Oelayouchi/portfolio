@@ -2,34 +2,38 @@
 
 .homeHeroMain {
   display:grid!important;
-  grid-template-columns:minmax(0,1fr) minmax(270px,330px)!important;
-  gap:24px!important;
-  align-items:stretch!important;
+  grid-template-columns:minmax(0,1fr) minmax(300px,330px)!important;
+  gap:22px!important;
+  align-items:start!important;
 }
 
 .homeHeroMain > .homeFusedHero,
 .homeHeroMain > .homeHighlights {
   min-width:0!important;
   width:100%!important;
-  height:100%!important;
+  height:auto!important;
   margin:0!important;
-  align-self:stretch!important;
+  align-self:start!important;
 }
 
+/* Desktop: compact, balanced introduction card. */
 .homeFusedHero {
-  grid-template-columns:minmax(320px,.78fr) minmax(0,1.22fr)!important;
-  gap:clamp(34px,4vw,68px)!important;
-  padding:clamp(34px,4vw,56px)!important;
+  grid-template-columns:minmax(270px,330px) minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:clamp(28px,3vw,46px)!important;
+  min-height:0!important;
+  padding:32px 36px!important;
 }
 
 .homeFusedPortraitWrap {
-  width:min(100%,430px)!important;
-  max-width:430px!important;
+  width:min(100%,320px)!important;
+  max-width:320px!important;
+  margin-inline:auto!important;
 }
 
 .homeFusedPortrait {
-  width:82%!important;
-  max-width:350px!important;
+  width:80%!important;
+  max-width:255px!important;
 }
 
 .homeFusedCopy {
@@ -42,8 +46,9 @@
 
 .homeFusedCopy h1 {
   width:100%!important;
-  font-size:clamp(54px,5.3vw,88px)!important;
-  line-height:.9!important;
+  margin:0!important;
+  font-size:clamp(48px,4.7vw,76px)!important;
+  line-height:.91!important;
 }
 
 .homeFusedFirst,
@@ -51,34 +56,62 @@
   max-width:100%!important;
 }
 
+.homeFusedLast {
+  white-space:nowrap!important;
+}
+
+.homeFusedLine {
+  margin:18px 0 10px!important;
+}
+
+.homeFusedRole {
+  font-size:clamp(14px,1.15vw,18px)!important;
+}
+
 .homeFusedCopy > p {
-  max-width:720px!important;
+  max-width:660px!important;
+  margin-top:13px!important;
+  font-size:clamp(12px,1vw,15px)!important;
+  line-height:1.55!important;
 }
 
 .homeFusedActions {
   width:100%!important;
+  margin-top:18px!important;
+  gap:10px!important;
+}
+
+.homeFusedActions .button {
+  min-height:46px!important;
 }
 
 .availabilityV2Wrap {
   width:100%!important;
-  margin-top:22px!important;
+  margin-top:16px!important;
   padding-top:0!important;
 }
 
+/* The stats column keeps a compact regular rhythm instead of stretching the hero. */
 .homeHighlights {
   display:grid!important;
   grid-template-columns:1fr 1fr!important;
-  grid-template-rows:repeat(3,minmax(0,1fr))!important;
+  grid-template-rows:repeat(2,145px) 152px!important;
   gap:12px!important;
+  align-content:start!important;
 }
 
 .homeHighlightCard {
   min-height:0!important;
   height:100%!important;
+  padding:18px!important;
 }
 
 .homeHighlightCard:nth-child(5) {
   grid-column:1/-1!important;
+}
+
+.homeHighlightCard strong {
+  font-size:clamp(30px,3vw,42px)!important;
 }
 
 .homeStageList a {
@@ -100,18 +133,24 @@
     grid-template-columns:1fr!important;
   }
   .homeFusedHero {
-    grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr)!important;
+    grid-template-columns:minmax(250px,300px) minmax(0,1fr)!important;
+    gap:28px!important;
+    padding:28px 30px!important;
   }
   .homeFusedPortraitWrap {
-    width:min(100%,380px)!important;
+    width:min(100%,290px)!important;
   }
   .homeFusedPortrait {
     width:80%!important;
+    max-width:230px!important;
+  }
+  .homeFusedCopy h1 {
+    font-size:clamp(46px,6vw,68px)!important;
   }
   .homeHighlights {
     height:auto!important;
     grid-template-columns:repeat(5,minmax(0,1fr))!important;
-    grid-template-rows:1fr!important;
+    grid-template-rows:120px!important;
   }
   .homeHighlightCard:nth-child(5) {
     grid-column:auto!important;
@@ -143,6 +182,9 @@
   .homeFusedCopy h1 {
     align-items:center!important;
     font-size:clamp(36px,11.8vw,54px)!important;
+  }
+  .homeFusedLast {
+    white-space:nowrap!important;
   }
   .homeFusedCopy > p {
     max-width:540px!important;
