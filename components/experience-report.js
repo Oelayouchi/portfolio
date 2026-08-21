@@ -6,9 +6,10 @@ import { useLanguage } from './language-context';
 import PdfViewer from './pdf-viewer';
 
 const REPORTS={'experience-ocp':'/internships/ocp/report/rapport.pdf','experience-parcelhome-stage':'/internships/parcelhome/report/rapport.pdf'};
+const reportLabels={fr:'Rapport',en:'Report',ar:'تقرير',es:'Informe',de:'Bericht'};
 
 export default function ExperienceReport({experienceId,title}){
-  const{t}=useLanguage();
+  const{language,t}=useLanguage();
   const[open,setOpen]=useState(false);
   const report=REPORTS[experienceId];
   if(!report)return null;
@@ -27,7 +28,7 @@ export default function ExperienceReport({experienceId,title}){
   ):null;
 
   return <>
-    <button className="projectReportButton experienceReportButton" type="button" onClick={()=>setOpen(true)}><span aria-hidden="true">◉</span>{t('viewReport')}</button>
+    <button className="projectReportButton experienceReportButton" type="button" onClick={()=>setOpen(true)}><span aria-hidden="true">↗</span>{reportLabels[language]||reportLabels.fr}</button>
     {modal}
   </>;
 }
