@@ -21,8 +21,34 @@
   #experience .experienceBlock { width:100%!important; max-width:100%!important; min-width:0!important; box-sizing:border-box!important; }
   #experience .experienceIdentity { display:flex!important; flex-direction:column!important; align-items:stretch!important; gap:12px!important; }
   #experience .experienceIdentity>div:last-child { width:100%!important; max-width:100%!important; min-width:0!important; }
-  #experience .experienceLogoInline { display:grid!important; width:100%!important; max-width:100%!important; height:96px!important; min-width:0!important; flex:0 0 auto!important; padding:12px 18px!important; place-items:center!important; border-radius:16px!important; box-sizing:border-box!important; }
-  #experience .experienceLogoInline img { display:block!important; width:min(82%,320px)!important; max-width:320px!important; height:72px!important; max-height:72px!important; margin:auto!important; object-fit:contain!important; object-position:center!important; }
+
+  /* Company logo band: full width, same height on every detailed experience. */
+  #experience .experienceLogoInline {
+    display:grid!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    height:104px!important;
+    min-height:104px!important;
+    flex:0 0 104px!important;
+    margin:0!important;
+    padding:10px 14px!important;
+    place-items:center!important;
+    border-radius:16px!important;
+    box-sizing:border-box!important;
+  }
+  #experience .experienceLogoInline img {
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    height:78px!important;
+    min-height:78px!important;
+    max-height:78px!important;
+    margin:0!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+
   #experience .experienceTopRow h3,
   #experience .experienceDepartment,
   #experience .experienceMetaTop strong,
