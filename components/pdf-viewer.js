@@ -6,7 +6,7 @@ const PDFJS_URL='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.
 const PDFJS_WORKER='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 let loaderPromise;
-function loadPdfJs(){
+export function loadPdfJs(){
   if(typeof window==='undefined')return Promise.reject(new Error('Browser only'));
   if(window.pdfjsLib)return Promise.resolve(window.pdfjsLib);
   if(loaderPromise)return loaderPromise;
@@ -17,7 +17,12 @@ function loadPdfJs(){
       window.pdfjsLib.GlobalWorkerOptions.workerSrc=PDFJS_WORKER;
       resolve(window.pdfjsLib);
     };
-    if(existing){existing.addEventListener('load',done,{once:true});existing.addEventListener('error',()=>reject(new Error('PDF.js load failed')),{once:true});return;}
+    if(existing){
+      if(window.pdfjsLib){done();return;}
+      existing.addEventListener('load',done,{once:true});
+      existing.addEventListener('error',()=>reject(new Error('PDF.js load failed')),{once:true});
+      return;
+    }
     const script=document.createElement('script');
     script.src=PDFJS_URL;
     script.async=true;
@@ -28,6 +33,22 @@ function loadPdfJs(){
   return loaderPromise;
 }
 
+export function preloadPdfJs(){
+  if(typeof window==='undefined')return;
+  loadPdfJs().catch(()=>{});
+}
+
+function waitForIdle(){
+  return new Promise(resolve=>{
+    if(typeof window==='undefined'){resolve();return;}
+    if('requestIdleCallback' in window){
+      window.requestIdleCallback(()=>resolve(),{timeout:350});
+    }else{
+      window.setTimeout(resolve,32);
+    }
+  });
+}
+
 export default function PdfViewer({src,title}){
   const hostRef=useRef(null);
   const renderId=useRef(0);
@@ -35,43 +56,53 @@ export default function PdfViewer({src,title}){
 
   useEffect(()=>{
     let cancelled=false;
-    let resizeObserver;
-    let resizeTimer;
     let pdfDoc;
+
+    const renderPage=async(pdfjs,pageNumber,width,current)=>{
+      const host=hostRef.current;
+      if(!host)return;
+      const page=await pdfDoc.getPage(pageNumber);
+      if(cancelled||current!==renderId.current)return;
+      const base=page.getViewport({scale:1});
+      const cssScale=width/base.width;
+      const isSmallScreen=window.matchMedia?.('(max-width: 768px)').matches;
+      const dpr=Math.min(window.devicePixelRatio||1,isSmallScreen?1.25:1.5);
+      const viewport=page.getViewport({scale:cssScale*dpr});
+      const canvas=document.createElement('canvas');
+      canvas.className='pdfPageCanvas';
+      canvas.width=Math.max(1,Math.floor(viewport.width));
+      canvas.height=Math.max(1,Math.floor(viewport.height));
+      canvas.style.width='100%';
+      canvas.style.height='auto';
+      canvas.setAttribute('aria-label',`${title} — page ${pageNumber}`);
+      const ctx=canvas.getContext('2d',{alpha:false});
+      await page.render({canvasContext:ctx,viewport}).promise;
+      if(cancelled||current!==renderId.current)return;
+      host.appendChild(canvas);
+    };
 
     const render=async()=>{
       const host=hostRef.current;
       if(!host)return;
       const current=++renderId.current;
       setStatus('loading');
+      host.replaceChildren();
       try{
         const pdfjs=await loadPdfJs();
         if(cancelled)return;
-        if(!pdfDoc)pdfDoc=await pdfjs.getDocument(src).promise;
+        pdfDoc=await pdfjs.getDocument({url:src,disableAutoFetch:false,disableStream:false}).promise;
         if(cancelled||current!==renderId.current)return;
+
         const width=Math.max(240,host.clientWidth-20);
-        const fragment=document.createDocumentFragment();
-        for(let pageNumber=1;pageNumber<=pdfDoc.numPages;pageNumber+=1){
-          const page=await pdfDoc.getPage(pageNumber);
-          if(cancelled||current!==renderId.current)return;
-          const base=page.getViewport({scale:1});
-          const cssScale=width/base.width;
-          const dpr=Math.min(window.devicePixelRatio||1,2);
-          const viewport=page.getViewport({scale:cssScale*dpr});
-          const canvas=document.createElement('canvas');
-          canvas.className='pdfPageCanvas';
-          canvas.width=Math.floor(viewport.width);
-          canvas.height=Math.floor(viewport.height);
-          canvas.style.width=`${Math.floor(viewport.width/dpr)}px`;
-          canvas.style.height=`${Math.floor(viewport.height/dpr)}px`;
-          canvas.setAttribute('aria-label',`${title} — page ${pageNumber}`);
-          const ctx=canvas.getContext('2d',{alpha:false});
-          await page.render({canvasContext:ctx,viewport}).promise;
-          fragment.appendChild(canvas);
-        }
+        await renderPage(pdfjs,1,width,current);
         if(cancelled||current!==renderId.current)return;
-        host.replaceChildren(fragment);
         setStatus('ready');
+
+        for(let pageNumber=2;pageNumber<=pdfDoc.numPages;pageNumber+=1){
+          await waitForIdle();
+          if(cancelled||current!==renderId.current)return;
+          await renderPage(pdfjs,pageNumber,width,current);
+        }
       }catch(error){
         if(cancelled)return;
         host.replaceChildren();
@@ -80,18 +111,10 @@ export default function PdfViewer({src,title}){
     };
 
     render();
-    if(typeof ResizeObserver!=='undefined'){
-      resizeObserver=new ResizeObserver(()=>{
-        clearTimeout(resizeTimer);
-        resizeTimer=setTimeout(render,180);
-      });
-      if(hostRef.current)resizeObserver.observe(hostRef.current);
-    }
     return()=>{
       cancelled=true;
-      clearTimeout(resizeTimer);
-      resizeObserver?.disconnect();
       renderId.current+=1;
+      try{pdfDoc?.destroy?.();}catch{}
     };
   },[src,title]);
 

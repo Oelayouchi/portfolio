@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useLanguage } from './language-context';
-import PdfViewer from './pdf-viewer';
+import PdfViewer,{preloadPdfJs} from './pdf-viewer';
 
 const REPORTS={'experience-ocp':'/internships/ocp/report/rapport.pdf','experience-parcelhome-stage':'/internships/parcelhome/report/rapport.pdf'};
 const reportLabels={fr:'Rapport',en:'Report',ar:'تقرير',es:'Informe',de:'Bericht'};
@@ -12,6 +12,22 @@ export default function ExperienceReport({experienceId,title}){
   const{language,t}=useLanguage();
   const[open,setOpen]=useState(false);
   const report=REPORTS[experienceId];
+
+  useEffect(()=>{
+    if(!report||typeof window==='undefined')return;
+    let idleId;
+    let timerId;
+    if('requestIdleCallback' in window){
+      idleId=window.requestIdleCallback(()=>preloadPdfJs(),{timeout:1800});
+    }else{
+      timerId=window.setTimeout(()=>preloadPdfJs(),700);
+    }
+    return()=>{
+      if(idleId!==undefined&&'cancelIdleCallback' in window)window.cancelIdleCallback(idleId);
+      if(timerId!==undefined)window.clearTimeout(timerId);
+    };
+  },[report]);
+
   if(!report)return null;
 
   const modal=open&&typeof document!=='undefined'?createPortal(
@@ -28,7 +44,7 @@ export default function ExperienceReport({experienceId,title}){
   ):null;
 
   return <>
-    <button className="projectReportButton experienceReportButton" type="button" onClick={()=>setOpen(true)}><span aria-hidden="true">↗</span>{reportLabels[language]||reportLabels.fr}</button>
+    <button className="projectReportButton experienceReportButton" type="button" onMouseEnter={preloadPdfJs} onFocus={preloadPdfJs} onTouchStart={preloadPdfJs} onClick={()=>setOpen(true)}><span aria-hidden="true">↗</span>{reportLabels[language]||reportLabels.fr}</button>
     {modal}
   </>;
 }
