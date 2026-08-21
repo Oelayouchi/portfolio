@@ -1,124 +1,173 @@
-/* Home hero layout repair: strict desktop alignment for the three hero columns. */
+/* Final home hero layout for the fused introduction card. */
 
 .homeHeroMain {
-  --hero-col-gap: 28px;
-  display: grid !important;
-  grid-template-columns: minmax(270px, .78fr) minmax(520px, 1.45fr) minmax(270px, .72fr) !important;
-  gap: var(--hero-col-gap) !important;
-  align-items: stretch !important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(270px,330px)!important;
+  gap:24px!important;
+  align-items:stretch!important;
 }
 
-/* STRICT RULE: the 3 hero columns always share the same top and bottom line. */
-.homeHeroMain > .homeIdentityCard,
-.homeHeroMain > .homeHeroIntro,
+.homeHeroMain > .homeFusedHero,
 .homeHeroMain > .homeHighlights {
-  min-width: 0;
-  height: 100% !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  align-self: stretch !important;
+  min-width:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  align-self:stretch!important;
 }
 
-.homeIdentityCard {
-  display: flex;
-  flex-direction: column;
+.homeFusedHero {
+  grid-template-columns:minmax(320px,.78fr) minmax(0,1.22fr)!important;
+  gap:clamp(34px,4vw,68px)!important;
+  padding:clamp(34px,4vw,56px)!important;
 }
 
-.homeIdentityVisual {
-  display: grid !important;
-  min-height: 255px !important;
-  place-items: center;
+.homeFusedPortraitWrap {
+  width:min(100%,430px)!important;
+  max-width:430px!important;
 }
 
-.homeIdentityVisual img {
-  display: block !important;
-  width: min(100%, 230px) !important;
-  height: auto !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+.homeFusedPortrait {
+  width:82%!important;
+  max-width:350px!important;
 }
 
-.homeHeroIntro {
-  display: flex !important;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 0 !important;
+.homeFusedCopy {
+  display:flex!important;
+  min-width:0!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
 }
 
-.homeHeroIntro h1 {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  margin: 10px 0 20px !important;
-  font-size: clamp(54px, 5.7vw, 92px) !important;
-  line-height: .92 !important;
+.homeFusedCopy h1 {
+  width:100%!important;
+  font-size:clamp(54px,5.3vw,88px)!important;
+  line-height:.9!important;
 }
 
-.homeHeroIntro > p {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  max-width: 720px;
+.homeFusedFirst,
+.homeFusedLast {
+  max-width:100%!important;
 }
 
-.homeHeroActions { margin-top: 24px; }
+.homeFusedCopy > p {
+  max-width:720px!important;
+}
 
-/* The availability/dashboard block is pinned to the exact bottom of the center column. */
+.homeFusedActions {
+  width:100%!important;
+}
+
 .availabilityV2Wrap {
-  margin-top: auto !important;
-  padding-top: 20px !important;
-  margin-bottom: 0 !important;
+  width:100%!important;
+  margin-top:22px!important;
+  padding-top:0!important;
 }
 
-.homeHeroAvailability,.homeDataPanel { width: 100%; min-width: 0; }
-
-/* Right column fills exactly the same total height as left/center. */
 .homeHighlights {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
-  gap: 12px !important;
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  grid-template-rows:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
 }
-.homeHighlightCard { min-height: 0 !important; height: 100% !important; }
-.homeHighlightCard:nth-child(5) { grid-column: 1 / -1 !important; }
 
-/* Stage mini-cards use the same hover motion as the main experience cards. */
+.homeHighlightCard {
+  min-height:0!important;
+  height:100%!important;
+}
+
+.homeHighlightCard:nth-child(5) {
+  grid-column:1/-1!important;
+}
+
 .homeStageList a {
-  position: relative;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease !important;
-  will-change: transform;
+  position:relative;
+  transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease!important;
+  will-change:transform;
 }
-
 .homeStageList a:hover,
 .homeStageList a:focus-visible {
-  transform: translateY(-5px) !important;
-  border-color: #168cff !important;
-  background: linear-gradient(150deg, rgba(12, 38, 72, .96), rgba(8, 26, 50, .96)) !important;
-  box-shadow: 0 10px 22px rgba(0, 119, 255, .16) !important;
-  outline: none;
+  transform:translateY(-5px)!important;
+  border-color:#168cff!important;
+  background:linear-gradient(150deg,rgba(12,38,72,.96),rgba(8,26,50,.96))!important;
+  box-shadow:0 10px 22px rgba(0,119,255,.16)!important;
+  outline:none;
 }
 
-@media (max-width: 1180px) and (min-width: 761px) {
-  .homeHeroMain { grid-template-columns: minmax(235px, .8fr) minmax(0, 1.55fr) !important; }
-  .homeHighlights {
-    grid-column: 1 / -1;
-    height: auto !important;
-    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-    grid-template-rows: 1fr !important;
+@media (max-width:1180px) and (min-width:761px) {
+  .homeHeroMain {
+    grid-template-columns:1fr!important;
   }
-  .homeHighlightCard:nth-child(5) { grid-column: auto !important; }
-  .homeHeroIntro h1 { font-size: clamp(52px, 7vw, 78px) !important; }
+  .homeFusedHero {
+    grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr)!important;
+  }
+  .homeFusedPortraitWrap {
+    width:min(100%,380px)!important;
+  }
+  .homeFusedPortrait {
+    width:80%!important;
+  }
+  .homeHighlights {
+    height:auto!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    grid-template-rows:1fr!important;
+  }
+  .homeHighlightCard:nth-child(5) {
+    grid-column:auto!important;
+  }
 }
 
-@media (max-width: 760px) {
-  .homeHeroMain { grid-template-columns: 1fr !important; }
-  .homeIdentityCard { display: grid; height: auto !important; grid-template-columns: 92px minmax(0, 1fr); align-items: center; }
-  .homeIdentityVisual { min-height: 0 !important; padding: 12px; }
-  .homeIdentityVisual img { width: 72px !important; }
-  .homeHeroIntro { height: auto !important; padding: 8px 0 !important; }
-  .availabilityV2Wrap { margin-top: 18px !important; padding-top: 0 !important; }
-  .homeHighlights { height: auto !important; grid-template-columns: 1fr 1fr !important; grid-template-rows: none !important; }
-  .homeHighlightCard { height: auto !important; }
-  .homeHighlightCard:nth-child(5) { grid-column: 1 / -1 !important; }
-  .homeHeroIntro h1 { font-size: clamp(46px, 14vw, 68px) !important; }
+@media (max-width:760px) {
+  .homeHeroMain {
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+  }
+  .homeFusedHero {
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    padding:22px 16px 18px!important;
+    text-align:center!important;
+  }
+  .homeFusedPortraitWrap {
+    width:min(62vw,235px)!important;
+    max-width:235px!important;
+  }
+  .homeFusedPortrait {
+    width:80%!important;
+    max-width:none!important;
+  }
+  .homeFusedCopy {
+    align-items:center!important;
+  }
+  .homeFusedCopy h1 {
+    align-items:center!important;
+    font-size:clamp(36px,11.8vw,54px)!important;
+  }
+  .homeFusedCopy > p {
+    max-width:540px!important;
+  }
+  .homeFusedActions {
+    justify-content:center!important;
+  }
+  .availabilityV2Wrap {
+    margin-top:18px!important;
+  }
+  .homeHighlights {
+    height:auto!important;
+    grid-template-columns:1fr 1fr!important;
+    grid-template-rows:none!important;
+  }
+  .homeHighlightCard {
+    height:auto!important;
+  }
+  .homeHighlightCard:nth-child(5) {
+    grid-column:1/-1!important;
+  }
+}
+
+@media (max-width:430px) {
+  .homeFusedPortraitWrap {
+    width:min(60vw,215px)!important;
+  }
 }
