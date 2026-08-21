@@ -27,7 +27,6 @@ import './ui-alignment-fixes.css';
 import './projects-carousel-alignment.css';
 import './site-polish.css';
 import './projects-mobile-alignment.css';
-import './mobile-experience-carousel.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio Data Engineer',
