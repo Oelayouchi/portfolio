@@ -10,7 +10,7 @@ import ContactSection from '../components/contact-section';
 import HomeHero from '../components/home-hero';
 import DataSection from '../components/data-section';
 import BrowserLanguageSync from '../components/browser-language-sync';
-import { AboutSection, Footer } from '../components/portfolio-sections';
+import { Footer } from '../components/portfolio-sections';
 import { LanguageProvider } from '../components/language-context';
 
 export default function Page() {
@@ -21,7 +21,6 @@ export default function Page() {
         <ThemeController />
         <Navigation />
         <HomeHero />
-        <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
         <AwardsSection />
