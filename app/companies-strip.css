@@ -53,34 +53,73 @@
   }
 }
 
-/* Mobile: exactly one company per line. */
+/* Mobile: companies stay on one horizontal row and can be swiped left/right. */
 @media (max-width: 700px) {
+  .companiesShell {
+    overflow: hidden;
+  }
+
   .companiesGrid {
-    grid-template-columns: 1fr !important;
+    display: flex !important;
+    grid-template-columns: none !important;
+    width: 100%;
+    max-width: 100%;
+    gap: 14px;
+    padding: 4px 2px 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(67, 145, 255, .9) rgba(40, 74, 118, .3);
+  }
+
+  .companiesGrid::-webkit-scrollbar {
+    height: 7px;
+  }
+
+  .companiesGrid::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(40, 74, 118, .3);
+  }
+
+  .companiesGrid::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(67, 145, 255, .9);
   }
 
   .companyItem {
-    width: 100%;
-    padding: 24px 12px;
-    border-bottom: 1px solid rgba(96, 129, 168, 0.28);
+    flex: 0 0 42vw;
+    width: 42vw;
+    min-width: 140px;
+    max-width: 180px;
+    padding: 14px 10px 12px;
+    border: 1px solid rgba(96, 129, 168, 0.28);
+    border-radius: 16px;
+    scroll-snap-align: start;
   }
 
   .companyItem + .companyItem {
-    border-left: 0;
+    border-left: 1px solid rgba(96, 129, 168, 0.28);
   }
 
   .companyLogoWrap {
-    height: 72px;
+    display: grid;
+    place-items: center;
+    height: 74px;
   }
 
   .companyLogo {
-    max-width: 78%;
-    max-height: 64px;
+    max-width: 90%;
+    max-height: 62px;
   }
 
   .companyItem p {
-    margin-top: 10px;
-    font-size: 16px;
-    line-height: 1.25;
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.2;
+    text-align: center;
   }
 }
