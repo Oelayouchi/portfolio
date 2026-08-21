@@ -12,7 +12,6 @@
 .awardsSection { padding-top: 38px; padding-bottom: 38px; }
 .interestsShowcase { margin-top: 44px; padding-top: 26px; }
 
-/* Certifications: one horizontal row, image-dominant cards. */
 #certifications .certs {
   display: grid;
   grid-auto-flow: column;
@@ -30,8 +29,6 @@
 #certifications .certs::-webkit-scrollbar-track { border-radius: 999px; background: rgba(28,57,92,.5); }
 #certifications .certs::-webkit-scrollbar-thumb { border-radius: 999px; background: linear-gradient(90deg,#168cff,#4c65ff); }
 #certifications .cert { min-width: 0; border-radius: 13px; scroll-snap-align: start; overflow: hidden; }
-
-/* Larger certificate viewport: preserve the full document instead of cropping it. */
 #certifications .cert img {
   display: block;
   width: 100%;
@@ -42,36 +39,33 @@
   object-position: center;
   background: #f5f6f8;
 }
-
-/* Force compact, regular-weight typography even if older global rules use bold. */
-#certifications .cert > div { padding: 7px 9px 9px; }
+#certifications .cert > div { padding: 9px 11px 11px; }
 #certifications .cert h3,
 #certifications .cert h3 strong,
 #certifications .cert h3 b {
-  margin: 0 0 3px;
-  font-size: 9.5px !important;
+  margin: 0 0 4px;
+  font-size: 13px !important;
   font-weight: 400 !important;
-  line-height: 1.16;
+  line-height: 1.22;
   letter-spacing: 0;
 }
 #certifications .cert p,
 #certifications .cert p strong,
 #certifications .cert p b {
-  margin: 2px 0 0;
+  margin: 3px 0 0;
   color: #9eacbf;
-  font-size: 7.8px !important;
+  font-size: 10.5px !important;
   font-weight: 400 !important;
-  line-height: 1.18;
+  line-height: 1.28;
 }
 #certifications .cert .meta,
 #certifications .cert .meta strong,
 #certifications .cert .meta b {
-  font-size: 7.6px !important;
+  font-size: 10px !important;
   font-weight: 400 !important;
-  line-height: 1.16;
+  line-height: 1.24;
 }
 
-/* Awards: four compact cards on one row. */
 .awardsGrid {
   display: grid;
   grid-auto-flow: column;
@@ -91,16 +85,16 @@
 .awardCard { min-width: 0; border-radius: 13px; scroll-snap-align: start; transform: none !important; }
 .awardCard:hover,
 .awardCard:focus-within { transform: none !important; box-shadow: inset 0 0 34px rgba(31,112,255,.045),0 10px 24px rgba(0,87,200,.12); }
-.awardCard.noAwardImage .awardContent { min-height: 84px; }
-.awardContent { padding: 10px 10px 10px 52px; }
-.awardCard.noAwardImage .awardContent:before { left: 12px; width: 28px; height: 28px; border-radius: 8px; font-size: 15px; }
+.awardCard.noAwardImage .awardContent { min-height: 92px; }
+.awardContent { padding: 12px 12px 12px 54px; }
+.awardCard.noAwardImage .awardContent:before { left: 12px; width: 30px; height: 30px; border-radius: 8px; font-size: 16px; }
 .awardContent h3,
 .awardContent h3 strong,
-.awardContent h3 b { margin: 0; font-size: 9.5px !important; font-weight: 400 !important; line-height: 1.16; }
+.awardContent h3 b { margin: 0; font-size: 12.5px !important; font-weight: 400 !important; line-height: 1.22; }
 .awardContent p,
 .awardContent p strong,
-.awardContent p b { margin: 4px 0 1px; font-size: 7.8px !important; font-weight: 400 !important; line-height: 1.18; }
-.awardContent > span { font-size: 7.6px !important; font-weight: 400 !important; line-height: 1.14; }
+.awardContent p b { margin: 5px 0 2px; font-size: 10.5px !important; font-weight: 400 !important; line-height: 1.24; }
+.awardContent > span { font-size: 10px !important; font-weight: 400 !important; line-height: 1.2; }
 
 @media (min-width: 1180px) {
   #certifications .certs { grid-auto-columns: minmax(220px,1fr); }
@@ -126,18 +120,18 @@
   .interestsShowcase { margin-top: 30px; padding-top: 20px; }
   #certifications .certs { grid-auto-columns: minmax(185px,72vw); gap: 11px; padding-bottom: 9px; }
   #certifications .cert img { height: 128px; padding: 4px 6px; }
-  #certifications .cert > div { padding: 6px 8px 8px; }
+  #certifications .cert > div { padding: 8px 9px 10px; }
   #certifications .cert h3,
   #certifications .cert h3 strong,
-  #certifications .cert h3 b { font-size: 9px !important; font-weight: 400 !important; }
+  #certifications .cert h3 b { font-size: 12px !important; font-weight: 400 !important; }
   #certifications .cert p,
   #certifications .cert p strong,
-  #certifications .cert p b { font-size: 7.5px !important; font-weight: 400 !important; }
-  #certifications .cert .meta { font-size: 7.3px !important; font-weight: 400 !important; }
+  #certifications .cert p b { font-size: 10px !important; font-weight: 400 !important; }
+  #certifications .cert .meta { font-size: 9.5px !important; font-weight: 400 !important; }
   .awardsGrid { grid-auto-columns: minmax(220px,78vw); gap: 11px; padding-bottom: 9px; }
-  .awardContent { padding: 9px 9px 9px 48px; }
-  .awardCard.noAwardImage .awardContent:before { left: 10px; width: 27px; height: 27px; font-size: 14px; }
-  .awardContent h3 { font-size: 9px !important; font-weight: 400 !important; }
-  .awardContent p { font-size: 7.5px !important; font-weight: 400 !important; }
-  .awardContent > span { font-size: 7.3px !important; font-weight: 400 !important; }
+  .awardContent { padding: 10px 10px 10px 50px; }
+  .awardCard.noAwardImage .awardContent:before { left: 10px; width: 28px; height: 28px; font-size: 15px; }
+  .awardContent h3 { font-size: 11.5px !important; font-weight: 400 !important; }
+  .awardContent p { font-size: 9.8px !important; font-weight: 400 !important; }
+  .awardContent > span { font-size: 9.5px !important; font-weight: 400 !important; }
 }
