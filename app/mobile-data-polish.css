@@ -4,7 +4,7 @@
   #experience .timeline { align-items:start!important; grid-auto-rows:max-content!important; overflow-y:visible!important; }
   #experience .experienceRefined,#experience .experienceRefined .experienceBody,#experience .experienceTopRow,#experience .experienceTopActions,#experience .experienceBody>h4,#experience .experienceBody>.experienceBlock { height:auto!important; min-height:0!important; max-height:none!important; overflow:visible!important; }
   #experience .experienceRefined .experienceBody { display:block!important; }
-  #experience .experienceTopRow { display:grid!important; grid-template-rows:auto auto!important; gap:12px!important; margin-bottom:10px!important; }
+  #experience .experienceTopRow { display:grid!important; grid-template-columns:minmax(0,1fr)!important; grid-template-rows:auto auto!important; gap:12px!important; margin-bottom:10px!important; }
   #experience .experienceTopActions { min-height:0!important; margin-top:2px!important; }
   #experience .experienceBody>h4 { padding:10px 0!important; }
   #experience .experienceBody>.experienceBlock { margin-top:0!important; padding-top:12px!important; }
@@ -22,12 +22,12 @@
   #experience .experienceIdentity { display:flex!important; flex-direction:column!important; align-items:stretch!important; gap:12px!important; }
   #experience .experienceIdentity>div:last-child { width:100%!important; max-width:100%!important; min-width:0!important; }
 
-  /* Company logo band: full width, same height on every detailed experience. */
+  /* Company logo band: truly full width, same height on every detailed experience. */
   #experience .experienceLogoInline {
     display:grid!important;
     width:100%!important;
-    max-width:none!important;
-    min-width:0!important;
+    max-width:100%!important;
+    min-width:100%!important;
     height:104px!important;
     min-height:104px!important;
     flex:0 0 104px!important;
@@ -36,6 +36,8 @@
     place-items:center!important;
     border-radius:16px!important;
     box-sizing:border-box!important;
+    justify-self:stretch!important;
+    align-self:stretch!important;
   }
   #experience .experienceLogoInline img {
     display:block!important;
