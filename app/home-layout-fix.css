@@ -1,127 +1,24 @@
 /* Final home hero layout for the fused introduction card. */
-
-.homeHeroMain {
-  display:grid!important;
-  grid-template-columns:minmax(0,1fr) minmax(300px,330px)!important;
-  gap:22px!important;
-  align-items:start!important;
-}
-
-.homeHeroMain > .homeFusedHero,
-.homeHeroMain > .homeHighlights {
-  min-width:0!important;
-  width:100%!important;
-  height:auto!important;
-  margin:0!important;
-  align-self:start!important;
-}
-
-/* Desktop: portrait first, Data Engineer presentation directly below it. */
-.homeFusedHero {
-  grid-template-columns:minmax(270px,330px) minmax(0,1fr)!important;
-  align-items:start!important;
-  gap:clamp(28px,3vw,46px)!important;
-  min-height:0!important;
-  padding:32px 36px!important;
-}
-
-.homeFusedPortraitWrap {
-  width:min(100%,320px)!important;
-  max-width:320px!important;
-  margin-inline:auto!important;
-}
-
-.homeFusedPortrait {
-  width:80%!important;
-  max-width:255px!important;
-}
-
-.homeFusedCopy {
-  display:flex!important;
-  min-width:0!important;
-  flex-direction:column!important;
-  justify-content:flex-start!important;
-  align-items:flex-start!important;
-}
-
-.homeFusedCopy h1 {
-  width:100%!important;
-  margin:0!important;
-  font-size:clamp(48px,4.7vw,76px)!important;
-  line-height:.91!important;
-}
-
-.homeFusedFirst,
-.homeFusedLast {
-  max-width:100%!important;
-}
-
-.homeFusedLast { white-space:nowrap!important; }
-.homeFusedLine { margin:18px 0 10px!important; }
-.homeFusedRole { font-size:clamp(14px,1.15vw,18px)!important; }
-.homeFusedCopy > p {
-  max-width:660px!important;
-  margin-top:13px!important;
-  font-size:clamp(12px,1vw,15px)!important;
-  line-height:1.55!important;
-}
-.homeFusedActions { width:100%!important; margin-top:18px!important; gap:10px!important; }
-.homeFusedActions .button { min-height:46px!important; }
-.availabilityV2Wrap { width:100%!important; margin-top:16px!important; padding-top:0!important; }
-
-/* On wide desktop, move role + presentation below the portrait while keeping actions/content in the right column. */
-@media (min-width:1181px) {
-  .homeFusedHero { grid-template-rows:auto auto!important; }
-  .homeFusedPortraitWrap { grid-column:1!important; grid-row:1!important; }
-  .homeFusedCopy { display:grid!important; grid-template-columns:1fr!important; grid-column:2!important; grid-row:1 / span 2!important; align-content:start!important; }
-  .homeFusedCopy h1 { grid-row:1!important; }
-  .homeFusedLine,
-  .homeFusedRole,
-  .homeFusedCopy > p { position:relative!important; left:calc(-330px - clamp(28px,3vw,46px))!important; width:320px!important; max-width:320px!important; }
-  .homeFusedLine { margin-top:22px!important; }
-  .homeFusedRole { margin-top:0!important; }
-  .homeFusedCopy > p { margin-top:12px!important; }
-  .homeFusedActions { margin-top:22px!important; }
-}
-
-.homeHighlights {
-  display:grid!important;
-  grid-template-columns:1fr 1fr!important;
-  grid-template-rows:repeat(2,145px) 152px!important;
-  gap:12px!important;
-  align-content:start!important;
-}
-.homeHighlightCard { min-height:0!important; height:100%!important; padding:18px!important; }
-.homeHighlightCard:nth-child(5) { grid-column:1/-1!important; }
-.homeHighlightCard strong { font-size:clamp(30px,3vw,42px)!important; }
-
-.homeStageList a { position:relative; transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease!important; will-change:transform; }
-.homeStageList a:hover,.homeStageList a:focus-visible { transform:translateY(-5px)!important; border-color:#168cff!important; background:linear-gradient(150deg,rgba(12,38,72,.96),rgba(8,26,50,.96))!important; box-shadow:0 10px 22px rgba(0,119,255,.16)!important; outline:none; }
-
-@media (max-width:1180px) and (min-width:761px) {
-  .homeHeroMain { grid-template-columns:1fr!important; }
-  .homeFusedHero { grid-template-columns:minmax(250px,300px) minmax(0,1fr)!important; gap:28px!important; padding:28px 30px!important; }
-  .homeFusedPortraitWrap { width:min(100%,290px)!important; }
-  .homeFusedPortrait { width:80%!important; max-width:230px!important; }
-  .homeFusedCopy h1 { font-size:clamp(46px,6vw,68px)!important; }
-  .homeHighlights { height:auto!important; grid-template-columns:repeat(5,minmax(0,1fr))!important; grid-template-rows:120px!important; }
-  .homeHighlightCard:nth-child(5) { grid-column:auto!important; }
-}
-
-@media (max-width:760px) {
-  .homeHeroMain { grid-template-columns:1fr!important; gap:16px!important; }
-  .homeFusedHero { grid-template-columns:1fr!important; gap:12px!important; padding:22px 16px 18px!important; text-align:center!important; }
-  .homeFusedPortraitWrap { width:min(62vw,235px)!important; max-width:235px!important; }
-  .homeFusedPortrait { width:80%!important; max-width:none!important; }
-  .homeFusedCopy { align-items:center!important; }
-  .homeFusedCopy h1 { align-items:center!important; font-size:clamp(36px,11.8vw,54px)!important; }
-  .homeFusedLast { white-space:nowrap!important; }
-  .homeFusedCopy > p { max-width:540px!important; }
-  .homeFusedActions { justify-content:center!important; }
-  .availabilityV2Wrap { margin-top:18px!important; }
-  .homeHighlights { height:auto!important; grid-template-columns:1fr 1fr!important; grid-template-rows:none!important; }
-  .homeHighlightCard { height:auto!important; }
-  .homeHighlightCard:nth-child(5) { grid-column:1/-1!important; }
-}
-
-@media (max-width:430px) { .homeFusedPortraitWrap { width:min(60vw,215px)!important; } }
+.homeHeroMain{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(300px,330px)!important;gap:22px!important;align-items:start!important}
+.homeHeroMain>.homeFusedHero,.homeHeroMain>.homeHighlights{min-width:0!important;width:100%!important;height:auto!important;margin:0!important;align-self:start!important}
+.homeFusedHero{grid-template-columns:minmax(270px,330px) minmax(0,1fr)!important;align-items:start!important;gap:clamp(28px,3vw,46px)!important;min-height:0!important;padding:32px 36px!important}
+.homeFusedLeft{display:flex;flex-direction:column;align-items:center;min-width:0}
+.homeFusedPortraitWrap{width:min(100%,320px)!important;max-width:320px!important;margin-inline:auto!important}
+.homeFusedPortrait{width:80%!important;max-width:255px!important}
+.homeFusedIntro{width:min(100%,320px);margin-top:10px;text-align:left}
+.homeFusedIntro .homeFusedLine{margin:0 0 10px!important}
+.homeFusedIntro .homeFusedRole{display:block;font-size:clamp(14px,1.15vw,18px)!important}
+.homeFusedIntro p{margin:12px 0 0;color:#bdcbe0;font-size:clamp(12px,1vw,15px);line-height:1.55}
+.homeFusedMobileIntro{display:none}
+.homeFusedCopy{display:flex!important;min-width:0!important;flex-direction:column!important;justify-content:flex-start!important;align-items:flex-start!important}
+.homeFusedCopy h1{width:100%!important;margin:0!important;font-size:clamp(48px,4.7vw,76px)!important;line-height:.91!important}
+.homeFusedFirst,.homeFusedLast{max-width:100%!important}.homeFusedLast{white-space:nowrap!important}
+.homeFusedActions{width:100%!important;margin-top:22px!important;gap:10px!important}.homeFusedActions .button{min-height:46px!important}
+.availabilityV2Wrap{width:100%!important;margin-top:16px!important;padding-top:0!important}
+.homeHighlights{display:grid!important;grid-template-columns:1fr 1fr!important;grid-template-rows:repeat(2,145px) 152px!important;gap:12px!important;align-content:start!important}
+.homeHighlightCard{min-height:0!important;height:100%!important;padding:18px!important}.homeHighlightCard:nth-child(5){grid-column:1/-1!important}.homeHighlightCard strong{font-size:clamp(30px,3vw,42px)!important}
+.homeStageList a{position:relative;transition:transform 180ms ease,border-color 180ms ease,background 180ms ease,box-shadow 180ms ease!important;will-change:transform}.homeStageList a:hover,.homeStageList a:focus-visible{transform:translateY(-5px)!important;border-color:#168cff!important;background:linear-gradient(150deg,rgba(12,38,72,.96),rgba(8,26,50,.96))!important;box-shadow:0 10px 22px rgba(0,119,255,.16)!important;outline:none}
+html[data-theme='light'] .homeFusedIntro p{color:#53677e}
+@media(max-width:1180px) and (min-width:761px){.homeHeroMain{grid-template-columns:1fr!important}.homeFusedHero{grid-template-columns:minmax(250px,300px) minmax(0,1fr)!important;gap:28px!important;padding:28px 30px!important}.homeFusedPortraitWrap{width:min(100%,290px)!important}.homeFusedPortrait{width:80%!important;max-width:230px!important}.homeFusedIntro{width:min(100%,290px)}.homeFusedCopy h1{font-size:clamp(46px,6vw,68px)!important}.homeHighlights{height:auto!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;grid-template-rows:120px!important}.homeHighlightCard:nth-child(5){grid-column:auto!important}}
+@media(max-width:760px){.homeHeroMain{grid-template-columns:1fr!important;gap:16px!important}.homeFusedHero{grid-template-columns:1fr!important;gap:12px!important;padding:22px 16px 18px!important;text-align:center!important}.homeFusedLeft{display:block}.homeFusedPortraitWrap{width:min(62vw,235px)!important;max-width:235px!important}.homeFusedPortrait{width:80%!important;max-width:none!important}.homeFusedIntro{display:none}.homeFusedMobileIntro{display:flex;flex-direction:column;align-items:center;width:100%}.homeFusedMobileIntro .homeFusedLine{width:38px;height:2px;margin:15px 0 9px!important}.homeFusedMobileIntro .homeFusedRole{font-size:14px;letter-spacing:.1em}.homeFusedMobileIntro p{max-width:540px;margin:13px 0 0;color:#bdcbe0;font-size:13px;line-height:1.58}.homeFusedCopy{align-items:center!important}.homeFusedCopy h1{align-items:center!important;font-size:clamp(36px,11.8vw,54px)!important}.homeFusedLast{white-space:nowrap!important}.homeFusedActions{justify-content:center!important}.availabilityV2Wrap{margin-top:18px!important}.homeHighlights{height:auto!important;grid-template-columns:1fr 1fr!important;grid-template-rows:none!important}.homeHighlightCard{height:auto!important}.homeHighlightCard:nth-child(5){grid-column:1/-1!important}html[data-theme='light'] .homeFusedMobileIntro p{color:#53677e}}
+@media(max-width:430px){.homeFusedPortraitWrap{width:min(60vw,215px)!important}}
