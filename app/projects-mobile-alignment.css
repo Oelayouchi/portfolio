@@ -17,17 +17,30 @@
 
   .projectShowcaseContent {
     display: grid !important;
-    grid-template-rows: 70px 62px 58px minmax(178px, 1fr) 58px !important;
+    grid-template-rows: 96px 62px 58px minmax(178px, 1fr) 58px !important;
     height: 100% !important;
     align-content: stretch !important;
   }
 
   .projectShowcaseTags {
-    min-height: 70px !important;
-    height: 70px !important;
+    min-height: 96px !important;
+    height: 96px !important;
     margin: 0 !important;
-    align-content: start !important;
-    overflow: hidden !important;
+    padding: 4px 0 6px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+    gap: 7px !important;
+    overflow: visible !important;
+  }
+
+  .projectShowcaseTags span {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    white-space: nowrap !important;
   }
 
   .projectShowcaseTitleRow {
@@ -87,12 +100,12 @@
   }
 
   .projectShowcaseContent {
-    grid-template-rows: 68px 60px 56px minmax(172px, 1fr) 56px !important;
+    grid-template-rows: 92px 60px 56px minmax(172px, 1fr) 56px !important;
   }
 
   .projectShowcaseTags {
-    min-height: 68px !important;
-    height: 68px !important;
+    min-height: 92px !important;
+    height: 92px !important;
   }
 
   .projectShowcaseTitleRow {
