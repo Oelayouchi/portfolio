@@ -44,6 +44,35 @@
   .companiesGrid,.educationCardsGrid,#certifications .certs,.awardsGrid,.projectShowcaseGrid,#experience .timeline { padding-bottom:14px!important; scrollbar-width:thin!important; scrollbar-color:#2f82ff rgba(28,57,92,.46)!important; }
   .companiesGrid::-webkit-scrollbar,.educationCardsGrid::-webkit-scrollbar,#certifications .certs::-webkit-scrollbar,.awardsGrid::-webkit-scrollbar,.projectShowcaseGrid::-webkit-scrollbar,#experience .timeline::-webkit-scrollbar { height:7px!important; display:block!important; }
 
+  /* Interests: two compact cards visible at once, horizontal swipe, animations preserved. */
+  .interestCardsGrid {
+    display:flex!important;
+    grid-template-columns:none!important;
+    gap:12px!important;
+    width:100%!important;
+    padding:2px 2px 14px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory!important;
+    scroll-padding-inline:2px!important;
+    overscroll-behavior-x:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-width:thin!important;
+    scrollbar-color:#2f82ff rgba(28,57,92,.46)!important;
+  }
+  .interestCardsGrid::-webkit-scrollbar { height:7px!important; display:block!important; }
+  .interestCardsGrid::-webkit-scrollbar-track { background:rgba(28,57,92,.46)!important; border-radius:999px!important; }
+  .interestCardsGrid::-webkit-scrollbar-thumb { background:#2f82ff!important; border-radius:999px!important; }
+  .interestWrap { flex:0 0 calc((100% - 12px)/2)!important; width:calc((100% - 12px)/2)!important; min-width:0!important; scroll-snap-align:start!important; }
+  .interestCard { min-height:180px!important; height:180px!important; padding:16px 10px 13px!important; border-radius:16px!important; }
+  .interestIcon { min-height:104px!important; font-size:64px!important; }
+  .interestCard strong { font-size:15px!important; line-height:1.2!important; }
+  .interest-taekwondo { order:1!important; }
+  .interest-football { order:2!important; }
+  .interest-musculation { order:3!important; }
+  .interest-aviation { order:4!important; }
+  .interest-technologie { order:5!important; }
+
   /* PDF: permanent high-contrast scrollbar on the user's right side. */
   .projectReportViewport { position:relative!important; overflow-y:scroll!important; scrollbar-gutter:stable!important; scrollbar-width:auto!important; scrollbar-color:#168cff #cbd5e1!important; }
   .projectReportViewport::-webkit-scrollbar { width:12px!important; display:block!important; }
@@ -70,4 +99,7 @@
   .availabilityV2Dashboard { grid-auto-columns:90%!important; }
   .availabilityV2Legend span,.availabilityV2Legend span b,.availabilityV2Months small,.availabilityV2Weeks small,.availabilityV2YAxis small { font-size:8.5px!important; }
   .mobileMenu { width:min(62vw,250px)!important; right:12px!important; }
+  .interestCard { min-height:170px!important; height:170px!important; }
+  .interestIcon { min-height:96px!important; font-size:58px!important; }
+  .interestCard strong { font-size:14px!important; }
 }
