@@ -1,247 +1,73 @@
 /* Mobile Data portfolio polish: preserve alignment without clipping content. */
 
 @media (max-width: 760px) {
-  /* Experience carousel: keep the 2-row horizontal layout, but let every card grow naturally. */
-  #experience .timeline {
-    align-items: start !important;
-    grid-auto-rows: max-content !important;
-    overflow-y: visible !important;
-  }
+  #experience .timeline { align-items:start!important; grid-auto-rows:max-content!important; overflow-y:visible!important; }
+  #experience .experienceRefined,#experience .experienceRefined .experienceBody,#experience .experienceTopRow,#experience .experienceTopActions,#experience .experienceBody>h4,#experience .experienceBody>.experienceBlock { height:auto!important; min-height:0!important; max-height:none!important; overflow:visible!important; }
+  #experience .experienceRefined .experienceBody { display:block!important; }
+  #experience .experienceTopRow { display:grid!important; grid-template-rows:auto auto!important; gap:12px!important; margin-bottom:10px!important; }
+  #experience .experienceTopActions { min-height:0!important; margin-top:2px!important; }
+  #experience .experienceBody>h4 { padding:10px 0!important; }
+  #experience .experienceBody>.experienceBlock { margin-top:0!important; padding-top:12px!important; }
+  #experience .experienceBody>.experienceBlock+.experienceBlock { margin-top:12px!important; }
 
-  #experience .experienceRefined,
-  #experience .experienceRefined .experienceBody,
-  #experience .experienceTopRow,
-  #experience .experienceTopActions,
-  #experience .experienceBody > h4,
-  #experience .experienceBody > .experienceBlock:nth-of-type(2),
-  #experience .experienceBody > .experienceBlock:nth-of-type(3),
-  #experience .experienceBody > .experienceBlock:nth-of-type(4) {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: visible !important;
-  }
+  /* Detailed experience: company identity becomes a wide, centered brand header. */
+  #experience .experienceIdentity { width:100%!important; align-items:stretch!important; gap:14px!important; }
+  #experience .experienceLogoInline { width:100%!important; height:96px!important; flex:0 0 auto!important; padding:12px 18px!important; border-radius:16px!important; }
+  #experience .experienceLogoInline img { width:100%!important; max-width:300px!important; max-height:72px!important; margin:auto!important; object-fit:contain!important; }
 
-  #experience .experienceRefined .experienceBody {
-    display: block !important;
-  }
+  /* Compact experience/company cards: centered content and logos using the full useful width. */
+  .companyItem { text-align:center!important; }
+  .companyLogoWrap { width:100%!important; height:88px!important; display:flex!important; align-items:center!important; justify-content:center!important; }
+  .companyLogo { width:100%!important; max-width:100%!important; max-height:72px!important; object-fit:contain!important; }
 
-  #experience .experienceTopRow {
-    display: grid !important;
-    grid-template-rows: auto auto !important;
-    gap: 10px !important;
-    margin-bottom: 10px !important;
-  }
+  .projectShowcaseCard { height:auto!important; min-height:100%!important; overflow:hidden!important; }
+  .projectShowcaseContent { display:flex!important; flex-direction:column!important; height:auto!important; min-height:0!important; }
+  .projectShowcaseTags,.projectShowcaseTitleRow,.projectShowcaseObjective,.projectShowcaseContent ul,.projectShowcaseMeta,.projectShowcaseContent h3 { height:auto!important; min-height:0!important; max-height:none!important; overflow:visible!important; }
+  .projectShowcaseTags { flex-wrap:wrap!important; align-content:flex-start!important; margin-bottom:10px!important; }
+  .projectShowcaseTags span { white-space:normal!important; }
+  .projectShowcaseTitleRow,.projectShowcaseObjective { margin-bottom:9px!important; }
+  .projectShowcaseContent ul { margin-bottom:12px!important; }
+  .projectShowcaseMeta { margin-top:auto!important; }
 
-  #experience .experienceTopActions {
-    min-height: 0 !important;
-    margin-top: 2px !important;
-  }
+  .availabilityV2Dashboard { display:grid!important; grid-auto-flow:column!important; grid-auto-columns:86%!important; grid-template-columns:none!important; gap:10px!important; height:190px!important; overflow-x:auto!important; overflow-y:hidden!important; padding:8px!important; scroll-snap-type:x mandatory!important; scroll-padding-inline:8px!important; overscroll-behavior-x:contain!important; -webkit-overflow-scrolling:touch!important; scrollbar-width:thin!important; scrollbar-color:#2f82ff rgba(28,57,92,.45)!important; }
+  .availabilityV2Dashboard::-webkit-scrollbar { height:6px; }
+  .availabilityV2Dashboard::-webkit-scrollbar-track { background:rgba(28,57,92,.45); border-radius:999px; }
+  .availabilityV2Dashboard::-webkit-scrollbar-thumb { background:#2f82ff; border-radius:999px; }
+  .availabilityV2Card { scroll-snap-align:start!important; grid-template-rows:minmax(0,1fr) 22px!important; padding:10px 12px!important; border:1px solid rgba(93,143,190,.28)!important; border-radius:14px!important; background:rgba(6,24,47,.38)!important; }
+  .availabilityV2BarArea,.availabilityV2Trend { width:min(82%,220px)!important; height:116px!important; max-height:116px!important; }
+  .availabilityV2DonutRow { width:min(92%,240px)!important; max-width:240px!important; height:124px!important; max-height:124px!important; flex-direction:row!important; gap:14px!important; }
+  .availabilityV2Donut { width:76px!important; height:76px!important; flex-basis:76px!important; }
+  .availabilityV2Legend { display:grid!important; gap:7px!important; }
+  .availabilityV2Legend span,.availabilityV2Legend span b,.availabilityV2Months small,.availabilityV2Weeks small,.availabilityV2YAxis small { font-size:9px!important; }
+  .availabilityV2Months,.availabilityV2Weeks,.availabilityV2BottomSpacer { height:22px!important; line-height:22px!important; }
 
-  #experience .experienceBody > h4 {
-    padding: 10px 0 !important;
-  }
+  .companiesGrid,.educationCardsGrid,#certifications .certs,.awardsGrid,.projectShowcaseGrid,#experience .timeline { padding-bottom:14px!important; scrollbar-width:thin!important; scrollbar-color:#2f82ff rgba(28,57,92,.46)!important; }
+  .companiesGrid::-webkit-scrollbar,.educationCardsGrid::-webkit-scrollbar,#certifications .certs::-webkit-scrollbar,.awardsGrid::-webkit-scrollbar,.projectShowcaseGrid::-webkit-scrollbar,#experience .timeline::-webkit-scrollbar { height:7px!important; display:block!important; }
 
-  #experience .experienceBody > .experienceBlock {
-    margin-top: 0 !important;
-    padding-top: 12px !important;
-  }
+  /* PDF: permanent high-contrast scrollbar on the user's right side. */
+  .projectReportViewport { position:relative!important; overflow-y:scroll!important; scrollbar-gutter:stable!important; scrollbar-width:auto!important; scrollbar-color:#168cff #cbd5e1!important; }
+  .projectReportViewport::-webkit-scrollbar { width:12px!important; display:block!important; }
+  .projectReportViewport::-webkit-scrollbar-track { background:#cbd5e1!important; border-radius:999px!important; }
+  .projectReportViewport::-webkit-scrollbar-thumb { background:#168cff!important; border:2px solid #cbd5e1!important; border-radius:999px!important; min-height:52px!important; }
 
-  #experience .experienceBody > .experienceBlock + .experienceBlock {
-    margin-top: 12px !important;
-  }
+  /* Burger menu: compact dropdown attached to the right, never full phone width. */
+  .mobileMenu { left:auto!important; right:14px!important; width:min(58vw,270px)!important; max-width:270px!important; top:calc(100% + 8px)!important; border:1px solid rgba(40,102,170,.55)!important; border-radius:16px!important; box-shadow:0 18px 50px rgba(0,0,0,.42)!important; }
+  .mobileMenu.open { max-height:520px!important; border-bottom-width:1px!important; }
+  .mobileMenuInner { width:100%!important; padding:6px!important; }
+  .mobileMenuInner a { width:100%!important; padding:11px 14px!important; font-size:14px!important; text-align:right!important; border-radius:10px!important; }
+  .mobileMenuInner a.active { padding-left:14px!important; padding-right:18px!important; }
+  .mobileMenuInner a.active::before { left:auto!important; right:4px!important; top:9px!important; bottom:9px!important; }
 
-  /* Projects: never hide technologies, objectives, achievements or metadata. */
-  .projectShowcaseCard {
-    height: auto !important;
-    min-height: 100% !important;
-    overflow: hidden !important;
-  }
-
-  .projectShowcaseContent {
-    display: flex !important;
-    flex-direction: column !important;
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
-  .projectShowcaseTags,
-  .projectShowcaseTitleRow,
-  .projectShowcaseObjective,
-  .projectShowcaseContent ul,
-  .projectShowcaseMeta,
-  .projectShowcaseContent h3 {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    overflow: visible !important;
-  }
-
-  .projectShowcaseTags {
-    flex-wrap: wrap !important;
-    align-content: flex-start !important;
-    margin-bottom: 10px !important;
-  }
-
-  .projectShowcaseTags span {
-    white-space: normal !important;
-  }
-
-  .projectShowcaseTitleRow {
-    margin-bottom: 9px !important;
-  }
-
-  .projectShowcaseObjective {
-    margin-bottom: 9px !important;
-  }
-
-  .projectShowcaseContent ul {
-    margin-bottom: 12px !important;
-  }
-
-  .projectShowcaseMeta {
-    margin-top: auto !important;
-  }
-
-  /* Availability dashboard: one readable chart at a time instead of three compressed columns. */
-  .availabilityV2Dashboard {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-auto-columns: 86% !important;
-    grid-template-columns: none !important;
-    gap: 10px !important;
-    height: 190px !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    padding: 8px !important;
-    scroll-snap-type: x mandatory !important;
-    scroll-padding-inline: 8px !important;
-    overscroll-behavior-x: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: thin !important;
-    scrollbar-color: #2f82ff rgba(28,57,92,.45) !important;
-  }
-
-  .availabilityV2Dashboard::-webkit-scrollbar { height: 6px; }
-  .availabilityV2Dashboard::-webkit-scrollbar-track { background: rgba(28,57,92,.45); border-radius: 999px; }
-  .availabilityV2Dashboard::-webkit-scrollbar-thumb { background: linear-gradient(90deg,#168cff,#4c65ff); border-radius: 999px; }
-
-  .availabilityV2Card {
-    scroll-snap-align: start !important;
-    grid-template-rows: minmax(0,1fr) 22px !important;
-    padding: 10px 12px !important;
-    border: 1px solid rgba(93,143,190,.28) !important;
-    border-radius: 14px !important;
-    background: rgba(6,24,47,.38) !important;
-  }
-
-  .availabilityV2BarArea,
-  .availabilityV2Trend {
-    width: min(82%, 220px) !important;
-    height: 116px !important;
-    max-height: 116px !important;
-  }
-
-  .availabilityV2DonutRow {
-    width: min(92%, 240px) !important;
-    max-width: 240px !important;
-    height: 124px !important;
-    max-height: 124px !important;
-    flex-direction: row !important;
-    gap: 14px !important;
-  }
-
-  .availabilityV2Donut {
-    width: 76px !important;
-    height: 76px !important;
-    flex-basis: 76px !important;
-  }
-
-  .availabilityV2Legend {
-    display: grid !important;
-    gap: 7px !important;
-  }
-
-  .availabilityV2Legend span,
-  .availabilityV2Legend span b,
-  .availabilityV2Months small,
-  .availabilityV2Weeks small,
-  .availabilityV2YAxis small {
-    font-size: 9px !important;
-  }
-
-  .availabilityV2Months,
-  .availabilityV2Weeks,
-  .availabilityV2BottomSpacer {
-    height: 22px !important;
-    line-height: 22px !important;
-  }
-
-  /* Make horizontal sections visibly swipeable on iPhone. */
-  .companiesGrid,
-  .educationCardsGrid,
-  #certifications .certs,
-  .awardsGrid,
-  .projectShowcaseGrid,
-  #experience .timeline {
-    padding-bottom: 14px !important;
-    scrollbar-width: thin !important;
-    scrollbar-color: #2f82ff rgba(28,57,92,.46) !important;
-  }
-
-  .companiesGrid::-webkit-scrollbar,
-  .educationCardsGrid::-webkit-scrollbar,
-  #certifications .certs::-webkit-scrollbar,
-  .awardsGrid::-webkit-scrollbar,
-  .projectShowcaseGrid::-webkit-scrollbar,
-  #experience .timeline::-webkit-scrollbar {
-    height: 7px !important;
-    display: block !important;
-  }
-
-  /* Alternance banner: more compact and less intrusive on small screens. */
-  .alternanceBanner {
-    right: 10px !important;
-    bottom: 10px !important;
-    left: 10px !important;
-    gap: 10px !important;
-    padding: 11px 40px 11px 11px !important;
-    border-radius: 16px !important;
-  }
-
-  .alternancePulse {
-    width: 34px !important;
-    height: 34px !important;
-  }
-
-  .alternanceContent strong {
-    font-size: 15px !important;
-  }
-
-  .alternanceContent p {
-    margin-top: 3px !important;
-    font-size: 10.5px !important;
-  }
-
-  .alternanceCta {
-    min-height: 36px !important;
-    padding: 0 10px !important;
-    font-size: 11px !important;
-  }
-
-  .alternanceMinimize {
-    top: 7px !important;
-    right: 8px !important;
-    width: 26px !important;
-    height: 26px !important;
-  }
+  .alternanceBanner { right:10px!important; bottom:10px!important; left:10px!important; gap:10px!important; padding:11px 40px 11px 11px!important; border-radius:16px!important; }
+  .alternancePulse { width:34px!important; height:34px!important; }
+  .alternanceContent strong { font-size:15px!important; }
+  .alternanceContent p { margin-top:3px!important; font-size:10.5px!important; }
+  .alternanceCta { min-height:36px!important; padding:0 10px!important; font-size:11px!important; }
+  .alternanceMinimize { top:7px!important; right:8px!important; width:26px!important; height:26px!important; }
 }
 
-@media (max-width: 430px) {
-  .availabilityV2Dashboard { grid-auto-columns: 90% !important; }
-  .availabilityV2Legend span,
-  .availabilityV2Legend span b,
-  .availabilityV2Months small,
-  .availabilityV2Weeks small,
-  .availabilityV2YAxis small { font-size: 8.5px !important; }
+@media (max-width:430px) {
+  .availabilityV2Dashboard { grid-auto-columns:90%!important; }
+  .availabilityV2Legend span,.availabilityV2Legend span b,.availabilityV2Months small,.availabilityV2Weeks small,.availabilityV2YAxis small { font-size:8.5px!important; }
+  .mobileMenu { width:min(62vw,250px)!important; right:12px!important; }
 }
