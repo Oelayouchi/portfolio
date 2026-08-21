@@ -1,0 +1,46 @@
+/* Desktop hero cleanup: restore the original name styling while keeping it centered,
+   and remove the outer wrapper around the individual statistics cards. */
+@media (min-width:1181px){
+  .homeFusedCopy h1{
+    display:flex!important;
+    width:100%!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    margin:0 auto!important;
+    text-align:center!important;
+    font-size:clamp(52px,4.4vw,74px)!important;
+    line-height:.9!important;
+    transform:none!important;
+    filter:none!important;
+    animation:none!important;
+    text-shadow:none!important;
+  }
+  .homeFusedFirst,.homeFusedLast{
+    display:block!important;
+    width:max-content!important;
+    max-width:100%!important;
+    margin-inline:auto!important;
+    text-align:center!important;
+    transform:none!important;
+    filter:none!important;
+    text-shadow:none!important;
+  }
+  .homeFusedLast{white-space:nowrap!important}
+
+  /* No large grouping window around the five statistic cards. */
+  .homeHighlights{
+    padding:16px 0 0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+  }
+}
+
+html[data-theme='light'] .homeHighlights{
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
