@@ -59,21 +59,17 @@
 
 /* -------------------------------------------------------------------------- */
 /* Compact and consistent spacing between the main portfolio sections.         */
-/* Loaded last so it normalizes older section-specific spacing without         */
-/* changing the dimensions or padding inside cards.                            */
 /* -------------------------------------------------------------------------- */
 .section {
   padding-top: 38px;
   padding-bottom: 38px;
 }
 
-/* Awards has its own spacing declaration, so keep it aligned with the rest. */
 .awardsSection {
   padding-top: 38px;
   padding-bottom: 38px;
 }
 
-/* Keep the Education → Interests transition compact while retaining a divider. */
 .interestsShowcase {
   margin-top: 44px;
   padding-top: 26px;
@@ -81,8 +77,6 @@
 
 /* -------------------------------------------------------------------------- */
 /* Certifications: compact horizontal carousel.                               */
-/* Keep every certificate on a single row and expose a styled bottom scrollbar */
-/* when the row is wider than the available viewport.                          */
 /* -------------------------------------------------------------------------- */
 #certifications .certs {
   display: grid;
@@ -118,43 +112,123 @@
   scroll-snap-align: start;
 }
 
+/* Keep the whole certificate visible: no crop. */
 #certifications .cert img {
   display: block;
   width: 100%;
-  height: 108px;
+  height: 96px;
+  padding: 7px 9px;
   aspect-ratio: auto;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  background: #f5f6f8;
 }
 
 #certifications .cert > div {
-  padding: 10px 12px 12px;
+  padding: 9px 11px 11px;
 }
 
 #certifications .cert h3 {
-  margin: 0 0 5px;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.22;
-  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
 }
 
 #certifications .cert p {
-  margin: 4px 0 0;
+  margin: 3px 0 0;
   color: #9eacbf;
-  font-size: 10.5px;
+  font-size: 9.5px;
   font-weight: 400;
-  line-height: 1.34;
+  line-height: 1.28;
 }
 
 #certifications .cert .meta {
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 9.2px;
+  font-weight: 400;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Awards: four compact cards on one row, same visual rhythm as certifications. */
+/* -------------------------------------------------------------------------- */
+.awardsGrid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(245px, 1fr);
+  grid-template-columns: none;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 2px 11px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: #2f82ff rgba(28, 57, 92, .5);
+}
+
+.awardsGrid::-webkit-scrollbar {
+  height: 7px;
+}
+
+.awardsGrid::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(28, 57, 92, .5);
+}
+
+.awardsGrid::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(90deg, #168cff, #4c65ff);
+}
+
+.awardCard {
+  min-width: 0;
+  border-radius: 13px;
+  scroll-snap-align: start;
+}
+
+.awardCard.noAwardImage .awardContent {
+  min-height: 92px;
+}
+
+.awardContent {
+  padding: 12px 12px 12px 58px;
+}
+
+.awardCard.noAwardImage .awardContent:before {
+  left: 13px;
+  width: 31px;
+  height: 31px;
+  border-radius: 9px;
+  font-size: 17px;
+}
+
+.awardContent h3 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.22;
+}
+
+.awardContent p {
+  margin: 5px 0 2px;
+  font-size: 9.7px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.awardContent > span {
+  font-size: 9.4px;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 @media (min-width: 1180px) {
   #certifications .certs {
     grid-auto-columns: minmax(220px, 1fr);
+  }
+
+  .awardsGrid {
+    grid-auto-columns: minmax(0, 1fr);
   }
 }
 
@@ -175,7 +249,11 @@
   }
 
   #certifications .cert img {
-    height: 100px;
+    height: 90px;
+  }
+
+  .awardsGrid {
+    grid-auto-columns: minmax(230px, 44vw);
   }
 }
 
@@ -219,29 +297,60 @@
   }
 
   #certifications .certs {
-    grid-auto-columns: minmax(190px, 74vw);
+    grid-auto-columns: minmax(185px, 72vw);
     gap: 11px;
     padding-bottom: 9px;
   }
 
   #certifications .cert img {
-    height: 92px;
+    height: 84px;
+    padding: 6px 8px;
   }
 
   #certifications .cert > div {
-    padding: 9px 10px 11px;
+    padding: 8px 9px 10px;
   }
 
   #certifications .cert h3 {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 400;
   }
 
   #certifications .cert p {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   #certifications .cert .meta {
-    font-size: 9.5px;
+    font-size: 8.8px;
+  }
+
+  .awardsGrid {
+    grid-auto-columns: minmax(220px, 78vw);
+    gap: 11px;
+    padding-bottom: 9px;
+  }
+
+  .awardContent {
+    padding: 10px 10px 10px 53px;
+  }
+
+  .awardCard.noAwardImage .awardContent:before {
+    left: 11px;
+    width: 29px;
+    height: 29px;
+    font-size: 16px;
+  }
+
+  .awardContent h3 {
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .awardContent p {
+    font-size: 9.2px;
+  }
+
+  .awardContent > span {
+    font-size: 9px;
   }
 }
