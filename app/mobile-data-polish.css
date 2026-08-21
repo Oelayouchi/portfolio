@@ -10,10 +10,30 @@
   #experience .experienceBody>.experienceBlock { margin-top:0!important; padding-top:12px!important; }
   #experience .experienceBody>.experienceBlock+.experienceBlock { margin-top:12px!important; }
 
-  /* Detailed experience: company identity becomes a wide, centered brand header. */
-  #experience .experienceIdentity { width:100%!important; align-items:stretch!important; gap:14px!important; }
-  #experience .experienceLogoInline { width:100%!important; height:96px!important; flex:0 0 auto!important; padding:12px 18px!important; border-radius:16px!important; }
-  #experience .experienceLogoInline img { width:100%!important; max-width:300px!important; max-height:72px!important; margin:auto!important; object-fit:contain!important; }
+  /* Detailed experiences must stay fully inside the mobile card. */
+  #experience .experienceRefined { box-sizing:border-box!important; max-width:100%!important; }
+  #experience .experienceRefined .experienceBody { box-sizing:border-box!important; width:100%!important; max-width:100%!important; min-width:0!important; }
+  #experience .experienceTopRow,
+  #experience .experienceIdentity,
+  #experience .experienceTopActions,
+  #experience .experienceMetaTop,
+  #experience .experienceBody>h4,
+  #experience .experienceBlock { width:100%!important; max-width:100%!important; min-width:0!important; box-sizing:border-box!important; }
+  #experience .experienceIdentity { display:flex!important; flex-direction:column!important; align-items:stretch!important; gap:12px!important; }
+  #experience .experienceIdentity>div:last-child { width:100%!important; max-width:100%!important; min-width:0!important; }
+  #experience .experienceLogoInline { display:grid!important; width:100%!important; max-width:100%!important; height:96px!important; min-width:0!important; flex:0 0 auto!important; padding:12px 18px!important; place-items:center!important; border-radius:16px!important; box-sizing:border-box!important; }
+  #experience .experienceLogoInline img { display:block!important; width:min(82%,320px)!important; max-width:320px!important; height:72px!important; max-height:72px!important; margin:auto!important; object-fit:contain!important; object-position:center!important; }
+  #experience .experienceTopRow h3,
+  #experience .experienceDepartment,
+  #experience .experienceMetaTop strong,
+  #experience .experienceMetaTop span,
+  #experience .experienceBody h4,
+  #experience .experienceBlock,
+  #experience .experienceBlock li,
+  #experience .parcelSubject h6 { max-width:100%!important; overflow-wrap:anywhere!important; word-break:normal!important; }
+  #experience .experienceTopActions { display:flex!important; flex-direction:column!important; align-items:flex-start!important; gap:10px!important; padding-left:0!important; }
+  #experience .experienceMetaTop { align-items:flex-start!important; text-align:left!important; }
+  #experience .experienceTopActions .experienceReportButton { max-width:100%!important; }
 
   /* Compact experience/company cards: centered content and logos using the full useful width. */
   .companyItem { text-align:center!important; }
