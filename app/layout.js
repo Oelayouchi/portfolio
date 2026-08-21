@@ -29,6 +29,7 @@ import './site-polish.css';
 import './projects-mobile-alignment.css';
 import './mobile-data-polish.css';
 import './home-career-mobile-center.css';
+import './hero-desktop-cleanup.css';
 
 export const metadata = {
   title: 'Oussama EL AYOUCHI — Portfolio Data Engineer',
