@@ -79,6 +79,79 @@
   padding-top: 26px;
 }
 
+/* -------------------------------------------------------------------------- */
+/* Certifications: compact horizontal carousel.                               */
+/* Keep every certificate on a single row and expose a styled bottom scrollbar */
+/* when the row is wider than the available viewport.                          */
+/* -------------------------------------------------------------------------- */
+#certifications .certs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(250px, 1fr);
+  grid-template-columns: none;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 2px 12px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: #2f82ff rgba(28, 57, 92, .5);
+}
+
+#certifications .certs::-webkit-scrollbar {
+  height: 8px;
+}
+
+#certifications .certs::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: rgba(28, 57, 92, .5);
+}
+
+#certifications .certs::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(90deg, #168cff, #4c65ff);
+}
+
+#certifications .cert {
+  min-width: 0;
+  border-radius: 14px;
+  scroll-snap-align: start;
+}
+
+#certifications .cert img {
+  width: 100%;
+  height: 145px;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+#certifications .cert > div {
+  padding: 13px 14px 14px;
+}
+
+#certifications .cert h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+#certifications .cert p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+#certifications .cert .meta {
+  font-size: 11px;
+}
+
+@media (min-width: 1180px) {
+  #certifications .certs {
+    grid-auto-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .section,
   .awardsSection {
@@ -89,6 +162,14 @@
   .interestsShowcase {
     margin-top: 38px;
     padding-top: 24px;
+  }
+
+  #certifications .certs {
+    grid-auto-columns: minmax(230px, 43vw);
+  }
+
+  #certifications .cert img {
+    height: 135px;
   }
 }
 
@@ -129,5 +210,27 @@
   .interestsShowcase {
     margin-top: 30px;
     padding-top: 20px;
+  }
+
+  #certifications .certs {
+    grid-auto-columns: minmax(215px, 78vw);
+    gap: 12px;
+    padding-bottom: 10px;
+  }
+
+  #certifications .cert img {
+    height: 125px;
+  }
+
+  #certifications .cert > div {
+    padding: 12px;
+  }
+
+  #certifications .cert h3 {
+    font-size: 14px;
+  }
+
+  #certifications .cert p {
+    font-size: 11px;
   }
 }
