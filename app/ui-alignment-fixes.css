@@ -87,19 +87,19 @@
 #certifications .certs {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(250px, 1fr);
+  grid-auto-columns: minmax(220px, 1fr);
   grid-template-columns: none;
-  gap: 16px;
+  gap: 14px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 2px 2px 12px;
+  padding: 2px 2px 11px;
   scroll-snap-type: x proximity;
   scrollbar-width: thin;
   scrollbar-color: #2f82ff rgba(28, 57, 92, .5);
 }
 
 #certifications .certs::-webkit-scrollbar {
-  height: 8px;
+  height: 7px;
 }
 
 #certifications .certs::-webkit-scrollbar-track {
@@ -114,41 +114,47 @@
 
 #certifications .cert {
   min-width: 0;
-  border-radius: 14px;
+  border-radius: 13px;
   scroll-snap-align: start;
 }
 
 #certifications .cert img {
+  display: block;
   width: 100%;
-  height: 145px;
+  height: 108px;
   aspect-ratio: auto;
   object-fit: cover;
   object-position: center;
 }
 
 #certifications .cert > div {
-  padding: 13px 14px 14px;
+  padding: 10px 12px 12px;
 }
 
 #certifications .cert h3 {
-  margin: 0 0 6px;
-  font-size: 15px;
-  line-height: 1.25;
+  margin: 0 0 5px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
 }
 
 #certifications .cert p {
-  margin: 5px 0 0;
-  font-size: 12px;
-  line-height: 1.4;
+  margin: 4px 0 0;
+  color: #9eacbf;
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 1.34;
 }
 
 #certifications .cert .meta {
-  font-size: 11px;
+  font-size: 10px;
+  font-weight: 500;
 }
 
 @media (min-width: 1180px) {
   #certifications .certs {
-    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-columns: minmax(220px, 1fr);
   }
 }
 
@@ -165,11 +171,11 @@
   }
 
   #certifications .certs {
-    grid-auto-columns: minmax(230px, 43vw);
+    grid-auto-columns: minmax(205px, 40vw);
   }
 
   #certifications .cert img {
-    height: 135px;
+    height: 100px;
   }
 }
 
@@ -213,24 +219,29 @@
   }
 
   #certifications .certs {
-    grid-auto-columns: minmax(215px, 78vw);
-    gap: 12px;
-    padding-bottom: 10px;
+    grid-auto-columns: minmax(190px, 74vw);
+    gap: 11px;
+    padding-bottom: 9px;
   }
 
   #certifications .cert img {
-    height: 125px;
+    height: 92px;
   }
 
   #certifications .cert > div {
-    padding: 12px;
+    padding: 9px 10px 11px;
   }
 
   #certifications .cert h3 {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 600;
   }
 
   #certifications .cert p {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  #certifications .cert .meta {
+    font-size: 9.5px;
   }
 }
