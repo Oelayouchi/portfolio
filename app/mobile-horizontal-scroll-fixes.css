@@ -112,11 +112,10 @@
   .interestCardsGrid {
     overflow-x: auto !important;
     overflow-y: hidden !important;
-    padding-bottom: 12px !important;
+    padding-bottom: 8px !important;
     -webkit-overflow-scrolling: touch !important;
     overscroll-behavior-x: contain !important;
-    scrollbar-width: thin !important;
-    scrollbar-color: #258cff rgba(24, 54, 89, .34) !important;
+    scrollbar-width: none !important;
   }
 
   .homeTools::-webkit-scrollbar,
@@ -127,38 +126,55 @@
   .projectShowcaseGrid::-webkit-scrollbar,
   #experience .timeline::-webkit-scrollbar,
   .interestCardsGrid::-webkit-scrollbar {
-    display: block !important;
-    height: 6px !important;
+    display: none !important;
   }
 
-  .homeTools::-webkit-scrollbar-track,
-  .companiesGrid::-webkit-scrollbar-track,
-  .educationCardsGrid::-webkit-scrollbar-track,
-  #certifications .certs::-webkit-scrollbar-track,
-  .awardsGrid::-webkit-scrollbar-track,
-  .projectShowcaseGrid::-webkit-scrollbar-track,
-  #experience .timeline::-webkit-scrollbar-track,
-  .interestCardsGrid::-webkit-scrollbar-track {
-    margin-inline: 8px !important;
-    border: 1px solid rgba(58, 112, 174, .18) !important;
-    border-radius: 999px !important;
-    background: linear-gradient(90deg, rgba(17, 39, 68, .52), rgba(31, 65, 105, .3)) !important;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .28) !important;
+  /* Persistent custom bar: iOS hides native scrollbars, so this visible track
+     mirrors the actual horizontal position and can also be tapped/dragged. */
+  .mobileScrollIndicator {
+    position: relative;
+    display: none;
+    width: calc(100% - 32px);
+    height: 8px;
+    margin: 8px 16px 20px;
+    overflow: hidden;
+    border: 1px solid rgba(72, 168, 223, .28);
+    border-radius: 999px;
+    background: rgba(173, 218, 238, .16);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .22);
+    touch-action: none;
   }
 
-  .homeTools::-webkit-scrollbar-thumb,
-  .companiesGrid::-webkit-scrollbar-thumb,
-  .educationCardsGrid::-webkit-scrollbar-thumb,
-  #certifications .certs::-webkit-scrollbar-thumb,
-  .awardsGrid::-webkit-scrollbar-thumb,
-  .projectShowcaseGrid::-webkit-scrollbar-thumb,
-  #experience .timeline::-webkit-scrollbar-thumb,
-  .interestCardsGrid::-webkit-scrollbar-thumb {
-    min-width: 42px !important;
-    border: 1px solid rgba(117, 190, 255, .55) !important;
-    border-radius: 999px !important;
-    background: linear-gradient(90deg, #119dff 0%, #2f6dff 55%, #6c55ff 100%) !important;
-    box-shadow: 0 0 9px rgba(39, 128, 255, .48), inset 0 1px 0 rgba(255, 255, 255, .28) !important;
+  .mobileScrollIndicator.visible {
+    display: block;
+  }
+
+  .mobileScrollIndicatorThumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    min-width: 44px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #44c2d2 0%, #2aa9d4 100%);
+    box-shadow: 0 0 7px rgba(52, 184, 211, .38), inset 0 1px 0 rgba(255, 255, 255, .32);
+    will-change: transform;
+    cursor: grab;
+  }
+
+  .mobileScrollIndicatorThumb:active {
+    cursor: grabbing;
+  }
+
+  html[data-theme='light'] .mobileScrollIndicator {
+    border-color: rgba(62, 154, 190, .28);
+    background: #eaf6f9;
+    box-shadow: inset 0 1px 2px rgba(43, 115, 139, .12);
+  }
+
+  html[data-theme='light'] .mobileScrollIndicatorThumb {
+    background: linear-gradient(90deg, #56c7d2 0%, #36afc1 100%);
+    box-shadow: 0 0 6px rgba(52, 169, 187, .22), inset 0 1px 0 rgba(255, 255, 255, .5);
   }
 
   /* Keep the tools row visibly swipeable instead of wrapping. */
@@ -196,5 +212,11 @@
   #experience .experienceMetaTop strong {
     font-size: 10.5px !important;
     letter-spacing: -0.025em !important;
+  }
+
+  .mobileScrollIndicator {
+    width: calc(100% - 24px);
+    margin-right: 12px;
+    margin-left: 12px;
   }
 }
