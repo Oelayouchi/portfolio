@@ -2,6 +2,49 @@
    Keep this file loaded last so it can safely override earlier mobile rules. */
 
 @media (max-width: 760px) {
+  /* Header controls: make language selector use the same rounded visual language
+     as the light/dark toggle and burger button. */
+  .languageSelector {
+    min-height: 36px !important;
+    height: 36px !important;
+    padding: 3px 10px !important;
+    gap: 6px !important;
+    border: 1px solid #1d62aa !important;
+    border-radius: 999px !important;
+    background: #07101d !important;
+    box-shadow: inset 0 0 0 1px rgba(24, 126, 230, .06) !important;
+  }
+
+  .languageSelector select {
+    height: 28px !important;
+    padding: 0 2px !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    color: #dce9f8 !important;
+    font-size: 11px !important;
+    line-height: 28px !important;
+  }
+
+  .languageSelector > span {
+    display: grid !important;
+    width: 20px !important;
+    height: 20px !important;
+    place-items: center !important;
+    flex: 0 0 20px !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+  }
+
+  html[data-theme='light'] .languageSelector {
+    border-color: #1d62aa !important;
+    background: #eef6ff !important;
+  }
+
+  html[data-theme='light'] .languageSelector select {
+    color: #123f70 !important;
+  }
+
   /* Burger button stays in its current place on the right.
      Only the dropdown is compacted and its labels are placed on the LEFT. */
   .mobileMenu {
