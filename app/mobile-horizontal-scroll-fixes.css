@@ -1,0 +1,200 @@
+/* Mobile-only refinements requested for develop-mobile.
+   Keep this file loaded last so it can safely override earlier mobile rules. */
+
+@media (max-width: 760px) {
+  /* Header controls: make language selector use the same rounded visual language
+     as the light/dark toggle and burger button. */
+  .languageSelector {
+    min-height: 36px !important;
+    height: 36px !important;
+    padding: 3px 10px !important;
+    gap: 6px !important;
+    border: 1px solid #1d62aa !important;
+    border-radius: 999px !important;
+    background: #07101d !important;
+    box-shadow: inset 0 0 0 1px rgba(24, 126, 230, .06) !important;
+  }
+
+  .languageSelector select {
+    height: 28px !important;
+    padding: 0 2px !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    color: #dce9f8 !important;
+    font-size: 11px !important;
+    line-height: 28px !important;
+  }
+
+  .languageSelector > span {
+    display: grid !important;
+    width: 20px !important;
+    height: 20px !important;
+    place-items: center !important;
+    flex: 0 0 20px !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+  }
+
+  html[data-theme='light'] .languageSelector {
+    border-color: #1d62aa !important;
+    background: #eef6ff !important;
+  }
+
+  html[data-theme='light'] .languageSelector select {
+    color: #123f70 !important;
+  }
+
+  /* Burger button stays in its current place on the right.
+     Only the dropdown is compacted and its labels are placed on the LEFT. */
+  .mobileMenu {
+    left: auto !important;
+    right: 12px !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+
+  .mobileMenuInner,
+  .mobileMenuInner.shell {
+    display: inline-flex !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 5px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .mobileMenuInner a {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding: 10px 12px !important;
+    white-space: nowrap !important;
+    direction: ltr !important;
+    text-align: left !important;
+  }
+
+  .mobileMenuInner a.active {
+    padding-left: 17px !important;
+    padding-right: 12px !important;
+  }
+
+  .mobileMenuInner a.active::before {
+    left: 4px !important;
+    right: auto !important;
+  }
+
+  /* Experience dates: smaller and always kept on one line. */
+  #experience .experienceMetaTop strong {
+    display: block !important;
+    max-width: none !important;
+    font-size: 11.5px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.015em !important;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+  }
+
+  /* Shared horizontal-scroll treatment for every mobile carousel. */
+  .homeTools,
+  .companiesGrid,
+  .educationCardsGrid,
+  #certifications .certs,
+  .awardsGrid,
+  .projectShowcaseGrid,
+  #experience .timeline,
+  .interestCardsGrid {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding-bottom: 12px !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-x: contain !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #258cff rgba(24, 54, 89, .34) !important;
+  }
+
+  .homeTools::-webkit-scrollbar,
+  .companiesGrid::-webkit-scrollbar,
+  .educationCardsGrid::-webkit-scrollbar,
+  #certifications .certs::-webkit-scrollbar,
+  .awardsGrid::-webkit-scrollbar,
+  .projectShowcaseGrid::-webkit-scrollbar,
+  #experience .timeline::-webkit-scrollbar,
+  .interestCardsGrid::-webkit-scrollbar {
+    display: block !important;
+    height: 6px !important;
+  }
+
+  .homeTools::-webkit-scrollbar-track,
+  .companiesGrid::-webkit-scrollbar-track,
+  .educationCardsGrid::-webkit-scrollbar-track,
+  #certifications .certs::-webkit-scrollbar-track,
+  .awardsGrid::-webkit-scrollbar-track,
+  .projectShowcaseGrid::-webkit-scrollbar-track,
+  #experience .timeline::-webkit-scrollbar-track,
+  .interestCardsGrid::-webkit-scrollbar-track {
+    margin-inline: 8px !important;
+    border: 1px solid rgba(58, 112, 174, .18) !important;
+    border-radius: 999px !important;
+    background: linear-gradient(90deg, rgba(17, 39, 68, .52), rgba(31, 65, 105, .3)) !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .28) !important;
+  }
+
+  .homeTools::-webkit-scrollbar-thumb,
+  .companiesGrid::-webkit-scrollbar-thumb,
+  .educationCardsGrid::-webkit-scrollbar-thumb,
+  #certifications .certs::-webkit-scrollbar-thumb,
+  .awardsGrid::-webkit-scrollbar-thumb,
+  .projectShowcaseGrid::-webkit-scrollbar-thumb,
+  #experience .timeline::-webkit-scrollbar-thumb,
+  .interestCardsGrid::-webkit-scrollbar-thumb {
+    min-width: 42px !important;
+    border: 1px solid rgba(117, 190, 255, .55) !important;
+    border-radius: 999px !important;
+    background: linear-gradient(90deg, #119dff 0%, #2f6dff 55%, #6c55ff 100%) !important;
+    box-shadow: 0 0 9px rgba(39, 128, 255, .48), inset 0 1px 0 rgba(255, 255, 255, .28) !important;
+  }
+
+  /* Keep the tools row visibly swipeable instead of wrapping. */
+  .homeTools {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    scroll-snap-type: x proximity !important;
+  }
+
+  .homeTool {
+    flex: 0 0 auto !important;
+    scroll-snap-align: start !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .mobileMenu {
+    left: auto !important;
+    right: 10px !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+
+  .mobileMenuInner a {
+    padding: 9px 11px !important;
+    font-size: 13.5px !important;
+  }
+
+  .mobileMenuInner a.active {
+    padding-left: 16px !important;
+    padding-right: 11px !important;
+  }
+
+  #experience .experienceMetaTop strong {
+    font-size: 10.5px !important;
+    letter-spacing: -0.025em !important;
+  }
+}
