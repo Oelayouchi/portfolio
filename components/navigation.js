@@ -17,6 +17,8 @@ const mobileScrollSelectors = [
   '.projectShowcaseGrid',
   '#experience .timeline',
   '.interestCardsGrid',
+  '.dataPipeline',
+  '.homeCareerLine',
 ];
 
 export default function Navigation() {
