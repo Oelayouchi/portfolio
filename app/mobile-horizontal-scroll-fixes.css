@@ -220,6 +220,111 @@
   .homeCareerLine > .homeCareerStages .homeStageList { gap: 5px !important; }
   .homeCareerLine > .homeCareerStages .homeStageList a { grid-template-columns: 34px 1fr !important; gap: 6px !important; padding: 5px 6px !important; }
   .homeCareerLine > .homeCareerStages .homeStageList img { width: 32px !important; height: 22px !important; }
+
+  /* Restore a strict phone viewport: no desktop-width child may stretch the page. */
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .homeHero,
+  .homeHeroShell,
+  .homeHeroMain,
+  .homeFusedHero,
+  .homeFusedLeft,
+  .homeFusedCopy,
+  .homeFusedIntro,
+  .homeFusedMobileIntro,
+  .homeHighlights,
+  .homeCareer,
+  .dataPanel,
+  .section,
+  .shell {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .homeHeroShell,
+  .homeHeroMain,
+  .homeFusedHero {
+    width: 100% !important;
+  }
+
+  .homeFusedHero {
+    grid-template-columns: 1fr !important;
+    overflow: hidden !important;
+  }
+
+  .homeFusedCopy h1,
+  .homeFusedCopy p,
+  .homeFusedIntro p,
+  .homeFusedMobileIntro p {
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .homeFusedActions {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+
+  .homeFusedActions .button {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Career cards: never move on touch; only the card itself glows. */
+  .homeCareerItem,
+  .homeCareerItem:hover,
+  .homeCareerItem:focus,
+  .homeCareerItem:focus-visible,
+  .homeCareerItem:active {
+    transform: none !important;
+  }
+
+  .homeCareerLine > .homeCareerItem:hover,
+  .homeCareerLine > .homeCareerItem:focus,
+  .homeCareerLine > .homeCareerItem:active {
+    border-color: rgba(71, 158, 255, .95) !important;
+    box-shadow: 0 0 0 1px rgba(55, 143, 255, .25), 0 0 24px rgba(24, 112, 255, .34), 0 12px 32px rgba(0, 61, 148, .22) !important;
+  }
+
+  .homeCareerLine > .homeCareerItem:nth-child(1):hover,
+  .homeCareerLine > .homeCareerItem:nth-child(1):focus,
+  .homeCareerLine > .homeCareerItem:nth-child(1):active {
+    border-color: rgba(54, 224, 141, .96) !important;
+    box-shadow: 0 0 0 1px rgba(54, 224, 141, .22), 0 0 24px rgba(43, 220, 132, .36), 0 12px 32px rgba(8, 113, 70, .20) !important;
+  }
+
+  .homeCareerLine > .homeCareerItem:nth-child(3):hover,
+  .homeCareerLine > .homeCareerItem:nth-child(3):focus,
+  .homeCareerLine > .homeCareerItem:nth-child(3):active {
+    border-color: rgba(255, 194, 41, .98) !important;
+    box-shadow: 0 0 0 1px rgba(255, 194, 41, .22), 0 0 24px rgba(255, 177, 20, .38), 0 12px 32px rgba(127, 81, 0, .22) !important;
+  }
+
+  /* Make the two visible cards comfortably fit inside the phone viewport. */
+  .homeCareer {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .homeCareerLine {
+    gap: 8px !important;
+  }
+
+  .homeCareerLine > .homeCareerItem {
+    flex-basis: calc((100% - 8px) / 2) !important;
+    width: calc((100% - 8px) / 2) !important;
+    min-width: calc((100% - 8px) / 2) !important;
+    min-height: 230px !important;
+    padding: 12px 8px !important;
+  }
 }
 
 @keyframes techMove {
@@ -247,7 +352,14 @@
   }
 
   .homeCareerLine > .homeCareerItem {
-    min-height: 250px !important;
-    padding: 12px 8px !important;
+    min-height: 215px !important;
+    padding: 10px 7px !important;
   }
+
+  .homeCareerLine > .homeCareerItem .homeCareerLogo { min-height: 54px !important; }
+  .homeCareerLine > .homeCareerItem .homeCareerLogo img { width: 92px !important; max-height: 46px !important; }
+  .homeCareerLine > .homeCareerItem strong { font-size: 12.5px !important; }
+  .homeCareerLine > .homeCareerItem p { font-size: 9px !important; }
+  .homeCareerLine > .homeCareerItem em { font-size: 8px !important; }
+  .homeCareerLine > .homeCareerSearch strong { font-size: 13px !important; }
 }
